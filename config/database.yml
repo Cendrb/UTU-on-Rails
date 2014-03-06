@@ -17,10 +17,10 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: UTU on Rails_development
+  database: UTU_development
   pool: 5
-  username: UTU on Rails
-  password:
+  username: postgres
+  password: pirkesna
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -46,10 +46,10 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: UTU on Rails_test
+  database: UTU_test
   pool: 5
-  username: UTU on Rails
-  password:
+  username: postgres
+  password: pirkesna
 
 production:
   adapter: postgresql
