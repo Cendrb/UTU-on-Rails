@@ -12,23 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title, 'Název' %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.label :description, 'Popis' %><br>
+    <%= f.text_area :description, rows: 6, cols: 30 %>
   </div>
   <div class="field">
-    <%= f.label :subject %><br>
-    <%= f.text_field :subject %>
+    <%= f.label :subject, 'Předmět' %><br>
+    <%= f.select :subject, Exam::SUBJECTS, prompt: "Zvolte předmět" %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
+    <%= f.label :date, 'Datum splnění' %><br>
     <%= f.date_select :date %>
   </div>
   <div class="field">
-    <%= f.label :group %><br>
+    <%= f.label :group, 'Skupina' %><br>
     <%= f.number_field :group %>
   </div>
   <div class="actions">
