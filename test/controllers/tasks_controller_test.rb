@@ -46,13 +46,5 @@ class TasksControllerTest < ActionController::TestCase
 
     assert_redirected_to tasks_path
   end
-
-  test "task attributes must not be empty" do
-    assert @task.invalid?
-    assert @task.errors[:title].any?
-    assert @task.errors[:description].any?
-    assert @task.errors[:date].any?
-    assert @task.errors[:subject].any?
-    assert @task.errors[:group].any?
-  end
+  
 end
