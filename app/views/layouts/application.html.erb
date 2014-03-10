@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>UTU on Rails</title>
-  <%= favicon_link_tag 'favicon.ico' %>
-  <%= stylesheet_link_tag 'utu' %>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <head>
+        <title>UTU on Rails</title>
+        <%= favicon_link_tag 'favicon.ico' %>
+        <%= stylesheet_link_tag 'utu' %>
+        <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+        <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <div id="background">
+            <div id="summary">
+                <div id="header">
+                    
+                    <h1><%= @page_title || "UTU" %></h1>
+                </div>
 
-<%= yield %>
+                <div id="menu">
+                    <ul>
+                        <li><%= link_to("Úvod", utu_path) %></li>
+                        <li><%= link_to("Přehled", utu_path) %></li>
+                        <li><%= link_to("Detail", utu_path) %></li>
+                        <li><%= link_to("Penis", utu_path) %></li>
+                    </ul>
+                </div>
 
-</body>
+                <div id="main">
+                    <%= yield %>
+                </div>
+
+                <div id="footer">
+
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
