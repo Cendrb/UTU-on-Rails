@@ -1,2 +1,26 @@
 <h1>Podrobný přehled</h1>
-<% %>
+
+<h2>Události</h2>
+<% @events.each do |e| %>
+
+<h3><%= e.title %></h3>
+<p>
+	<%= sanitize(e.description) %>
+</p>
+
+<p>
+	<strong>Místo: </strong>
+	<%= e.location %>
+</p>
+
+<p>
+	<strong>Začátek události: </strong>
+	<%= e.start %>
+</p>
+
+<p>
+	<strong>Konec události: </strong>
+	<%= e.end %>
+</p>
+
+<% end %>

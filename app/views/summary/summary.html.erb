@@ -1,13 +1,21 @@
 <h1>Vše je "dočasné" a nikdo neví, jestli něco ze stávajícího obsahu vůbec zbyde!</h1>
-<div class="events">
-    <h2>Události</h2>
-    <% @events.each do |event| %>
-    <div class="line_item">
-        <h3><%= event.title %></h3>
-        <%= sanitize(event.description) %>
-        <br />
-        <%= event.location %>
-    </div>
-    <% end %>
+
+<div id="events">
+	<h2>Události</h2>
+	<% @events.each do |event| %>
+	<div class="line_item">
+		<h3><%= event.title %></h3>
+		<%= sanitize(event.description) %>
+		<br />
+		<%= event.location %>
+	</div>
+	<% end %>
 </div>
+
+<div id="tasks">
+	
+</div>
+
+<div id="exams">
+	
 </div>

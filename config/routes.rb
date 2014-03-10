@@ -11,6 +11,8 @@ UTUOnRails::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root to: 'summary#summary', as: 'utu'
+  
+  get 'details' => 'summary#details'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
