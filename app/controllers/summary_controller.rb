@@ -14,7 +14,7 @@ class SummaryController < ApplicationController
         exams.push(i)        
       end
     end
-    @exams = events
+    @exams = exams
     
     tasks = []
     Task.all.each do |i|
@@ -22,7 +22,7 @@ class SummaryController < ApplicationController
         tasks.push(i)        
       end
     end
-    @tasks = events
+    @tasks = tasks
   end
   def details
     events = []
@@ -39,7 +39,7 @@ class SummaryController < ApplicationController
         exams.push(i)        
       end
     end
-    @exams = events
+    @exams = exams
     
     tasks = []
     Task.all.each do |i|
@@ -47,6 +47,6 @@ class SummaryController < ApplicationController
         tasks.push(i)        
       end
     end
-    @tasks = events
+    @tasks = tasks
   end
 end

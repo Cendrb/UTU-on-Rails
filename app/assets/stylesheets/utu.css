@@ -37,6 +37,13 @@ body {
     height: 5em;
 }
 
+/* Details */
+#details .details_block div {
+    width: 100px;
+    display: inline;
+    background-color: red;
+}
+
 /* Menu */
 #summary #menu li {
     display: inline;
@@ -59,8 +66,7 @@ body {
     border-right: solid 1px white;
     text-decoration: none;
 }
-#summary #main a:hover
-{
+#summary #main a:hover {
     text-decoration: none;
 }
 
