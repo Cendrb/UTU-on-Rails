@@ -18,7 +18,7 @@ body {
 #summary #menu {
     background-color: #48b040;
     height: 2em;
-    width: 42.6em;
+    width: 36.6em;
     text-align: center;
     margin-top: 0.7em;
     margin-bottom: 9em;
@@ -66,4 +66,18 @@ body {
     height: 128px;
     width: 128px;
     float: left;
+}
+
+/* Nadpisy */
+h1
+{
+    font-size: 30px;
+}
+h2
+{
+    font-size: 27px;
+}
+h3
+{
+    font-size: 22px;
 }
