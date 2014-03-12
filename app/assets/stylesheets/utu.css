@@ -11,31 +11,37 @@ body {
     width: 1200px;
 }
 #summary #header {
-    padding-top: 10px;
-    padding-right: 10px;
+    padding-top: 1em;
     height: 7em;
     background-color: #48b040;
 }
 #summary #menu {
-    background-color: #696869;
+    background-color: #48b040;
     height: 2em;
-    margin-bottom: 10em;
-    margin-left: 10%;
-    margin-right: 10%;
+    width: 42.6em;
+    text-align: center;
+    margin-top: 0.7em;
+    margin-bottom: 9em;
+    margin-left: auto;
+    margin-right: auto;
 }
 #summary #main {
     padding: 4px 15px;
-    background-color: #E5FFE5;
+    background-color: white;
 }
 #summary #footer {
     background-color: #48b040;
     height: 5em;
-}/* Details */
-#details .details_block div {
+}
+
+/* Details */
+.details_block {
     width: 100px;
     display: inline;
     background-color: red;
-}/* Menu */
+}
+
+/* Menu */
 #summary #menu li {
     display: inline;
 }
@@ -44,19 +50,20 @@ body {
     padding-left: 0.6em;
     margin: 0;
     float: left;
-    width: 100%;
     list-style-type: none;
 }
 #summary #menu a {
     text-align: center;
     float: left;
-    width: 14em;
+    width: 7em;
     color: white;
     text-decoration: none;
 }
-#summary #main a:hover {
+#summary #main a:hover, #summary #main a:visited {
     text-decoration: none;
-}/* "Styles" */
+}
+
+/* "Styles" */
 #summary #header h1 {
     font-size: 69px;
     text-align: center;

@@ -17,14 +17,7 @@
                 </div>
 
                 <div id="menu">
-                    <ul>
-                        <li><%= link_to("Úvod", utu_path) %></li>
-                        <li><%= link_to("Přehled", utu_path) %></li>
-                        <li><%= link_to("Detail", details_path) %></li>
-                        <li><%= link_to("Události - dočasné", events_path) %></li>
-                        <li><%= link_to("Úkoly - dočasné", tasks_path) %></li>
-                        <li><%= link_to("Testy - dočasné", exams_path) %></li>
-                    </ul>
+                    <%= render 'menu' %>
                 </div>
 
                 <div id="main">

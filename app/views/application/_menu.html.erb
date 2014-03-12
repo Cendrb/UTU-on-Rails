@@ -1,0 +1,32 @@
+<ul>
+    <li>
+        <%= link_to("Úvod", utu_path) %>
+    </li>
+    <li>
+        <%= link_to("Přehled", utu_path) %>
+    </li>
+    <li>
+        <%= link_to("Detail", details_path) %>
+    </li>
+    <li>
+        <%= link_to("Události", events_path) %>
+    </li>
+    <li>
+        <%= link_to("Úkoly", tasks_path) %>
+    </li>
+    <li>
+        <%= link_to("Testy", exams_path) %>
+    </li>
+</ul>
+<script>
+    $("li").bind("mouseenter", function() {
+        $(this).children().css("borderBottom", "1px solid white")
+        $(this).children().animate({
+        }, 1000);
+    });
+    $("li").bind("mouseleave", function() {
+        $(this).children().css("borderWidth", "0px")
+        $(this).children().animate({
+        }, 1000);
+    });
+</script>
