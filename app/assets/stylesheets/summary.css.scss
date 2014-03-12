@@ -10,3 +10,19 @@ h3
 {
   padding-top: 0.3em;
 }
+
+.line_between_details
+{
+  
+}
+
+.details_block 
+{
+  width: 32%;
+  /* kvůli dlouhým slovů - standardně nedělitelné */
+  word-wrap: break-word;
+  float: none;
+  display: inline-block;
+  margin-left: 1%;
+  margin-bottom: 1%;
+}
