@@ -6,7 +6,7 @@ class SummaryController < ApplicationController
     
     @tasks = (Task.all.order(:date)).where("date >= :today", { :today => Date.today } )
     
-    @services = (Service.all.order(:service_start)).where("service_start >= :today", { :today => Date.today } )
+    @services = (Service.all.order(:service_start)).where("service_end >= :today", { :today => Date.today } )
   end
   def details
     @events = (Event.all.order(:event_start)).where("event_end >= ?", Date.today) # Je možné oběma způsoby
