@@ -1,56 +1,18 @@
 class SummaryController < ApplicationController
   def summary
-    events = []
-    Event.all.each do |i|
-      if i.event_end > Time.now
-        events.push(i)        
-      end
-    end
-    @events = events
+    @events = (Event.all.order(:event_start)).where("event_end >= :today", { :today => Date.today })
     
-    exams = []
-    Exam.all.each do |i|
-      if i.date > Time.now
-        exams.push(i)        
-      end
-    end
-    @exams = exams
+    @exams = (Exam.all.order(:date)).where("date >= :today", { :today => Date.today } )
     
-    tasks = []
-    Task.all.each do |i|
-      if i.date > Time.now
-        tasks.push(i)        
-      end
-    end
-    @tasks = tasks
+    @tasks = (Task.all.order(:date)).where("date >= :today", { :today => Date.today } )
     
-    services = []
-    Service.all.each do |i|
-      if i.service_end > Time.now
-        services.push(i)
-      end
-    end
-    
-    @services = services
+    @services = (Service.all.order(:service_start)).where("date >= :today", { :today => Date.today } )
   end
   def details
-    events = (Event.all.order(:start)).where("event_end > ?", Date.today)
-    @events = events 
+    @events = (Event.all.order(:event_start)).where("event_end >= ?", Date.today) # Je možné oběma způsoby
     
-    exams = []
-    Exam.all.each do |i|
-      if i.date > Time.now
-        exams.push(i)        
-      end
-    end
-    @exams = exams
+    @exams = (Exam.all.order(:date)).where("date >= :today", { :today => Date.today } ) # Je možné oběma způsoby
     
-    tasks = []
-    Task.all.each do |i|
-      if i.date > Time.now
-        tasks.push(i)        
-      end
-    end
-    @tasks = tasks
+    @tasks = (Task.all.order(:date)).where("date >= :today", { :today => Date.today } )
   end
 end

@@ -1,6 +1,8 @@
 // Place all the styles related to the summary controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$border-color: #879654;
+
 h1
 {
   padding-bottom: 0.3em;
@@ -23,15 +25,26 @@ h3
 
 .details_block 
 {
-  width: 32%;
-  /* kvůli dlouhým slovů - standardně nedělitelné */
+  width: 31%;
+  // kvůli dlouhým slovů - standardně nedělitelné
   word-wrap: break-word;
-  float: none;
   display: inline-block;
-  margin-left: 1%;
-  margin-bottom: 1%;
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+#middle_detail_block
+{
+  //border-left: dashed 2px $border-color;
+  //border-right: dashed 2px $border-color;
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+  height: 100%;
 }
 .service
 {
   padding-bottom: 1em;
+}
+.vertical_line
+{
+  border: dashed 2px #879654;
 }

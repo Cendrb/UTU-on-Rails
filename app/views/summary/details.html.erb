@@ -1,7 +1,7 @@
 <h1>Podrobný přehled</h1>
 
 <div id="details">
-    <div class="details_block">
+    <div class="details_block" style="float: left">
         <h2>Události</h2>
         <% @events.each do |e| %>
 
@@ -27,8 +27,8 @@
         <hr class="line_between_details" />
         <% end %>
     </div>
-
-    <div class="details_block">
+    <div class="vertical_line"></div>
+    <div class="details_block" id="middle_detail_block" style="float: left">
         <h2>Úkoly</h2>
         <% @tasks.each do |e| %>
 
@@ -58,7 +58,7 @@
         <hr class="line_between_details" />
         <% end %>
     </div>
-
+    <div class="vertical_line"></div>
     <div class="details_block">
         <h2>Testy</h2>
         <% @exams.each do |e| %>
