@@ -2,7 +2,7 @@ class SummaryController < ApplicationController
   def summary
     events = []
     Event.all.each do |i|
-      if i.end > Time.now
+      if i.event_end > Time.now
         events.push(i)        
       end
     end
@@ -23,15 +23,19 @@ class SummaryController < ApplicationController
       end
     end
     @tasks = tasks
-  end
-  def details
-    events = []
-    Event.all.each do |i|
-      if i.end > Time.now
-        events.push(i)        
+    
+    services = []
+    Service.all.each do |i|
+      if i.service_end > Time.now
+        services.push(i)
       end
     end
-    @events = events
+    
+    @services = services
+  end
+  def details
+    events = (Event.all.order(:start)).where("event_end > ?", Date.today)
+    @events = events 
     
     exams = []
     Exam.all.each do |i|

@@ -1,0 +1,33 @@
+<h1>Listing services</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Second name</th>
+      <th>Service start</th>
+      <th>Service end</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @services.each do |service| %>
+      <tr>
+        <td><%= service.first_name %></td>
+        <td><%= service.second_name %></td>
+        <td><%= service.service_start %></td>
+        <td><%= service.service_end %></td>
+        <td><%= link_to 'Show', service %></td>
+        <td><%= link_to 'Edit', edit_service_path(service) %></td>
+        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Service', new_service_path %>

@@ -1,21 +1,35 @@
 <h1>Vše je dočasné, ale už se to pomalu rýsuje :)</h1>
-<p>položky v menu (události, úkoly a testy) budou později odstraněny a přístupné pouze z administrace (speciální účet)</p>
+<p>
+    položky v menu (události, úkoly a testy) budou později odstraněny a přístupné pouze z administrace (speciální účet)
+</p>
 <div id="events">
-	<h2>Události</h2>
-	<% @events.each do |event| %>
-	<div class="line_item">
-		<h3><%= event.title %></h3>
-		<%= sanitize(event.description) %>
-		<br />
-		<%= event.location %>
-	</div>
-	<% end %>
+    <h2>Události</h2>
+    <% @events.each do |event| %>
+    <div class="line_item">
+        <h3><%= event.title %></h3>
+        <%= sanitize(event.description) %>
+        <br />
+        <%= event.location %>
+    </div>
+    <% end %>
 </div>
 
 <div id="tasks">
-	
+
 </div>
 
 <div id="exams">
-	
+
+</div>
+
+<div id="services">
+    <h2>Služby</h2>
+    <% @services.each do |service| %>
+    <div class="service">
+        <strong><%= service.first_name %> a <%= service.second_name %></strong>
+        <br />
+        <strong>Od:</strong> <%= service.service_start %>
+        <strong>Do:</strong> <%= service.service_end %>
+    </div>
+    <% end %>
 </div>
