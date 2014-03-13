@@ -1,9 +1,9 @@
 /* Main frames */
+
 body {
     margin: 0px;
     padding: 0px;
     background-color: #48b040;
-    min-height: 1080px;
     width: 100%;
 }
 #summary {
@@ -80,4 +80,9 @@ h2
 h3
 {
     font-size: 22px;
+}
+/* ČÁRA! */
+.vertical_line
+{
+  border: dashed 2px #879654;
 }

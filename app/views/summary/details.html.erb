@@ -1,92 +1,98 @@
 <h1>Podrobný přehled</h1>
 
 <div id="details">
-    <div class="details_block" style="float: left">
-        <h2>Události</h2>
-        <% @events.each do |e| %>
-
-        <h3><%= e.title %></h3>
-        <p>
-            <%= sanitize(e.description) %>
-        </p>
-
-        <p>
-            <strong>Místo: </strong>
-            <%= e.location %>
-        </p>
-
-        <p>
-            <strong>Začátek události: </strong>
-            <%= e.event_start %>
-        </p>
-
-        <p>
-            <strong>Konec události: </strong>
-            <%= e.event_end %>
-        </p>
-        <hr class="line_between_details" />
-        <% end %>
-    </div>
     <div class="vertical_line"></div>
-    <div class="details_block" id="middle_detail_block" style="float: left">
-        <h2>Úkoly</h2>
-        <% @tasks.each do |e| %>
+    <table>
+        <tr>
+            <td class="details_block">
+            <div class="details_block">
+                <h2>Události</h2>
+                <% @events.each do |e| %>
 
-        <h3><%= e.title %></h3>
-        <p>
-            <%= sanitize(e.description) %>
-        </p>
+                <h3><%= e.title %></h3>
+                <p>
+                    <%= sanitize(e.description) %>
+                </p>
 
-        <p>
-            <strong>Předmět: </strong>
-            <%= e.subject %>
-        </p>
+                <p>
+                    <strong>Místo: </strong>
+                    <%= e.location %>
+                </p>
 
-        <p>
-            <strong>Datum: </strong>
-            <%= e.date %>
-        </p>
+                <p>
+                    <strong>Začátek události: </strong>
+                    <%= e.event_start %>
+                </p>
 
-        <p>
-            <strong>Skupina: </strong>
-            <% if e.group == 0 %>
-            obě skupiny
-            <% else %>
-            <%= e.group %>.
-            <% end %>
-        </p>
-        <hr class="line_between_details" />
-        <% end %>
-    </div>
-    <div class="vertical_line"></div>
-    <div class="details_block">
-        <h2>Testy</h2>
-        <% @exams.each do |e| %>
+                <p>
+                    <strong>Konec události: </strong>
+                    <%= e.event_end %>
+                </p>
+                <hr class="line_between_details" />
+                <% end %>
+            </div></td>
+            <td class="details_block" id="middle_detail_block" style="border-left: dotted 2px #879654">
+            <div id="middle_detail_block" class="details_block">
+                <h2>Úkoly</h2>
+                <% @tasks.each do |e| %>
 
-        <h3><%= e.title %></h3>
-        <p>
-            <%= sanitize(e.description) %>
-        </p>
+                <h3><%= e.title %></h3>
+                <p>
+                    <%= sanitize(e.description) %>
+                </p>
 
-        <p>
-            <strong>Předmět: </strong>
-            <%= e.subject %>
-        </p>
+                <p>
+                    <strong>Předmět: </strong>
+                    <%= e.subject %>
+                </p>
 
-        <p>
-            <strong>Datum: </strong>
-            <%= e.date %>
-        </p>
+                <p>
+                    <strong>Datum: </strong>
+                    <%= e.date %>
+                </p>
 
-        <p>
-            <strong>Skupina: </strong>
-            <% if e.group == 0 %>
-            obě skupiny
-            <% else %>
-            <%= e.group %>.
-            <% end %>
-        </p>
-        <hr class="line_between_details"/>
-        <% end %>
-    </div>
+                <p>
+                    <strong>Skupina: </strong>
+                    <% if e.group == 0 %>
+                    obě skupiny
+                    <% else %>
+                    <%= e.group %>.
+                    <% end %>
+                </p>
+                <hr class="line_between_details" />
+                <% end %>
+            </div></td>
+            <td class="details_block" style="border-left: dotted 2px #879654">
+            <div class="details_block">
+                <h2>Testy</h2>
+                <% @exams.each do |e| %>
+
+                <h3><%= e.title %></h3>
+                <p>
+                    <%= sanitize(e.description) %>
+                </p>
+
+                <p>
+                    <strong>Předmět: </strong>
+                    <%= e.subject %>
+                </p>
+
+                <p>
+                    <strong>Datum: </strong>
+                    <%= e.date %>
+                </p>
+
+                <p>
+                    <strong>Skupina: </strong>
+                    <% if e.group == 0 %>
+                    obě skupiny
+                    <% else %>
+                    <%= e.group %>.
+                    <% end %>
+                </p>
+                <hr class="line_between_details"/>
+                <% end %>
+            </div></td>
+        </tr>
+    </table>
 </div>
