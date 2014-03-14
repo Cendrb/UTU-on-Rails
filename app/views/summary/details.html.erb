@@ -1,8 +1,5 @@
-<h1>Podrobný přehled</h1>
-
 <div id="details">
-    <div class="vertical_line"></div>
-    <table>
+    <table class="details">
         <tr>
             <td class="details_block">
             <div class="details_block">
@@ -28,10 +25,12 @@
                     <strong>Konec události: </strong>
                     <%= e.event_end %>
                 </p>
+                <% if e != @events.last %>
                 <hr class="line_between_details" />
                 <% end %>
+                <% end %>
             </div></td>
-            <td class="details_block" id="middle_detail_block" style="border-left: dotted 2px #879654">
+            <td class="details_block" id="middle_detail_block" style="border-left: dotted 3px #879654">
             <div id="middle_detail_block" class="details_block">
                 <h2>Úkoly</h2>
                 <% @tasks.each do |e| %>
@@ -59,10 +58,12 @@
                     <%= e.group %>.
                     <% end %>
                 </p>
+                <% if e != @tasks.last %>
                 <hr class="line_between_details" />
                 <% end %>
+                <% end %>
             </div></td>
-            <td class="details_block" style="border-left: dotted 2px #879654">
+            <td class="details_block" style="border-left: dotted 3px #879654">
             <div class="details_block">
                 <h2>Testy</h2>
                 <% @exams.each do |e| %>
@@ -90,7 +91,9 @@
                     <%= e.group %>.
                     <% end %>
                 </p>
-                <hr class="line_between_details"/>
+                <% if e != @exams.last %>
+                <hr class="line_between_details" />
+                <% end %>
                 <% end %>
             </div></td>
         </tr>

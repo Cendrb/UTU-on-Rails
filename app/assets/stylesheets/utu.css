@@ -68,14 +68,20 @@ body {
     float: left;
 }
 
+/* Error explanation */
+#error_explanation
+{
+    color: black;
+}
+
 /* Nadpisy */
 h1
 {
-    font-size: 30px;
+    font-size: 34px;
 }
 h2
 {
-    font-size: 27px;
+    font-size: 30px;
 }
 h3
 {

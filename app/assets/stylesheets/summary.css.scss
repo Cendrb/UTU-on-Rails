@@ -4,12 +4,13 @@
 
 h1
 {
-  padding-bottom: 0.3em;
+  padding-bottom: 0.5em;
 }
 
 h2
 {
-  padding-bottom: 0.4em;
+  padding-bottom: 0.5em;
+  border-bottom: solid 2px #879654;
 }
 
 h3
@@ -19,7 +20,7 @@ h3
 
 .line_between_details
 {
-  
+  border: dashed 1px #879654;
 }
 
 .details_block div
@@ -31,25 +32,9 @@ h3
   margin-left: 8px;
   margin-right: 8px;
 }
-td
+.details td
 {
   vertical-align: top;
-}
-td
-{
-  
-}
-table
-{
-  
-}
-#middle_detail_block
-{
-  //border-left: dashed 2px #879654;
-  //border-right: dashed 2px #879654;
-  //padding-left: 0.8em;
-  //padding-right: 0.8em;
-  //height: 100%;
 }
 .service
 {
