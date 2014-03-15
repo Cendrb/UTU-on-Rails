@@ -1,4 +1,5 @@
 class ServicesController < ApplicationController
+  http_basic_authenticate_with :name => Rails.application.config.admin_name, :password => Rails.application.config.admin_password
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   # GET /services

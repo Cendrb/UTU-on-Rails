@@ -18,7 +18,7 @@ body {
 #summary #menu {
     background-color: #48b040;
     height: 2em;
-    width: 42.6em;
+    width: 40.6em;
     text-align: center;
     margin-top: 0.7em;
     margin-bottom: 9em;
@@ -50,7 +50,7 @@ body {
 #summary #menu a {
     text-align: center;
     float: left;
-    width: 7em;
+    width: 10em;
     color: white;
     text-decoration: none;
     padding-bottom: 0.2em;

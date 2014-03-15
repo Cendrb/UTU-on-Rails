@@ -1,4 +1,5 @@
 class SummaryController < ApplicationController
+  http_basic_authenticate_with name: Rails.application.config.admin_name, password: Rails.application.config.admin_password, except: [:summary, :details, :service_list]
   def summary
     @events = (Event.all.order(:event_start)).where("event_end >= :today", { :today => Date.today })
     
@@ -17,5 +18,8 @@ class SummaryController < ApplicationController
   end
   def service_list
     @services = (Service.all.order(:service_start)).where("service_end >= :today", { :today => Date.today } )
+  end
+  def administration
+    
   end
 end

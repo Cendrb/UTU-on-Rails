@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  http_basic_authenticate_with :name => Rails.application.config.admin_name, :password => Rails.application.config.admin_password
+  http_basic_authenticate_with name: Rails.application.config.admin_name, password: Rails.application.config.admin_password
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
