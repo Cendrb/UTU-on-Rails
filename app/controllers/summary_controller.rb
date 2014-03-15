@@ -15,4 +15,7 @@ class SummaryController < ApplicationController
     
     @tasks = (Task.all.order(:date)).where("date >= :today", { :today => Date.today } )
   end
+  def service_list
+    @services = (Service.all.order(:service_start)).where("service_end >= :today", { :today => Date.today } )
+  end
 end

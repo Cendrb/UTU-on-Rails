@@ -1,0 +1,12 @@
+<div id="services">
+    <h2>Služby</h2>
+    <% @services.each do |service| %>
+    <div class="service">
+        <strong><%= service.first_name %> a <%= service.second_name %></strong>
+        <br />
+        <strong>Od:</strong> <%= l service.service_start %>
+        <br />
+        <strong>Do:</strong> <%= l service.service_end %>
+    </div>
+    <% end %>
+</div>

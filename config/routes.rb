@@ -17,6 +17,7 @@ UTUOnRails::Application.routes.draw do
   root to: 'summary#summary', as: 'utu'
   
   get 'details' => 'summary#details'
+  get 'service_list' => 'summary#service_list'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
