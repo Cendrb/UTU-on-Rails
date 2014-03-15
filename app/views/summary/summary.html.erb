@@ -18,6 +18,7 @@
     <h2>Služby</h2>
     <% actual_service = @services.first %>
     <% next_service = @services.second %>
+    <% if actual_service %>
     <div class="service">
         <h3>Aktuální služba</h3>
         <strong><%= actual_service.first_name %> a <%= actual_service.second_name %></strong>
@@ -26,6 +27,8 @@
         <br />
         <strong>Do:</strong> <%= l actual_service.service_end %>
     </div>
+    <% end %>
+    <% if next_service %>
     <div class="service">
         <h3>Následující služba</h3>
         <strong><%= next_service.first_name %> a <%= next_service.second_name %></strong>
@@ -34,4 +37,8 @@
         <br />
         <strong>Do:</strong> <%= l next_service.service_end %>
     </div>
+    <% end %>
+    <% if !actual_service && !next_service %>
+    <h3>žádné služby nebyly nalezeny</h3>
+    <% end %>
 </div>
