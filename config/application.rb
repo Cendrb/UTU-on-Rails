@@ -8,8 +8,8 @@ Bundler.require(:default, Rails.env)
 
 module UTUOnRails
   class Application < Rails::Application
-    config.admin_name ='admin'
-    config.admin_password = 'rototo'
+    config.admin_name ='utu'
+    config.admin_password = 'vaisemut'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
