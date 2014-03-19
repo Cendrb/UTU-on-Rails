@@ -5,8 +5,11 @@
             <div class="details_block">
                 <h2>Události</h2>
                 <% @events.each do |e| %>
-
+				<% if !e.additional_info_url.nil? %>
+                <h3><%= link_to e.title, e.additional_info_url %></h3>
+                <% else %>
                 <h3><%= e.title %></h3>
+                <% end %>
                 <p>
                     <%= sanitize(e.description) %>
                 </p>
@@ -68,7 +71,11 @@
                 <h2>Testy</h2>
                 <% @exams.each do |e| %>
 
+                <% if !e.additional_info_url.nil? %>
+                <h3><%= link_to e.title, e.additional_info_url %></h3>
+                <% else %>
                 <h3><%= e.title %></h3>
+                <% end %>
                 <p>
                     <%= sanitize(e.description) %>
                 </p>

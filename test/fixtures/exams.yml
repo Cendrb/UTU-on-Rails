@@ -6,6 +6,7 @@ one:
   subject: VV
   date: 2014-03-06
   group: 0
+  additional_info_url: 
 
 two:
   title: Rototo
@@ -13,3 +14,4 @@ two:
   subject: TV
   date: 2015-04-30
   group: 2
+  additional_info_url: "www.kokotko.sk"

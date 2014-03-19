@@ -6,6 +6,7 @@ one:
   location: MyString
   event_start: 2014-03-06
   event_end: 2014-03-06
+  additional_info_url: 
 
 two:
   title: MyString
@@ -13,3 +14,4 @@ two:
   location: MyString
   event_start: 2014-03-06
   event_end: 2014-03-06
+  additional_info_url: www.kokotko.sk
