@@ -22,4 +22,7 @@ class SummaryController < ApplicationController
   def administration
     
   end
+  def settings
+    
+  end
 end
