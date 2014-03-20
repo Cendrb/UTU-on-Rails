@@ -5,11 +5,7 @@
             <div class="details_block">
                 <h2>Události</h2>
                 <% @events.each do |e| %>
-				<% if !e.additional_info_url.nil? %>
-                <h3><%= link_to e.title, e.additional_info_url %></h3>
-                <% else %>
                 <h3><%= e.title %></h3>
-                <% end %>
                 <p>
                     <%= sanitize(e.description) %>
                 </p>
@@ -28,6 +24,11 @@
                     <strong>Konec události: </strong>
                     <%= l e.event_end %>
                 </p>
+                
+                <% if !e.additional_info_url.nil? %>
+                <p><%= link_to "Další informace", e.additional_info_url %></p>
+                <% end%>
+                
                 <% if e != @events.last %>
                 <hr class="line_between_details" />
                 <% end %>
@@ -71,11 +72,8 @@
                 <h2>Testy</h2>
                 <% @exams.each do |e| %>
 
-                <% if !e.additional_info_url.nil? %>
-                <h3><%= link_to e.title, e.additional_info_url %></h3>
-                <% else %>
                 <h3><%= e.title %></h3>
-                <% end %>
+                
                 <p>
                     <%= sanitize(e.description) %>
                 </p>
@@ -98,6 +96,11 @@
                     <%= e.group %>.
                     <% end %>
                 </p>
+                
+                <% if !e.additional_info_url.nil? %>
+                <p><%= link_to "Další informace", e.additional_info_url %></p>
+                <% end %>
+                
                 <% if e != @exams.last %>
                 <hr class="line_between_details" />
                 <% end %>
