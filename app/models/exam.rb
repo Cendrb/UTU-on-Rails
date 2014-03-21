@@ -1,5 +1,5 @@
 class Exam < ActiveRecord::Base
-  SUBJECTS = ["MA", "F", "ČJL", "HV", "VV", "IKT", "D", "VO", "NJ", "AJ", "TV", "PŘÍ"]
+  SUBJECTS = ["MA", "F", "ČJL", "HV", "VV", "IKT", "D", "VO", "NJ", "AJ", "TV", "PŘÍ", "CH", "Z"]
   GROUPS = ["Obě skupiny", "1.", "2."]
   validates :title, :description, :subject, :group, :date, presence: {presence: true, message: "nesmí být prázdný"}
   validates :subject, inclusion: {in: SUBJECTS, message: "není platný předmět"}
