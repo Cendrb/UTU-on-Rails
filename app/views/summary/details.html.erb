@@ -25,7 +25,7 @@
                     <%= l e.event_end %>
                 </p>
                 
-                <% if !e.additional_info_url.nil? %>
+                <% if !e.additional_info_url.nil? && !e.additional_info_url.empty? %>
                 <p><%= link_to "Další informace", e.additional_info_url %></p>
                 <% end%>
                 
@@ -97,7 +97,7 @@
                     <% end %>
                 </p>
                 
-                <% if !e.additional_info_url.nil? %>
+                <% if !e.additional_info_url.nil? && !e.additional_info_url.empty? %>
                 <p><%= link_to "Další informace", e.additional_info_url %></p>
                 <% end %>
                 
