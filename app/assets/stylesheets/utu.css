@@ -27,8 +27,8 @@ body {
 }
 #summary #main {
     padding: 4px 15px;
-    background-color: #404040;
-    color: #EEEEEE;
+    background-color: #bee4b6;
+    color: #081307;
     height: auto;
 }
 #summary #footer {
@@ -78,14 +78,18 @@ body {
 h1
 {
     font-size: 34px;
+    padding-bottom: 0.5em;
 }
 h2
 {
     font-size: 30px;
+    padding-bottom: 0.5em;
+    border-bottom: solid 2px #7bc96b;
 }
 h3
 {
-    font-size: 22px;
+    font-size: 22px;¨
+    padding-top: 0.2em;
 }
 /* ČÁRA! */
 .vertical_line
