@@ -1,6 +1,8 @@
 // VARIABLES
-$main-background-color: #3e5f39;
+$main-background-color: #ffffff;
 $background-color: #48b040;
+$h2-line-color: #cbe9c5;
+$text-color: #3c3c3c;
 
 /* Main frames */
 body {
@@ -31,8 +33,9 @@ body {
   #main {
       padding: 4px 15px;
       background-color: $main-background-color;
-      color: #ffffff;
+      color: $text-color;
       height: auto;
+     
   }
   #footer {
       background-color: $background-color;
@@ -89,7 +92,7 @@ h1 {
 h2 {
     font-size: 30px;
     padding-bottom: 0.5em;
-    /*    border-bottom: solid 2px #9cc296; */
+    border-bottom: solid 2px $h2-line-color; 
 }
 h3 {
     font-size: 22px;
@@ -98,4 +101,9 @@ h3 {
 /* ČÁRA! */
 .vertical_line {
     border: dashed 2px #879654;
+}
+
+.line_between_details
+{
+  border: solid 1px $h2-line-color;
 }
