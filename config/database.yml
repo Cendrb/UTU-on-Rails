@@ -1,0 +1,23 @@
+  development:
+    adapter: postgresql
+    encoding: unicode
+    database: UTU_development
+    pool: 5
+    username: postgres
+    password: danjegay
+
+  test:
+    adapter: postgresql
+    encoding: unicode
+    database: UTU_test
+    pool: 5
+    username: postgres
+    password: danjegay
+  
+  production:
+    adapter: postgresql
+    encoding: unicode
+    database: UTU on Rails_production
+    pool: 5
+    username: UTU on Rails
+    password:
