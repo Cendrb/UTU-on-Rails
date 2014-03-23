@@ -1,0 +1,101 @@
+// VARIABLES
+$main-background-color: #3e5f39;
+$background-color: #48b040;
+
+/* Main frames */
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: $background-color;
+    width: 100%;
+}
+#summary {
+  margin: 0px auto;
+  width: 1200px;
+    
+  #header {
+      padding-top: 1em;
+      height: 7em;
+      background-color:  $background-color;
+  }
+  #menu {
+      background-color: $background-color;
+      height: 2em;
+      width: 40.6em;
+      text-align: center;
+      margin-top: 0.7em;
+      margin-bottom: 7em;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  #main {
+      padding: 4px 15px;
+      background-color: $main-background-color;
+      color: #ffffff;
+      height: auto;
+  }
+  #footer {
+      background-color: $background-color;
+      height: 5em;
+  }
+}
+
+/* Menu */
+#summary
+{
+  #menu li {
+      display: inline;
+  }
+  #menu ul {
+      padding-top: 0.3em;
+      padding-left: 0.6em;
+      margin: 0;
+      float: left;
+      list-style-type: none;
+  }
+  #menu a {
+      text-align: center;
+      float: left;
+      width: 10em;
+      color: white;
+      text-decoration: none;
+      padding-bottom: 0.2em;
+  }
+}
+
+/* "Styles" */
+#summary #header h1 {
+    font-size: 69px;
+    text-align: center;
+    color: #FFFFFF;
+}
+#summary img {
+    height: 128px;
+    width: 128px;
+    float: left;
+}
+
+/* Error explanation */
+#error_explanation {
+    color: black;
+}
+
+/* Nadpisy */
+h1 {
+    font-size: 34px;
+    padding-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 30px;
+    padding-bottom: 0.5em;
+    /*    border-bottom: solid 2px #9cc296; */
+}
+h3 {
+    font-size: 22px;
+    padding-top: 0.2em;
+}
+/* ČÁRA! */
+.vertical_line {
+    border: dashed 2px #879654;
+}
