@@ -27,8 +27,8 @@ body {
 }
 #summary #main {
     padding: 4px 15px;
-    background-color: #bee4b6;
-    color: #081307;
+    background-color: #3e5f39;
+    color: #ffffff;
     height: auto;
 }
 #summary #footer {
@@ -80,11 +80,13 @@ h1
     font-size: 34px;
     padding-bottom: 0.5em;
 }
+
+
 h2
 {
     font-size: 30px;
     padding-bottom: 0.5em;
-    border-bottom: solid 2px #7bc96b;
+/*    border-bottom: solid 2px #9cc296; */
 }
 h3
 {
