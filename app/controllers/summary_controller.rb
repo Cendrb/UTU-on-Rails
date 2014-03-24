@@ -15,6 +15,11 @@ class SummaryController < ApplicationController
     @exams = (Exam.all.order(:date)).where("date >= :today", { :today => Date.today } ) # Je možné oběma způsoby
     
     @tasks = (Task.all.order(:date)).where("date >= :today", { :today => Date.today } )
+    
+    respond_to do |format|
+      format.html
+      format.xml
+    end
   end
   def service_list
     @services = (Service.all.order(:service_start)).where("service_end >= :today", { :today => Date.today } )
