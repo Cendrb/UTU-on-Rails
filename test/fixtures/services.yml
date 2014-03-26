@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: MyString
-  second_name: MyString
+  first_name: Mária Halbrštátová
+  second_name: Ivona Součková
   service_start: 2014-03-13
   service_end: 2014-03-13
 
 two:
-  first_name: MyString
-  second_name: MyString
+  first_name: Andršová
+  second_name: Kurva
   service_start: 2014-03-13
   service_end: 2014-03-13

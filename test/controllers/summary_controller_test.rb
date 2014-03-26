@@ -5,5 +5,10 @@ class SummaryControllerTest < ActionController::TestCase
     get :summary
     assert_response :success
   end
+  
+  test "should render correct layout" do
+    get :summary
+    
+  end
 
 end
