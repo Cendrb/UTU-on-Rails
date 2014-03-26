@@ -1,0 +1,1 @@
+GROUPS = ["obě skupiny", "pouze první", "pouze druhá"]
