@@ -44,19 +44,19 @@ body {
 }
 
 /* Menu */
-#summary
+#summary #menu
 {
-  #menu li {
+  li {
       display: inline;
   }
-  #menu ul {
+  ul {
       padding-top: 0.3em;
       padding-left: 0.6em;
       margin: 0;
       float: left;
       list-style-type: none;
   }
-  #menu a {
+  a {
       text-align: center;
       float: left;
       width: 10em;
@@ -66,16 +66,27 @@ body {
   }
 }
 
-/* "Styles" */
+/* Header */
 #summary #header h1 {
     font-size: 69px;
     text-align: center;
     color: #FFFFFF;
 }
-#summary img {
-    height: 128px;
-    width: 128px;
-    float: left;
+
+/* "Styles" */
+
+/* HREFs */
+a
+{
+  text-decoration: underline;
+  &:hover, &:visited
+  {
+    color: $text-color;
+  }
+  &:hover
+  {
+    text-decoration: underline;
+  }
 }
 
 /* Error explanation */
@@ -84,19 +95,21 @@ body {
 }
 
 /* Nadpisy */
-h1 {
-    font-size: 34px;
-    padding-bottom: 0.5em;
-}
-
-h2 {
-    font-size: 30px;
-    padding-bottom: 0.5em;
-    border-bottom: solid 2px $h2-line-color; 
-}
-h3 {
-    font-size: 22px;
-    padding-top: 0.2em;
+#main{
+  h1 {
+      font-size: 34px;
+      padding-bottom: 0.5em;
+  }
+  h2 {
+      font-size: 30px;
+      padding-bottom: 0.4em;
+      border-bottom: solid 2px $h2-line-color; 
+  }
+  h3 {
+      font-size: 22px;
+      line-height: 26px;
+      padding-top: 0.1em;
+  }
 }
 /* ČÁRA! */
 .vertical_line {
