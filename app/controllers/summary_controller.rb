@@ -13,8 +13,14 @@ class SummaryController < ApplicationController
     @events = (Event.all.order(:event_start)).where("event_end >= ?", Date.today) # Je možné oběma způsoby
     
     @exams = (Exam.all.order(:date)).where("date >= :today", { :today => Date.today } ) # Je možné oběma způsoby
+    if Time.now >= Date.today + 15.hours
+      @exams = @exams.drop_while { |e| e.date == Date.today  }
+    end
     
     @tasks = (Task.all.order(:date)).where("date >= :today", { :today => Date.today } )
+    if Time.now >= Date.today + 15.hours
+      @tasks = @tasks.drop_while { |e| e.date == Date.today  }
+    end
     
     respond_to do |format|
       format.html
