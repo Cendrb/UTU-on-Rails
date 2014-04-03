@@ -1,37 +1,49 @@
 <%= form_for(@task) do |f| %>
-  <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+<% if @task.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-      <ul>
-      <% @task.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <ul>
+        <% @task.errors.full_messages.each do |msg| %>
+        <li>
+            <%= msg %>
+        </li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :title, 'Název' %><br>
+<div class="field">
+    <%= f.label :title, 'Název' %>
+    <br>
     <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description, 'Popis' %><br>
+</div>
+<div class="field">
+    <%= f.label :description, 'Popis' %>
+    <br>
     <%= f.text_area :description, rows: 6, cols: 30 %>
-  </div>
-  <div class="field">
-    <%= f.label :subject, 'Předmět' %><br>
+</div>
+<div class="field">
+    <%= f.label :subject, 'Předmět' %>
+    <br>
     <%= f.select :subject, Exam::SUBJECTS, prompt: "Zvolte předmět" %>
-  </div>
-  <div class="field">
-    <%= f.label :date, 'Datum splnění' %><br>
+</div>
+<div class="field">
+    <%= f.label :additional_info_url, 'Odkaz na další informace' %>
+    <br />
+    <%= f.url_field :additional_info_url %>
+</div>
+<div class="field">
+    <%= f.label :date, 'Datum splnění' %>
+    <br>
     <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :group, 'Skupina' %><br>
+</div>
+<div class="field">
+    <%= f.label :group, 'Skupina' %>
+    <br>
     <%= f.number_field :group %>
-  </div>
-  <div class="actions">
+</div>
+<div class="actions">
     <%= f.submit %>
-  </div>
+</div>
 <% end %>
