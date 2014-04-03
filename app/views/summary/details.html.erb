@@ -62,6 +62,9 @@
                     <%= e.group %>.
                     <% end %>
                 </p>
+                <% if !e.additional_info_url.nil? && !e.additional_info_url.empty? %>
+                <p><%= link_to "Další informace", e.additional_info_url %></p>
+                <% end%>
                 <% if e != @tasks.last %>
                 <hr class="line_between_details" />
                 <% end %>
