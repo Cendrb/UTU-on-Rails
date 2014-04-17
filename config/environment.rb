@@ -5,7 +5,7 @@ require File.expand_path('../application', __FILE__)
 UTUOnRails::Application.initialize!
 
 # Mail config
-config.action_mailer.configure do
+UTUOnRails::Application.configure do
   config.action_mailer.delivery_method = :smtp
   
   config.action_mailer.smatp_settings = {
