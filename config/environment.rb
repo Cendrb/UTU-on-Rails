@@ -11,7 +11,7 @@ UTUOnRails::Application.configure do
   config.action_mailer.smatp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    user_name: adisinfoapp,
+    user_name: "adisinfoapp",
     password: "suprakindrlo",
     enable_starttls_auto: true
   }
