@@ -29,7 +29,7 @@ class ExamsController < ApplicationController
 
     respond_to do |format|
       if @exam.save
-        format.html { redirect_to @exam, notice: 'Exam was successfully created.' }
+        format.html { redirect_to @exam, notice: 'Penis was successfully created.' }
         format.json { render action: 'show', status: :created, location: @exam }
       else
         format.html { render action: 'new' }
