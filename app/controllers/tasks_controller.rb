@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  http_basic_authenticate_with name: Rails.application.config.admin_name, password: Rails.application.config.admin_password
+  before_filter :authenticate_admin
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks

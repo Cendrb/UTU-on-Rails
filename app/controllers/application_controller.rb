@@ -7,4 +7,35 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
+
+  protected
+
+  def authenticate_admin
+    if authenticate.admin
+    return true
+    else
+      redirect_to utu_path, alert: 'Nemáte dostatečná oprávnění pro přístup do této sekce'
+    end
+  end
+
+  protected
+
+  def authenticate
+    if user = current_user
+    user
+    else
+      redirect_to login_url
+    end
+  end
+
+  private
+
+  def current_user
+    if !session[:user_id].nil?
+      User.find(session[:user_id])
+    else if !cookies.signed[:user_id].nil?
+        User.find(session[:user_id])
+      end
+    end
+  end
 end

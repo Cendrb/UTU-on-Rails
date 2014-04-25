@@ -1,6 +1,15 @@
-<h1>Vše je dočasné, ale už se to pomalu rýsuje :)</h1>
+<% if notice %>
+<p id="notice">
+    <%= notice %>
+</p>
+<% end %>
+<% if alert %>
+<p id="alert">
+    <%= alert %>
+</p>
+<% end %>
 <div id="events">
-    
+
 </div>
 
 <div id="tasks">

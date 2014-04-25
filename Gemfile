@@ -6,6 +6,9 @@ gem 'rails', '4.0.3'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# Email validation
+gem 'validates_email_format_of'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -25,11 +28,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
-
-group :development, :test do
-  gem 'rspec-rails'
-end
+gem 'jbuilder', '~> 1.2' 
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
