@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_admin, only: :index
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :self_destroy]
 
   # GET /users
   # GET /users.json
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to administration_url, notice: 'Uživatel byl úspěšně vytvořen.' }
+        format.html { redirect_to login_url, notice: 'Váš účet byl úspěšně vytvořen.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -61,6 +61,16 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def self_destroy
+    @user.destroy
+    cookies.delete :user_id
+    session[:user_id] = nil
+    respond_to do |format|
+      format.html { redirect_to login_url, notice: "Váš účet byl odstraněn" }
+      format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -78,5 +88,4 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :group)
     end
-
 end
