@@ -12,11 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :name, 'Jméno (bude použito pro personalizaci zobrazení služby)' %><br>
+    <%= f.number_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email, 'Email (bez vašeho svolení vám nebudou zasílány žádné maily)' %><br>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password, 'Heslo' %><br>
+    <%= f.label :password, 'Heslo (pro heslo žádná omezení neplatí)' %><br>
     <%= f.password_field :password %>
   </div>
   <div class="field">
