@@ -8,17 +8,6 @@
     <%= alert %>
 </p>
 <% end %>
-<div id="events">
-
-</div>
-
-<div id="tasks">
-
-</div>
-
-<div id="exams">
-
-</div>
 
 <div id="services">
     <h2>Služby</h2>
@@ -48,3 +37,14 @@
     <h3>žádné služby nebyly nalezeny</h3>
     <% end %>
 </div>
+
+<% if logged_in? %>
+<h4>O Přidat data</h4>
+<% else %>
+<h4>Pro zpřístupnění následujících funkcí se prosím <%= link_to 'přihlašte', login_path %> nebo <%= link_to 'zaregistrujte', new_user_path %>.</h4>
+<ul>
+    <li>personalizované zobrazení služby</li>
+    <li>filtrované zobrazení položek (například podle skupiny)</li>
+    <li>zobrazení položek z libovolného období</li>
+</ul>
+<% end %>
