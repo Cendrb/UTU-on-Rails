@@ -1,11 +1,11 @@
 class ServicesController < ApplicationController
-  before_filter :authenticate_admin, except: :show
+  before_filter :authenticate_admin, except: [:show, :index]
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   # GET /services
   # GET /services.json
   def index
-    @services = Service.order(service_start)
+    @services = Service.order(:service_start)
   end
 
   # GET /services/1
