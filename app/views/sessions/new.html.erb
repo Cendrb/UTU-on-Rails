@@ -1,0 +1,35 @@
+<h2>Přihlášení</h2>
+<% if notice %>
+<p id="notice">
+    <%= notice %>
+</p>
+<% end %>
+<% if alert %>
+<p id="alert">
+    <%= alert %>
+</p>
+<% end %>
+<div class="login">
+    <%= form_tag do %>
+
+    <div class="field">
+        <%= label_tag(:email, 'Email:') %>
+        <%= text_field_tag :email, params[:email] %>
+    </div>
+
+    <div class="field">
+        <%= label_tag(:password, 'Heslo:') %>
+        <%= password_field_tag :password, params[:password] %>
+    </div>
+    
+    <div class="field">
+        <%= label_tag(:permanent, 'Trvalé přihlášení:') %>
+        <%= check_box_tag :permanent, params[:permanent] %>
+    </div>
+
+    <div class="field">
+        <%= submit_tag 'Přihlásit' %>
+    </div>
+    <p>Ještě nemáte účet? <%= link_to 'Registrovat', new_user_path %></p>
+    <% end %>
+</div>

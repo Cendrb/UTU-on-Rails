@@ -1,4 +1,13 @@
 UTUOnRails::Application.routes.draw do
+  
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+  
+  resources :users
+
   resources :services
 
   resources :exams
@@ -19,7 +28,8 @@ UTUOnRails::Application.routes.draw do
   get 'details' => 'summary#details'
   get 'service_list' => 'summary#service_list'
   get 'administration' => 'summary#administration'
-  get 'settings' => 'summary#settings'
+  delete 'destroy_account/:id', to: 'users#self_destroy', as: 'destroy_account'
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

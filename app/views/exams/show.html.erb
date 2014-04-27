@@ -1,34 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Název:</strong>
   <%= @exam.title %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Popis:</strong>
   <%= @exam.description %>
 </p>
 
 <p>
-  <strong>Subject:</strong>
+  <strong>Předmět:</strong>
   <%= @exam.subject %>
 </p>
 
 <p>
-  <strong>Additional info url:</strong>
+  <strong>Další informace:</strong>
   <%= @exam.additional_info_url %>
 </p>
 
 <p>
-  <strong>Date:</strong>
+  <strong>Datum:</strong>
   <%= @exam.date %>
 </p>
 
 <p>
-  <strong>Group:</strong>
+  <strong>Skupina:</strong>
   <%= @exam.group %>
 </p>
 
-<%= link_to 'Edit', edit_exam_path(@exam) %> |
-<%= link_to 'Back', exams_path %>
+<%= link_to 'Upravit', edit_exam_path(@exam) %> |
+<%= link_to 'Zpět na správu úkolů', exams_path %>

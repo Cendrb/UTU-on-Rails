@@ -1,0 +1,43 @@
+<h3>Nastavení uživatele</h3>
+<table>
+    <tr>
+        <td>
+            Příjmení:
+        </td>
+        <td>
+            <%= user.name %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Email:
+        </td>
+        <td>
+            <%= user.email %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Skupina:
+        </td>
+        <td>
+            <%= user.group %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Administrátor:
+        </td>
+        <td>
+            <% if user.admin %>
+                Ano
+            <% else %>
+                Ne
+            <% end %>
+        </td>
+    </tr>
+</table>
+<p>Vaše nastavení skupiny se automaticky projeví při zobrazování úkolů a testů.</p>
+<%= link_to 'Změnit údaje', edit_user_path(user), class: 'administration_link' %><br />
+<%= link_to 'Odhlásit', logout_path, method: :delete, class: 'administration_link' %><br />
+<%= link_to 'Zrušit účet', destroy_account_path(user), method: :delete, class: 'administration_link', data: {confirm: "Opravdu si přejete zrušit váš účet?"} %>

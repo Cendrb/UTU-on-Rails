@@ -1,41 +1,59 @@
-<h1>Vše je dočasné, ale už se to pomalu rýsuje :)</h1>
-<div id="events">
+<h2>Přehled</h2>
+<h3>Úvod</h3>
+<p>Vítejte na webové verzi Utu. Veškerá data jsou uložena pouze ve zdejší databázi a i desktopová aplikace tento web využívá. Tato stránka "běží na" frameworku <%= link_to 'Ruby on Rails', 'http://rubyonrails.org/' %></p>
+<% if notice %>
+<p id="notice">
+    <%= notice %>
+</p>
+<% end %>
+<% if alert %>
+<p id="alert">
+    <%= alert %>
+</p>
+<% end %>
+
+<% if logged_in? %>
+    <h3>Služba</h3>
+    <% if @error %>
+        <%= @error %>
+    <% else %>
+        <p>
+            Vaše období služby začíná <%= l @service.service_start %> a končí <%= l @service.service_end %>
+        </p>
+        <%= link_to 'Více informací o vaší službě', @service %>
+    <% end %>
     
-</div>
+    <% else %>
+    <h4>Pro zpřístupnění následujících funkcí se prosím <%= link_to 'přihlašte', login_path %> nebo <%= link_to 'zaregistrujte', new_user_path %>.</h4>
+    <ul>
+        <li>
+            personalizované zobrazení služby
+        </li>
+        <li>
+            filtrované zobrazení položek
+        </li>
+        <li>
+            a postupem času i mnoho dalšího ;)
+        </li>
+    </ul>
+<% end %>
 
-<div id="tasks">
-
-</div>
-
-<div id="exams">
-
-</div>
-
-<div id="services">
-    <h2>Služby</h2>
-    <% actual_service = @services.first %>
-    <% next_service = @services.second %>
-    <% if actual_service %>
-    <div class="service">
-        <h3>Aktuální služba</h3>
-        <strong><%= actual_service.first_name %> a <%= actual_service.second_name %></strong>
-        <br />
-        <strong>Od:</strong> <%= l actual_service.service_start %>
-        <br />
-        <strong>Do:</strong> <%= l actual_service.service_end %>
+<h3>Manuální zobrazení podrobností z libovolného období</h3>
+<%= form_tag(details_path, method: 'get') do %>
+    <div class="field">
+        <%= label_tag :from, 'Od:' %>
+        <%= date_select :range, :from, order: [:day, :month, :year] %>
     </div>
-    <% end %>
-    <% if next_service %>
-    <div class="service">
-        <h3>Následující služba</h3>
-        <strong><%= next_service.first_name %> a <%= next_service.second_name %></strong>
-        <br />
-        <strong>Od:</strong> <%= l next_service.service_start %>
-        <br />
-        <strong>Do:</strong> <%= l next_service.service_end %>
+    <div class="field">
+        <%= label_tag :to, 'Do:' %>
+        <%= date_select :range, :to, order: [:day, :month, :year] %>
     </div>
-    <% end %>
-    <% if !actual_service && !next_service %>
-    <h3>žádné služby nebyly nalezeny</h3>
-    <% end %>
-</div>
+    <div class="field">
+        <%= label_tag :group, 'Skupina:' %>
+        <%= number_field_tag :group, '1' %>
+    </div>
+    <div class="field">
+        <%= submit_tag 'Zobrazit' %>
+    </div>
+<% end %>
+

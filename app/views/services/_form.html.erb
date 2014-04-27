@@ -1,7 +1,7 @@
 <%= form_for(@service) do |f| %>
   <% if @service.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
+      <h2><%= pluralize(@service.errors.count, "chyba", "chyby") %> zábranily uložení této služby:</h2>
 
       <ul>
       <% @service.errors.full_messages.each do |msg| %>
@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %><br>
+    <%= f.label :first_name, 'První jméno' %><br>
     <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :second_name %><br>
+    <%= f.label :second_name, 'Druhé jméno' %><br>
     <%= f.text_field :second_name %>
   </div>
   <div class="field">
-    <%= f.label :service_start %><br>
+    <%= f.label :service_start, 'Počátek služby' %><br>
     <%= f.date_select :service_start %>
   </div>
   <div class="field">
-    <%= f.label :service_end %><br>
+    <%= f.label :service_end, 'Konec služby' %><br>
     <%= f.date_select :service_end %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Uložit' %>
   </div>
 <% end %>

@@ -1,0 +1,37 @@
+<h2>Výpis uživatelů</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Jméno</th>
+      <th>Email</th>
+      <th>Sekané maso - heslo</th>
+      <th>Sůl</th>
+      <th>Administrátor?</th>
+      <th>Skupina</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.hashed_password %></td>
+        <td><%= user.salt %></td>
+        <td><%= user.admin %></td>
+        <td><%= user.group %></td>
+        <td><%= link_to 'Zobrazit', user %></td>
+        <td><%= link_to 'Upravit', edit_user_path(user) %></td>
+        <td><%= link_to 'Odstranit', user, method: :delete, data: { confirm: 'Jste si jisti?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Registrovat nového uživatele', new_user_path %>

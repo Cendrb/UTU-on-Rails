@@ -1,5 +1,9 @@
-<h2>Administrace</h2>
-<%= link_to("Události", events_path) %><br />
-<%= link_to("Úkoly", tasks_path) %><br />
-<%= link_to("Testy", exams_path) %><br />
-<%= link_to("Třídní služby", services_path) %><br />
+<h2>Nastavení</h2>
+<% if logged_in? %>
+<%= render partial: "settings", locals: {user: current_user} %>
+<% else %>
+<p>Pro používání této sekce se musíte <%= link_to 'přihlásit', login_path %> nebo <%= link_to 'zaregistrovat', new_user_path %></p>
+<% end %>
+<% if admin_logged_in? %>
+<%= render "administration_menu" %><br />
+<% end %>
