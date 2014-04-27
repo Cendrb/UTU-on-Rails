@@ -10,6 +10,7 @@ body {
     padding: 0px;
     background-color: $background-color;
     width: 100%;
+    overflow-y: scroll;
 }
 #summary {
   margin: 0px auto;
@@ -35,7 +36,6 @@ body {
       background-color: $main-background-color;
       color: $text-color;
       height: auto;
-     
   }
   #details
   {
