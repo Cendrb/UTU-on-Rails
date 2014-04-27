@@ -1,12 +1,12 @@
-<h1>Listing services</h1>
+<h1>Výpis služeb</h1>
 
 <table>
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Second name</th>
-      <th>Service start</th>
-      <th>Service end</th>
+      <th>První jméno</th>
+      <th>Druhé jméno</th>
+      <th>Počátek služby</th>
+      <th>Konec služby</th>
       <th></th>
       <th></th>
       <th></th>
@@ -20,9 +20,9 @@
         <td><%= service.second_name %></td>
         <td><%= service.service_start %></td>
         <td><%= service.service_end %></td>
-        <td><%= link_to 'Show', service %></td>
-        <td><%= link_to 'Edit', edit_service_path(service) %></td>
-        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Zobrazit', service %></td>
+        <td><%= link_to 'Upravit', edit_service_path(service) %></td>
+        <td><%= link_to 'Odstranit', service, method: :delete, data: { confirm: 'Jste si jisti?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Service', new_service_path %>
+<%= link_to 'Nová služba', new_service_path %>

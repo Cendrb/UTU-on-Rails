@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> zábranily vytvoření vašeho účtu:</h2>
+      <h2><%= pluralize(@user.errors.count, "chyba", "chyby") %> zábranily vytvoření vašeho účtu:</h2>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -28,7 +28,7 @@
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="field">
-    <%= f.label :group, 'Skupina' %><br>
+    <%= f.label :group, 'Skupina (zadejte číselně - 1 nebo 2)' %><br>
     <%= f.number_field :group %>
   </div>
   <div class="actions">

@@ -1,7 +1,7 @@
 <%= form_for(@exam) do |f| %>
   <% if @exam.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@exam.errors.count, "error") %> prohibited this exam from being saved:</h2>
+      <h2><%= pluralize(@exam.errors.count, "chyba", "chyby") %> zabránily uložení tohoto testu:</h2>
 
       <ul>
       <% @exam.errors.full_messages.each do |msg| %>

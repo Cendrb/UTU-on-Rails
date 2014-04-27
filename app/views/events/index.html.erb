@@ -1,14 +1,14 @@
-<h1>Listing events</h1>
+<h1>Výpis událostí</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Additional url info</th>
-      <th>Start</th>
-      <th>End</th>
+      <th>Název</th>
+      <th>Popis</th>
+      <th>Místo</th>
+      <th>Další informace</th>
+      <th>Začátek</th>
+      <th>Konec</th>
       <th></th>
       <th></th>
       <th></th>
@@ -24,9 +24,9 @@
         <td><%= event.additional_info_url %></td>
         <td><%= event.event_start %></td>
         <td><%= event.event_end %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Zobrazit', event %></td>
+        <td><%= link_to 'Upravit', edit_event_path(event) %></td>
+        <td><%= link_to 'Odstranit', event, method: :delete, data: { confirm: 'Jste si jisti?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<%= link_to 'Nová událost', new_event_path %>

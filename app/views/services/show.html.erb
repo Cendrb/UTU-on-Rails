@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First name:</strong>
+  <strong>První jméno:</strong>
   <%= @service.first_name %>
 </p>
 
 <p>
-  <strong>Second name:</strong>
+  <strong>Druhé jméno:</strong>
   <%= @service.second_name %>
 </p>
 
 <p>
-  <strong>Service start:</strong>
+  <strong>Počátek služby:</strong>
   <%= @service.service_start %>
 </p>
 
 <p>
-  <strong>Service end:</strong>
+  <strong>Konec služby:</strong>
   <%= @service.service_end %>
 </p>
 
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+<%= link_to 'Upravit', edit_service_path(@service) %> |
+<%= link_to 'Zpět na správu služeb', services_path %>

@@ -1,29 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Jméno:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
 
 <p>
-  <strong>Hashed password:</strong>
+  <strong>Sekané maso - heslo:</strong>
   <%= @user.hashed_password %>
 </p>
 
 <p>
-  <strong>Salt:</strong>
+  <strong>Sůl:</strong>
   <%= @user.salt %>
 </p>
 
 <p>
-  <strong>Admin:</strong>
+  <strong>Administrátor:</strong>
   <%= @user.admin %>
 </p>
 
 <p>
-  <strong>Group:</strong>
+  <strong>Skupina:</strong>
   <%= @user.group %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Upravit', edit_user_path(@user) %> |
+<%= link_to 'Zpět na správu uživatelů', users_path %>
