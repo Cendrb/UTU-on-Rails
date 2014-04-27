@@ -38,6 +38,6 @@
     </tr>
 </table>
 <p>Vaše nastavení skupiny se automaticky projeví při zobrazování úkolů a testů.</p>
-<%= link_to 'Změnit údaje', edit_user_path(user), class: 'change_data' %>
-<%= link_to 'Odhlásit', logout_path, method: :delete, id: 'logout_button' %>
-<%= link_to 'Zrušit účet', destroy_account_path(user), method: :delete, id: 'logout_button', data: {confirm: "Opravdu si přejete zrušit váš účet?"} %>
+<%= link_to 'Změnit údaje', edit_user_path(user), class: 'administration_link' %><br />
+<%= link_to 'Odhlásit', logout_path, method: :delete, class: 'administration_link' %><br />
+<%= link_to 'Zrušit účet', destroy_account_path(user), method: :delete, class: 'administration_link', data: {confirm: "Opravdu si přejete zrušit váš účet?"} %>

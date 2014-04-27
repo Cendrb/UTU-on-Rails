@@ -1,3 +1,6 @@
+<h2>Penis</h2>
+<h3>Úvod</h3>
+<p>Vítejte na webové verzi Utu. Veškerá data jsou uložena pouze ve zdejší databázi a i desktopová aplikace tento web využívá. Tato stránka "běží na" frameworku <%= link_to 'Ruby on Rails', 'http://rubyonrails.org/' %></p>
 <% if notice %>
 <p id="notice">
     <%= notice %>
@@ -14,14 +17,43 @@
     <% if @error %>
         <%= @error %>
     <% else %>
-        <p>Vaše období služby začíná <%= l @service.service_start %> a končí <%= l @service.service_end %></p>
+        <p>
+            Vaše období služby začíná <%= l @service.service_start %> a končí <%= l @service.service_end %>
+        </p>
         <%= link_to 'Více informací o vaší službě', @service %>
     <% end %>
-<% else %>
+    
+    <% else %>
     <h4>Pro zpřístupnění následujících funkcí se prosím <%= link_to 'přihlašte', login_path %> nebo <%= link_to 'zaregistrujte', new_user_path %>.</h4>
     <ul>
-        <li>personalizované zobrazení služby</li>
-        <li>filtrované zobrazení položek (například podle skupiny)</li>
-        <li>a postupem času i mnoho dalšího ;)</li>
+        <li>
+            personalizované zobrazení služby
+        </li>
+        <li>
+            filtrované zobrazení položek
+        </li>
+        <li>
+            a postupem času i mnoho dalšího ;)
+        </li>
     </ul>
 <% end %>
+
+<h3>Manuální zobrazení podrobností z libovolného období</h3>
+<%= form_tag(details_path, method: 'get') do %>
+    <div class="field">
+        <%= label_tag :from, 'Od:' %>
+        <%= date_select :range, :from, order: [:day, :month, :year] %>
+    </div>
+    <div class="field">
+        <%= label_tag :to, 'Do:' %>
+        <%= date_select :range, :to, order: [:day, :month, :year] %>
+    </div>
+    <div class="field">
+        <%= label_tag :group, 'Skupina:' %>
+        <%= number_field_tag :group, '1' %>
+    </div>
+    <div class="field">
+        <%= submit_tag 'Zobrazit' %>
+    </div>
+<% end %>
+
