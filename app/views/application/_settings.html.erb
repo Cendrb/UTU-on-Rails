@@ -2,6 +2,14 @@
 <table>
     <tr>
         <td>
+            Příjmení:
+        </td>
+        <td>
+            <%= user.name %>
+        </td>
+    </tr>
+    <tr>
+        <td>
             Email:
         </td>
         <td>
@@ -22,9 +30,9 @@
         </td>
         <td>
             <% if user.admin %>
-            Ano
+                Ano
             <% else %>
-            Ne
+                Ne
             <% end %>
         </td>
     </tr>

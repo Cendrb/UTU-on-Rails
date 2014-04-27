@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
   validates_inclusion_of :group, in: 1..2
   validate :password_must_be_present
+  validates :name, presence: true, uniqueness: true
 
   attr_accessor :password_confirmation
   attr_reader :password

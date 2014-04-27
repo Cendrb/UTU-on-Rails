@@ -20,5 +20,7 @@
   <%= @service.service_end %>
 </p>
 
+<% if admin_logged_in? %>
 <%= link_to 'Upravit', edit_service_path(@service) %> |
 <%= link_to 'Zpět na správu služeb', services_path %>
+<% end %>

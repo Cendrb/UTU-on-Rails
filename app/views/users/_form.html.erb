@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name, 'Jméno (bude použito pro personalizaci zobrazení služby)' %><br>
+    <%= f.label :name, 'Příjmení (bude použito pro personalizaci zobrazení služby - bude porovnáváno se záznamy služeb)' %><br>
     <%= f.number_field :name %>
   </div>
   <div class="field">
@@ -32,6 +32,6 @@
     <%= f.number_field :group %>
   </div>
   <div class="actions">
-    <%= f.submit 'Zaregistrovat' %>
+    <%= f.submit 'Uložit' %>
   </div>
 <% end %>

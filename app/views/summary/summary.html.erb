@@ -9,42 +9,19 @@
 </p>
 <% end %>
 
-<div id="services">
-    <h2>Služby</h2>
-    <% actual_service = @services.first %>
-    <% next_service = @services.second %>
-    <% if actual_service %>
-    <div class="service">
-        <h3>Aktuální služba</h3>
-        <strong><%= actual_service.first_name %> a <%= actual_service.second_name %></strong>
-        <br />
-        <strong>Od:</strong> <%= l actual_service.service_start %>
-        <br />
-        <strong>Do:</strong> <%= l actual_service.service_end %>
-    </div>
-    <% end %>
-    <% if next_service %>
-    <div class="service">
-        <h3>Následující služba</h3>
-        <strong><%= next_service.first_name %> a <%= next_service.second_name %></strong>
-        <br />
-        <strong>Od:</strong> <%= l next_service.service_start %>
-        <br />
-        <strong>Do:</strong> <%= l next_service.service_end %>
-    </div>
-    <% end %>
-    <% if !actual_service && !next_service %>
-    <h3>žádné služby nebyly nalezeny</h3>
-    <% end %>
-</div>
-
 <% if logged_in? %>
-<h4>O Přidat data</h4>
+    <h3>Služba</h3>
+    <% if @error %>
+        <%= @error %>
+    <% else %>
+        <p>Vaše období služby začíná <%= l @service.service_start %> a končí <%= l @service.service_end %></p>
+        <%= link_to 'Více informací o vaší službě', @service %>
+    <% end %>
 <% else %>
-<h4>Pro zpřístupnění následujících funkcí se prosím <%= link_to 'přihlašte', login_path %> nebo <%= link_to 'zaregistrujte', new_user_path %>.</h4>
-<ul>
-    <li>personalizované zobrazení služby</li>
-    <li>filtrované zobrazení položek (například podle skupiny)</li>
-    <li>a postupem času i mnoho dalšího ;)</li>
-</ul>
+    <h4>Pro zpřístupnění následujících funkcí se prosím <%= link_to 'přihlašte', login_path %> nebo <%= link_to 'zaregistrujte', new_user_path %>.</h4>
+    <ul>
+        <li>personalizované zobrazení služby</li>
+        <li>filtrované zobrazení položek (například podle skupiny)</li>
+        <li>a postupem času i mnoho dalšího ;)</li>
+    </ul>
 <% end %>
