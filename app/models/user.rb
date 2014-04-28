@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true, email_format: {message: 'není platný email'}
   validates :password, confirmation: true
   validates_inclusion_of :group, in: 1..2
+  validates :group, numericality: { only_integer: true }, presence: true
   validate :password_must_be_present
   validates :name, presence: true, uniqueness: true
 

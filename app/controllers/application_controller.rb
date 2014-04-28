@@ -9,42 +9,51 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-    def authenticate_admin
-      if authenticate.admin
-      return true
-      else
-        redirect_to utu_path, alert: 'Nemáte dostatečná oprávnění pro přístup do této sekce'
-      end
+
+  def authenticate_admin
+    if authenticate.admin
+    return true
+    else
+      redirect_to utu_path, alert: 'Nemáte dostatečná oprávnění pro přístup do této sekce'
     end
-  
-    def authenticate
-      if user = current_user
-      user
-      else
-        redirect_to login_url
-      end
+  end
+
+  def authenticate
+    if user = current_user
+    user
+    else
+      redirect_to login_url
     end
-  
-    def current_user
-      begin
-        if !session[:user_id].nil?
+  end
+
+  def current_user
+    begin
+      if !session[:user_id].nil?
+        User.find(session[:user_id])
+      else if !cookies.signed[:user_id].nil?
           User.find(session[:user_id])
-        else if !cookies.signed[:user_id].nil?
-            User.find(session[:user_id])
-          end
         end
-      rescue Exception => e
-        cookies.delete :user_id
-        session[:user_id] = nil
-        puts "Exception rescued! (#{e.message})"
       end
+    rescue Exception => e
+      cookies.delete :user_id
+      session[:user_id] = nil
+      puts "Exception rescued! (#{e.message})"
     end
-  
-    def logged_in?
-      if current_user
-        true
-      else
-        false
-      end
+  end
+
+  def logged_in?
+    if current_user
+    true
+    else
+    false
     end
+  end
+
+  def admin_logged_in?
+    if user = current_user
+    user.admin
+    end
+  end
+
+  helper_method :logged_in?, :current_user, :admin_logged_in?
 end
