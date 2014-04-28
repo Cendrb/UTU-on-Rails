@@ -1,0 +1,29 @@
+<h1>Listing more_informations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Url</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @more_informations.each do |more_information| %>
+      <tr>
+        <td><%= more_information.name %></td>
+        <td><%= more_information.url %></td>
+        <td><%= link_to 'Show', more_information %></td>
+        <td><%= link_to 'Edit', edit_more_information_path(more_information) %></td>
+        <td><%= link_to 'Destroy', more_information, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New More information', new_more_information_path %>
