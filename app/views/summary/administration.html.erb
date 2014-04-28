@@ -1,9 +1,9 @@
 <h2>Nastavení</h2>
 <% if logged_in? %>
-<%= render partial: "settings", locals: {user: current_user} %>
+    <%= render partial: "settings", locals: {user: current_user} %>
 <% else %>
-<p>Pro používání této sekce se musíte <%= link_to 'přihlásit', login_path %> nebo <%= link_to 'zaregistrovat', register_path %></p>
+    <p>Pro používání této sekce se musíte <%= link_to 'přihlásit', login_path %> nebo <%= link_to 'zaregistrovat', register_path %></p>
 <% end %>
 <% if admin_logged_in? %>
-<%= render "administration_menu" %><br />
+    <%= render "administration_menu" %><br />
 <% end %>
