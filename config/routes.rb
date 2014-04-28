@@ -28,6 +28,7 @@ UTUOnRails::Application.routes.draw do
   get 'details' => 'summary#details'
   get 'service_list' => 'summary#service_list'
   get 'administration' => 'summary#administration'
+  get 'register' => 'users#new'
   delete 'destroy_account/:id', to: 'users#self_destroy', as: 'destroy_account'
   
 
