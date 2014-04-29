@@ -1,4 +1,5 @@
 class MoreInformationsController < ApplicationController
+  before_filter :authenticate_admin
   before_action :set_more_information, only: [:show, :edit, :update, :destroy]
 
   # GET /more_informations
