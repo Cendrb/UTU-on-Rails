@@ -3,4 +3,5 @@ class Exam < ActiveRecord::Base
   validates :title, :description, :subject, :group, :date, presence: {presence: true, message: "nesmí být prázdný"}
   validates :subject, inclusion: {in: SUBJECTS, message: "není platný předmět"}
   validates :group, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 2, only_integer: true, message: "neexistuje - zadejte 0 pro obě skupiny" }
+  has_many :more_informations, dependent: :destroy
 end

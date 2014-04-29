@@ -7,6 +7,7 @@ class EventDateValidator < ActiveModel::Validator
 end
 
 class Event < ActiveRecord::Base
+  has_many :more_informations, dependent: :destroy
   validates :title, :description, :event_start, :event_end, :location, presence: {presence: true, message: "nesmí být prázdný"}
   validates_with EventDateValidator
 end
