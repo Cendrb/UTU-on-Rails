@@ -29,11 +29,6 @@
 	<%= f.text_field :location %>
 </div>
 <div class="field">
-	<%= f.label :additional_info_url, 'Odkaz na další informace' %>
-	<br>
-	<%= f.url_field :additional_info_url %>
-</div>
-<div class="field">
 	<%= f.label :event_start, 'Počátek akce' %>
 	<br>
 	<%= f.date_select :event_start %>
@@ -47,3 +42,9 @@
 	<%= f.submit 'Uložit' %>
 </div>
 <% end %>
+<div class="field">
+    <%= render @item.more_informations %>
+</div>
+<div class="field">
+    <%= render 'more_informations/form' %>
+</div>

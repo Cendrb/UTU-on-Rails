@@ -1,4 +1,4 @@
 class MoreInformation < ActiveRecord::Base
-  validates_persistence_of :url, :name
-  belongs_to :event, :exam, :task
+  validates :url, :name, presence: true
+  belongs_to :event
 end

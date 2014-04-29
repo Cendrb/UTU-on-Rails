@@ -1,15 +1,5 @@
-<%= form_for(@more_information) do |f| %>
-  <% if @more_information.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= number_of_errors(@more_information.errors.count) %> uložení dalších informací:</h2>
-
-      <ul>
-      <% @more_information.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for([@item, @item.more_informations.build]) do |f| %>
+  
 
   <div class="field">
     <%= f.label :name %><br>

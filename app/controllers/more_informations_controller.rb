@@ -29,7 +29,7 @@ class MoreInformationsController < ApplicationController
 
     respond_to do |format|
       if @more_information.save
-        format.html { redirect_to @more_information, notice: 'More information was successfully created.' }
+        format.html { redirect_to :back , notice: 'More information was successfully created.' }
         format.json { render action: 'show', status: :created, location: @more_information }
       else
         format.html { render action: 'new' }
