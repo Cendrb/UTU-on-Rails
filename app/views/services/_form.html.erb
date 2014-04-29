@@ -1,7 +1,7 @@
 <%= form_for(@service) do |f| %>
   <% if @service.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@service.errors.count, "chyba", "chyby") %> zábranily uložení této služby:</h2>
+      <h2><%= errors_restricted_cs(@service.errors.count) %> uložení této služby:</h2>
 
       <ul>
       <% @service.errors.full_messages.each do |msg| %>

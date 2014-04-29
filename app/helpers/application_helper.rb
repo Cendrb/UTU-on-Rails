@@ -4,6 +4,7 @@ module ApplicationHelper
       return "1 chyba zabránila"
     end
     if number_of_errors <= 4
+      puts number_of_errors
       return "#{number_of_errors} chyby zabránily"
     end
     if number_of_errors > 4

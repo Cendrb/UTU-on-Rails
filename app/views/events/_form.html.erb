@@ -1,7 +1,7 @@
 <%= form_for(@event) do |f| %>
 <% if @event.errors.any? %>
 <div id="error_explanation">
-	<h2><%= pluralize(@event.errors.count, "chyba", "chyby") %> zabránily uložení této události:</h2>
+	<h2><%= errors_restricted_cs(@event.errors.count) %> uložení této události:</h2>
 
 	<ul>
 		<% @event.errors.full_messages.each do |msg| %>
