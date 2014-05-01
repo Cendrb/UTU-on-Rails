@@ -1,5 +1,7 @@
 <h1>Výpis testů</h1>
 
+<%= link_to 'Nový test', new_exam_path %>
+
 <table>
   <thead>
     <tr>
@@ -24,9 +26,9 @@
         <td><%= exam.additional_info_url %></td>
         <td><%= exam.date %></td>
         <td><%= exam.group %></td>
-        <td><%= link_to 'Show', exam %></td>
-        <td><%= link_to 'Edit', edit_exam_path(exam) %></td>
-        <td><%= link_to 'Destroy', exam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Zobrazit', exam %></td>
+        <td><%= link_to 'Upravit', edit_exam_path(exam) %></td>
+        <td><%= link_to 'Odstranit', exam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
