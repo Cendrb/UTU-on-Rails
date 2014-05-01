@@ -1,5 +1,7 @@
 <h1>Seznam úkolů</h1>
 
+<%= link_to 'Nový úkol', new_task_path %>
+
 <table>
   <thead>
     <tr>
@@ -24,9 +26,9 @@
         <td><%= task.additional_info_url %></td>
         <td><%= task.date %></td>
         <td><%= task.group %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Zobrazit', task %></td>
+        <td><%= link_to 'Upravit', edit_task_path(task) %></td>
+        <td><%= link_to 'Odstranit', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
