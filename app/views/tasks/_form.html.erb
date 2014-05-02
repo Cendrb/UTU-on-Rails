@@ -39,9 +39,8 @@
     <%= f.date_select :date %>
 </div>
 <div class="field">
-    <%= f.label :group, 'Skupina' %>
-    <br>
-    <%= f.number_field :group %>
+    <%= f.label :group, 'Skupina (0 pro obě skupiny)' %><br>
+    <%= f.number_field :group, value: 0 %>
 </div>
 <div class="actions">
     <%= f.submit 'Uložit' %>
