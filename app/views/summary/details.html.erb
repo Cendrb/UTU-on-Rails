@@ -5,33 +5,10 @@
             <div class="details_block">
                 <h2>Události</h2>
                 <% @events.each do |e| %>
-                <h3><%= e.title %></h3>
-                <p>
-                    <%= sanitize(e.description) %>
-                </p>
-
-                <p>
-                    <strong>Místo: </strong>
-                    <%= e.location %>
-                </p>
-
-                <p>
-                    <strong>Začátek události: </strong>
-                    <%= l e.event_start %>
-                </p>
-
-                <p>
-                    <strong>Konec události: </strong>
-                    <%= l e.event_end %>
-                </p>
-                
-                <% if !e.additional_info_url.nil? && !e.additional_info_url.empty? %>
-                <p><%= link_to "Další informace", e.additional_info_url %></p>
-                <% end%>
-                
-                <% if e != @events.last %>
-                <hr class="line_between_details" />
-                <% end %>
+                    <%= render e %>
+                    <% if e != @events.last %>
+                        <hr class="line_between_details" />
+                    <% end %>
                 <% end %>
             </div></td>
             <td class="details_block" id="middle_detail_block">

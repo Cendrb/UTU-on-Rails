@@ -1,0 +1,39 @@
+<h3><%= event.title %></h3>
+<p>
+    <%= sanitize(event.description) %>
+</p>
+
+<p>
+    <strong>Místo: </strong>
+    <%= event.location %>
+</p>
+
+<% if event.price %>
+<p>
+    <strong>Cena: </strong>
+    <%= number_to_currency(event.price, :locale => :cs) %>
+</p>
+<% end %>
+
+<% if event.pay_date %>
+<p>
+    <strong>Termín platby: </strong>
+    <%= l event.pay_date %>
+</p>
+<% end %>
+
+<p>
+    <strong>Začátek události: </strong>
+    <%= l event.event_start %>
+</p>
+
+<p>
+    <strong>Konec události: </strong>
+    <%= l event.event_end %>
+</p>
+
+<% if !event.additional_info_url.nil? && !event.additional_info_url.empty? %>
+<p>
+    <%= link_to "Další informace", event.additional_info_url %>
+</p>
+<% end %>

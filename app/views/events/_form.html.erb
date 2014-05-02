@@ -29,9 +29,19 @@
 	<%= f.text_field :location %>
 </div>
 <div class="field">
-	<%= f.label :additional_info_url, 'Odkaz na další informace' %>
+	<%= f.label :additional_info_url, 'Odkaz na další informace (nepovinné)' %>
 	<br>
 	<%= f.url_field :additional_info_url %>
+</div>
+<div class="field">
+    <%= f.label :price, 'Cena (nepovinné)' %>
+    <br>
+    <%= f.number_field :price %>
+</div>
+<div class="field">
+    <%= f.label :pay_date, 'Termín platby (nepovinné)' %>
+    <br>
+    <%= f.date_select :pay_date %>
 </div>
 <div class="field">
 	<%= f.label :event_start, 'Počátek akce' %>
