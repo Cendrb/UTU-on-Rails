@@ -7,20 +7,17 @@
     <strong>Místo: </strong>
     <%= event.location %>
 </p>
-
-<% if event.price %>
+    <% if event.price && event.pay_date && event.price > 0%>
     <p>
-        <strong>Cena: </strong>
-        <%= number_to_currency(event.price, :locale => :cs) %>
+        <strong>Platba: </strong>
+        <% if event.pay_date == event.event_start %>
+            <%= number_to_currency(event.price, locale: :cs) %> na místě
+        <% else %>
+            <%= l event.pay_date %> zaplatit <%= number_to_currency(event.price, locale: :cs) %>
+        <% end %>
     </p>
-<% end %>
+    <% end %>
 
-<% if event.pay_date %>
-    <p>
-        <strong>Termín platby: </strong>
-        <%= l event.pay_date %>
-    </p>
-<% end %>
 
 <p>
     <strong>Začátek události: </strong>
