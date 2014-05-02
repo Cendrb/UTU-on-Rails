@@ -34,6 +34,16 @@
 	<%= f.url_field :additional_info_url %>
 </div>
 <div class="field">
+    <%= f.label :price, 'Cena' %>
+    <br>
+    <%= f.url_field :price %>
+</div>
+<div class="field">
+    <%= f.label :pay_date, 'Termín platby' %>
+    <br>
+    <%= f.url_field :pay_date %>
+</div>
+<div class="field">
 	<%= f.label :event_start, 'Počátek akce' %>
 	<br>
 	<%= f.date_select :event_start %>
