@@ -15,7 +15,7 @@ class SummaryController < ApplicationController
         end
       end
     end
-    @near_payments = (Event.all.order(:event_start)).where("event_end >= :today AND pay_date <= :pay", { :today => Date.today, :pay => Date.today + 7.days } )
+    @near_payments = (Event.all.order(:event_start)).where("event_end >= :today AND pay_date <= :pay AND pay_date != event_start", { :today => Date.today, :pay => Date.today + 7.days } )
   end
 
   def details
