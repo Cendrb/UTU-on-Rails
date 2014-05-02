@@ -8,5 +8,6 @@ end
 
 class Event < ActiveRecord::Base
   validates :title, :description, :event_start, :event_end, :location, presence: {presence: true, message: "nesmí být prázdný"}
+  validates :price, numericality: true
   validates_with EventDateValidator
 end

@@ -22,7 +22,7 @@
 
 <p>
   <strong>Cena:</strong>
-  <%= @event.price %>
+  <%= number_to_currency(@event.price, :locale => :cs) %>
 </p>
 
 <p>

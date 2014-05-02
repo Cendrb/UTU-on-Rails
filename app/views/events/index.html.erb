@@ -26,7 +26,7 @@
         <td><%= event.description %></td>
         <td><%= event.location %></td>
         <td><%= event.additional_info_url %></td>
-        <td><%= event.price %></td>
+        <td><%= number_to_currency(event.price, :locale => :cs) %></td>
         <td><%= event.pay_date %></td>
         <td><%= event.event_start %></td>
         <td><%= event.event_end %></td>
