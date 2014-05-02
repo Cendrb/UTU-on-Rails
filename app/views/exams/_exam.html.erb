@@ -1,0 +1,30 @@
+<h3><%= exam.title %></h3>
+
+<p>
+    <%= sanitize(exam.description) %>
+</p>
+
+<p>
+    <strong>Předmět: </strong>
+    <%= exam.subject %>
+</p>
+
+<p>
+    <strong>Datum: </strong>
+    <%= l exam.date %>
+</p>
+
+<p>
+    <strong>Skupina: </strong>
+    <% if exam.group == 0 %>
+        obě skupiny
+    <% else %>
+        <%= exam.group %>.
+    <% end %>
+</p>
+
+<% if !exam.additional_info_url.nil? && !exam.additional_info_url.empty? %>
+    <p>
+        <%= link_to "Další informace", exam.additional_info_url %>
+    </p>
+<% end %>

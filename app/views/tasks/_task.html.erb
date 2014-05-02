@@ -1,0 +1,28 @@
+<h3><%= task.title %></h3>
+<p>
+    <%= sanitize(task.description) %>
+</p>
+
+<p>
+    <strong>Předmět: </strong>
+    <%= task.subject %>
+</p>
+
+<p>
+    <strong>Datum: </strong>
+    <%= l task.date %>
+</p>
+
+<p>
+    <strong>Skupina: </strong>
+    <% if task.group == 0 %>
+        obě skupiny
+    <% else %>
+        <%= task.group %>.
+    <% end %>
+</p>
+<% if !task.additional_info_url.nil? && !task.additional_info_url.empty? %>
+    <p>
+        <%= link_to "Další informace", task.additional_info_url %>
+    </p>
+<% end %>

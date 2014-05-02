@@ -132,16 +132,26 @@ a.change_data {
 
 /* Nadpisy */
 #main{
-  h1, h2 {
-      font-size: 30px;
+  h1 {
+      font-size: 33px;
       padding-bottom: 0.4em;
       margin-bottom: 0.8em;
       border-bottom: solid 2px $h2-line-color; 
   }
+  h2 {
+      font-size: 26px;
+      padding-bottom: 0.2em;
+      margin-bottom: 0.6em;
+  }
   h3 {
-      font-size: 22px;
-      margin-top: 0.7em;
+      font-size: 19px;
+      margin-top: 1em;
       margin-bottom: 0.9em;
+  }
+  h4 {
+      font-size: 16px;
+      margin-bottom: 0.2em;
+      margin-top: 0em;
   }
 }
 /* ČÁRA! */

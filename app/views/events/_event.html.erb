@@ -9,17 +9,17 @@
 </p>
 
 <% if event.price %>
-<p>
-    <strong>Cena: </strong>
-    <%= number_to_currency(event.price, :locale => :cs) %>
-</p>
+    <p>
+        <strong>Cena: </strong>
+        <%= number_to_currency(event.price, :locale => :cs) %>
+    </p>
 <% end %>
 
 <% if event.pay_date %>
-<p>
-    <strong>Termín platby: </strong>
-    <%= l event.pay_date %>
-</p>
+    <p>
+        <strong>Termín platby: </strong>
+        <%= l event.pay_date %>
+    </p>
 <% end %>
 
 <p>
@@ -33,7 +33,7 @@
 </p>
 
 <% if !event.additional_info_url.nil? && !event.additional_info_url.empty? %>
-<p>
-    <%= link_to "Další informace", event.additional_info_url %>
-</p>
+    <p>
+        <%= link_to "Další informace", event.additional_info_url %>
+    </p>
 <% end %>

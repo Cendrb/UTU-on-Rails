@@ -1,33 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Název:</strong>
-  <%= @task.title %>
-</p>
-
-<p><strong>Popis:</strong>
-  <%= @task.description %>
-</p>
-
-<p>
-  <strong>Předmět:</strong>
-  <%= @task.subject %>
-</p>
-
-<p>
-  <strong>Více informací:</strong>
-  <%= @task.additional_info_url %>
-</p>
-
-<p>
-  <strong>Datum:</strong>
-  <%= @task.date %>
-</p>
-
-<p>
-  <strong>Skupina:</strong>
-  <%= @task.group %>
-</p>
+<%= render @task %>
 
 <%= link_to 'Upravit', edit_task_path(@task) %> |
 <%= link_to 'Zpět na správu úkolů', tasks_path %>

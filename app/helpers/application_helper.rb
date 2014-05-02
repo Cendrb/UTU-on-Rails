@@ -11,4 +11,16 @@ module ApplicationHelper
       return "#{number_of_errors} chyb zabránilo"
     end
   end
+  
+  def days_to_pay_cs (number_of_days)
+    if number_of_days < 0
+      return "ještě dnes"
+    end
+    if number_of_days == 1
+      return "do jednoho dne"
+    end
+    if number_of_days > 1
+      return "do #{number_of_days} dní"
+    end
+  end
 end
