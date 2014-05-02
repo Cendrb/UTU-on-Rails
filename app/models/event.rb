@@ -7,6 +7,7 @@ class EventDateValidator < ActiveModel::Validator
 end
 
 class Event < ActiveRecord::Base
+  scope :in_future, where('event_end >= :today', { today: Date.today })
   validates :title, :description, :event_start, :event_end, :location, presence: {presence: true, message: "nesmí být prázdný"}
   validates :price, numericality: true
   validates_with EventDateValidator

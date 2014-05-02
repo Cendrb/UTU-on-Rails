@@ -36,7 +36,7 @@
 <div class="field">
     <%= f.label :price, 'Cena (nepovinné)' %>
     <br>
-    <%= f.number_field :price %>
+    <%= f.number_field :price, value: 0 %>
 </div>
 <div class="field">
     <%= f.label :pay_date, 'Termín platby - pokud má proběhnout platba na místě, tak nastavte na shodné datum jako počátek akce' %>

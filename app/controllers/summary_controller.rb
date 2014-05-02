@@ -1,8 +1,9 @@
 class SummaryController < ApplicationController
+  
   def summary
     if logged_in?
-      user_names = current_user.name.split(' ')
-      services = Service.where("service_end >= :today", { :today => Date.today })
+      user_names = current_user.name.split
+      services = Service.in_future
       services.each do |service|
         user_names.each do |user_name|
           if service.first_name.include?(user_name) || service.second_name.include?(user_name)
@@ -15,7 +16,7 @@ class SummaryController < ApplicationController
         end
       end
     end
-    @near_payments = (Event.all.order(:event_start)).where("event_end >= :today AND pay_date <= :pay AND pay_date != event_start", { :today => Date.today, :pay => Date.today + 7.days } )
+    @near_payments = Event.order(:event_start).in_future.where("pay_date <= :pay AND pay_date != event_start", { :pay => Date.today + 7.days } )
   end
 
   def details
@@ -26,7 +27,7 @@ class SummaryController < ApplicationController
       @exams = Exam.order(:date).where("\"group\" = :group OR \"group\" = 0", { :group => params[:group] } ).where("date >= :from AND date <= :to", { :from => from, :to => to } )
       @tasks = Task.order(:date).where("\"group\" = :group OR \"group\" = 0", { :group => params[:group] } ).where("date >= :from AND date <= :to", { :from => from, :to => to } )
     else
-      @events = (Event.all.order(:event_start)).where("event_end >= ?", Date.today)
+      @events = (Event.all.order(:event_start)).in_future
       if logged_in?
         @exams = get_exams_with_group(current_user.group)
         @tasks = get_tasks_with_group(current_user.group)
@@ -44,7 +45,7 @@ class SummaryController < ApplicationController
   end
 
   def service_list
-    @services = (Service.all.order(:service_start)).where("service_end >= :today", { :today => Date.today } )
+    @services = Service.order(:service_start).in_future
   end
 
   def administration
@@ -52,36 +53,35 @@ class SummaryController < ApplicationController
   end
 
   private
-
-  def get_tasks_with_group(group)
-    tasks = Task.order(:date).where("date >= :today", { :today => Date.today } ).where("\"group\" = :group OR \"group\" = 0", { :group => group } )
-    if Time.now >= (Date.today + 12.hours)
-      tasks = tasks.drop_while { |e| e.date == Date.today  }
+    def get_tasks_with_group(group)
+      tasks = Task.order(:date).in_future.for_group(group)
+      if Time.now >= (Date.today + 12.hours)
+        tasks = tasks.drop_while { |e| e.date == Date.today  }
+      end
+      return tasks
     end
-    return tasks
-  end
-
-  def get_exams_with_group(group)
-    exams = Exam.order(:date).where("date >= :today", { :today => Date.today } ).where("\"group\" = :group OR \"group\" = 0", { :group => group } )
-    if Time.now >= (Date.today + 12.hours)
-      exams = exams.drop_while { |e| e.date == Date.today  }
+  
+    def get_exams_with_group(group)
+      exams = Exam.order(:date).in_future.for_group(group)
+      if Time.now >= (Date.today + 12.hours)
+        exams = exams.drop_while { |e| e.date == Date.today  }
+      end
+      return exams
     end
-    return exams
-  end
-
-  def get_tasks
-    tasks = Task.order(:date).where("date >= :today", { :today => Date.today } )
-    if Time.now >= (Date.today + 12.hours)
-      tasks = tasks.drop_while { |e| e.date == Date.today  }
+  
+    def get_tasks
+      tasks = Task.order(:date).in_future
+      if Time.now >= (Date.today + 12.hours)
+        tasks = tasks.drop_while { |e| e.date == Date.today  }
+      end
+      return tasks
     end
-    return tasks
-  end
-
-  def get_exams
-    exams = Exam.order(:date).where("date >= :today", { :today => Date.today } )
-    if Time.now >= (Date.today + 12.hours)
-      exams = exams.drop_while { |e| e.date == Date.today  }
+  
+    def get_exams
+      exams = Exam.order(:date).in_future
+      if Time.now >= (Date.today + 12.hours)
+        exams = exams.drop_while { |e| e.date == Date.today  }
+      end
+      return exams
     end
-    return exams
-  end
 end
