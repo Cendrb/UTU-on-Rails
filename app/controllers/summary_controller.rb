@@ -39,6 +39,7 @@ class SummaryController < ApplicationController
     respond_to do |format|
       format.html
       format.xml
+      format.atom
     end
   end
 
