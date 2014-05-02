@@ -1,44 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Název:</strong>
-  <%= @event.title %>
-</p>
-
-<p>
-  <strong>Popis:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Místo:</strong>
-  <%= @event.location %>
-</p>
-
-<p>
-  <strong>Více informací:</strong>
-  <%= @event.additional_info_url %>
-</p>
-
-<p>
-  <strong>Cena:</strong>
-  <%= number_to_currency(@event.price, :locale => :cs) %>
-</p>
-
-<p>
-  <strong>Termín platby:</strong>
-  <%= @event.pay_date %>
-</p>
-
-<p>
-  <strong>Počátek:</strong>
-  <%= @event.event_start %>
-</p>
-
-<p>
-  <strong>Konec:</strong>
-  <%= @event.event_end %>
-</p>
+<%= render @event %>
 
 <%= link_to 'Upravit', edit_event_path(@event) %> |
 <%= link_to 'Zpět na správu událostí', events_path %>

@@ -42,8 +42,13 @@
     <p>V následujícím týdnu, je nutné mít zaplacené následující položky:</p>
     <% @near_payments.each do |payment| %>
         <h4><%= payment.title %></h4>
-        <strong>Cena: </strong><%= number_to_currency(payment.price, :locale => :cs) %><br />
-        <strong>Zaplatit do: </strong><%= l payment.pay_date %><br />
+        <p>
+            <strong>Cena: </strong><%= number_to_currency(payment.price, :locale => :cs) %>
+        </p>
+        
+        <p>
+            <strong>Zaplatit do: </strong><%= l payment.pay_date %>
+        </p>
         <%= link_to 'Více informací', payment %>
     <% end %>
 <% end %>
