@@ -1,7 +1,6 @@
 class TasksController < ApplicationController
   before_filter :authenticate_admin
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
   # GET /tasks
   # GET /tasks.json
   def index
@@ -62,14 +61,25 @@ class TasksController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_task
-      @task = Task.find(params[:id])
+  def transform_to_exam
+    @task = Task.find(params[:task_id])
+    exam = @task.get_exam
+    Task.transaction do
+      exam.save
+      @task.destroy
+      redirect_to exam, notice: 'Úkol byl úspešně převeden na test a uložen do databáze.'
     end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def task_params
-      params.require(:task).permit(:title, :description, :subject, :date, :group, :additional_info_url)
-    end
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_task
+    @task = Task.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def task_params
+    params.require(:task).permit(:title, :description, :subject, :date, :group, :additional_info_url)
+  end
 end

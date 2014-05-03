@@ -10,6 +10,6 @@ class Exam < ActiveRecord::Base
   validates :group, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 2, only_integer: true, message: "neexistuje - zadejte 0 pro obě skupiny" }
   
   def get_task
-    Task.new(self.params)
+    Task.new(title: title, description: description, subject: subject, group: group, date: date)
   end
 end

@@ -1,6 +1,6 @@
 class ExamsController < ApplicationController
   before_filter :authenticate_admin
-  before_action :set_exam, only: [:show, :edit, :update, :destroy, :transform_to_task]
+  before_action :set_exam, only: [:show, :edit, :update, :destroy]
   # GET /exams
   # GET /exams.json
   def index
@@ -62,6 +62,7 @@ class ExamsController < ApplicationController
   end
 
   def transform_to_task
+    @exam = Exam.find(params[:exam_id])
     task = @exam.get_task
     Exam.transaction do
       task.save
