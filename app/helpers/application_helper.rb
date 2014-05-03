@@ -24,7 +24,4 @@ module ApplicationHelper
     end
   end
   
-  def insert_line
-    return "<hr class=\"line_between_details\" />".html_safe
-  end
 end

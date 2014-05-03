@@ -6,7 +6,7 @@
                 <h1>Události</h1>
                 <% @events.each do |e| %>
                     <%= render e %>
-                    <%= insert_line unless e == @events.last %>
+                    <%= render 'line' unless e == @events.last %>
                 <% end %>
             </div></td>
             <td class="details_block" id="middle_detail_block">
@@ -14,7 +14,7 @@
                 <h1>Úkoly</h1>
                 <% @tasks.each do |e| %>
                     <%= render e %>
-                    <%= insert_line unless e == @tasks.last %>
+                    <%= render 'line' unless e == @tasks.last %>
                 <% end %>
             </div></td>
             <td class="details_block">
@@ -22,7 +22,7 @@
                 <h1>Testy</h1>
                 <% @exams.each do |e| %>
                     <%= render e %>
-                    <%= insert_line unless e == @exams.last %>
+                    <%= render 'line' unless e == @exams.last %>
                 <% end %>
             </div></td>
         </tr>
