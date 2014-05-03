@@ -23,9 +23,9 @@ class SummaryController < ApplicationController
     if params[:range] && params[:group]
       from = Date.new(params[:range][:"from(1i)"].to_i,params[:range][:"from(2i)"].to_i,params[:range][:"from(3i)"].to_i)
       to = Date.new(params[:range][:"to(1i)"].to_i,params[:range][:"to(2i)"].to_i,params[:range][:"to(3i)"].to_i)
-      @events = Event.order(:event_start).where("event_start >= :from AND event_end <= :to", { :from => from, :to => to } )
-      @exams = Exam.order(:date).where("\"group\" = :group OR \"group\" = 0", { :group => params[:group] } ).where("date >= :from AND date <= :to", { :from => from, :to => to } )
-      @tasks = Task.order(:date).where("\"group\" = :group OR \"group\" = 0", { :group => params[:group] } ).where("date >= :from AND date <= :to", { :from => from, :to => to } )
+      @events = Event.order(:event_start).between_dates(from, to)
+      @exams = Exam.order(:date).for_group(params[:group]).between_dates(from, to)
+      @tasks = Task.order(:date).for_group(params[:group]).between_dates(from, to)
     else
       @events = (Event.all.order(:event_start)).in_future
       if logged_in?
