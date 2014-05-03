@@ -27,9 +27,9 @@
         <td><%= event.location %></td>
         <td><%= event.additional_info_url %></td>
         <td><%= number_to_currency(event.price, :locale => :cs) %></td>
-        <td><%= event.pay_date %></td>
-        <td><%= event.event_start %></td>
-        <td><%= event.event_end %></td>
+        <td><%= l event.pay_date %></td>
+        <td><%= l event.event_start %></td>
+        <td><%= l event.event_end %></td>
         <td><%= link_to 'Zobrazit', event %></td>
         <td><%= link_to 'Upravit', edit_event_path(event) %></td>
         <td><%= link_to 'Odstranit', event, method: :delete, data: { confirm: 'Jste si jisti?' } %></td>
