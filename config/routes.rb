@@ -10,7 +10,9 @@ UTUOnRails::Application.routes.draw do
 
   resources :services
 
-  resources :exams
+  resources :exams do
+    get 'transform_to_task' => 'tasks#transform_to_task'
+  end
 
   resources :tasks
 

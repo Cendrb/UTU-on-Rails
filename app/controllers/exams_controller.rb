@@ -1,7 +1,6 @@
 class ExamsController < ApplicationController
   before_filter :authenticate_admin
-  before_action :set_exam, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_exam, only: [:show, :edit, :update, :destroy, :transform_to_task]
   # GET /exams
   # GET /exams.json
   def index
@@ -62,12 +61,21 @@ class ExamsController < ApplicationController
     end
   end
 
+  def transform_to_task
+    task = @exam.get_task
+    Exam.transaction do
+      task.save
+      @exam.destroy
+      redirect_to task, notice: 'Test byl úspešně převeden na úkol a uložen do databáze.'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_exam
       @exam = Exam.find(params[:id])
     end
-
+  
     # Never trust parameters from the scary internet, only allow the white list through.
     def exam_params
       params.require(:exam).permit(:title, :description, :subject, :date, :group, :additional_info_url)
