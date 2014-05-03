@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def authenticate_admin
-    if authenticate.admin
+    if current_user && current_user.admin
     return true
     else
       redirect_to utu_path, alert: 'Nemáte dostatečná oprávnění pro přístup do této sekce'
