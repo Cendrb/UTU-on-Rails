@@ -14,6 +14,7 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -29,6 +30,7 @@
         <td><%= link_to 'Zobrazit', task %></td>
         <td><%= link_to 'Upravit', edit_task_path(task) %></td>
         <td><%= link_to 'Odstranit', task, method: :delete, data: { confirm: 'Jste si jisti?' } %></td>
+        <td><%= link_to 'Převést na test', task_transform_to_exam_path(task), data: { confirm: 'Jste si jisti?' } %></td>
       </tr>
     <% end %>
   </tbody>
