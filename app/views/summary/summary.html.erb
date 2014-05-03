@@ -1,6 +1,6 @@
 <h1>Přehled</h1>
 <h2>Úvod</h2>
-<p>Vítejte na webové verzi Utu. Veškerá data jsou uložena pouze ve zdejší databázi a i desktopová aplikace tento web využívá. Tato stránka "běží na" frameworku <%= link_to 'Ruby on Rails', 'http://rubyonrails.org/' %>, který mimo jiné využívá třeba Twitter. <% if !logged_in? %>Pro více funkcí se prosím <%= link_to 'zaregistrujte', register_path %>. Vaše osobní informace nebudou nijak zneužívány a vaše heslo je kódované algoritmem SH2 ;)</p><% end %>
+<p>Vítejte na webové verzi Utu. Veškerá data jsou uložena pouze ve zdejší databázi a i desktopová aplikace tento web využívá. Tato stránka "běží na" frameworku <%= link_to 'Ruby on Rails', 'http://rubyonrails.org/' %>, který mimo jiné využívá třeba Twitter.
 <% if notice %>
 <p id="notice">
     <%= notice %>
