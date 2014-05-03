@@ -37,7 +37,7 @@
         </li>
     </ul>
 <% end %>
-<% if @near_payments.count > 0 %>
+<% if @near_payments && @near_payments.count > 0 %>
     <h2>Platby</h2>
     <% @near_payments.each do |payment| %>
         <h4><%= payment.title %></h4>

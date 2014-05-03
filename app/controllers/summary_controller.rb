@@ -1,5 +1,4 @@
 class SummaryController < ApplicationController
-  
   def summary
     if logged_in?
       user_names = current_user.name.split
@@ -29,11 +28,11 @@ class SummaryController < ApplicationController
     else
       @events = (Event.all.order(:event_start)).in_future
       if logged_in?
-        @exams = get_exams_with_group(current_user.group)
-        @tasks = get_tasks_with_group(current_user.group)
+        @exams = drop_todays_after(Exam.order(:date).in_future.for_group(current_user.group), 12)
+        @tasks = drop_todays_after(Task.order(:date).in_future.for_group(current_user.group), 12)
       else
-        @exams = get_exams
-        @tasks = get_tasks
+        @exams = drop_todays_after(Exam.order(:date).in_future, 12)
+        @tasks = drop_todays_after(Task.order(:date).in_future, 12)
       end
     end
 
@@ -53,35 +52,11 @@ class SummaryController < ApplicationController
   end
 
   private
-    def get_tasks_with_group(group)
-      tasks = Task.order(:date).in_future.for_group(group)
-      if Time.now >= (Date.today + 12.hours)
-        tasks = tasks.drop_while { |e| e.date == Date.today  }
+    def drop_todays_after(items ,hour)
+      if Time.now >= (Date.today + hour.hours)
+        return items.drop_while { |e| e.date == Date.today  }
+      else
+        return items
       end
-      return tasks
-    end
-  
-    def get_exams_with_group(group)
-      exams = Exam.order(:date).in_future.for_group(group)
-      if Time.now >= (Date.today + 12.hours)
-        exams = exams.drop_while { |e| e.date == Date.today  }
-      end
-      return exams
-    end
-  
-    def get_tasks
-      tasks = Task.order(:date).in_future
-      if Time.now >= (Date.today + 12.hours)
-        tasks = tasks.drop_while { |e| e.date == Date.today  }
-      end
-      return tasks
-    end
-  
-    def get_exams
-      exams = Exam.order(:date).in_future
-      if Time.now >= (Date.today + 12.hours)
-        exams = exams.drop_while { |e| e.date == Date.today  }
-      end
-      return exams
     end
 end
