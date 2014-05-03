@@ -17,10 +17,14 @@
     <% if @error %>
         <%= @error %>
     <% else %>
+    <% if @service %>
         <p>
             Vaše období služby začíná <%= l @service.service_start %> a končí <%= l @service.service_end %>
         </p>
         <%= link_to 'Více informací o vaší službě', @service %>
+        <% else %>
+        <p>Došlo k chybě při zobrazování služby</p>
+        <% end %>
     <% end %>
     
     <% else %>

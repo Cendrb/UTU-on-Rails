@@ -8,6 +8,6 @@ end
 
 class Service < ActiveRecord::Base
   validates :first_name, :second_name, :service_start, :service_end, presence: { presence: true, message: "nesmí být prázdný" }
-  scope :in_future, where('service_end >= :today', { today: Date.today })
+  scope :in_future, -> { where('service_end >= :today', { today: Date.today }) }
   validates_with ServiceDateValidator
 end
