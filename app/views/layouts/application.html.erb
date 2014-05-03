@@ -33,9 +33,13 @@
 
                         <%= yield %>
                         <% if Rails.env.development? %>
+                            <h3>Params</h3>
                             <%= debug(params) %>
+                            <h3>Session</h3>
                             <%= debug(session) %>
+                            <h3>Response</h3>
                             <%= debug(response) %>
+                            <h3>Request</h3>
                             <%= debug(request) %>
                         <% end %>
                     </div>
