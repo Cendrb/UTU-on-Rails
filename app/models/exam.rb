@@ -1,7 +1,7 @@
 class Exam < ActiveRecord::Base
   SUBJECTS = ["MA", "F", "ČJL", "HV", "VV", "IKT", "D", "VO", "NJ", "AJ", "TV", "PŘÍ", "CH", "Z"]
   
-  scope :in_future, where('date >= :today', { today: Date.today })
+  scope :in_future, -> { where('date >= :today', { today: Date.today }) }
   scope :for_group, lambda { |group| where("\"group\" = :group OR \"group\" = 0", { group: group }) }
   scope :between_dates, lambda { |from, to| where("date >= :from AND date <= :to", { from: from, to: to } ) }
   

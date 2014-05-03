@@ -52,11 +52,11 @@ class SummaryController < ApplicationController
   end
 
   private
-    def drop_todays_after(items ,hour)
+    def drop_todays_after(items, hour)
       if Time.now >= (Date.today + hour.hours)
-        return items.drop_while { |e| e.date == Date.today  }
+        items.drop_while { |e| e.date == Date.today  }
       else
-        return items
+        items
       end
     end
 end
