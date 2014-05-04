@@ -26,11 +26,12 @@ class SummaryController < ApplicationController
       @exams = Exam.order(:date).for_group(params[:group]).between_dates(from, to)
       @tasks = Task.order(:date).for_group(params[:group]).between_dates(from, to)
     else
-      @events = (Event.all.order(:event_start)).in_future
       if logged_in?
+        @events = (Event.all.order(:event_start)).in_future.not_on_list(current_user.hidden_events)
         @exams = drop_todays_after(Exam.order(:date).in_future.for_group(current_user.group), 12)
         @tasks = drop_todays_after(Task.order(:date).in_future.for_group(current_user.group), 12)
       else
+        @events = (Event.all.order(:event_start)).in_future
         @exams = drop_todays_after(Exam.order(:date).in_future, 12)
         @tasks = drop_todays_after(Task.order(:date).in_future, 12)
       end
