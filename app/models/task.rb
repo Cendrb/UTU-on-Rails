@@ -4,6 +4,8 @@ class Task < ActiveRecord::Base
   scope :in_future, -> { where('date >= :today', { today: Date.today }) }
   scope :for_group, lambda { |group| where("\"group\" = :group OR \"group\" = 0", { group: group }) }
   scope :between_dates, lambda { |from, to| where("date >= :from AND date <= :to", { from: from, to: to } ) }
+  scope :id_not_on_list, lambda { |list| where("NOT (ARRAY[id] <@ ARRAY[:ids])", { ids: list } ) }
+  scope :id_on_list, lambda { |list| where("ARRAY[id] <@ ARRAY[:ids]", { ids: list } ) }
   
   validates :title, :description, :subject, :group, :date, presence: {presence: true, message: "nesmí být prázdný"}
   validates :subject, inclusion: {in: SUBJECTS, message: "není platný předmět"}

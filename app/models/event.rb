@@ -9,7 +9,8 @@ end
 class Event < ActiveRecord::Base
   scope :in_future, -> { where('event_end >= :today', { today: Date.today }) }
   scope :between_dates, lambda { |from, to| where("event_start >= :from AND event_end <= :to", { from: from, to: to } ) }
-  scope :not_on_list, lambda { |list| where("NOT (ARRAY[id] <@ ARRAY[:ids])", { ids: list } ) }
+  scope :id_not_on_list, lambda { |list| where("NOT (ARRAY[id] <@ ARRAY[:ids])", { ids: list } ) }
+  scope :id_on_list, lambda { |list| where("ARRAY[id] <@ ARRAY[:ids]", { ids: list } ) }
   
   validates :title, :description, :event_start, :event_end, :location, presence: {presence: true, message: "nesmí být prázdný"}
   validates :price, numericality: true

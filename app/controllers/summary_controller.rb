@@ -27,9 +27,16 @@ class SummaryController < ApplicationController
       @tasks = Task.order(:date).for_group(params[:group]).between_dates(from, to)
     else
       if logged_in?
-        @events = (Event.all.order(:event_start)).in_future.not_on_list(current_user.hidden_events)
-        @exams = drop_todays_after(Exam.order(:date).in_future.for_group(current_user.group), 12)
-        @tasks = drop_todays_after(Task.order(:date).in_future.for_group(current_user.group), 12)
+        @events = Event.all.order(:event_start).in_future
+        @exams = Exam.order(:date).in_future.for_group(current_user.group)
+        @tasks = Task.order(:date).in_future.for_group(current_user.group)
+
+        @events = @events.id_not_on_list(current_user.hidden_events) if current_user.hidden_events.length > 0
+        @exams = @exams.id_not_on_list(current_user.hidden_exams) if current_user.hidden_exams.length > 0
+        @tasks = @tasks.id_not_on_list(current_user.hidden_tasks) if current_user.hidden_tasks.length > 0
+
+        @exams = drop_todays_after(@exams, 12)
+        @tasks = drop_todays_after(@tasks, 12)
       else
         @events = (Event.all.order(:event_start)).in_future
         @exams = drop_todays_after(Exam.order(:date).in_future, 12)
@@ -53,11 +60,12 @@ class SummaryController < ApplicationController
   end
 
   private
-    def drop_todays_after(items, hour)
-      if Time.now >= (Date.today + hour.hours)
-        items.drop_while { |e| e.date == Date.today  }
-      else
-        items
-      end
+
+  def drop_todays_after(items, hour)
+    if Time.now >= (Date.today + hour.hours)
+      items.drop_while { |e| e.date == Date.today  }
+    else
+    items
     end
+  end
 end
