@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_filter :authenticate_admin
+  before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   # GET /tasks
   # GET /tasks.json

@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :authenticate_admin
+  before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_event_from_event_id, only: [:hide, :reveal]
   # GET /events

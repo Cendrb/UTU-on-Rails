@@ -3,10 +3,12 @@
     <%= sanitize(event.description) %>
 </p>
 <% event.id %>
-<% if !User.select('hidden_events').to_a.include? event.id && logged_in? %>
+<% if logged_in? %>
+<% if !User.select('hidden_events').to_a.include? event.id %>
     <%= button_to 'Obnovit', event_reveal_path(event), method: :get %>
 <% else %>
     <%= button_to 'Skrýt', event_hide_path(event), method: :get %>
+<% end %>
 <% end %>
 <p>
     <strong>Místo: </strong>
