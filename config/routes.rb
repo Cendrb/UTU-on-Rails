@@ -18,7 +18,10 @@ UTUOnRails::Application.routes.draw do
     get 'transform_to_exam' => 'tasks#transform_to_exam'
   end
 
-  resources :events
+  resources :events do
+    get 'hide' => 'events#hide'
+    get 'reveal' => 'events#reveal'
+  end
   
   resources :services
 

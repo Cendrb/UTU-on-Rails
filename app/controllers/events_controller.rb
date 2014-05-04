@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_filter :authenticate_admin
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event_from_event_id, only: [:hide, :reveal]
   # GET /events
   # GET /events.json
   def index
@@ -61,11 +62,41 @@ class EventsController < ApplicationController
     end
   end
 
+  def hide
+    user = current_user
+    if !user.hidden_events.include? @event.id
+      user.hidden_events = user.hidden_events + [@event.id]
+      user.save
+    end
+    if request.env['HTTP_REFERER']
+      redirect_to :back
+    else
+      redirect_to details_path
+    end
+  end
+
+  def reveal
+    user = current_user
+    if user.hidden_events.include? @event.id
+      user.hidden_events = user.hidden_events - [@event.id]
+      user.save!
+    end
+    if request.env['HTTP_REFERER']
+      redirect_to :back
+    else
+      redirect_to details_path
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
+  end
+
+  def set_event_from_event_id
+    @event = Event.find(params[:event_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

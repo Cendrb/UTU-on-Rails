@@ -1,6 +1,7 @@
 class ExamsController < ApplicationController
   before_filter :authenticate_admin
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
+  before_action :set_exam_from_exam_id, only: [:transform_to_task, :hide, :reveal]
   # GET /exams
   # GET /exams.json
   def index
@@ -62,7 +63,6 @@ class ExamsController < ApplicationController
   end
 
   def transform_to_task
-    @exam = Exam.find(params[:exam_id])
     task = @exam.get_task
     Exam.transaction do
       task.save
@@ -71,10 +71,40 @@ class ExamsController < ApplicationController
     end
   end
 
+  def hide
+    user = current_user
+    if !user.hidden_exams.include? @exam.id
+      user.hidden_exams = user.hidden_events + [@exam.id]
+      user.save
+    end
+    if request.env['HTTP_REFERER']
+      redirect_to :back
+    else
+      redirect_to details_path
+    end
+  end
+
+  def reveal
+    user = current_user
+    if user.hidden_exams.include? @exam.id
+      user.hidden_events = user.hidden_events - [@exam.id]
+      user.save!
+    end
+    if request.env['HTTP_REFERER']
+      redirect_to :back
+    else
+      redirect_to details_path
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_exam
       @exam = Exam.find(params[:id])
+    end
+    
+    def set_exam_from_exam_id
+      @exam = Exam.find(params[:exam_id])
     end
   
     # Never trust parameters from the scary internet, only allow the white list through.

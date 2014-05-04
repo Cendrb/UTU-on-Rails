@@ -71,6 +71,32 @@ class TasksController < ApplicationController
     end
   end
 
+  def hide
+    user = current_user
+    if !user.hidden_tasks.include? @task.id
+      user.hidden_tasks = user.hidden_events + [@task.id]
+      user.save
+    end
+    if request.env['HTTP_REFERER']
+      redirect_to :back
+    else
+      redirect_to details_path
+    end
+  end
+
+  def reveal
+    user = current_user
+    if user.hidden_tasks.include? @task.id
+      user.hidden_events = user.hidden_events - [@task.id]
+      user.save!
+    end
+    if request.env['HTTP_REFERER']
+      redirect_to :back
+    else
+      redirect_to details_path
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
