@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 20140505125626) do
     t.string   "additional_info_url"
   end
 
+  create_table "more_informations", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "services", force: true do |t|
     t.string   "first_name"
     t.string   "second_name"
@@ -69,6 +76,9 @@ ActiveRecord::Schema.define(version: 20140505125626) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.integer  "hidden_events",      default: [], array: true
+    t.integer  "hidden_exams",       default: [], array: true
+    t.integer  "hidden_tasks",       default: [], array: true
     t.boolean  "show_hidden_events"
     t.boolean  "show_hidden_exams"
     t.boolean  "show_hidden_tasks"
