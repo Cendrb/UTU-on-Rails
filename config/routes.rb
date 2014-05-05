@@ -19,7 +19,7 @@ UTUOnRails::Application.routes.draw do
   end
 
   resources :tasks do
-    controller :exams do
+    controller :tasks do
       get 'transform_to_exam' => :transform_to_exam
       get 'hide' => :hide
       get 'reveal' => :reveal
