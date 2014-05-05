@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task_from_task_id, only: [:transform_to_exam, :hide, :reveal]
   # GET /tasks
   # GET /tasks.json
   def index
@@ -62,7 +63,6 @@ class TasksController < ApplicationController
   end
 
   def transform_to_exam
-    @task = Task.find(params[:task_id])
     exam = @task.get_exam
     Task.transaction do
       exam.save
@@ -74,7 +74,7 @@ class TasksController < ApplicationController
   def hide
     user = current_user
     if !user.hidden_tasks.include? @task.id
-      user.hidden_tasks = user.hidden_events + [@task.id]
+      user.hidden_tasks += [@task.id]
       user.save
     end
     if request.env['HTTP_REFERER']
@@ -87,7 +87,7 @@ class TasksController < ApplicationController
   def reveal
     user = current_user
     if user.hidden_tasks.include? @task.id
-      user.hidden_events = user.hidden_events - [@task.id]
+      user.hidden_events -= [@task.id]
       user.save!
     end
     if request.env['HTTP_REFERER']
@@ -102,6 +102,10 @@ class TasksController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_task
     @task = Task.find(params[:id])
+  end
+  
+  def set_task_from_task_id
+    @task = Task.find(params[:task_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
