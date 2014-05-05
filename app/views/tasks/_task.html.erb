@@ -1,7 +1,7 @@
 <div class="task">
     
     <% if logged_in? %>
-        <% if User.select('hidden_tasks').to_a.include? task.id %>
+        <% if current_user.hidden_tasks.to_a.include? task.id %>
             <%= button_to 'Obnovit', task_reveal_path(task), method: :get, class: 'hide_or_reveal' %>
         <% else %>
             <%= button_to 'Skrýt', task_hide_path(task), method: :get, class: 'hide_or_reveal' %>

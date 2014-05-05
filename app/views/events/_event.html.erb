@@ -1,7 +1,7 @@
 <div class="event">
     
     <% if logged_in? %>
-        <% if User.select('hidden_events').to_a.include? event.id %>
+        <% if current_user.hidden_events.to_a.include? event.id %>
             <%= button_to 'Obnovit', event_reveal_path(event), method: :get, class: 'hide_or_reveal' %>
         <% else %>
             <%= button_to 'Skrýt', event_hide_path(event), method: :get, class: 'hide_or_reveal' %>
