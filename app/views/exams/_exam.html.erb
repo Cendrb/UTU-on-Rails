@@ -1,30 +1,41 @@
-<h3><%= exam.title %></h3>
-
-<p>
-    <%= sanitize(exam.description) %>
-</p>
-
-<p>
-    <strong>Předmět: </strong>
-    <%= exam.subject %>
-</p>
-
-<p>
-    <strong>Datum: </strong>
-    <%= l exam.date %>
-</p>
-
-<p>
-    <strong>Skupina: </strong>
-    <% if exam.group == 0 %>
-        obě skupiny
-    <% else %>
-        <%= exam.group %>.
+<div class="exam">
+    
+    <% if logged_in? %>
+        <% if User.select('hidden_exams').to_a.include? exam.id %>
+            <%= button_to 'Obnovit', exam_reveal_path(exam), method: :get, class: 'hide_or_reveal' %>
+        <% else %>
+            <%= button_to 'Skrýt', exam_hide_path(exam), method: :get, class: 'hide_or_reveal' %>
+        <% end %>
     <% end %>
-</p>
 
-<% if !exam.additional_info_url.nil? && !exam.additional_info_url.empty? %>
+    <h3><%= exam.title %></h3>
+    
     <p>
-        <%= link_to "Další informace", exam.additional_info_url %>
+        <%= sanitize(exam.description) %>
     </p>
-<% end %>
+    
+    <p>
+        <strong>Předmět: </strong>
+        <%= exam.subject %>
+    </p>
+    
+    <p>
+        <strong>Datum: </strong>
+        <%= l exam.date %>
+    </p>
+    
+    <p>
+        <strong>Skupina: </strong>
+        <% if exam.group == 0 %>
+            obě skupiny
+        <% else %>
+            <%= exam.group %>.
+        <% end %>
+    </p>
+    
+    <% if !exam.additional_info_url.nil? && !exam.additional_info_url.empty? %>
+        <p>
+            <%= link_to "Další informace", exam.additional_info_url %>
+        </p>
+    <% end %>
+</div>

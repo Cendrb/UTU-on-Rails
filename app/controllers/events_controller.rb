@@ -78,7 +78,7 @@ class EventsController < ApplicationController
   def reveal
     user = current_user
     if user.hidden_events.include? @event.id
-      user.hidden_events = user.hidden_events - [@event.id]
+      user.hidden_events -= [@event.id]
       user.save!
     end
     if request.env['HTTP_REFERER']

@@ -21,6 +21,16 @@ body {
       height: 7em;
       background-color:  $background-color;
   }
+  
+  /* Details */
+  #details
+  {
+    .hide_or_reveal {
+      float: right;
+      margin-right: 8px;
+    }
+  }
+  
   #menu {
       background-color: $background-color;
       height: 2em;
@@ -30,6 +40,25 @@ body {
       margin-bottom: 7em;
       margin-left: auto;
       margin-right: auto;
+      
+    li {
+        display: inline;
+    }
+    ul {
+        padding-top: 0.3em;
+        padding-left: 0.6em;
+        margin: 0;
+        float: left;
+        list-style-type: none;
+    }
+    a {
+        text-align: center;
+        float: left;
+        width: 10em;
+        color: white;
+        text-decoration: none;
+        padding-bottom: 0.2em;
+    }
   }
   #main {
       padding: 4px 15px;
@@ -63,24 +92,7 @@ body {
 /* Menu */
 #summary #menu
 {
-  li {
-      display: inline;
-  }
-  ul {
-      padding-top: 0.3em;
-      padding-left: 0.6em;
-      margin: 0;
-      float: left;
-      list-style-type: none;
-  }
-  a {
-      text-align: center;
-      float: left;
-      width: 10em;
-      color: white;
-      text-decoration: none;
-      padding-bottom: 0.2em;
-  }
+  
 }
 
 /* Header */
