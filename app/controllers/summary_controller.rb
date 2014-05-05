@@ -31,9 +31,16 @@ class SummaryController < ApplicationController
         @exams = Exam.order(:date).in_future.for_group(current_user.group)
         @tasks = Task.order(:date).in_future.for_group(current_user.group)
 
-        @events = @events.id_not_on_list(current_user.hidden_events) if current_user.hidden_events.length > 0
-        @exams = @exams.id_not_on_list(current_user.hidden_exams) if current_user.hidden_exams.length > 0
-        @tasks = @tasks.id_not_on_list(current_user.hidden_tasks) if current_user.hidden_tasks.length > 0
+        # Umožnění skrytí jednotlivých položek
+        if !current_user.show_hidden_events
+          @events = @events.id_not_on_list(current_user.hidden_events) if current_user.hidden_events.length > 0
+        end
+        if !current_user.show_hidden_exams
+          @exams = @exams.id_not_on_list(current_user.hidden_exams) if current_user.hidden_exams.length > 0
+        end
+        if !current_user.show_hidden_tasks
+          @tasks = @tasks.id_not_on_list(current_user.hidden_tasks) if current_user.hidden_tasks.length > 0
+        end
 
         @exams = drop_todays_after(@exams, 12)
         @tasks = drop_todays_after(@tasks, 12)

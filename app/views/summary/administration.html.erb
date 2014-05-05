@@ -1,6 +1,6 @@
 <h1>Nastavení</h1>
 <% if logged_in? %>
-    <%= render partial: "settings", locals: {user: current_user} %>
+    <%= render partial: "users/settings", locals: {user: current_user} %>
 <% else %>
     <p>Pro používání této sekce se musíte <%= link_to 'přihlásit', login_path %> nebo <%= link_to 'zaregistrovat', register_path %></p>
 <% end %>
