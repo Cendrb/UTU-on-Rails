@@ -1,3 +1,22 @@
 <div id="hide_setings">
-    
+    <%= form_for(user) do |f| %>
+
+    <table>
+        <tr>
+            <td> <%= f.label :show_hidden_events, 'Zobrazit skryté události' %> </td>
+            <td> <%= f.check_box :show_hidden_events %> </td>
+        </tr>
+        <tr>
+            <td> <%= f.label :show_hidden_exams, 'Zobrazit skryté testy' %> </td>
+            <td> <%= f.check_box :show_hidden_exams %> </td>
+        </tr>
+        <tr>
+            <td> <%= f.label :show_hidden_tasks, 'Zobrazit skryté úkoly' %> </td>
+            <td> <%= f.check_box :show_hidden_tasks %> </td>
+        </tr>
+    </table>
+    <div class="actions">
+        <%= f.submit 'Uložit' %>
+    </div>
+    <% end %>
 </div>

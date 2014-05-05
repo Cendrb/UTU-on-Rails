@@ -63,7 +63,7 @@ class SummaryController < ApplicationController
   end
 
   def administration
-
+    
   end
 
   private
