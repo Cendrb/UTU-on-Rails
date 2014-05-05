@@ -87,7 +87,7 @@ class TasksController < ApplicationController
   def reveal
     user = current_user
     if user.hidden_tasks.include? @task.id
-      user.hidden_events -= [@task.id]
+      user.hidden_tasks -= [@task.id]
       user.save!
     end
     if request.env['HTTP_REFERER']
