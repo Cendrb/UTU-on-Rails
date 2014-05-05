@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140505125626) do
+ActiveRecord::Schema.define(version: 20140503144052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,9 +69,9 @@ ActiveRecord::Schema.define(version: 20140505125626) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.boolean  "show_hidden_events"
-    t.boolean  "show_hidden_exams"
-    t.boolean  "show_hidden_tasks"
+    t.integer  "hidden_events",   default: [], array: true
+    t.integer  "hidden_exams",    default: [], array: true
+    t.integer  "hidden_tasks",    default: [], array: true
   end
 
 end
