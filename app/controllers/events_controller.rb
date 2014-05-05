@@ -68,10 +68,8 @@ class EventsController < ApplicationController
       user.hidden_events += [@event.id]
       user.save
     end
-    if request.env['HTTP_REFERER']
-      redirect_to :back
-    else
-      redirect_to details_path
+    respond_to do |format|
+      format.html { redirect_to details_path }
     end
   end
 
@@ -81,10 +79,8 @@ class EventsController < ApplicationController
       user.hidden_events -= [@event.id]
       user.save!
     end
-    if request.env['HTTP_REFERER']
-      redirect_to :back
-    else
-      redirect_to details_path
+    respond_to do |format|
+      format.html { redirect_to details_path }
     end
   end
 
