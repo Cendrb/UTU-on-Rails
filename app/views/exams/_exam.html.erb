@@ -1,6 +1,6 @@
 <div class="exam">
     
-    <% if logged_in? && admin_logged_in? %>
+    <% if logged_in? %>
         <% if current_user.hidden_exams.to_a.include? exam.id %>
             <%= button_to 'Obnovit', exam_reveal_path(exam), method: :get, class: 'hide_or_reveal' %>
         <% else %>
