@@ -75,7 +75,7 @@ class ExamsController < ApplicationController
     user = current_user
     if !user.hidden_exams.include? @exam.id
       user.hidden_exams += [@exam.id]
-      user.save
+      user.save!
     end
     if request.env['HTTP_REFERER']
       redirect_to :back

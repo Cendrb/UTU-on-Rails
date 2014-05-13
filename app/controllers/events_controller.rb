@@ -66,7 +66,7 @@ class EventsController < ApplicationController
     user = current_user
     if !user.hidden_events.include? @event.id
       user.hidden_events += [@event.id]
-      user.save
+      user.save!
     end
     respond_to do |format|
       format.html { redirect_to details_path }
