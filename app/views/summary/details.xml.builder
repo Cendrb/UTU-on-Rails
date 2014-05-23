@@ -2,7 +2,7 @@ xml.instruct!
 xml.utu do
 	xml.events do
 		@events.each do |event|
-			xml.event('id' => event.id, 'title' => event.title, 'description' => event.description, 'location' => event.location, 'eventStart' => event.event_start, 'eventEnd' => event.event_end, 'price' => event.price, 'payDate' => event.pay_date, 'additionalInfoUrl' => event.additional_info_url)
+			xml.event('id' => event.id, 'title' => event.title, 'description' => event.description, 'location' => event.location, 'eventStart' => event.event_start, 'eventEnd' => event.event_end, 'price' => event.price, 'payDate' => event.pay_date, 'additionalInfoUrl' => event.additional_info_url, 'payDate' => event.pay_date)
 		end
 	end
 	xml.tasks do
