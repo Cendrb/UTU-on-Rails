@@ -16,6 +16,7 @@ class ExamsController < ApplicationController
   # GET /exams/new
   def new
     @exam = Exam.new
+    @exam.group = 0
   end
 
   # GET /exams/1/edit
