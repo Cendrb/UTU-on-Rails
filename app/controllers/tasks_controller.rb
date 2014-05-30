@@ -16,7 +16,7 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
-    @task = 0
+    @task.group = 0
   end
 
   # GET /tasks/1/edit
