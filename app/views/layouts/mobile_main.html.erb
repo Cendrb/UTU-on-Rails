@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UTU on Rails</title>
+        <%= favicon_link_tag 'favicon.ico' %>
+        <%= stylesheet_link_tag "utu_mobile" %>
+        <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <%= yield %>
+    </body>
+</html>
