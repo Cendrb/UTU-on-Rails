@@ -3,8 +3,9 @@
     <head>
         <title>UTU on Rails</title>
         <%= favicon_link_tag 'favicon.ico' %>
-        <%= stylesheet_link_tag 'utu' %>
-        <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+        <%= stylesheet_link_tag 'scaffolds', "data-turbolinks-track" => true %>
+        <%= stylesheet_link_tag 'summary', "data-turbolinks-track" => true %>
+        <%= stylesheet_link_tag "utu", "data-turbolinks-track" => true %>
         <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
         <%= csrf_meta_tags %>
     </head>
@@ -33,14 +34,14 @@
 
                         <%= yield %>
                         <% if Rails.env.development? %>
-                            <h3>Params</h3>
-                            <%= debug(params) %>
-                            <h3>Session</h3>
-                            <%= debug(session) %>
-                            <h3>Response</h3>
-                            <%= debug(response) %>
-                            <h3>Request</h3>
-                            <%= debug(request) %>
+                        <h3>Params</h3>
+                        <%= debug(params) %>
+                        <h3>Session</h3>
+                        <%= debug(session) %>
+                        <h3>Response</h3>
+                        <%= debug(response) %>
+                        <h3>Request</h3>
+                        <%= debug(request) %>
                         <% end %>
                     </div>
 
