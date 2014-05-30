@@ -17,6 +17,7 @@ class ExamsController < ApplicationController
   def new
     @exam = Exam.new
     @exam.group = 0
+    @exam.date = next_workday
   end
 
   # GET /exams/1/edit

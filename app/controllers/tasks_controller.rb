@@ -17,6 +17,7 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
     @task.group = 0
+    @task.date = next_workday
   end
 
   # GET /tasks/1/edit

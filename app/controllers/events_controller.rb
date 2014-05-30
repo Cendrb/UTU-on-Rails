@@ -16,6 +16,9 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @event.pay_date = next_workday
+    @event.event_start = next_workday
+    @event.event_end = next_workday
   end
 
   # GET /events/1/edit

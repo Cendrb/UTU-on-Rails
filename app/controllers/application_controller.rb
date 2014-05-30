@@ -10,6 +10,14 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def next_workday
+    date = Date.today
+    begin
+      date += 1.day
+    end while(date.strftime("%A") == "Sunday" || date.strftime("%A") == "Saturday")
+    return date
+  end
+
   def authenticate_admin
     if current_user && current_user.admin
     return true
