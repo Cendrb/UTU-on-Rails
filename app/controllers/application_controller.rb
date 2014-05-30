@@ -15,7 +15,11 @@ class ApplicationController < ActionController::Base
     
     def layout
       if request.variant && request.variant.first == :mobile
+<<<<<<< HEAD
         return "mobile_main"
+=======
+        return "desktop_main"
+>>>>>>> 34904902883b15b0c5237ce7a31a5299860f9e58
       else
         return "desktop_main"
       end
