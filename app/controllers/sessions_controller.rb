@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     if user = User.authenticate(params[:email], params[:password])
       if params[:permanent]
-        cookies.signed[:user_id] = user.id
+        cookies.permanent.signed[:user_id] = user.id
       end
       session[:user_id] = user.id
       if user.admin
