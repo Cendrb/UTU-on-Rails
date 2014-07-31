@@ -7,7 +7,7 @@ gem 'rails', '4.1.0'
 gem 'pg'
 
 # Spring from Rails 4.1
-gem 'spring', group: :development
+#gem 'spring', group: :development
 
 # Email validation
 gem 'validates_email_format_of'
