@@ -1,4 +1,6 @@
 class SummaryController < ApplicationController
+  skip_before_filter :verify_authenticity_token, :only => [:post_details]
+  
   def summary
     if logged_in?
       user_names = current_user.name.split
@@ -18,13 +20,27 @@ class SummaryController < ApplicationController
     @near_payments = Event.order(:event_start).in_future.where("pay_date <= :pay AND pay_date != event_start", { :pay => Date.today + 7.days } )
   end
 
+  def post_details
+    from = Date.parse(params[:from])
+    to = Date.parse(params[:to])
+    @events = Event.order(:event_start).between_dates(from, to)
+    @exams = Exam.order(:date).for_group(params[:group]).between_dates(from, to)
+    @tasks = Task.order(:date).for_group(params[:group]).between_dates(from, to)
+    
+    render 'details.xml'
+  end
+
   def details
     if params[:range] && params[:group]
       from = Date.new(params[:range][:"from(1i)"].to_i,params[:range][:"from(2i)"].to_i,params[:range][:"from(3i)"].to_i)
       to = Date.new(params[:range][:"to(1i)"].to_i,params[:range][:"to(2i)"].to_i,params[:range][:"to(3i)"].to_i)
       @events = Event.order(:event_start).between_dates(from, to)
-      @exams = Exam.order(:date).for_group(params[:group]).between_dates(from, to)
-      @tasks = Task.order(:date).for_group(params[:group]).between_dates(from, to)
+      @exams = Exam.order(:date).between_dates(from, to)
+      @tasks = Task.order(:date).between_dates(from, to)
+      if group != 0
+        @exams = @exams.for_group(params[:group])
+        @tasks = @tasks.for_group(params[:group])
+      end
     else
       if logged_in?
         user = current_user

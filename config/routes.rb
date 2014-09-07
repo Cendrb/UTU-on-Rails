@@ -33,7 +33,6 @@ UTUOnRails::Application.routes.draw do
     end
   end
 
-  resources :services
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -43,6 +42,7 @@ UTUOnRails::Application.routes.draw do
   root to: 'summary#summary', as: 'utu'
 
   get 'details' => 'summary#details'
+  post 'details' => 'summary#post_details'
   get 'service_list' => 'summary#service_list'
   get 'administration' => 'summary#administration'
   get 'register' => 'users#new'
