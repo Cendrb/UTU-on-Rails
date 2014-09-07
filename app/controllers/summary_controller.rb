@@ -26,6 +26,10 @@ class SummaryController < ApplicationController
     @events = Event.order(:event_start).between_dates(from, to)
     @exams = Exam.order(:date).for_group(params[:group]).between_dates(from, to)
     @tasks = Task.order(:date).for_group(params[:group]).between_dates(from, to)
+    if group != 0
+        @exams = @exams.for_group(params[:group])
+        @tasks = @tasks.for_group(params[:group])
+      end
     
     render 'details.xml'
   end
