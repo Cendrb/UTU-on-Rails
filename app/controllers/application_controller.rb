@@ -13,14 +13,6 @@ class ApplicationController < ActionController::Base
 
   private
     
-    def layout
-      if request.variant && request.variant.first == :mobile
-        return "desktop_main"
-      else
-        return "desktop_main"
-      end
-    end
-    
     def detect_device_format
       case request.user_agent
       when /iPad/i
@@ -33,6 +25,17 @@ class ApplicationController < ActionController::Base
         request.variant = :tablet
       when /Windows Phone/i
         request.variant = :mobile
+      else
+        request.variant = :desktop
+      end
+    end
+    
+    def layout
+      puts "VAGINA #{request.variant}";
+      if(request.variant[0] == :mobile)
+        return 'mobile_main'
+      else
+        return 'desktop_main'
       end
     end
 
