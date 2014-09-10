@@ -8,10 +8,12 @@
         <%= csrf_meta_tags %>
     </head>
     <body>
-        <div id="menu">
-            <%= render 'mobile_menu' %>
-        </div>
+        <div>
+            <div id="menu">
+                <%= render 'mobile_menu' %>
+            </div>
 
-        <%= yield %>
+            <%= yield %>
+        </div>
     </body>
 </html>

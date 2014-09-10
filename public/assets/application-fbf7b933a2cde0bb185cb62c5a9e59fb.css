@@ -1,0 +1,572 @@
+@charset "UTF-8";/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+
+ */
+
+/*
+	jQuery.mmenu CSS
+*/
+/*
+	jQuery.mmenu panels CSS
+*/
+
+.mm-menu.mm-horizontal > .mm-panel {
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease; }
+
+.mm-menu .mm-hidden {
+  display: none; }
+
+.mm-wrapper {
+  overflow-x: hidden;
+  position: relative; }
+
+.mm-menu,
+.mm-menu > .mm-panel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0; }
+
+.mm-menu {
+  background: inherit;
+  display: block;
+  overflow: hidden;
+  padding: 0; }
+  .mm-menu > .mm-panel {
+    background: inherit;
+    -webkit-overflow-scrolling: touch;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 20px;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%); }
+    .mm-menu > .mm-panel.mm-opened {
+      -webkit-transform: translateX(0%);
+      transform: translateX(0%); }
+    .mm-menu > .mm-panel.mm-subopened {
+      -webkit-transform: translateX(-30%);
+      transform: translateX(-30%); }
+    .mm-menu > .mm-panel.mm-highest {
+      z-index: 1; }
+  .mm-menu .mm-list {
+    padding: 20px 0; }
+  .mm-menu > .mm-list {
+    padding-bottom: 40px; }
+
+.mm-panel > .mm-list {
+  margin-left: -20px;
+  margin-right: -20px; }
+  .mm-panel > .mm-list:first-child {
+    padding-top: 0; }
+
+.mm-list,
+.mm-list > li {
+  list-style: none;
+  display: block;
+  padding: 0;
+  margin: 0; }
+
+.mm-list {
+  font: inherit;
+  font-size: 14px; }
+  .mm-list a,
+  .mm-list a:hover {
+    text-decoration: none; }
+  .mm-list > li {
+    position: relative; }
+    .mm-list > li > a,
+    .mm-list > li > span {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      color: inherit;
+      line-height: 20px;
+      display: block;
+      padding: 10px 10px 10px 20px;
+      margin: 0; }
+  .mm-list > li:not(.mm-subtitle):not(.mm-label):not(.mm-search):not(.mm-noresults):after {
+    content: '';
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0; }
+  .mm-list > li:not(.mm-subtitle):not(.mm-label):not(.mm-search):not(.mm-noresults):after {
+    width: auto;
+    margin-left: 20px;
+    position: relative;
+    left: auto; }
+  .mm-list a.mm-subopen {
+    background: rgba(3, 2, 1, 0);
+    width: 40px;
+    height: 100%;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2; }
+    .mm-list a.mm-subopen:before {
+      content: '';
+      border-left-width: 1px;
+      border-left-style: solid;
+      display: block;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0; }
+    .mm-list a.mm-subopen.mm-fullsubopen {
+      width: 100%; }
+      .mm-list a.mm-subopen.mm-fullsubopen:before {
+        border-left: none; }
+    .mm-list a.mm-subopen + a,
+    .mm-list a.mm-subopen + span {
+      padding-right: 5px;
+      margin-right: 40px; }
+  .mm-list > li.mm-selected > a.mm-subopen {
+    background: transparent; }
+  .mm-list > li.mm-selected > a.mm-fullsubopen + a,
+  .mm-list > li.mm-selected > a.mm-fullsubopen + span {
+    padding-right: 45px;
+    margin-right: 0; }
+  .mm-list a.mm-subclose {
+    text-indent: 20px;
+    padding-top: 30px;
+    margin-top: -20px; }
+  .mm-list > li.mm-label {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 10px;
+    text-transform: uppercase;
+    text-indent: 20px;
+    line-height: 25px;
+    padding-right: 5px; }
+  .mm-list > li.mm-spacer {
+    padding-top: 40px; }
+    .mm-list > li.mm-spacer.mm-label {
+      padding-top: 25px; }
+  .mm-list a.mm-subopen:after,
+  .mm-list a.mm-subclose:before {
+    content: '';
+    border: 2px solid transparent;
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    margin-bottom: -5px;
+    position: absolute;
+    bottom: 50%; }
+  .mm-list a.mm-subopen:after {
+    border-top: none;
+    border-left: none;
+    right: 18px; }
+  .mm-list a.mm-subclose:before {
+    border-right: none;
+    border-bottom: none;
+    margin-bottom: -15px;
+    left: 22px; }
+
+.mm-menu.mm-vertical .mm-list .mm-panel {
+  display: none;
+  padding: 10px 0 10px 10px; }
+  .mm-menu.mm-vertical .mm-list .mm-panel li:last-child:after {
+    border-color: transparent; }
+.mm-menu.mm-vertical .mm-list li.mm-opened > .mm-panel {
+  display: block; }
+.mm-menu.mm-vertical .mm-list > li.mm-opened > a.mm-subopen {
+  height: 40px; }
+  .mm-menu.mm-vertical .mm-list > li.mm-opened > a.mm-subopen:after {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 16px;
+    right: 16px; }
+.mm-menu.mm-vertical .mm-list > li.mm-opened.mm-label > a.mm-subopen {
+  height: 25px; }
+
+html.mm-opened .mm-page {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); }
+
+.mm-menu {
+  background: #333333;
+  color: rgba(255, 255, 255, 0.6); }
+  .mm-menu .mm-list > li:after {
+    border-color: rgba(0, 0, 0, 0.15); }
+  .mm-menu .mm-list > li > a.mm-subclose {
+    background: rgba(0, 0, 0, 0.1);
+    color: rgba(255, 255, 255, 0.3); }
+  .mm-menu .mm-list > li > a.mm-subopen:after, .mm-menu .mm-list > li > a.mm-subclose:before {
+    border-color: rgba(255, 255, 255, 0.3); }
+  .mm-menu .mm-list > li > a.mm-subopen:before {
+    border-color: rgba(0, 0, 0, 0.15); }
+  .mm-menu .mm-list > li.mm-selected > a:not(.mm-subopen),
+  .mm-menu .mm-list > li.mm-selected > span {
+    background: rgba(0, 0, 0, 0.1); }
+  .mm-menu .mm-list > li.mm-label {
+    background: rgba(255, 255, 255, 0.05); }
+  .mm-menu.mm-vertical .mm-list li.mm-opened > a.mm-subopen,
+  .mm-menu.mm-vertical .mm-list li.mm-opened > ul {
+    background: rgba(255, 255, 255, 0.05); }
+
+/*
+	jQuery.mmenu offcanvas addon CSS
+*/
+.mm-page {
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease; }
+
+html.mm-opened {
+  overflow: hidden;
+  position: relative; }
+  html.mm-opened body {
+    overflow: hidden; }
+  html.mm-opened .mm-page {
+    box-sizing: border-box;
+    position: relative; }
+
+html.mm-background .mm-page {
+  background: inherit; }
+
+#mm-blocker {
+  background: rgba(3, 2, 1, 0);
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999; }
+
+html.mm-opened #mm-blocker,
+html.mm-blocking #mm-blocker {
+  display: block; }
+
+.mm-menu.mm-offcanvas {
+  display: none;
+  position: fixed; }
+.mm-menu.mm-current {
+  display: block; }
+
+.mm-menu {
+  width: 80%;
+  min-width: 140px;
+  max-width: 440px; }
+
+html.mm-opening .mm-page,
+html.mm-opening #mm-blocker {
+  -webkit-transform: translate(80%, 0);
+  transform: translate(80%, 0); }
+
+@media all and (max-width: 175px) {
+  html.mm-opening .mm-page,
+  html.mm-opening #mm-blocker {
+    -webkit-transform: translate(140px, 0);
+    transform: translate(140px, 0); } }
+@media all and (min-width: 550px) {
+  html.mm-opening .mm-page,
+  html.mm-opening #mm-blocker {
+    -webkit-transform: translate(440px, 0);
+    transform: translate(440px, 0); } }
+/* line 2, C:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/scaffolds.css.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 10, C:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/scaffolds.css.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+}
+
+/* line 15, C:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/scaffolds.css.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 22, C:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/scaffolds.css.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 27, C:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/scaffolds.css.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+/* line 7, C:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/summary.css.scss */
+.service h3 {
+  padding-bottom: 0px;
+  margin-bottom: 0.3em;
+}
+
+/* line 12, C:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/summary.css.scss */
+.details_block div {
+  width: 370px;
+  word-wrap: break-word;
+  background-color: none;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+/* line 21, C:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/summary.css.scss */
+.details td {
+  vertical-align: top;
+}
+
+/* line 25, C:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/summary.css.scss */
+.service {
+  padding-bottom: 1em;
+}
+
+/* Main frames */
+/* line 8, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #48b040;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+/* line 15, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#summary {
+  margin: 0px auto;
+  width: 1200px;
+  /* Details */
+}
+/* line 19, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#summary #header {
+  padding-top: 1em;
+  height: 7em;
+  background-color: #48b040;
+}
+/* line 28, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#summary #details h3 {
+  margin-bottom: 1.2em;
+}
+/* line 33, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#summary .hide_or_reveal {
+  float: right;
+  margin-right: 15px;
+}
+/* line 38, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#summary #menu {
+  background-color: #48b040;
+  height: 2em;
+  width: 40.6em;
+  text-align: center;
+  margin-top: 0.7em;
+  margin-bottom: 7em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 48, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#summary #menu li {
+  display: inline;
+}
+/* line 51, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#summary #menu ul {
+  padding-top: 0.3em;
+  padding-left: 0.6em;
+  margin: 0;
+  float: left;
+  list-style-type: none;
+}
+/* line 58, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#summary #menu a {
+  text-align: center;
+  float: left;
+  width: 10em;
+  color: white;
+  text-decoration: none;
+  padding-bottom: 0.2em;
+}
+/* line 67, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#summary #main {
+  padding: 4px 15px;
+  background-color: white;
+  color: #3c3c3c;
+  height: auto;
+}
+/* line 73, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#summary #footer {
+  background-color: #48b040;
+  height: 5em;
+}
+/* line 74, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#summary #footer #theme {
+  margin-top: 0.5em;
+  text-align: left;
+  float: left;
+}
+/* line 79, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#summary #footer #powered {
+  margin-top: 0.5em;
+  text-align: right;
+  float: right;
+}
+
+/* Menu */
+/* Header */
+/* line 97, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#summary #header h1 {
+  font-size: 69px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+/* "Styles" */
+/* line 106, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#logout_button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* HREFs */
+/* line 113, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+a {
+  color: #555;
+  text-decoration: underline;
+}
+/* line 117, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+a:hover, a:visited {
+  color: #3c3c3c;
+}
+/* line 121, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 126, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+a.administration_link {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+/* line 133, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+a.change_data {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Error explanation */
+/* line 139, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#error_explanation {
+  color: black;
+}
+
+/* Nadpisy */
+/* line 145, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#main h1 {
+  font-size: 33px;
+  padding-bottom: 0.4em;
+  margin-bottom: 0.8em;
+  border-bottom: solid 2px #cbe9c5;
+}
+/* line 151, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#main h2 {
+  font-size: 24px;
+  padding-bottom: 0.2em;
+  margin-bottom: 0.6em;
+}
+/* line 156, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#main h3 {
+  font-size: 19px;
+  margin-top: 1em;
+  margin-bottom: 0.9em;
+}
+/* line 161, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#main h4 {
+  font-size: 16px;
+  margin-bottom: 0.2em;
+  margin-top: 0em;
+}
+/* line 166, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#main h5 {
+  font-size: 13px;
+  margin-bottom: 0.1em;
+  margin-top: 0em;
+}
+
+/* ČÁRA! */
+/* line 173, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+.vertical_line {
+  border: dashed 2px #879654;
+}
+
+/* line 178, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+.line_between_details {
+  border: solid 1px #cbe9c5;
+}
+
+/* line 182, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 189, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 199, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 205, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#notice {
+  color: green;
+}
+
+/* line 209, c:/Users/cendr_000/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu.css.scss */
+#alert {
+  color: red;
+  font-size: 20px;
+}
+/* Main frames */
+/* line 8, C:/Users/Cendrb/Documents/Aptana3Workspace/UTU on Rails/app/assets/stylesheets/utu_mobile.css.scss */
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #48b040;
+  width: 100%;
+  overflow-y: scroll;
+}
