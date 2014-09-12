@@ -41,7 +41,7 @@ class SummaryController < ApplicationController
       @events = Event.order(:event_start).between_dates(from, to)
       @exams = Exam.order(:date).between_dates(from, to)
       @tasks = Task.order(:date).between_dates(from, to)
-      if group != 0
+      if params[:group] != 0
         @exams = @exams.for_group(params[:group])
         @tasks = @tasks.for_group(params[:group])
       end
