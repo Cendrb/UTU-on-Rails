@@ -3,10 +3,10 @@
     <head>
         <title>UTU on Rails</title>
         <%= favicon_link_tag 'favicon.ico' %>
-        <%= stylesheet_link_tag "utu_mobile" %>
+        <%= stylesheet_link_tag 'application', "data-turbolinks-track" => true %>
         <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-        <%= javascript_include_tag "menumaster/jquery.mmenu.min.all.js" %>
-        <%= stylesheet_link_tag "menumaster/jquery.mmenu.all.css" %>
+        <%= javascript_include_tag "menumaster/jquery.mmenu.min.js" %>
+        <%= stylesheet_link_tag "menumaster/jquery.mmenu.css" %>
         <%= csrf_meta_tags %>
 
         <script type="text/javascript">
@@ -17,22 +17,26 @@
     </head>
     <body>
         <div>
-            <nav id="mainmenu">
-                <ul id="menu">
-                    <li>
-                        <%= link_to("Přehled", utu_path) %>
-                    </li>
-                    <li>
-                        <%= link_to("Podrobnosti", details_path) %>
-                    </li>
-                    <li>
-                        <%= link_to("Rozpis služeb", service_list_path) %>
-                    </li>
-                    <li>
-                        <%= link_to("Nastavení", administration_path) %>
-                    </li>
-                </ul>
-            </nav>
+            <div id="menu">
+                <div id="mainmenu">
+                    <ul id="menu">
+                        <li>
+                            <%= link_to("Přehled", utu_path) %>
+                        </li>
+                        <li>
+                            <%= link_to("Podrobnosti", details_path) %>
+                        </li>
+                        <li>
+                            <%= link_to("Rozpis služeb", service_list_path) %>
+                        </li>
+                        <li>
+                            <%= link_to("Nastavení", administration_path) %>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <%= yield %>
         </div>
     </body>
 </html>
