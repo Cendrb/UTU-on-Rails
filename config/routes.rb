@@ -1,5 +1,7 @@
 UTUOnRails::Application.routes.draw do
 
+  resources :bitches
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create

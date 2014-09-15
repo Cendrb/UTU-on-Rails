@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bitch.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bitch.description %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @bitch.group %>
+</p>
+
+<%= link_to 'Edit', edit_bitch_path(@bitch) %> |
+<%= link_to 'Back', bitches_path %>
