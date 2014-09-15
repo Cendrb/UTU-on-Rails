@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   validates :group, numericality: { only_integer: true }, presence: true
   validate :password_must_be_present
   validates :name, presence: true, uniqueness: true
+  
+  has_many :day_bitches
 
   attr_accessor :password_confirmation
   attr_reader :password

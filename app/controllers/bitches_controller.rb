@@ -1,4 +1,5 @@
 class BitchesController < ApplicationController
+  before_filter :authenticate_admin
   before_action :set_bitch, only: [:show, :edit, :update, :destroy]
 
   # GET /bitches
