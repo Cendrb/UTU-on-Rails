@@ -4,9 +4,9 @@
   <thead>
     <tr>
       <th>Datum</th>
-      <th>Kurva</th>
+      <th>Vyučující</th>
       <th>Hlasující</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -16,7 +16,6 @@
         <td><%= day_bitch.date %></td>
         <td><%= day_bitch.bitch.name %></td>
         <td><%= day_bitch.user.name %></td>
-        <td><%= link_to 'Zobrazit', day_bitch %></td>
         <td><%= link_to 'Upravit', edit_day_bitch_path(day_bitch) %></td>
         <td><%= link_to 'Smazat', day_bitch, method: :delete %></td>
       </tr>

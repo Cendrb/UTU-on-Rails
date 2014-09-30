@@ -14,7 +14,7 @@ class DayBitchesController < ApplicationController
   def show
   end
   
-  def thanks
+  def results
     
   end
 
