@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validate :password_must_be_present
   validates :name, presence: true, uniqueness: true
   
-  has_many :day_bitches
+  has_many :day_teachers
 
   attr_accessor :password_confirmation
   attr_reader :password

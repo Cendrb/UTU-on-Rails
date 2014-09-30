@@ -1,0 +1,26 @@
+<h1>Záznam hlasování</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Datum</th>
+      <th>Vyučující</th>
+      <th>Hlasující</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @day_teachers.each do |day_teacher| %>
+      <tr>
+        <td><%= day_teacher.date %></td>
+        <td><%= day_teacher.teacher.name %></td>
+        <td><%= day_teacher.user.name %></td>
+        <td><%= link_to 'Upravit', edit_day_teacher_path(day_teacher) %></td>
+        <td><%= link_to 'Smazat', day_teacher, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

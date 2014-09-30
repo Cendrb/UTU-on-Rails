@@ -1,8 +1,8 @@
 UTUOnRails::Application.routes.draw do
 
-  resources :day_bitches
+  resources :day_teachers
 
-  resources :bitches
+  resources :teachers
 
   controller :sessions do
     get 'login' => :new
@@ -45,7 +45,7 @@ UTUOnRails::Application.routes.draw do
   # root 'welcome#index'
   root to: 'summary#summary', as: 'utu'
 
-  get 'vote' => 'day_bitches#new'
+  get 'vote' => 'day_teachers#new'
   get 'details' => 'summary#details'
   post 'details' => 'summary#post_details'
   get 'service_list' => 'summary#service_list'

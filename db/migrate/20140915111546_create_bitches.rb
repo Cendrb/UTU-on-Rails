@@ -1,4 +1,4 @@
-class CreateBitches < ActiveRecord::Migration
+class CreateTeachers < ActiveRecord::Migration
   def change
     create_table :bitches do |t|
       t.string :name
