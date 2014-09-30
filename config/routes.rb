@@ -45,7 +45,7 @@ UTUOnRails::Application.routes.draw do
   # root 'welcome#index'
   root to: 'summary#summary', as: 'utu'
 
-  get 'vote' => 'day_bitches#vote'
+  get 'vote' => 'day_bitches#new'
   get 'details' => 'summary#details'
   post 'details' => 'summary#post_details'
   get 'service_list' => 'summary#service_list'

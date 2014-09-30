@@ -1,5 +1,10 @@
-<h1>New day_bitch</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', day_bitches_path %>
+<%= form_for(@day_bitch) do |f| %>
+    <h2>Anketa Kurva dně</h2>
+  <div class="field">
+    <%= f.label :bitch_id, 'Vyberte profesora/profesorku' %><br>
+    <%= f.collection_select :bitch_id, @bitches, :id, :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Hlasovat' %>
+  </div>
+<% end %>
