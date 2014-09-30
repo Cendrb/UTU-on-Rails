@@ -1,4 +1,4 @@
-class CreateDayTeachers < ActiveRecord::Migration
+class CreateDayBitches < ActiveRecord::Migration
   def change
     create_table :day_bitches do |t|
       t.date :date
