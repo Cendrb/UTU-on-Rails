@@ -16,14 +16,12 @@
         <td><%= day_bitch.date %></td>
         <td><%= day_bitch.bitch.name %></td>
         <td><%= day_bitch.user.name %></td>
-        <td><%= link_to 'Show', day_bitch %></td>
-        <td><%= link_to 'Edit', edit_day_bitch_path(day_bitch) %></td>
-        <td><%= link_to 'Destroy', day_bitch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Zobrazit', day_bitch %></td>
+        <td><%= link_to 'Upravit', edit_day_bitch_path(day_bitch) %></td>
+        <td><%= link_to 'Smazat', day_bitch, method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Day bitch', new_day_bitch_path %>
