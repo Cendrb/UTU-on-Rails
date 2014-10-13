@@ -93,14 +93,14 @@ class SummaryController < ApplicationController
   def refresh_baka
     uri = URI.parse('http://84.42.144.180/bakaweb/login.aspx')
     
-    response = Net::HTTP.post_form(uri, {"ctl00$cphmain$Loginname" => "980728kjfm", "ctl00$cphmain$TextBoxHeslo" => "91ipams1", "ctl00$cphmain$ButtonPrihlas" => ''})
+    response = Net::HTTP.post_form(uri, {"ctl00$cphmain$Loginname" => "980728kjfm", "ctl00$cphmain$TextBoxHeslo" => "91ipams1", "ctl00$cphmain$ButtonPrihlas" => 'Přihlásit', "__EVENTTARGET" => "", "__EVENTARGUMENT" => "", "ctl00$cphmain$Loginname1" => "", "ctl00$cphmain$Loginname2" => ""})
     
-    puts response.body
+    @fap = response.body
     
-    osobUri = URI.parse("http://84.42.144.180/bakaweb/osob.aspx")
+    osobUri = URI.parse("http://84.42.144.180/bakaweb/uvod.aspx")
     osob = Net::HTTP.get_response(uri)
     
-    puts = osob.body
+    puts osob.body
   end
 
   private
