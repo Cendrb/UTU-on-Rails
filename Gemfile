@@ -6,6 +6,12 @@ gem 'rails', '4.1.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# HTML parser Nokogiri
+gem 'nokogiri'
+
+# POST request sending
+#gem 'rest-client'
+
 # Spring from Rails 4.1
 #gem 'spring', group: :development
 

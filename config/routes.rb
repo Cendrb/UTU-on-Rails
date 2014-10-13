@@ -45,6 +45,7 @@ UTUOnRails::Application.routes.draw do
   # root 'welcome#index'
   root to: 'summary#summary', as: 'utu'
 
+  get 'refresh' => 'summary#refresh_baka'
   get 'vote' => 'day_teachers#new'
   get 'details' => 'summary#details'
   post 'details' => 'summary#post_details'

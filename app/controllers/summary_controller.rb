@@ -1,6 +1,8 @@
+require "net/http"
+require "uri"
+
 class SummaryController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:post_details]
-  
   def summary
     if logged_in?
       user_names = current_user.name.split
@@ -27,10 +29,10 @@ class SummaryController < ApplicationController
     @exams = Exam.order(:date).for_group(params[:group]).between_dates(from, to)
     @tasks = Task.order(:date).for_group(params[:group]).between_dates(from, to)
     if group != 0
-        @exams = @exams.for_group(params[:group])
-        @tasks = @tasks.for_group(params[:group])
-      end
-    
+      @exams = @exams.for_group(params[:group])
+      @tasks = @tasks.for_group(params[:group])
+    end
+
     render 'details.xml'
   end
 
@@ -48,11 +50,11 @@ class SummaryController < ApplicationController
     else
       if logged_in?
         user = current_user
-        
+
         @events = Event.all.order(:event_start).in_future
         @exams = Exam.order(:date).in_future.for_group(user.group)
         @tasks = Task.order(:date).in_future.for_group(user.group)
-        
+
         # Umožnění skrytí jednotlivých položek
         if !user.show_hidden_events
           @events = @events.id_not_on_list(user.hidden_events) if user.hidden_events.length > 0
@@ -85,7 +87,20 @@ class SummaryController < ApplicationController
   end
 
   def administration
+
+  end
+
+  def refresh_baka
+    uri = URI.parse('http://84.42.144.180/bakaweb/login.aspx')
     
+    response = Net::HTTP.post_form(uri, {"ctl00$cphmain$Loginname" => "980728kjfm", "ctl00$cphmain$TextBoxHeslo" => "91ipams1", "ctl00$cphmain$ButtonPrihlas" => ''})
+    
+    puts response.body
+    
+    osobUri = URI.parse("http://84.42.144.180/bakaweb/osob.aspx")
+    osob = Net::HTTP.get_response(uri)
+    
+    puts = osob.body
   end
 
   private
