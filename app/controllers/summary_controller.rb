@@ -146,6 +146,8 @@ class SummaryController < ApplicationController
         
         school_day.lessons.create(subject: subject, room: room, teacher: teacher)
       end
+      
+      redirect_to timetables_url
     end
 
   end
