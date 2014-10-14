@@ -7,7 +7,7 @@
         <% day.lessons.each do |lesson| %>
             <td>
                 <%= lesson.subject %>
-                <%= lesson.teacher %>
+                <%= lesson.teacher.name %>
                 <%= lesson.room %>
             </td>
         <% end %>

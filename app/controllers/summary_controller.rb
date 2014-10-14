@@ -142,12 +142,21 @@ class SummaryController < ApplicationController
       lessons.each do |lesson|
         subject = lesson.at_css("div.r_predm").content
         room = lesson.at_css("div.r_mist").content
-        teacher = lesson.at_css("div.r_ucit")["title"]
+        teacher_string = lesson.at_css("div.r_ucit")["title"]
+        
+        teacher = Teacher.find_by_name(teacher_string)
+        if(!teacher)
+          group_string = lesson.at_css("div.r_skup")
+          if(!group_string)
+            group_string = 0
+          else
+            group_string = group_string.content
+          end
+          teacher = Teacher.create(name: teacher_string, group: group_string.to_s.to_i)
+        end
         
         school_day.lessons.create(subject: subject, room: room, teacher: teacher)
       end
-      
-      redirect_to timetables_url
     end
 
   end
