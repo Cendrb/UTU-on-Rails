@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+
+<% @timetable.school_days.each do |day| %>
+    <tr>
+        <% day.lessons.each do |lesson| %>
+            <td>
+                <%= lesson.subject %>
+                <%= lesson.teacher %>
+                <%= lesson.room %>
+            </td>
+        <% end %>
+    </tr>
+<% end %>
+
+</table>
+
+<%= link_to 'Edit', edit_timetable_path(@timetable) %> |
+<%= link_to 'Back', timetables_path %>

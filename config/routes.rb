@@ -1,5 +1,11 @@
 UTUOnRails::Application.routes.draw do
 
+  resources :timetables
+
+  resources :lessons
+
+  resources :school_days
+
   resources :day_teachers
 
   resources :teachers

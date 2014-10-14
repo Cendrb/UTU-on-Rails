@@ -1,0 +1,2 @@
+module SchoolDaysHelper
+end

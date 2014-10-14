@@ -1,8 +1,12 @@
 require "net/http"
 require "uri"
 
+require "mechanize"
+require "nokogiri"
+
 class SummaryController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:post_details]
+  before_filter :authenticate_admin, only: :refresh
   def summary
     if logged_in?
       user_names = current_user.name.split
@@ -91,16 +95,59 @@ class SummaryController < ApplicationController
   end
 
   def refresh_baka
-    uri = URI.parse('http://84.42.144.180/bakaweb/login.aspx')
+    #Lesson.delete_all
     
-    response = Net::HTTP.post_form(uri, {"ctl00$cphmain$Loginname" => "980728kjfm", "ctl00$cphmain$TextBoxHeslo" => "91ipams1", "ctl00$cphmain$ButtonPrihlas" => 'Přihlásit', "__EVENTTARGET" => "", "__EVENTARGUMENT" => "", "ctl00$cphmain$Loginname1" => "", "ctl00$cphmain$Loginname2" => ""})
+    browser = Mechanize.new
     
-    @fap = response.body
+    page = browser.get('http://84.42.144.180/bakaweb/login.aspx')
     
-    osobUri = URI.parse("http://84.42.144.180/bakaweb/uvod.aspx")
-    osob = Net::HTTP.get_response(uri)
+    page.encoding = 'utf-8'
     
-    puts osob.body
+    form = page.forms.first
+    form["ctl00$cphmain$Loginname"] = "980728kjfm"
+    form["ctl00$cphmain$TextBoxHeslo"] = "91ipams1"
+    form["ctl00$cphmain$ButtonPrihlas"] = "Přihlásit"
+    form["__EVENTTARGET"] = ""
+    form["__EVENTARGUMENT"] = ""
+    form["ctl00$cphmain$Loginname1"] = ""
+    form["ctl00$cphmain$Loginname2"] = ""
+    
+    page = form.submit(form.buttons.first)
+    
+    page = browser.click(page.link_with(text: /Rozvrh/))
+    
+    doc = Nokogiri::XML(page.body)
+    
+    timetable = doc.at_css("div#trozvrh")
+    
+    days = timetable.css("tr")
+    # remove first element (časy a trvání hodin)
+    days.shift
+    
+    days.each do |day|
+      #day_title = day.at_css("td.r_rozden div.r_bunkaden div.r_den").content
+      date = Date.parse(day.at_css("td.r_rozden div.r_bunkaden div.r_datum").content + Time.now.year.to_s)
+      
+      duplicates = SchoolDay.where(date: date)
+      duplicates.each do |duplicate|
+        duplicate.destroy
+      end
+
+      lessons = day.css("td.r_rrw div.r_bunka")
+      
+      timetable_db = Timetable.find_by_name("primary")
+      
+      school_day = SchoolDay.create(weekday: days.index(day), date: date, timetable: timetable_db)
+      
+      lessons.each do |lesson|
+        subject = lesson.at_css("div.r_predm").content
+        room = lesson.at_css("div.r_mist").content
+        teacher = lesson.at_css("div.r_ucit")["title"]
+        
+        school_day.lessons.create(subject: subject, room: room, teacher: teacher)
+      end
+    end
+
   end
 
   private
