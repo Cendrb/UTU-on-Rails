@@ -9,6 +9,9 @@ gem 'pg'
 # HTML parser Nokogiri
 gem 'nokogiri'
 
+# Virtual browser Mechanize
+gem 'mechanize'
+
 # POST request sending
 #gem 'rest-client'
 
