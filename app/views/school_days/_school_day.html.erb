@@ -1,0 +1,17 @@
+<p id="notice">
+    <%= notice %>
+</p>
+
+<tr>
+    <td> <%= school_day.date.strftime("%d. %m.") %>
+    <br />
+    <%= get_weekday school_day.weekday %> </td>
+    <% school_day.lessons.each do |lesson| %>
+        <%= render lesson %>
+    <% end %>
+    <% (9 - school_day.lessons.count).times do |blank| %>
+        <div class="lesson">
+            <td></td>
+        </div>
+    <% end %>
+</tr>

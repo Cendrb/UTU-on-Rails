@@ -1,18 +1,11 @@
-<p id="notice"><%= notice %></p>
+<p id="notice">
+    <%= notice %>
+</p>
+<table id="timetable">
 
-<table>
-
-<% @timetable.school_days.each do |day| %>
-    <tr>
-        <% day.lessons.each do |lesson| %>
-            <td>
-                <%= lesson.subject %>
-                <%= lesson.teacher.name %>
-                <%= lesson.room %>
-            </td>
-        <% end %>
-    </tr>
-<% end %>
+    <% @timetable.school_days.each do |day| %>
+        <%= render day %>
+    <% end %>
 
 </table>
 

@@ -48,6 +48,12 @@ body {
     li {
         display: inline;
     }
+    h4 {
+      font-weight: normal;
+      float: left;
+      padding-top: 0.0em;
+      margin: 0;
+    }
     ul {
         padding-top: 0.3em;
         padding-left: 0.6em;
@@ -200,6 +206,33 @@ a.change_data {
     font-size: 12px;
     list-style: square;
   }
+}
+
+/* Timetable style */
+#timetable
+{
+  border-collapse: collapse;
+  width: 100%;
+  td
+  {
+    width: 10em;
+    height: 5em;
+    border: 1px solid black;
+  }
+  .lesson
+  {
+    
+  }
+  .lesson_subject
+  {
+    text-align: center;
+    font-size: 25px;
+  }
+  .lesson_room
+  {
+    
+  }
+  background-color: white;
 }
 
 #notice {

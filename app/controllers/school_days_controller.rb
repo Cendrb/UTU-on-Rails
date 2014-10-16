@@ -1,7 +1,6 @@
 class SchoolDaysController < ApplicationController
   before_filter :authenticate_admin
   before_action :set_school_day, only: [:show, :edit, :update, :destroy]
-
   # GET /school_days
   # GET /school_days.json
   def index
@@ -11,6 +10,7 @@ class SchoolDaysController < ApplicationController
   # GET /school_days/1
   # GET /school_days/1.json
   def show
+    
   end
 
   # GET /school_days/new
@@ -63,13 +63,14 @@ class SchoolDaysController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_school_day
-      @school_day = SchoolDay.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def school_day_params
-      params.require(:school_day).permit(:date, :weekday)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_school_day
+    @school_day = SchoolDay.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def school_day_params
+    params.require(:school_day).permit(:date, :weekday)
+  end
 end
