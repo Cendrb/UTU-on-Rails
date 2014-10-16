@@ -154,7 +154,7 @@ class SummaryController < ApplicationController
         duplicate.destroy
       end
 
-      lessons = day.css("td.r_rrw div.r_bunka")
+      lessons = day.css("td.r_rrw div.r_bunka, td.r_rrzm")
 
       school_day = SchoolDay.create(weekday: days.index(day), date: date, timetable: target)
       
