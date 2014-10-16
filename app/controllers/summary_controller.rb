@@ -95,8 +95,6 @@ class SummaryController < ApplicationController
   end
 
   def refresh_baka
-    #Lesson.delete_all
-    
     browser = Mechanize.new
     
     page = browser.get('http://84.42.144.180/bakaweb/login.aspx')
@@ -116,7 +114,30 @@ class SummaryController < ApplicationController
     
     page = browser.click(page.link_with(text: /Rozvrh/))
     
-    doc = Nokogiri::XML(page.body)
+    primary_timetable = Timetable.find_by_name("primary")
+    
+    parse_timetable_from_html_and_save_to_db(page.body, primary_timetable)
+    
+    form = page.forms.first
+    form["ctl00$cphmain$radiorozvrh"] = "rozvrh na příští týden"
+    form["__EVENTTARGET"] = "ctl00$cphmain$radiorozvrh"
+    form["__EVENTARGUMENT"] = ""
+    form["ctl00$cphmain$Flyrozvrh$checkucitel"] = "on"
+    form["ctl00$cphmain$Flyrozvrh$checkskupina"] = "on"
+    form["ctl00$cphmain$Flyrozvrh$Checkmistnost"] = "on"
+    
+    page = form.submit
+    
+    puts page.body
+    
+    parse_timetable_from_html_and_save_to_db(page.body, primary_timetable)
+  end
+
+  private
+
+  # Parses data from a html (source = string) and saves to the given timetable (target = Timetable)
+  def parse_timetable_from_html_and_save_to_db(source, target)
+    doc = Nokogiri::XML(source)
     
     timetable = doc.at_css("div#trozvrh")
     
@@ -134,10 +155,8 @@ class SummaryController < ApplicationController
       end
 
       lessons = day.css("td.r_rrw div.r_bunka")
-      
-      timetable_db = Timetable.find_by_name("primary")
-      
-      school_day = SchoolDay.create(weekday: days.index(day), date: date, timetable: timetable_db)
+
+      school_day = SchoolDay.create(weekday: days.index(day), date: date, timetable: target)
       
       lessons.each do |lesson|
         subject = lesson.at_css("div.r_predm").content
@@ -158,11 +177,8 @@ class SummaryController < ApplicationController
         school_day.lessons.create(subject: subject, room: room, teacher: teacher)
       end
     end
-
   end
-
-  private
-
+  
   def drop_todays_after(items, hour)
     if Time.now >= (Date.today + hour.hours)
       items.drop_while { |e| e.date == Date.today  }
