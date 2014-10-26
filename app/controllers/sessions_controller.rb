@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  
   def new
   end
 
@@ -16,7 +15,11 @@ class SessionsController < ApplicationController
         redirect_to utu_url
       end
     else
-      redirect_to login_url, alert: "Neplatné jméno nebo heslo!"
+      respond_to do |format|
+        format.html {redirect_to login_url, alert: "Neplatné jméno nebo heslo!"}
+        format.whoa {head 69}
+      end
+
     end
   end
 
