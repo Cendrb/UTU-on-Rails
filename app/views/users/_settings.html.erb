@@ -40,7 +40,7 @@
 <p>Vaše nastavení skupiny se automaticky projeví při zobrazování úkolů a testů.</p>
   
 <%= link_to 'Změnit údaje', edit_user_path(user), class: 'administration_link' %><br />
-<%= link_to 'Odhlásit', logout_path, method: :delete, class: 'administration_link' %><br />
+<%= link_to 'Odhlásit', logout_path, class: 'administration_link' %><br />
 <%= link_to 'Zrušit účet', destroy_account_path(user), method: :delete, class: 'administration_link', data: {confirm: "Opravdu si přejete zrušit váš účet?"} %>
 
 <h3>Nastavení zobrazení položek</h3>
