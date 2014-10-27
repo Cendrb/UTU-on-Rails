@@ -1,4 +1,5 @@
 class Task < ActiveRecord::Base
+  #belongs_to :subject
   SUBJECTS = ["MA", "F", "ČJL", "HV", "VV", "IKT", "D", "VO", "NJ", "AJ", "TV", "PŘÍ", "CH", "Z"]
   
   scope :in_future, -> { where('date >= :today', { today: Date.today }) }
@@ -7,8 +8,7 @@ class Task < ActiveRecord::Base
   scope :id_not_on_list, lambda { |list| where("NOT (ARRAY[id] <@ ARRAY[:ids])", { ids: list } ) }
   scope :id_on_list, lambda { |list| where("ARRAY[id] <@ ARRAY[:ids]", { ids: list } ) }
   
-  validates :title, :subject, :group, :date, presence: {presence: true, message: "nesmí být prázdný"}
-  validates :subject, inclusion: {in: SUBJECTS, message: "není platný předmět"}
+  validates :title, :group, :date, presence: {presence: true, message: "nesmí být prázdný"}
   validates :group, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 2, only_integer: true, message: "neexistuje - zadejte 0 pro obě skupiny" }
   
   def get_exam
