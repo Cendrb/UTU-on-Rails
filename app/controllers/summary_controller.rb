@@ -97,42 +97,12 @@ class SummaryController < ApplicationController
   def convert_to_DB_items
     exams = Exam.all
     exams.each do |exam|
-      case exam.subject
-      when "PŘÍ"
-        exam.subject = "BiG"
-      when "VO"
-        exam.subject = "OSZ"
-      when "Z"
-        exam.subject = "G"
-      when "HV"
-        exam.subject = "HuO"
-      when "VV"
-        exam.subject = "VýO"
-      when "IKT"
-        exam.subject = "IIKT"
-      when "CH"
-        exam.subject = "Ch"
-      end
+      exam.subject_id = Subject.find_by_name(exam.subject).id
       exam.save!
     end
     tasks = Task.all
     tasks.each do |task|
-      case task.subject
-      when "PŘÍ"
-        task.subject = "BiG"
-      when "VO"
-        task.subject = "OSZ"
-      when "Z"
-        task.subject = "G"
-      when "HV"
-        task.subject = "HuO"
-      when "VV"
-        task.subject = "VýO"
-      when "IKT"
-        task.subject = "IIKT"
-      when "CH"
-        task.subject = "Ch"
-      end
+      task.subject_id = Subject.find_by_name(task.subject).id
       task.save!
     end
   end
