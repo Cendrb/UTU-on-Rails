@@ -1,6 +1,5 @@
 class Exam < ActiveRecord::Base
-  #belongs_to :subject
-  SUBJECTS = ["MA", "F", "ČJL", "HV", "VV", "IKT", "D", "VO", "NJ", "AJ", "TV", "PŘÍ", "CH", "Z"]
+  belongs_to :subject
   
   scope :in_future, -> { where('date >= :today', { today: Date.today }) }
   scope :for_group, lambda { |group| where("\"group\" = :group OR \"group\" = 0", { group: group }) }
