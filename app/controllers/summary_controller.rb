@@ -94,6 +94,10 @@ class SummaryController < ApplicationController
 
   end
 
+  def administrator_logged_in
+    render plain: admin_logged_in?
+  end
+
   def refresh_baka
     browser = Mechanize.new
     

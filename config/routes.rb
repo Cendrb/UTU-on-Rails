@@ -53,6 +53,7 @@ UTUOnRails::Application.routes.draw do
   # root 'welcome#index'
   root to: 'summary#summary', as: 'utu'
 
+  get 'administrator_authenticated' => 'summary#administrator_logged_in'
   get 'refresh' => 'summary#refresh_baka'
   get 'vote' => 'day_teachers#new'
   get 'details' => 'summary#details'
