@@ -94,19 +94,6 @@ class SummaryController < ApplicationController
 
   end
 
-  def convert_to_DB_items
-    exams = Exam.all
-    exams.each do |exam|
-      exam.subject_id = Subject.find_by_name(exam.subject).id
-      exam.save!
-    end
-    tasks = Task.all
-    tasks.each do |task|
-      task.subject_id = Subject.find_by_name(task.subject).id
-      task.save!
-    end
-  end
-
   def refresh_baka
     browser = Mechanize.new
     
