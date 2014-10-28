@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_admin
+  before_filter :authenticate_admin, except: [:index, :show]
 
   # GET /subjects
   # GET /subjects.json
