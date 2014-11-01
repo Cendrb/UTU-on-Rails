@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
   before_action :detect_device_format
   before_action :set_locale
   layout :layout
+  before_filter :set_current_account
+  
+  def set_current_account
+    User.current = current_user
+  end
   
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale

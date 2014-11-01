@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   
   has_many :day_teachers
 
+  cattr_accessor :current
   attr_accessor :password_confirmation
   attr_reader :password
   
