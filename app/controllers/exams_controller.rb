@@ -2,6 +2,7 @@ class ExamsController < ApplicationController
   before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
   before_action :set_exam_from_exam_id, only: [:transform_to_task, :hide, :reveal]
+  skip_before_action :verify_authenticity_token, only: :create
   # GET /exams
   # GET /exams.json
   def index
