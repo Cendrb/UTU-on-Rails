@@ -4,7 +4,7 @@ class Subject < ActiveRecord::Base
   has_many :tasks
   
   def get_exam_before_days
-    exam = Exam.where("subject_id = ?", self).order(date: :desc).first
+    exam = Exam.where("subject_id = ?", self).where("date <= ?", Date.today).order(date: :desc).first
     if(!exam)
       return "nikdy"
     end
