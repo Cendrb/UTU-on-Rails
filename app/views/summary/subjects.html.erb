@@ -1,10 +1,10 @@
-<table>
+<table id="subjects_stats">
     <tr>
-        <th>Předmět</th>
-        <th>Další test</th>
-        <th>Poslední test</th>
-        <th>Počet testů</th>
-        <th>Počet úkolů</th>
+        <th class="subject_header">Předmět</th>
+        <th class="subject_header">Další test</th>
+        <th class="subject_header">Poslední test</th>
+        <th class="subject_header">Počet testů</th>
+        <th class="subject_header">Počet úkolů</th>
     </tr>
     <% @subjects.each do |subject| %>
         <%= render subject %>

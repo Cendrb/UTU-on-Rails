@@ -49,10 +49,34 @@ class Subject < ActiveRecord::Base
   end
 
   def get_total_exams
-    return Exam.for_group(User.current.group).where("date <= ?", Date.today).where("subject_id = ?", self).count
+    number_of_exams = Exam.for_group(User.current.group).where("date <= ?", Date.today).where("subject_id = ?", self).count
+    if(number_of_exams == 0)
+      return "žádný test"
+    end
+    if(number_of_exams == 1)
+      return "jeden test"
+    end
+    if(number_of_exams > 1 && number_of_exams < 5)
+      return "#{number_of_exams} testy"
+    end
+    if(number_of_exams > 4)
+      return "#{number_of_exams} testů"
+    end
   end
 
   def get_total_tasks
-    return Task.for_group(User.current.group).where("date <= ?", Date.today).where("subject_id = ?", self).count
+    number_of_tasks = Task.for_group(User.current.group).where("date <= ?", Date.today).where("subject_id = ?", self).count
+    if(number_of_tasks == 0)
+      return "žádný úkol"
+    end
+    if(number_of_tasks == 1)
+      return "jeden úkol"
+    end
+    if(number_of_tasks > 1 && number_of_tasks < 5)
+      return "#{number_of_tasks} úkoly"
+    end
+    if(number_of_exams > 4)
+      return "#{number_of_tasks} úkolů"
+    end
   end
 end
