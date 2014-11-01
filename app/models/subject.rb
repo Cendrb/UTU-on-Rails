@@ -75,7 +75,7 @@ class Subject < ActiveRecord::Base
     if(number_of_tasks > 1 && number_of_tasks < 5)
       return "#{number_of_tasks} úkoly"
     end
-    if(number_of_exams > 4)
+    if(number_of_tasks > 4)
       return "#{number_of_tasks} úkolů"
     end
   end
