@@ -10,6 +10,9 @@ class Subject < ActiveRecord::Base
     end
     number_of_days = Date.today.mjd - exam.date.mjd
     
+    if(number_of_days < 0)
+      return "nikdy"
+    end
     if(number_of_days == 0)
       return "dnes"
     end
