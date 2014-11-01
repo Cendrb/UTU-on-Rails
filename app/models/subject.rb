@@ -54,7 +54,7 @@ class Subject < ActiveRecord::Base
       return "žádný test"
     end
     if(number_of_exams == 1)
-      return "jeden test"
+      return "1 test"
     end
     if(number_of_exams > 1 && number_of_exams < 5)
       return "#{number_of_exams} testy"
@@ -70,7 +70,7 @@ class Subject < ActiveRecord::Base
       return "žádný úkol"
     end
     if(number_of_tasks == 1)
-      return "jeden úkol"
+      return "1 úkol"
     end
     if(number_of_tasks > 1 && number_of_tasks < 5)
       return "#{number_of_tasks} úkoly"
