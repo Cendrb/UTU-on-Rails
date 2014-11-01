@@ -7,6 +7,8 @@ require "nokogiri"
 class SummaryController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:post_details]
   before_filter :authenticate_admin, only: :refresh
+  before_filter :authenticate, only: :subjects
+  
   def summary
     if logged_in?
       user_names = current_user.name.split

@@ -4,7 +4,7 @@ class Subject < ActiveRecord::Base
   has_many :tasks
   
   def get_exam_before_days
-    exam = Exam.where("subject_id = ?", self).where("date <= ?", Date.today).order(date: :desc).first
+    exam = Exam.for_group(current_user.group).where("subject_id = ?", self).where("date <= ?", Date.today).order(date: :desc).first
     if(!exam)
       return "nikdy"
     end
@@ -25,10 +25,10 @@ class Subject < ActiveRecord::Base
   end
 
   def get_total_exams
-    return Exam.where("date <= ?", Date.today).where("subject_id = ?", self).count
+    return Exam.for_group(current_user.group).where("date <= ?", Date.today).where("subject_id = ?", self).count
   end
 
   def get_total_tasks
-    return Task.where("date <= ?", Date.today).where("subject_id = ?", self).count
+    return Task.for_group(current_user.group).where("date <= ?", Date.today).where("subject_id = ?", self).count
   end
 end
