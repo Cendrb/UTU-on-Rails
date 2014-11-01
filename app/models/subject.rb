@@ -25,10 +25,10 @@ class Subject < ActiveRecord::Base
   end
 
   def get_total_exams
-    return Exam.where("subject_id = ?", self).count
+    return Exam.where("date <= ?", Date.today).where("subject_id = ?", self).count
   end
 
   def get_total_tasks
-    return Task.where("subject_id = ?", self).count
+    return Task.where("date <= ?", Date.today).where("subject_id = ?", self).count
   end
 end
