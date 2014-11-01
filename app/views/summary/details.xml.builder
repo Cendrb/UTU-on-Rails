@@ -7,12 +7,12 @@ xml.utu do
 	end
 	xml.tasks do
 		@tasks.each do |task|
-			xml.task('id' => task.id, 'title' => task.title, 'description' => task.description, 'subject' => task.subject.id, 'date' => task.date, 'group' => task.group, 'additional_info_url' => task.additional_info_url)
+			xml.task('id' => task.id, 'title' => task.title, 'description' => task.description, 'subject' => task.subject.name, 'date' => task.date, 'group' => task.group, 'additional_info_url' => task.additional_info_url)
 		end
 	end
 	xml.exams do
 		@exams.each do |exam|
-			xml.exam('id' => exam.id, 'title' => exam.title, 'description' => exam.description, 'subject' => exam.subject.id, 'date' => exam.date, 'group' => exam.group, 'additional_info_url' => exam.additional_info_url)
+			xml.exam('id' => exam.id, 'title' => exam.title, 'description' => exam.description, 'subject' => exam.subject.name, 'date' => exam.date, 'group' => exam.group, 'additional_info_url' => exam.additional_info_url)
 		end
 	end
 end
