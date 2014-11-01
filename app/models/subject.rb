@@ -25,7 +25,7 @@ class Subject < ActiveRecord::Base
   end
   
   def get_exam_after_days
-    exam = Exam.for_group(User.current.group).where("subject_id = ?", self).where("date > ?", Date.today).order(date: :desc).first
+    exam = Exam.for_group(User.current.group).where("subject_id = ?", self).where("date > ?", Date.today).order(date: :asc).first
     if(!exam)
       return "zatím nikdy"
     end
