@@ -90,6 +90,10 @@ class SummaryController < ApplicationController
     @services = Service.order(:service_start).in_future
   end
 
+  def subjects
+    @subjects = Subject.all
+  end
+
   def administration
 
   end

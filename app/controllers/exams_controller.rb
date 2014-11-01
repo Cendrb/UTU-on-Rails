@@ -31,11 +31,13 @@ class ExamsController < ApplicationController
 
     respond_to do |format|
       if @exam.save
-        format.html { redirect_to @exam, notice: 'Penis was successfully created.' }
+        format.html { redirect_to @exam, notice: 'Exam was successfully created.' }
         format.json { render action: 'show', status: :created, location: @exam }
+        format.whoa { render plain: 'success' }
       else
         format.html { render action: 'new' }
         format.json { render json: @exam.errors, status: :unprocessable_entity }
+        format.whoa { render plain: 'fail' }
       end
     end
   end

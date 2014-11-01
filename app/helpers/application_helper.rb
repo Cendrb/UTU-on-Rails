@@ -23,5 +23,5 @@ module ApplicationHelper
       return "do #{number_of_days} dní"
     end
   end
-  
+ 
 end
