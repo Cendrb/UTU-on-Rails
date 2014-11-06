@@ -5,9 +5,7 @@ UTUOnRails::Application.routes.draw do
   resources :subjects
 
   resources :timetables do
-    controller :timetables do
-      get 'refresh' => :get_timetable
-    end
+    get 'refresh' => :get_timetable
   end
 
   resources :lessons
@@ -50,7 +48,6 @@ UTUOnRails::Application.routes.draw do
       get 'reveal' => :reveal
     end
   end
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

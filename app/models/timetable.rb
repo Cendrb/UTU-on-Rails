@@ -11,8 +11,8 @@ class Timetable < ActiveRecord::Base
     page.encoding = 'utf-8'
     
     form = page.forms.first
-    form["ctl00$cphmain$Loginname"] = @timetable.baka_account.username
-    form["ctl00$cphmain$TextBoxHeslo"] = timetable.baka_account.password
+    form["ctl00$cphmain$Loginname"] = baka_account.username
+    form["ctl00$cphmain$TextBoxHeslo"] = baka_account.password
     form["ctl00$cphmain$ButtonPrihlas"] = "Přihlásit"
     form["__EVENTTARGET"] = ""
     form["__EVENTARGUMENT"] = ""
