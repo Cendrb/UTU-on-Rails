@@ -1,8 +1,14 @@
 UTUOnRails::Application.routes.draw do
 
+  resources :baka_accounts
+
   resources :subjects
 
-  resources :timetables
+  resources :timetables do
+    controller :timetables do
+      get 'refresh' => :get_timetable
+    end
+  end
 
   resources :lessons
 

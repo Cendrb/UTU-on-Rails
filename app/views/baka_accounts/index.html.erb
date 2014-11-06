@@ -1,0 +1,29 @@
+<h1>Listing baka_accounts</h1>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @baka_accounts.each do |baka_account| %>
+      <tr>
+          <td><%= baka_account.name %></td></td>
+        <td><%= baka_account.username %></td>
+        <td><%= baka_account.password %></td>
+        <td><%= link_to 'Show', baka_account %></td>
+        <td><%= link_to 'Edit', edit_baka_account_path(baka_account) %></td>
+        <td><%= link_to 'Destroy', baka_account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Baka account', new_baka_account_path %>

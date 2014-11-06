@@ -1,6 +1,6 @@
 class TimetablesController < ApplicationController
   before_filter :authenticate_admin, except: [:show, :index]
-  before_action :set_timetable, only: [:show, :edit, :update, :destroy]
+  before_action :set_timetable, only: [:show, :edit, :update, :destroy, :get_timetable]
 
   # GET /timetables
   # GET /timetables.json
@@ -63,7 +63,12 @@ class TimetablesController < ApplicationController
     end
   end
 
+  def get_timetable
+    @timetable.get_timetable
+  end
+
   private
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_timetable
       @timetable = Timetable.find(params[:id])
@@ -71,6 +76,6 @@ class TimetablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def timetable_params
-      params.require(:timetable).permit(:string)
+      params.require(:timetable).permit(:name, :baka_account_id)
     end
 end

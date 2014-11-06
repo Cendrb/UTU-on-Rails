@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @baka_account.name %>
+</p>
+<p>
+  <strong>Username:</strong>
+  <%= @baka_account.username %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @baka_account.password %>
+</p>
+
+<%= link_to 'Edit', edit_baka_account_path(@baka_account) %> |
+<%= link_to 'Back', baka_accounts_path %>
