@@ -1,6 +1,7 @@
 class Timetable < ActiveRecord::Base
   has_many :school_days, dependent: :destroy
   belongs_to :baka_account
+  validates :name, :baka_account, presence: {presence: true, message: "nesmí být prázdný"}
   
   def get_timetable
     browser = Mechanize.new
