@@ -108,6 +108,7 @@ body {
 
 #subjects_stats
 {
+  margin-top: -0.5em;
   width: 100%;
   th.subject_header
   {
@@ -171,7 +172,7 @@ a.change_data {
   h1 {
       font-size: 33px;
       padding-bottom: 0.4em;
-      margin-bottom: 0.8em;
+      margin-bottom: 0.7em;
       border-bottom: solid 2px $h2-line-color; 
   }
   h2 {
