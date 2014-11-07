@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_event_from_event_id, only: [:hide, :reveal]
-  skip_before_action :verify_authenticity_token, only: [:create, :update]
+  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
   # GET /events
   # GET /events.json
   def index

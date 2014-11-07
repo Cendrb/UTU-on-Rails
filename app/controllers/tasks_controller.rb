@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_task_from_task_id, only: [:transform_to_exam, :hide, :reveal]
-  skip_before_action :verify_authenticity_token, only: [:create, :update]
+  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
   # GET /tasks
   # GET /tasks.json
   def index
