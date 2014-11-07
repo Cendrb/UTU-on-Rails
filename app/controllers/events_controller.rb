@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_event_from_event_id, only: [:hide, :reveal]
-  skip_before_action :verify_authenticity_token, only: :create
+  skip_before_action :verify_authenticity_token, only: [:create, :update]
   # GET /events
   # GET /events.json
   def index
@@ -35,9 +35,11 @@ class EventsController < ApplicationController
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @event }
+        format.whoa { render plain: 'success' }
       else
         format.html { render action: 'new' }
         format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.whoa { render plain: 'fail' }
       end
     end
   end
@@ -49,9 +51,11 @@ class EventsController < ApplicationController
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
+        format.whoa { render plain: 'success' }
       else
         format.html { render action: 'edit' }
         format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.whoa { render plain: 'fail' }
       end
     end
   end

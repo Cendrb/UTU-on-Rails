@@ -2,7 +2,7 @@ class ExamsController < ApplicationController
   before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
   before_action :set_exam_from_exam_id, only: [:transform_to_task, :hide, :reveal]
-  skip_before_action :verify_authenticity_token, only: :create
+  skip_before_action :verify_authenticity_token, only: [:create, :update]
   # GET /exams
   # GET /exams.json
   def index
@@ -50,9 +50,11 @@ class ExamsController < ApplicationController
       if @exam.update(exam_params)
         format.html { redirect_to @exam, notice: 'Exam was successfully updated.' }
         format.json { head :no_content }
+        format.whoa { render plain: 'success' }
       else
         format.html { render action: 'edit' }
         format.json { render json: @exam.errors, status: :unprocessable_entity }
+        format.whoa { render plain: 'fail' }
       end
     end
   end

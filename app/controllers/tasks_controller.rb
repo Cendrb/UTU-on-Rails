@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_task_from_task_id, only: [:transform_to_exam, :hide, :reveal]
-  skip_before_action :verify_authenticity_token, only: :create
+  skip_before_action :verify_authenticity_token, only: [:create, :update]
   # GET /tasks
   # GET /tasks.json
   def index
@@ -50,9 +50,11 @@ class TasksController < ApplicationController
       if @task.update(task_params)
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
+        format.whoa { render plain: 'success' }
       else
         format.html { render action: 'edit' }
         format.json { render json: @task.errors, status: :unprocessable_entity }
+        format.whoa { render plain: 'fail' }
       end
     end
   end
