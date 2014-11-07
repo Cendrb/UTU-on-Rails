@@ -67,6 +67,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to events_url }
       format.json { head :no_content }
+      format.whoa { render plain: 'success' }
     end
   end
 
