@@ -21,7 +21,7 @@
         <%= label_tag(:password, 'Heslo:') %>
         <%= password_field_tag :password, params[:password] %>
     </div>
-    
+
     <div class="field">
         <%= label_tag(:permanent, 'Trvalé přihlášení:') %>
         <%= check_box_tag :permanent, params[:permanent] %>
@@ -30,6 +30,10 @@
     <div class="field">
         <%= submit_tag 'Přihlásit' %>
     </div>
-    <p>Ještě nemáte účet? <%= link_to 'Registrovat', register_path %></p>
+    <p>
+        <%= link_to 'Zapomenuté heslo', forgot_path %>
+        <br />
+        <%= link_to 'Registrace', register_path %>
+    </p>
     <% end %>
 </div>
