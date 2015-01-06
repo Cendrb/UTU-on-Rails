@@ -96,7 +96,7 @@ class UsersController < ApplicationController
       user.forgot_password_code = SecureRandom.hex
       user.save!
       session[:user_id] = user.id
-      redirect_to edit_user_path(user), notice: "Nyní jste dočasně přihlášeni a můžete se změnit své heslo"
+      redirect_to edit_user_path(user), notice: "Nyní jste dočasně přihlášeni a můžete si změnit své heslo"
     else
       redirect_to forgot_path, alert: "Použitý odkaz je neplatný"
     end
