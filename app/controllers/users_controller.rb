@@ -1,7 +1,8 @@
+require 'securerandom'
+
 class UsersController < ApplicationController
   before_filter :authenticate_admin, only: :index
   before_action :set_user, only: [:show, :edit, :update, :destroy, :self_destroy]
-
   # GET /users
   # GET /users.json
   def index
@@ -61,7 +62,7 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def self_destroy
     @user.destroy
     cookies.delete :user_id
@@ -72,20 +73,47 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      if user = authenticate
-        if user.id != params[:id].to_i && !user.admin
-          redirect_to utu_path, alert: 'Nemáte práva měnit data jiných uživtelů'
-        end
+  def forgot_password_form
+
+  end
+
+  def forgot_password_send
+    email = params[:email]
+    user = User.find_by_email(email)
+    if(user.nil?)
+      redirect_to forgot_path, alert: "Žádný uživatel s danou emailovou adresou neexistuje"
+    else
+      UserMailer.forgot_password(user).deliver
+    end
+  end
+
+  def forgot_password_code
+    code = params[:code]
+    if(!code.nil? && !code == "")
+      user = User.find_by_forgot_password_code(code)
+      if(!user.nil?)
+        user.forgot_password_code = SecureRandom.hex
+        
       end
-      
-      @user = User.find(params[:id])
+    end
+    redirect_to forgot_path, alert: "Použitý odkaz je neplatný"
+  end
+
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    if user = authenticate
+      if user.id != params[:id].to_i && !user.admin
+        redirect_to utu_path, alert: 'Nemáte práva měnit data jiných uživatelů'
+      end
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :group, :name, :show_hidden_events, :show_hidden_exams, :show_hidden_tasks)
-    end
+    @user = User.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :group, :name, :show_hidden_events, :show_hidden_exams, :show_hidden_tasks)
+  end
 end

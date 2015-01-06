@@ -22,9 +22,8 @@
             <td><%= details_access.ip_address %></td>
             <td><%= details_access.user_agent %></td>
             <td><%= l details_access.created_at %></td>
-            <td><%= link_to 'Show', details_access %></td>
-            <td><%= link_to 'Edit', edit_details_access_path(details_access) %></td>
-            <td><%= link_to 'Destroy', details_access, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Zobrazit', details_access %></td>
+            <td><%= link_to 'Odstranit', details_access, method: :delete %></td>
         </tr>
         <% end %>
     </tbody>
