@@ -93,7 +93,8 @@ class UsersController < ApplicationController
       user = User.find_by_forgot_password_code(code)
       if(!user.nil?)
         user.forgot_password_code = SecureRandom.hex
-        
+        session[:user_id] = user.id
+        redirect_to edit_user_path(user), notice: "Zde si můžete nastavit nové heslo"
       end
     end
     redirect_to forgot_path, alert: "Použitý odkaz je neplatný"
