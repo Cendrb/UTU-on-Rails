@@ -1,0 +1,2 @@
+module DetailsAccessesHelper
+end

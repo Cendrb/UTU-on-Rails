@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   
   has_many :day_teachers
+  has_many :details_accesses
 
   cattr_accessor :current
   attr_accessor :password_confirmation

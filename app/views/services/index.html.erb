@@ -18,8 +18,8 @@
       <tr>
         <td><%= service.first_name %></td>
         <td><%= service.second_name %></td>
-        <td><%= service.service_start %></td>
-        <td><%= service.service_end %></td>
+        <td><%= l service.service_start %></td>
+        <td><%= l service.service_end %></td>
         <td><%= link_to 'Zobrazit', service %></td>
         <td><%= link_to 'Upravit', edit_service_path(service) %></td>
         <td><%= link_to 'Odstranit', service, method: :delete, data: { confirm: 'Jste si jisti?' } %></td>

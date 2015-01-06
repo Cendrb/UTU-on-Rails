@@ -1,0 +1,35 @@
+<h1>Listing details_accesses</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Uživatel</th>
+            <th>IP adresa</th>
+            <th>User agent</th>
+            <th>Čas přístupu</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @details_accesses.each do |details_access| %>
+        <tr>
+            <% if !details_access.user.nil? %>
+                <td><%= details_access.user.name %> (<%= details_access.user.email %>)</td>
+            <% else %>
+                <td>Bez přihlášení</td>
+            <% end %>
+            <td><%= details_access.ip_address %></td>
+            <td><%= details_access.user_agent %></td>
+            <td><%= l details_access.created_at %></td>
+            <td><%= link_to 'Show', details_access %></td>
+            <td><%= link_to 'Edit', edit_details_access_path(details_access) %></td>
+            <td><%= link_to 'Destroy', details_access, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Details access', new_details_access_path %>

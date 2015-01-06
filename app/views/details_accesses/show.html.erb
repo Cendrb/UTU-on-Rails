@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @details_access.user_id %>
+</p>
+
+<p>
+  <strong>Ip address:</strong>
+  <%= @details_access.ip_address %>
+</p>
+
+<p>
+  <strong>User agent:</strong>
+  <%= @details_access.user_agent %>
+</p>
+
+<%= link_to 'Edit', edit_details_access_path(@details_access) %> |
+<%= link_to 'Back', details_accesses_path %>

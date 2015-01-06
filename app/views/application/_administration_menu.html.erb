@@ -5,6 +5,10 @@
 <%= link_to("Třídní služby", services_path, class: 'administration_link') %><br />
 <%= link_to("Správa uživatelů", users_path, class: 'administration_link') %><br />
 <p>
+<%= link_to("Statistika předmětů", subjects_summary_path, class: 'administration_link') %><br />
+<%= link_to("Přehled návštěv", details_accesses_path, class: 'administration_link') %><br />
+</p>
+<p>
 <%= link_to("Rozvrhy", timetables_path, class: 'administration_link') %><br />
 <%= link_to("Dny", school_days_path, class: 'administration_link') %><br />
 <%= link_to("Lekce", lessons_path, class: 'administration_link') %><br />

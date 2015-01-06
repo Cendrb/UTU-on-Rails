@@ -1,5 +1,7 @@
 UTUOnRails::Application.routes.draw do
 
+  resources :details_accesses
+
   resources :baka_accounts
 
   resources :subjects
