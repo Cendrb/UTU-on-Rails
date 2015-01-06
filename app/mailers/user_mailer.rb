@@ -8,7 +8,7 @@ class UserMailer < ActionMailer::Base
     user.forgot_password_code = code
     user.save!
     @user = user
-    @url = "http://utu.herokuapp.com/forgot_code/#{code}"
+    @url = "http://localhost:3000/forgot_code?code=#{code}"
     mail(to: user.email, subject: "Změna hesla")
   end
 end

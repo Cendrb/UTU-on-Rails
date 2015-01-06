@@ -89,15 +89,17 @@ class UsersController < ApplicationController
 
   def forgot_password_code
     code = params[:code]
-    if(!code.nil? && !code == "")
-      user = User.find_by_forgot_password_code(code)
-      if(!user.nil?)
-        user.forgot_password_code = SecureRandom.hex
-        session[:user_id] = user.id
-        redirect_to edit_user_path(user), notice: "Zde si můžete nastavit nové heslo"
-      end
+    puts code
+
+    user = User.find_by_forgot_password_code(code)
+    if(!user.nil?)
+      user.forgot_password_code = SecureRandom.hex
+      user.save!
+      session[:user_id] = user.id
+      redirect_to edit_user_path(user), notice: "Zde si můžete nastavit nové heslo"
+    else
+      redirect_to forgot_path, alert: "Použitý odkaz je neplatný"
     end
-    redirect_to forgot_path, alert: "Použitý odkaz je neplatný"
   end
 
   private
