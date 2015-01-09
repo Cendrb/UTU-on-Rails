@@ -62,6 +62,16 @@ class DetailsAccessesController < ApplicationController
     end
   end
 
+  def analyze
+    accesses = DetailsAccess.all
+    @hours = []
+    accesses.each do |access|
+      @hours[access.created_at.strftime('%H').to_i] = 1
+    end
+    @series = render_to_string(template: 'details_accesses/analyze.json.jbuilder')
+    render template: 'details_accesses/analyze.html.erb', content_type: "text/html"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_details_access

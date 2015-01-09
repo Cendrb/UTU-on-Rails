@@ -58,6 +58,7 @@ UTUOnRails::Application.routes.draw do
   # root 'welcome#index'
   root to: 'summary#summary', as: 'utu'
 
+  get 'analyze' => 'details_accesses#analyze'
   get 'forgot' => 'users#forgot_password_form'
   get 'forgot_code' => 'users#forgot_password_code'
   post 'forgot' => 'users#forgot_password_send'

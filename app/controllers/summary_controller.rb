@@ -81,11 +81,7 @@ class SummaryController < ApplicationController
       end
     end
 
-    statisticsRecord = DetailsAccess.new()
-    statisticsRecord.user = current_user
-    statisticsRecord.ip_address = request.remote_ip
-    statisticsRecord.user_agent = request.env['HTTP_USER_AGENT']
-    statisticsRecord.save!
+    DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'])
 
     respond_to do |format|
       format.html
