@@ -1,7 +1,7 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <h2>Whoa</h2>
 <div id="time_graph" style="width: 100%; height: 400px;"></div>
-<script>
+<%= javascript_tag do %>
     $(function() {
         $('#time_graph').highcharts({
             chart : {
@@ -20,7 +20,7 @@
                     text : 'Počet návštěv'
                 }
             },
-            <%= @series %>
+            <%= j @series %>
         });
     }); 
-</script>
+<% end %>
