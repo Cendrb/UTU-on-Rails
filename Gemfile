@@ -50,9 +50,9 @@ gem 'chartkick'
 # Adds time methods like group_by_day, group_by_week and so on
 gem 'groupdate'
 
-gem 'sprockets'
+#gem 'sprockets'
 
-gem 'sprockets_better_errors'
+#gem 'sprockets_better_errors'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
