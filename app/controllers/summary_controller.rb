@@ -20,7 +20,7 @@ class SummaryController < ApplicationController
             @error = nil
             return "penis"
           else
-            @error = "Vaše příjmení není v záznamech o službách.\nBuď již tento rok nemáte službu nebo vaše jméno není platné (porovnáváno příjmení aktuálně přihlášeného uživatele a jméno ve službách)"
+            @error = "Vaše příjmení není v záznamech o službách.\nBuď již te  nto rok nemáte službu nebo vaše jméno není platné (porovnáváno příjmení aktuálně přihlášeného uživatele a jméno ve službách)"
           end
         end
       end

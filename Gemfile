@@ -44,6 +44,12 @@ gem 'tzinfo-data'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.1.3' 
 
+# For graphs
+gem 'chartkick'
+
+# Adds time methods like group_by_day, group_by_week and so on
+gem 'groupdate'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

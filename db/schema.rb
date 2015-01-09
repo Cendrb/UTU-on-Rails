@@ -24,22 +24,6 @@ ActiveRecord::Schema.define(version: 20150106194419) do
     t.string   "name"
   end
 
-  create_table "bitch_of_the_days", force: true do |t|
-    t.date     "bitch_day_date"
-    t.text     "reason"
-    t.integer  "bitch_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "botds", force: true do |t|
-    t.date     "date"
-    t.text     "reason"
-    t.integer  "bitch_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "day_teachers", force: true do |t|
     t.date     "date"
     t.integer  "teacher_id"
@@ -88,6 +72,13 @@ ActiveRecord::Schema.define(version: 20150106194419) do
     t.integer  "teacher_id"
     t.boolean  "not_normal"
     t.integer  "subject_id"
+  end
+
+  create_table "more_informations", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "school_days", force: true do |t|
