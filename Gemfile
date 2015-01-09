@@ -50,6 +50,8 @@ gem 'chartkick'
 # Adds time methods like group_by_day, group_by_week and so on
 gem 'groupdate'
 
+gem 'sprockets', '2.11.0'
+
 gem 'sprockets_better_errors'
 
 group :doc do
