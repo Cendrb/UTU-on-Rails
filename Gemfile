@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
@@ -49,6 +49,8 @@ gem 'chartkick'
 
 # Adds time methods like group_by_day, group_by_week and so on
 gem 'groupdate'
+
+gem 'sprockets_better_errors'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
