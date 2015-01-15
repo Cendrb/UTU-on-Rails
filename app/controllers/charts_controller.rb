@@ -32,7 +32,7 @@ class ChartsController < ApplicationController
   def accesses_per_user
     users = DetailsAccess.group(:user).count
     without_login = users[nil]
-    users[nil] = users.delete nil
+    users[nil] = users.delete ""
     users["Bez přihlášení"] = without_login
     render json: users
   end
