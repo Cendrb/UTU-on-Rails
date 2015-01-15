@@ -5,22 +5,25 @@
 
 <h1>Statistika návštěvnosti v grafech</h1>
 
-<h2>Graf počtu návštěv v závislosti na denní době (vše)</h2>
+<h3>Základní informace</h3>
+<strong>Celkový počet návštěv: </strong><%= @total %>
+
+<h3>Graf počtu návštěv v závislosti na denní době (vše)</h3>
 <%= column_chart accesses_per_hour_of_day_path %>
 
-<h2>Graf počtu návštěv v závislosti na denní době (posledních 24 hodin)</h2>
+<h3>Graf počtu návštěv v závislosti na denní době (posledních 24 hodin)</h3>
 <%= column_chart accesses_per_hour_of_last_day_path %>
 
-<h2>Graf počtu návštěv v závislosti na dni v týdnu</h2>
+<h3>Graf počtu návštěv v závislosti na dni v týdnu</h3>
 <%= column_chart accesses_per_day_of_week_path %>
 
-<h2>Graf počtu návštěv v závislosti na platformě</h2>
+<h3>Graf počtu návštěv v závislosti na platformě</h3>
 <%= pie_chart accesses_per_device_path %>
 
-<h2>Graf počtu návštěv v závislosti na uživateli</h2>
+<h3>Graf počtu návštěv v závislosti na uživateli</h3>
 <%= pie_chart accesses_per_user_path %>
 
-<h2>Graf počtu návštěv v závislosti na IP adrese</h2>
+<h3>Graf počtu návštěv v závislosti na IP adrese</h3>
 <%= pie_chart accesses_per_ip_path %>
 
 <!--<%= column_chart DetailsAccess.group_by_day_of_week(:created_at).count %>

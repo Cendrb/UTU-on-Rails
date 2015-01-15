@@ -63,7 +63,7 @@ class DetailsAccessesController < ApplicationController
   end
 
   def analyze
-    
+    @total = DetailsAccess.count
   end
 
   private
