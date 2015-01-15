@@ -4,6 +4,7 @@ UTUOnRails::Application.routes.draw do
     get 'accesses_per_hour_of_day'
     get 'accesses_per_day_of_week'
     get 'accesses_per_device'
+    get 'accesses_per_user'
   end
 
   resources :details_accesses

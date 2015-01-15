@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
   attr_accessor :password_confirmation
   attr_reader :password
   
+  def to_s
+    return name
+  end
+  
   def password=(password)
     @password = password
     
