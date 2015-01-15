@@ -2,6 +2,9 @@ class ChartsController < ApplicationController
   def accesses_per_hour_of_day
     render json: DetailsAccess.group_by_hour_of_day(:created_at).count
   end
+  def accesses_per_hour_of_last_day
+    render json: DetailsAccess.group_by_hour_of_day(:created_at, range: 1.days.ago.midnight..Time.now).count
+  end
 
   def accesses_per_day_of_week
     render json: DetailsAccess.group_by_day(:created_at, week_start: :mon, format: '%A').count
@@ -35,5 +38,9 @@ class ChartsController < ApplicationController
     users[nil] = users.delete ""
     users["Bez přihlášení"] = without_login
     render json: users
+  end
+  
+  def accesses_per_ip
+    render json: DetailsAccess.group(:ip_address).count
   end
 end
