@@ -3,10 +3,15 @@
 </script>
 <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
 
+<h1>Statistika návštěvnosti v grafech</h1>
+
+<h2>Graf počtu návštěv v závislosti na denní době</h2>
 <%= column_chart accesses_per_hour_of_day_path %>
 
+<h2>Graf počtu návštěv v závislosti na dni v týdnu</h2>
 <%= column_chart accesses_per_day_of_week_path %>
 
+<h2>Graf počtu návštěv v závislosti na platformě</h2>
 <%= pie_chart accesses_per_device_path %>
 
 <!--<%= column_chart DetailsAccess.group_by_day_of_week(:created_at).count %>

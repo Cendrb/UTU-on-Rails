@@ -28,4 +28,9 @@ class ChartsController < ApplicationController
     end
     render json: data
   end
+  
+  def accesses_per_user
+    users = DetailsAccess.group(:user)
+    puts users
+  end
 end
