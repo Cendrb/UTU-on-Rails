@@ -14,7 +14,7 @@ class ChartsController < ApplicationController
       if access.user_agent == "Apache-HttpClient/UNAVAILABLE (java 1.4)"
         result = "Android app"
       else
-        if access.user_agent == ""
+        if access.user_agent == "" || access.user_agent == nil
           result = "Windows app"
         else
           agent = AgentOrange::UserAgent.new(access.user_agent)
