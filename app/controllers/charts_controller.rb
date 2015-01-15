@@ -9,13 +9,22 @@ class ChartsController < ApplicationController
 
   def accesses_per_device
     data = {}
+    result = "penis"
     DetailsAccess.find_each do |access|
-      agent = AgentOrange::UserAgent.new(access.user_agent)
-      if !data[agent.device.platform.type]
-        data[agent.device.platform.type] = 0
+      if access.user_agent == "Apache-HttpClient/UNAVAILABLE (java 1.4)"
+        result = "Android app"
+      else
+        if access.user_agent == ""
+          result = "Windows app"
+        else
+          agent = AgentOrange::UserAgent.new(access.user_agent)
+          result = agent.device.platform.type
+        end
       end
-        data[agent.device.platform.type] += 1
-
+      if !data[result]
+        data[result] = 0
+      end
+        data[result] += 1
     end
     render json: data
   end
