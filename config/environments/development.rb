@@ -27,6 +27,10 @@ UTUOnRails::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   
+  # Set first day of week
+  Groupdate.week_start = :mon
+
+  
   config.assets.raise_production_errors = true
   
   config.action_mailer.delivery_method = :smtp

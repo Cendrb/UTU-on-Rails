@@ -3,4 +3,10 @@
 </script>
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 
-<%= column_chart DetailsAccess.group_by_hour_of_day(:created_at, format: "%l").count %>
+<%= area_chart DetailsAccess.group_by_hour_of_day(:created_at, format: "%l").count %>
+
+<%= area_chart DetailsAccess.group_by_day_of_week(:created_at, format: "%l").count %>
+
+<%= column_chart DetailsAccess.group(:user).count %>
+
+<%= pie_chart DetailsAccess.group(:user_agent).count %>
