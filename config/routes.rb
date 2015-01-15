@@ -3,6 +3,7 @@ UTUOnRails::Application.routes.draw do
   controller :charts do
     get 'accesses_per_hour_of_day'
     get 'accesses_per_day_of_week'
+    get 'accesses_per_device'
   end
 
   resources :details_accesses

@@ -71,9 +71,6 @@ UTUOnRails::Application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
-  
-  # Set first day of week
-  Groupdate.week_start = :mon
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false

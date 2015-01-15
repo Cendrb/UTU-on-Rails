@@ -26,9 +26,6 @@ UTUOnRails::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-  
-  # Set first day of week
-  Groupdate.week_start = :mon
 
   
   config.assets.raise_production_errors = true

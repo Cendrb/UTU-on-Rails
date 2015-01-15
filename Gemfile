@@ -50,6 +50,10 @@ gem 'chartkick'
 # Adds time methods like group_by_day, group_by_week and so on
 gem 'groupdate'
 
+# Parses the user_agent string from requests
+gem 'agent_orange'
+gem 'useragent'
+
 #gem 'sprockets'
 
 #gem 'sprockets_better_errors'
