@@ -1,5 +1,10 @@
 UTUOnRails::Application.routes.draw do
 
+  controller :charts do
+    get 'accesses_per_hour_of_day'
+    get 'accesses_per_day_of_week'
+  end
+
   resources :details_accesses
 
   resources :baka_accounts

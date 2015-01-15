@@ -1,11 +1,13 @@
 <script>
   var Chartkick = {"language": "cs"};
 </script>
-<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
 
-<%= area_chart DetailsAccess.group_by_hour_of_day(:created_at, format: "%l").count %>
+<%= column_chart accesses_per_hour_of_day_path %>
 
-<%= area_chart DetailsAccess.group_by_day_of_week(:created_at, format: "%l").count %>
+<%= column_chart accesses_per_day_of_week_path %>
+
+<!--<%= column_chart DetailsAccess.group_by_day_of_week(:created_at).count %>
 
 <%= column_chart DetailsAccess.group(:user).count %>
 
