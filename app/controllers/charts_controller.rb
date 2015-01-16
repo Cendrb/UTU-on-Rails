@@ -20,8 +20,8 @@ class ChartsController < ApplicationController
         if access.user_agent == "" || access.user_agent == nil
           result = "Windows app"
         else
-          agent = AgentOrange::UserAgent.new(access.user_agent)
-          result = agent.device.platform.type
+          agent = UserAgent.parse(access.user_agent)
+          result = "#{agent.platform} (#{agent.browser})"
         end
       end
       if !data[result]
