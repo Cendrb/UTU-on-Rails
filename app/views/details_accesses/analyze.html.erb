@@ -6,7 +6,10 @@
 <h1>Statistika návštěvnosti v grafech</h1>
 
 <h3>Základní informace</h3>
-<strong>Celkový počet návštěv: </strong><%= @total %>
+<strong>Celkový počet návštěv: </strong><%= @total %><br />
+<strong>Počet návštěv za posledních 24 hodin: </strong><%= @total_per_24_hours %><br />
+<strong>Počet návštěv za posledních 30 dní: </strong><%= @total_per_30_days %><br />
+<strong>Údaje zaznamenávány od: </strong><%= l @statistics_started %><br />
 
 <h3>Graf počtu návštěv v závislosti na denní době (vše)</h3>
 <%= column_chart accesses_per_hour_of_day_path %>
@@ -19,15 +22,10 @@
 
 <h3>Graf počtu návštěv v závislosti na platformě</h3>
 <%= pie_chart accesses_per_device_path %>
-
-<h3>Graf počtu návštěv v závislosti na uživateli</h3>
-<%= pie_chart accesses_per_user_path %>
-
-<h3>Graf počtu návštěv v závislosti na IP adrese</h3>
-<%= pie_chart accesses_per_ip_path %>
-
-<!--<%= column_chart DetailsAccess.group_by_day_of_week(:created_at).count %>
-
-<%= column_chart DetailsAccess.group(:user).count %>
-
-<%= pie_chart DetailsAccess.group(:user_agent).count %>
+<% if admin_logged_in? %>
+    <h3>Graf počtu návštěv v závislosti na uživateli</h3>
+    <%= pie_chart accesses_per_user_path %>
+    
+    <h3>Graf počtu návštěv v závislosti na IP adrese</h3>
+    <%= pie_chart accesses_per_ip_path %>
+<% end %>
