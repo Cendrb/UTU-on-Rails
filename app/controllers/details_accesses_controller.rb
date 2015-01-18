@@ -1,5 +1,5 @@
 class DetailsAccessesController < ApplicationController
-  before_filter :authenticate_admin, except: [:show, :index]
+  before_filter :authenticate_admin, except: [:show, :index, :analyze]
   before_action :set_details_access, only: [:show, :edit, :update, :destroy]
 
   # GET /details_accesses
