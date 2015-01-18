@@ -71,4 +71,8 @@ class ChartsController < ApplicationController
   def accesses_per_ip
     render json: DetailsAccess.group(:ip_address).count
   end
+  
+  def accesses_per_last_month_in_days
+    render json: DetailsAccess.group_by_day(:created_at, format: '%e. %B', range: 1.month.ago..Time.now).count
+  end
 end

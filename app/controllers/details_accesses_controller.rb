@@ -64,8 +64,8 @@ class DetailsAccessesController < ApplicationController
 
   def analyze
     @total = DetailsAccess.count
-    @total_per_24_hours = DetailsAccess.where('created_at >= :date', date: Date.today - 24.hours).count
-    @total_per_30_days = DetailsAccess.where('created_at >= :date', date: Date.today - 24.days).count
+    @total_per_24_hours = DetailsAccess.where('created_at >= :date', date: 24.hours.ago).count
+    @total_per_30_days = DetailsAccess.where('created_at >= :date', date: 24.days.ago).count
     @statistics_started = DetailsAccess.order('created_at asc').first.created_at
     
     accesses_count_hash = DetailsAccess.group_by_day(:created_at).count
