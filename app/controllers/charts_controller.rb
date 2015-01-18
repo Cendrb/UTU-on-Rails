@@ -2,6 +2,7 @@ class ChartsController < ApplicationController
   def accesses_per_hour_of_day
     render json: DetailsAccess.group_by_hour_of_day(:created_at).count
   end
+
   def accesses_per_hour_of_last_day
     render json: DetailsAccess.group_by_hour_of_day(:created_at, range: 1.days.ago.midnight..Time.now).count
   end
@@ -25,13 +26,13 @@ class ChartsController < ApplicationController
         end
       end
       if !data[result]
-        data[result] = 0
+        data[result] = 1
       end
-        data[result] += 1
+      data[result] += 1
     end
     render json: data
   end
-  
+
   def accesses_per_user
     users = DetailsAccess.group(:user).count
     without_login = users[nil]
@@ -39,7 +40,34 @@ class ChartsController < ApplicationController
     users["Bez přihlášení"] = without_login
     render json: users
   end
-  
+
+  def accesses_per_user_type
+    types = {}
+    DetailsAccess.find_each do |access|
+      result = ""
+      if access.user.nil?
+        result = "Nepřihlášen"
+      else
+        result = "Přihlášen"
+        if access.user_agent == "Apache-HttpClient/UNAVAILABLE (java 1.4)"
+          result += " (z Android aplikace)"
+        else
+          if access.user_agent == "" || access.user_agent == nil
+            result += " (z Windows aplikace)"
+          else
+            result += " (z prohlížeče)"
+          end
+        end
+      end
+      if !types[result]
+        types[result] = 1
+      end
+      types[result] += 1
+    end
+
+    render json: types
+  end
+
   def accesses_per_ip
     render json: DetailsAccess.group(:ip_address).count
   end

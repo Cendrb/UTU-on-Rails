@@ -6,6 +6,7 @@ UTUOnRails::Application.routes.draw do
     get 'accesses_per_day_of_week'
     get 'accesses_per_device'
     get 'accesses_per_user'
+    get 'accesses_per_user_type'
     get 'accesses_per_ip'
   end
 

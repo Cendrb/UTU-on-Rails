@@ -22,10 +22,14 @@
 
 <h3>Graf počtu návštěv v závislosti na platformě</h3>
 <%= pie_chart accesses_per_device_path %>
+
+<h3>Graf počtu návštěv v závislosti na typu přístupu</h3>
+<%= pie_chart accesses_per_user_type_path %>
+
 <% if admin_logged_in? %>
-    <h3>Graf počtu návštěv v závislosti na uživateli</h3>
+    <h3>Graf počtu návštěv v závislosti na uživateli (pouze pro administrátory)</h3>
     <%= pie_chart accesses_per_user_path %>
     
-    <h3>Graf počtu návštěv v závislosti na IP adrese</h3>
+    <h3>Graf počtu návštěv v závislosti na IP adrese (pouze pro administrátory)</h3>
     <%= pie_chart accesses_per_ip_path %>
 <% end %>
