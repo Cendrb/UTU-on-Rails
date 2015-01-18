@@ -25,7 +25,7 @@ class SummaryController < ApplicationController
         end
       end
     end
-    @near_payments = Event.order(:event_start).in_future.where("pay_date <= :pay AND pay_date != event_start", { :pay => Date.today + 7.days } )
+    @near_payments = Event.order(:event_start).in_future.where("pay_date <= :pay", { :pay => Date.today + 7.days } )
   end
 
   def post_details
