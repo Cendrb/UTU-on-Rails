@@ -46,3 +46,6 @@
 <h3>Nastavení zobrazení položek</h3>
 <%= render partial: 'users/hide_settings', locals: {user: user}%>
 
+<h3>Přehledy a statistiky</h3>
+<%= link_to("Statistika předmětů", subjects_summary_path, class: 'administration_link') %><br />
+<%= link_to("Statistika návštěvnosti", statistics_path, class: 'administration_link') %><br />

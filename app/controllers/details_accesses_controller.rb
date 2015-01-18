@@ -1,5 +1,5 @@
 class DetailsAccessesController < ApplicationController
-  before_filter :authenticate_admin, except: [:show, :index, :analyze]
+  before_filter :authenticate_admin, except: [:analyze]
   before_action :set_details_access, only: [:show, :edit, :update, :destroy]
 
   # GET /details_accesses
@@ -67,6 +67,11 @@ class DetailsAccessesController < ApplicationController
     @total_per_24_hours = DetailsAccess.where('created_at >= :date', date: Date.today - 24.hours).count
     @total_per_30_days = DetailsAccess.where('created_at >= :date', date: Date.today - 24.days).count
     @statistics_started = DetailsAccess.order('created_at asc').first.created_at
+    
+    accesses_count_hash = DetailsAccess.group_by_day(:created_at).count
+    total = 0
+    accesses_count_hash.each { |key, value| total += value }
+    @average_per_day = total.to_f/accesses_count_hash.count.to_f
   end
 
   private
