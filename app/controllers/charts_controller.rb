@@ -8,7 +8,7 @@ class ChartsController < ApplicationController
   end
 
   def accesses_per_day_of_week
-    render json: DetailsAccess.group_by_day(:created_at, week_start: :mon, format: '%A').count
+    render json: DetailsAccess.group_by_day_of_week(:created_at, week_start: :mon, format: "%A").count
   end
 
   def accesses_per_device
