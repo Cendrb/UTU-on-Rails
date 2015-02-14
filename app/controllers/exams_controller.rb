@@ -80,11 +80,8 @@ class ExamsController < ApplicationController
   end
 
   def hide
-    user = current_user
-    if !user.hidden_exams.include? @exam.id
-      user.hidden_exams += [@exam.id]
-      user.save!
-    end
+    @exam.mark_as_done
+    
     if request.env['HTTP_REFERER']
       redirect_to :back
     else
@@ -93,11 +90,8 @@ class ExamsController < ApplicationController
   end
 
   def reveal
-    user = current_user
-    if user.hidden_exams.include? @exam.id
-      user.hidden_exams -= [@exam.id]
-      user.save!
-    end
+    @exam.mark_as_undone    
+
     if request.env['HTTP_REFERER']
       redirect_to :back
     else

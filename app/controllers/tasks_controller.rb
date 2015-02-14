@@ -80,11 +80,8 @@ class TasksController < ApplicationController
   end
 
   def hide
-    user = current_user
-    if !user.hidden_tasks.include? @task.id
-      user.hidden_tasks += [@task.id]
-      user.save!
-    end
+    @task.mark_as_done
+    
     if request.env['HTTP_REFERER']
       redirect_to :back
     else
@@ -93,11 +90,8 @@ class TasksController < ApplicationController
   end
 
   def reveal
-    user = current_user
-    if user.hidden_tasks.include? @task.id
-      user.hidden_tasks -= [@task.id]
-      user.save!
-    end
+    @task.mark_as_undone
+    
     if request.env['HTTP_REFERER']
       redirect_to :back
     else

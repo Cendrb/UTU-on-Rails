@@ -13,4 +13,18 @@ class Exam < ActiveRecord::Base
   def get_task
     Task.new(title: title, description: description, subject: subject, group: group, date: date)
   end
+  
+  def is_done?
+    return !DoneExam.find_by("user_id = :user AND exam_id = :item", { user: User.current, item: self }).nil?
+  end
+  
+  def mark_as_undone
+    DoneExam.where("user_id = :user AND exam_id = :item", { user: User.current, item: self }).destroy_all
+  end
+  
+  def mark_as_done
+    if(!is_done?)
+      DoneExam.create(user: User.current, exam: self)
+    end
+  end
 end

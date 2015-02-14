@@ -63,13 +63,13 @@ class SummaryController < ApplicationController
 
         # Umožnění skrytí jednotlivých položek
         if !user.show_hidden_events
-          @events = @events.id_not_on_list(user.hidden_events) if user.hidden_events.length > 0
+          @events = drop_hidden(@events)
         end
         if !user.show_hidden_exams
-          @exams = @exams.id_not_on_list(user.hidden_exams) if user.hidden_exams.length > 0
+          @exams = drop_hidden(@exams)
         end
         if !user.show_hidden_tasks
-          @tasks = @tasks.id_not_on_list(user.hidden_tasks) if user.hidden_tasks.length > 0
+          @tasks = drop_hidden(@tasks)
         end
 
         @exams = drop_todays_after(@exams, 12)
@@ -119,7 +119,11 @@ class SummaryController < ApplicationController
     if Time.now >= (Date.today + hour.hours)
       items.drop_while { |e| e.date == Date.today  }
     else
-    items
+      return items
     end
+  end
+  
+  def drop_hidden(items)
+    items.drop_while { |e| e.is_done? }
   end
 end

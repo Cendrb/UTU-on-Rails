@@ -18,6 +18,9 @@ gem 'mechanize'
 # Spring from Rails 4.1
 #gem 'spring', group: :development
 
+# Datepicker
+gem 'bootstrap-datepicker-rails'
+
 # Email validation
 gem 'validates_email_format_of'
 

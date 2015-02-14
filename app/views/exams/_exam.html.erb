@@ -1,7 +1,7 @@
 <div class="exam">
     
     <% if logged_in? %>
-        <% if current_user.hidden_exams.to_a.include? exam.id %>
+        <% if exam.is_done? %>
             <%= button_to 'Obnovit', exam_reveal_path(exam), method: :get, class: 'hide_or_reveal' %>
         <% else %>
             <%= button_to 'Skrýt', exam_hide_path(exam), method: :get, class: 'hide_or_reveal' %>

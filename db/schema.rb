@@ -95,6 +95,13 @@ ActiveRecord::Schema.define(version: 20150213140741) do
     t.integer  "subject_id"
   end
 
+  create_table "more_informations", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "school_days", force: true do |t|
     t.date     "date"
     t.integer  "weekday"

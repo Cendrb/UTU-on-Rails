@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   
   has_many :day_teachers
   has_many :details_accesses
+  
+  has_many :done_events
+  has_many :done_exams
+  has_many :done_tasks
 
   cattr_accessor :current
   attr_accessor :password_confirmation

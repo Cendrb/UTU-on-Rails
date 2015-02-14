@@ -72,20 +72,22 @@ class EventsController < ApplicationController
   end
 
   def hide
-    if(!@event.is_done?)
      @event.mark_as_done
-    end
     
-    respond_to do |format|
-      format.html { redirect_to details_path }
+    if request.env['HTTP_REFERER']
+      redirect_to :back
+    else
+      redirect_to details_path
     end
   end
 
   def reveal
     @event.mark_as_undone
 
-    respond_to do |format|
-      format.html { redirect_to details_path }
+    if request.env['HTTP_REFERER']
+      redirect_to :back
+    else
+      redirect_to details_path
     end
   end
 

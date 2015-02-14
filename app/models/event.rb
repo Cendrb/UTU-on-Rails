@@ -25,6 +25,23 @@ class Event < ActiveRecord::Base
   end
   
   def mark_as_done
-    DoneEvent.create(user: User.current, event: self)
+    if(!is_done?)
+      DoneEvent.create(user: User.current, event: self)
+    end
+  end
+  
+  
+  def is_snoozed?
+    return !SnoozedEvent.find_by("user_id = :user AND event_id = :item AND snooze_date > :now", { user: User.current, item: self, now: Time.now }).nil?
+  end
+  
+  def snooze(snooze_date)
+    if(!is_snoozed?)
+      SnoozedEvent.create(user: User.current, event: self, snooze_date: snooze_date)
+    end
+  end
+  
+  def unsnooze
+    SnoozedEvent.where("user_id = :user AND event_id = :item", { user: User.current, item: self }).destroy_all
   end
 end
