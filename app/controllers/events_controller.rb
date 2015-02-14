@@ -72,22 +72,18 @@ class EventsController < ApplicationController
   end
 
   def hide
-    user = current_user
-    if !user.hidden_events.include? @event.id
-      user.hidden_events += [@event.id]
-      user.save!
+    if(!@event.is_done?)
+     @event.mark_as_done
     end
+    
     respond_to do |format|
       format.html { redirect_to details_path }
     end
   end
 
   def reveal
-    user = current_user
-    if user.hidden_events.include? @event.id
-      user.hidden_events -= [@event.id]
-      user.save!
-    end
+    @event.mark_as_undone
+
     respond_to do |format|
       format.html { redirect_to details_path }
     end

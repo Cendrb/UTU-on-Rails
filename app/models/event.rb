@@ -15,4 +15,16 @@ class Event < ActiveRecord::Base
   validates :title, :event_start, :event_end, :location, presence: {presence: true, message: "nesmí být prázdný"}
   validates :price, numericality: true
   validates_with EventDateValidator
+  
+  def is_done?
+    return !DoneEvent.find_by("user_id = :user AND event_id = :item", { user: User.current, item: self }).nil?
+  end
+  
+  def mark_as_undone
+    DoneEvent.where("user_id = :user AND event_id = :item", { user: User.current, item: self }).destroy_all
+  end
+  
+  def mark_as_done
+    DoneEvent.create(user: User.current, event: self)
+  end
 end

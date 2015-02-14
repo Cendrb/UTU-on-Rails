@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150106194419) do
+ActiveRecord::Schema.define(version: 20150213140741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,27 @@ ActiveRecord::Schema.define(version: 20150106194419) do
     t.integer  "user_id"
     t.string   "ip_address"
     t.string   "user_agent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "done_events", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "done_exams", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "exam_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "done_tasks", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,13 +95,6 @@ ActiveRecord::Schema.define(version: 20150106194419) do
     t.integer  "subject_id"
   end
 
-  create_table "more_informations", force: true do |t|
-    t.string   "name"
-    t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "school_days", force: true do |t|
     t.date     "date"
     t.integer  "weekday"
@@ -94,6 +108,30 @@ ActiveRecord::Schema.define(version: 20150106194419) do
     t.string   "second_name"
     t.date     "service_start"
     t.date     "service_end"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "snoozed_events", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "snooze_date"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "snoozed_exams", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "snooze_date"
+    t.integer  "exam_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "snoozed_tasks", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "snooze_date"
+    t.integer  "task_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
