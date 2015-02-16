@@ -6,7 +6,7 @@ require "nokogiri"
 
 class SummaryController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:post_details]
-  before_filter :authenticate_admin, only: :refresh
+  before_filter :authenticate_admin, only: [:refresh, :migrate]
   before_filter :authenticate, only: :subjects
   
   def summary
@@ -100,6 +100,20 @@ class SummaryController < ApplicationController
 
   def administration
 
+  end
+  
+  def migrate
+    User.all.each do |user|
+      user.hidden_events.each do |i|
+        DoneEvent.create(user: user, event_id: i)
+      end
+      user.hidden_exams.each do |i|
+        DoneExam.create(user: user, exam_id: i)
+      end
+      user.hidden_tasks.each do |i|
+        DoneTask.create(user: user, task_id: i)
+      end
+    end
   end
 
   def administrator_logged_in
