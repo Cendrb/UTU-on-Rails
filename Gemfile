@@ -23,6 +23,12 @@ gem 'mechanize'
 # Datepicker
 gem 'bootstrap-datepicker-rails'
 
+# For better forms
+gem 'simple_form'
+
+# Country dependent penises
+gem 'country_select'
+
 # Email validation
 gem 'validates_email_format_of'
 

@@ -74,24 +74,36 @@ class EventsController < ApplicationController
   def hide
      @event.mark_as_done
     
-    if request.env['HTTP_REFERER']
-      redirect_to :back
-    else
-      redirect_to details_path
-    end
+    redirect_back
   end
 
   def reveal
     @event.mark_as_undone
 
+    redirect_back
+  end
+  
+  def snooze
+     @event.snooze
+    
+    redirect_back
+  end
+
+  def unsnooze
+    @event.unsnooze
+
+    redirect_back
+  end
+
+  private
+  
+  def redirect_back
     if request.env['HTTP_REFERER']
       redirect_to :back
     else
       redirect_to details_path
     end
   end
-
-  private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_event
