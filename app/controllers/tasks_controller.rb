@@ -1,8 +1,8 @@
 class TasksController < ApplicationController
   before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :set_task_from_task_id, only: [:transform_to_exam, :hide, :reveal]
-  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
+  before_action :set_task_from_task_id, only: [:transform_to_exam, :hide, :reveal, :snooze, :unsnooze]
+  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy, :hide, :reveal, :snooze, :unsnooze]
   # GET /tasks
   # GET /tasks.json
   def index
@@ -82,24 +82,36 @@ class TasksController < ApplicationController
   def hide
     @task.mark_as_done
     
-    if request.env['HTTP_REFERER']
-      redirect_to :back
-    else
-      redirect_to details_path
-    end
+    redirect_back
   end
 
   def reveal
     @task.mark_as_undone
     
+    redirect_back
+  end
+  
+  def snooze
+     @task.snooze(params[:date])
+    
+    redirect_back
+  end
+
+  def unsnooze
+    @task.unsnooze
+
+    redirect_back
+  end
+
+  private
+  
+  def redirect_back
     if request.env['HTTP_REFERER']
       redirect_to :back
     else
       redirect_to details_path
     end
   end
-
-  private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_task

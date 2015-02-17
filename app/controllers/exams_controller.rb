@@ -1,8 +1,8 @@
 class ExamsController < ApplicationController
   before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
-  before_action :set_exam_from_exam_id, only: [:transform_to_task, :hide, :reveal]
-  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
+  before_action :set_exam_from_exam_id, only: [:transform_to_task, :hide, :reveal, :snooze, :unsnooze]
+  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy, :hide, :reveal, :snooze, :unsnooze]
   # GET /exams
   # GET /exams.json
   def index
@@ -81,17 +81,31 @@ class ExamsController < ApplicationController
 
   def hide
     @exam.mark_as_done
-    
-    if request.env['HTTP_REFERER']
-      redirect_to :back
-    else
-      redirect_to details_path
-    end
+
+    redirect_back
   end
 
   def reveal
-    @exam.mark_as_undone    
+    @exam.mark_as_undone
 
+    redirect_back
+  end
+  
+  def snooze
+     @exam.snooze(params[:date])
+    
+    redirect_back
+  end
+
+  def unsnooze
+    @exam.unsnooze
+
+    redirect_back
+  end
+
+  private
+
+  def redirect_back
     if request.env['HTTP_REFERER']
       redirect_to :back
     else
@@ -99,18 +113,17 @@ class ExamsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_exam
-      @exam = Exam.find(params[:id])
-    end
-    
-    def set_exam_from_exam_id
-      @exam = Exam.find(params[:exam_id])
-    end
-  
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def exam_params
-      params.require(:exam).permit(:title, :description, :subject_id, :date, :group, :additional_info_url)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_exam
+    @exam = Exam.find(params[:id])
+  end
+
+  def set_exam_from_exam_id
+    @exam = Exam.find(params[:exam_id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def exam_params
+    params.require(:exam).permit(:title, :description, :subject_id, :date, :group, :additional_info_url)
+  end
 end

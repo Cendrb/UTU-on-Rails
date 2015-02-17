@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
-  before_filter :authenticate_admin, except: [:hide, :reveal]
+  before_filter :authenticate_admin, except: [:hide, :reveal, :snooze, :unsnooze]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :set_event_from_event_id, only: [:hide, :reveal]
-  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
+  before_action :set_event_from_event_id, only: [:hide, :reveal, :snooze, :unsnooze]
+  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy, :hide, :reveal, :snooze, :unsnooze]
   # GET /events
   # GET /events.json
   def index
@@ -84,7 +84,7 @@ class EventsController < ApplicationController
   end
   
   def snooze
-     @event.snooze
+     @event.snooze(params[:date])
     
     redirect_back
   end

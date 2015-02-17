@@ -27,4 +27,18 @@ class Task < ActiveRecord::Base
       DoneTask.create(user: User.current, task: self)
     end
   end
+  
+  def is_snoozed?
+    return !SnoozedTask.find_by("user_id = :user AND task_id = :item AND snooze_date > :now", { user: User.current, item: self, now: Time.now }).nil?
+  end
+  
+  def snooze(snooze_date)
+    if(!is_snoozed?)
+      SnoozedTask.create(user: User.current, task: self, snooze_date: snooze_date)
+    end
+  end
+  
+  def unsnooze
+    SnoozedTask.where("user_id = :user AND task_id = :item", { user: User.current, item: self }).destroy_all
+  end
 end

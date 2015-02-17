@@ -27,4 +27,18 @@ class Exam < ActiveRecord::Base
       DoneExam.create(user: User.current, exam: self)
     end
   end
+  
+  def is_snoozed?
+    return !SnoozedExam.find_by("user_id = :user AND exam_id = :item AND snooze_date > :now", { user: User.current, item: self, now: Time.now }).nil?
+  end
+  
+  def snooze(snooze_date)
+    if(!is_snoozed?)
+      SnoozedExam.create(user: User.current, exam: self, snooze_date: snooze_date)
+    end
+  end
+  
+  def unsnooze
+    SnoozedExam.where("user_id = :user AND exam_id = :item", { user: User.current, item: self }).destroy_all
+  end
 end
