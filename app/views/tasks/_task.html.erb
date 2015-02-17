@@ -8,7 +8,7 @@
         <% end %>
     <% end %>
     
-    <h3><%= task.title %></h3>
+    <h3><%= link_to task.title, task_path(task), method: :get %></h3>
     <p>
         <%= sanitize(task.description) %>
     </p>

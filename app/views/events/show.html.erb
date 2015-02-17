@@ -2,5 +2,8 @@
 
 <%= render @event %>
 
+<% if logged_in? %>
 <%= link_to 'Upravit', edit_event_path(@event) %> |
-<%= link_to 'Zpět na správu událostí', events_path %>
+<%= link_to 'Zpět na správu událostí', events_path %> |
+<% end %>
+<%= link_to 'Zpět na podrobnosti' %>

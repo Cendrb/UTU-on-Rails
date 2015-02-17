@@ -8,7 +8,7 @@
         <% end %>
     <% end %>
 
-    <h3><%= exam.title %></h3>
+    <h3><%= link_to exam.title, exam_path(exam), method: :get %></h3>
     
     <p>
         <%= sanitize(exam.description) %>

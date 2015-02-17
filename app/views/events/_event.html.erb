@@ -7,8 +7,8 @@
             <%= button_to 'Skrýt', event_hide_path(event), method: :get, class: 'hide_or_reveal' %>
         <% end %>
     <% end %>
-    
-    <h3><%= event.title %></h3>
+   
+    <h3><%= link_to event.title, event_path(event), method: :get %></h3>
 
     <p>
         <%= sanitize(event.description) %>
