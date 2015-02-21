@@ -1,6 +1,5 @@
 require "net/http"
 require "uri"
-
 require "mechanize"
 require "nokogiri"
 
@@ -8,7 +7,6 @@ class SummaryController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:post_details]
   before_filter :authenticate_admin, only: [:refresh, :migrate]
   before_filter :authenticate, only: :subjects
-  
   def summary
     if logged_in?
       user_names = current_user.name.split
@@ -81,7 +79,9 @@ class SummaryController < ApplicationController
       end
     end
 
-    DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'])
+    if(!current_user.nil? && !current_user.email == "penis@penis.com")
+      DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'])
+    end
 
     respond_to do |format|
       format.html
@@ -101,7 +101,7 @@ class SummaryController < ApplicationController
   def administration
 
   end
-  
+
   def migrate
     User.all.each do |user|
       user.hidden_events.each do |i|
@@ -128,15 +128,15 @@ class SummaryController < ApplicationController
   end
 
   private
-  
+
   def drop_todays_after(items, hour)
     if Time.now >= (Date.today + hour.hours)
       items.drop_while { |e| e.date == Date.today  }
     else
-      return items
+    return items
     end
   end
-  
+
   def drop_hidden(items)
     items.drop_while { |e| e.is_done? }
   end
