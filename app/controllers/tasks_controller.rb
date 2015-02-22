@@ -118,11 +118,6 @@ class TasksController < ApplicationController
       format.html { redirect_html_back }
       format.whoa { render plain: "WHOA" }
     end
-    if request.env['HTTP_REFERER']
-      redirect_to :back
-    else
-      redirect_to details_path
-    end
   end
 
   # Use callbacks to share common setup or constraints between actions.
