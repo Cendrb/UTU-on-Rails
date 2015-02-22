@@ -2,9 +2,9 @@
     
     <% if logged_in? %>
         <% if event.is_done? %>
-            <%= button_to 'Obnovit', event_reveal_path(event), method: :get, class: 'hide_or_reveal' %>
+            <%= button_to 'Obnovit', event_reveal_path(event), method: :post, class: 'hide_or_reveal' %>
         <% else %>
-            <%= button_to 'Skrýt', event_hide_path(event), method: :get, class: 'hide_or_reveal' %>
+            <%= button_to 'Skrýt', event_hide_path(event), method: :post, class: 'hide_or_reveal' %>
         <% end %>
     <% end %>
    

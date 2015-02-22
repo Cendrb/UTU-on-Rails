@@ -44,6 +44,8 @@ UTUOnRails::Application.routes.draw do
       get 'transform_to_task' => :transform_to_task
       get 'hide' => :hide
       get 'reveal' => :reveal
+      post 'hide' => :hide
+      post 'reveal' => :reveal
       post 'snooze' => :snooze
       post 'unsnooze' => :unsnooze
     end
@@ -54,6 +56,8 @@ UTUOnRails::Application.routes.draw do
       get 'transform_to_exam' => :transform_to_exam
       get 'hide' => :hide
       get 'reveal' => :reveal
+      post 'hide' => :hide
+      post 'reveal' => :reveal
       post 'snooze' => :snooze
       post 'unsnooze' => :unsnooze
     end
@@ -63,6 +67,8 @@ UTUOnRails::Application.routes.draw do
     controller :events do
       get 'hide' => :hide
       get 'reveal' => :reveal
+      post 'hide' => :hide
+      post 'reveal' => :reveal
       post 'snooze' => :snooze
       post 'unsnooze' => :unsnooze
     end
