@@ -97,7 +97,19 @@ class EventsController < ApplicationController
 
   private
   
+  def redirect_html_back
+    if request.env['HTTP_REFERER']
+      redirect_to :back
+    else
+      redirect_to details_path
+    end
+  end
+  
   def redirect_back
+    respond_to do |format|
+      format.html { redirect_html_back }
+      format.whoa { render plain: "WHOA" }
+    end
     if request.env['HTTP_REFERER']
       redirect_to :back
     else
