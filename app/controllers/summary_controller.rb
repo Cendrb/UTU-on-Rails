@@ -70,6 +70,10 @@ class SummaryController < ApplicationController
           if !user.show_hidden_tasks
             @tasks = drop_hidden(@tasks)
           end
+        else
+          @events = drop_hidden(@events)
+          @exams = drop_hidden(@exams)
+          @tasks = drop_hidden(@tasks)
         end
 
         @exams = drop_todays_after(@exams, 12)
