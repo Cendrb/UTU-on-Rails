@@ -85,13 +85,8 @@ class SummaryController < ApplicationController
       end
     end
 
-    if current_user.nil?
+
       DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'])
-    else
-      if(current_user.email != "penis@penis.com")
-        DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'])
-      end
-    end
 
     respond_to do |format|
       format.html
