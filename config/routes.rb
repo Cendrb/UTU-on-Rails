@@ -18,7 +18,7 @@ UTUOnRails::Application.routes.draw do
   resources :subjects
 
   resources :timetables do
-    get 'refresh' => :get_timetable
+    get 'fetch_baka' => :fetch_baka
   end
 
   resources :lessons
@@ -81,21 +81,31 @@ UTUOnRails::Application.routes.draw do
   # root 'welcome#index'
   root to: 'summary#summary', as: 'utu'
 
-  get 'migrate' => 'summary#migrate'
+  # get 'migrate' => 'summary#migrate'
+  
   get 'analyze' => 'details_accesses#analyze'
   get 'statistics' => 'details_accesses#analyze'
   get 'stats' => 'details_accesses#analyze'
+  
   get 'forgot' => 'users#forgot_password_form'
   get 'forgot_code' => 'users#forgot_password_code'
   post 'forgot' => 'users#forgot_password_send'
+  
   get 'administrator_authenticated' => 'summary#administrator_logged_in'
+  
   get 'subjects_summary' => 'summary#subjects'
-  get 'refresh' => 'summary#refresh_baka'
+  
   get 'vote' => 'day_teachers#new'
+  
+  get 'fetch_baka' => 'summary#refresh_baka'
+  
   get 'details' => 'summary#details'
   post 'details' => 'summary#post_details'
+  
   get 'service_list' => 'summary#service_list'
+  
   get 'administration' => 'summary#administration'
+  
   get 'register' => 'users#new'
   delete 'destroy_account/:id', to: 'users#self_destroy', as: 'destroy_account'
 

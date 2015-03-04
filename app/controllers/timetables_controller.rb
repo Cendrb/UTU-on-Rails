@@ -1,7 +1,7 @@
 class TimetablesController < ApplicationController
   before_filter :authenticate_admin, except: [:show, :index]
   before_action :set_timetable, only: [:show, :edit, :update, :destroy]
-  before_action :set_timetable_from_timetable_id, only: [:get_timetable]
+  before_action :set_timetable_from_timetable_id, only: [:fetch_baka]
 
   # GET /timetables
   # GET /timetables.json
@@ -64,8 +64,9 @@ class TimetablesController < ApplicationController
     end
   end
 
-  def get_timetable
+  def fetch_baka
     @timetable.get_timetable
+    render :show
   end
 
   private

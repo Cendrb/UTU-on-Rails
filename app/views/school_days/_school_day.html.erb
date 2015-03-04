@@ -6,8 +6,17 @@
     <td> <%= school_day.date.strftime("%d. %m.") %>
     <br />
     <%= get_weekday school_day.weekday %> </td>
+    
+    <% counter = 0 %>
     <% school_day.lessons.each do |lesson| %>
-        <%= render lesson %>
+    	<% counter += 1 %>
+    	<% if counter != lesson.serial_number %>
+    		<div class="lesson">
+            	<td></td>
+        	</div>
+    	<% else %>
+        	<%= render lesson %>
+        <% end %>
     <% end %>
     <% (9 - school_day.lessons.count).times do |blank| %>
         <div class="lesson">
