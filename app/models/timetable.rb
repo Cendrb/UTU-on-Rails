@@ -75,12 +75,13 @@ class Timetable < ActiveRecord::Base
             rinfo = lesson.at_css("div.rinfo")
             
             if(!rinfo.nil? && lesson.at_css("div.r_predm").nil?)
-              puts "Removed lesson: " + rinfo.content
-              puts "Skipping..."
+              # removed lesson - add empty
+              school_day.lessons.create(subject: nil, room: nil, teacher: nil, serial_number: counter, not_normal: true, not_normal_comment: rinfo["title"])
             else  
               subject_string = lesson.at_css("div.r_predm").content
               room = lesson.at_css("div.r_mist").content
               teacher_string = lesson.at_css("div.r_ucit")["title"]
+              abbr_string = lesson.at_css("div.r_ucit").content
               puts subject_string
               
               subject = Subject.find_by_name(subject_string)
@@ -96,7 +97,7 @@ class Timetable < ActiveRecord::Base
                 else
                   group_string = group_string.content
                 end
-                teacher = Teacher.create(name: teacher_string, group: group_string.to_s.to_i)
+                teacher = Teacher.create(name: teacher_string, group: group_string.to_s.to_i, abbr: abbr_string)
               end
               
               if(!rinfo.nil?)

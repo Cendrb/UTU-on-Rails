@@ -1,19 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Jméno:</strong>
   <%= @teacher.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Popis:</strong>
   <%= @teacher.description %>
 </p>
 
 <p>
-  <strong>Group:</strong>
+  <strong>Skupina:</strong>
   <%= @teacher.group %>
 </p>
+
+<p>
+  <strong>Zkratka:</strong>
+  <%= @teacher.abbr %>
+</p>
+
 
 <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
 <%= link_to 'Back', teachers_path %>

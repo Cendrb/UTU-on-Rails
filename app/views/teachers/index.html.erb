@@ -3,9 +3,10 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Group</th>
+      <th>Jméno</th>
+      <th>Popis</th>
+      <th>Skupina</th>
+      <th>Zkratka</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
         <td><%= teacher.name %></td>
         <td><%= teacher.description %></td>
         <td><%= teacher.group %></td>
+        <td><%= teacher.abbr %></td>
         <td><%= link_to 'Show', teacher %></td>
         <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
         <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>

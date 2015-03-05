@@ -243,23 +243,35 @@ a.change_data {
   td
   {
     width: 10em;
-    height: 5em;
+    height: 7em;
     border: 1px solid black;
-  }
-  .lesson
-  {
-    
   }
   .lesson_subject
   {
-    text-align: center;
-    font-size: 25px;
+      font-size: 2em;
+      text-align: center;
   }
+  
   .lesson_room
   {
-    
+    text-align: right;
+    position: relative;
+    top: 1.5em;
   }
-  background-color: white;
+    
+  .lesson_teacher
+  {
+    top: 1.1em;
+    text-align: center;
+    position: relative;
+    width: 100%;
+  }
+  
+  .lesson_changed
+  {
+    background-color: red;
+  }
+  round-color: white;
 }
 
 #notice {
