@@ -1,5 +1,5 @@
 class Timetable < ActiveRecord::Base
-  has_many :school_days,  -> { order(date: :asc) }, dependent: :destroy
+  has_many :school_days,  -> { where("date >= ?", Date.today).order(date: :asc) }, dependent: :destroy
   belongs_to :baka_account
   validates :name, :baka_account, presence: {presence: true, message: "nesmí být prázdný"}
   
@@ -23,10 +23,25 @@ class Timetable < ActiveRecord::Base
     
     page = browser.click(page.link_with(text: /Rozvrh/))
     
-    # parse_timetable_from_html_and_save_to_db(page.body, @timetable)
-    
     form = page.forms.first
     form["ctl00$cphmain$radiorozvrh"] = "rozvrh na příští týden"
+    form["__EVENTTARGET"] = "ctl00$cphmain$radiorozvrh"
+    form["__EVENTARGUMENT"] = ""
+    form["ctl00$cphmain$Flyrozvrh$checkucitel"] = "on"
+    form["ctl00$cphmain$Flyrozvrh$checkskupina"] = "on"
+    form["ctl00$cphmain$Flyrozvrh$Checkmistnost"] = "on"
+    
+    page = form.submit
+    
+    parse_timetable_from_html_and_save_to_db(page.body, self)
+    
+    
+    page = browser.get('http://84.42.144.180/bakaweb/login.aspx')
+    
+    page = browser.click(page.link_with(text: /Rozvrh/))
+    
+    form = page.forms.first
+    form["ctl00$cphmain$radiorozvrh"] = "rozvrh na tento týden"
     form["__EVENTTARGET"] = "ctl00$cphmain$radiorozvrh"
     form["__EVENTARGUMENT"] = ""
     form["ctl00$cphmain$Flyrozvrh$checkucitel"] = "on"
@@ -71,41 +86,46 @@ class Timetable < ActiveRecord::Base
         
         if(lesson["class"] != "r_rozden")
           counter += 1
-          if(lesson["class"] != "r_rr")
-            rinfo = lesson.at_css("div.rinfo")
-            
-            if(!rinfo.nil? && lesson.at_css("div.r_predm").nil?)
-              # removed lesson - add empty
-              school_day.lessons.create(subject: nil, room: nil, teacher: nil, serial_number: counter, not_normal: true, not_normal_comment: rinfo["title"])
-            else  
-              subject_string = lesson.at_css("div.r_predm").content
-              room = lesson.at_css("div.r_mist").content
-              teacher_string = lesson.at_css("div.r_ucit")["title"]
-              abbr_string = lesson.at_css("div.r_ucit").content
-              puts subject_string
+          if(!lesson.at_css("div.r_denabs").nil?)
+            # akce školy
+            school_day.lessons.create(subject: nil, room: nil, teacher: nil, serial_number: counter, event_name: lesson.at_css("div.r_denabs").content)
+          else
+            if(lesson["class"] != "r_rr")
+              rinfo = lesson.at_css("div.rinfo")
               
-              subject = Subject.find_by_name(subject_string)
-              if(!subject)
-                subject = Subject.create(name: subject_string)
-              end
-              
-              teacher = Teacher.find_by_name(teacher_string)
-              if(!teacher)
-                group_string = lesson.at_css("div.r_skup")
-                if(!group_string)
-                  group_string = 0
-                else
-                  group_string = group_string.content
+              if(!rinfo.nil? && lesson.at_css("div.r_predm").nil?)
+                # removed lesson - add empty
+                school_day.lessons.create(subject: nil, room: nil, teacher: nil, serial_number: counter, not_normal: true, not_normal_comment: rinfo["title"])
+              else  
+                subject_string = lesson.at_css("div.r_predm").content
+                room = lesson.at_css("div.r_mist").content
+                teacher_string = lesson.at_css("div.r_ucit")["title"]
+                abbr_string = lesson.at_css("div.r_ucit").content
+                puts subject_string
+                
+                subject = Subject.find_by_name(subject_string)
+                if(!subject)
+                  subject = Subject.create(name: subject_string)
                 end
-                teacher = Teacher.create(name: teacher_string, group: group_string.to_s.to_i, abbr: abbr_string)
+                
+                teacher = Teacher.find_by_name(teacher_string)
+                if(!teacher)
+                  group_string = lesson.at_css("div.r_skup")
+                  if(!group_string)
+                    group_string = 0
+                  else
+                    group_string = group_string.content
+                  end
+                  teacher = Teacher.create(name: teacher_string, group: group_string.to_s.to_i, abbr: abbr_string)
+                end
+                
+                if(!rinfo.nil?)
+                  school_day.lessons.create(subject: subject, room: room, teacher: teacher, serial_number: counter, not_normal: true, not_normal_comment: rinfo["title"])
+                else
+                  school_day.lessons.create(subject: subject, room: room, teacher: teacher, serial_number: counter)
               end
-              
-              if(!rinfo.nil?)
-                school_day.lessons.create(subject: subject, room: room, teacher: teacher, serial_number: counter, not_normal: true, not_normal_comment: rinfo["title"])
-              else
-                school_day.lessons.create(subject: subject, room: room, teacher: teacher, serial_number: counter)
             end
-          end
+            end
           end
         end
       end

@@ -17,9 +17,15 @@
   <tbody>
     <% @lessons.each do |lesson| %>
       <tr>
+      	<% if lesson.subject.nil? %>
+      	<td></td>
+        <td></td>
+        <td></td>
+      	<% else %>
         <td><%= lesson.subject.name %></td>
         <td><%= lesson.room %></td>
         <td><%= lesson.teacher.name %></td>
+        <% end %>
         <td><%= l lesson.school_day.date %></td>
         <td><%= lesson.serial_number %></td>
         <td><%= lesson.not_normal %></td>

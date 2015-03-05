@@ -5,7 +5,7 @@ require "nokogiri"
 
 class SummaryController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:post_details]
-  before_filter :authenticate_admin, only: [:refresh, :migrate]
+  before_filter :authenticate_admin, only: [:refresh, :migrate, :temp]
   before_filter :authenticate, only: :subjects
   def summary
     if logged_in?
@@ -120,16 +120,14 @@ class SummaryController < ApplicationController
       end
     end
   end
+  
+  def temp
+    Exam.in_future.first.find_and_set_lesson
+    redirect_to :utu
+  end
 
   def administrator_logged_in
     render plain: admin_logged_in?
-  end
-
-  def refresh_baka
-    timetables = Timetable.all
-    timetables.each do |timetable|
-      timetable.get_timetable
-    end
   end
 
   private

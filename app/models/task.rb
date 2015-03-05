@@ -1,5 +1,6 @@
 class Task < ActiveRecord::Base
   belongs_to :subject
+  belongs_to :lesson
 
   scope :in_future, -> { where('date >= :today', { today: Date.today }) }
   scope :for_group, lambda { |group| where("\"group\" = :group OR \"group\" = 0", { group: group }) }

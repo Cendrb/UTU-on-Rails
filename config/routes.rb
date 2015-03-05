@@ -81,7 +81,7 @@ UTUOnRails::Application.routes.draw do
   # root 'welcome#index'
   root to: 'summary#summary', as: 'utu'
 
-  # get 'migrate' => 'summary#migrate'
+  get 'temp' => 'summary#temp'
   
   get 'analyze' => 'details_accesses#analyze'
   get 'statistics' => 'details_accesses#analyze'

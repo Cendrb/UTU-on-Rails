@@ -3,7 +3,7 @@
 </p>
 <table id="timetable">
 
-	<% @timetable.school_days.each do |day| %>
+	<% @timetable.school_days.limit(5).each do |day| %>
 		<%= render day %>
 	<% end %>
 

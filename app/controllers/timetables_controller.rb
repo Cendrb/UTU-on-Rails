@@ -1,5 +1,5 @@
 class TimetablesController < ApplicationController
-  before_filter :authenticate_admin, except: [:show, :index]
+  before_filter :authenticate_admin, except: [:show, :index, :fetch_baka, :fetch_baka_for_all]
   before_action :set_timetable, only: [:show, :edit, :update, :destroy]
   before_action :set_timetable_from_timetable_id, only: [:fetch_baka]
 
@@ -67,6 +67,13 @@ class TimetablesController < ApplicationController
   def fetch_baka
     @timetable.get_timetable
     render :show
+  end
+  
+    def fetch_baka_for_all
+    timetables = Timetable.all
+    timetables.each do |timetable|
+      timetable.get_timetable
+    end
   end
 
   private

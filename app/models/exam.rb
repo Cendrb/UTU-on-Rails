@@ -1,5 +1,6 @@
 class Exam < ActiveRecord::Base
   belongs_to :subject
+  belongs_to :lesson
   
   scope :in_future, -> { where('date >= :today', { today: Date.today }) }
   scope :for_group, lambda { |group| where("\"group\" = :group OR \"group\" = 0", { group: group }) }
@@ -30,6 +31,15 @@ class Exam < ActiveRecord::Base
   
   def is_snoozed?
     return !SnoozedExam.find_by("user_id = :user AND exam_id = :item AND snooze_date > :now", { user: User.current, item: self, now: Time.now }).nil?
+  end
+  
+  def find_and_set_lesson
+    puts "\n\nDILDO\n\n"
+    self.lesson = Lesson.joins(:school_day).where("school_days.date >= ?", Date.today).where(subject: self.subject).last
+    if(self.lesson.nil?)
+      raise "error"
+    end
+    self.save!
   end
   
   def snooze(snooze_date)
