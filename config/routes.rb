@@ -19,6 +19,7 @@ UTUOnRails::Application.routes.draw do
 
   resources :timetables do
     get 'fetch_baka' => :fetch_baka
+    get 'fetch_all' => :fetch_baka_for_all
   end
 
   resources :lessons
