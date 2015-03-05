@@ -269,13 +269,26 @@ a.change_data {
   
   .lesson_event
   {
-    background-color: green;
+    background-color: rgb(44, 150, 44);
   }
   
   .lesson_changed
   {
-    background-color: red;
+    background-color: #ED5050;
   }
+  
+  .timetable_weekday
+  {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  
+  .timetable_date
+  {
+    margin-top: 0.15em;
+    font-size: 1em;
+  }
+  
   round-color: white;
 }
 
