@@ -3,9 +3,10 @@
 </p>
 
 <tr>
-    <td> <%= school_day.date.strftime("%d. %m.") %>
-    <br />
-    <%= get_weekday school_day.weekday %> </td>
+    <td> 
+    	<div class="timetable_weekday"><%= get_weekday school_day.weekday %></div>
+    	<div class="timetable_date"><%= school_day.date.strftime("%d. %m.") %></div>
+    </td>
     
     <% counter = 0 %>
     <% school_day.lessons.each do |lesson| %>
