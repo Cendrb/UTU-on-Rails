@@ -13,7 +13,7 @@
   <tbody>
     <% @school_days.each do |school_day| %>
       <tr>
-        <td><%= school_day.date %></td>
+        <td><%= l school_day.date %></td>
         <td><%= school_day.weekday %></td>
         <td><%= school_day.timetable.name %></td>
         <td><%= link_to 'Show', school_day %></td>

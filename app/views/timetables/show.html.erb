@@ -1,13 +1,22 @@
 <p id="notice">
 	<%= notice %>
 </p>
-<table id="timetable">
+<table class="timetable">
 
-	<% @timetable.school_days.limit(5).each do |day| %>
+	<% @current_week_days.each do |day| %>
 		<%= render day %>
 	<% end %>
 
 </table>
+
+<table class="timetable">
+
+	<% @next_week_days.each do |day| %>
+		<%= render day %>
+	<% end %>
+
+</table>
+
 
 <%= link_to 'Edit', edit_timetable_path(@timetable) %> |
 <%= link_to 'Back', timetables_path %>

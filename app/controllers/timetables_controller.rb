@@ -12,7 +12,12 @@ class TimetablesController < ApplicationController
   # GET /timetables/1
   # GET /timetables/1.json
   def show
+    current_date = Date.today
+    puts "\n\n\n" + current_date.beginning_of_week.to_s + " " + current_date.end_of_week.to_s
+    @current_week_days = @timetable.school_days.where("date >= :min AND date <= :max", { min: current_date.beginning_of_week, max: current_date.end_of_week } )
     
+    next_week_date = Date.today + 1.week
+    @next_week_days = @timetable.school_days.where("date >= :min AND date <= :max", { min: next_week_date.beginning_of_week, max: next_week_date.end_of_week } )
   end
 
   # GET /timetables/new
@@ -66,7 +71,7 @@ class TimetablesController < ApplicationController
 
   def fetch_baka
     @timetable.get_timetable
-    render :show
+    redirect_to @timetable
   end
   
     def fetch_baka_for_all
