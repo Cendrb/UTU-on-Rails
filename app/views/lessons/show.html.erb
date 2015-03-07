@@ -2,7 +2,11 @@
 
 <p>
   <strong>Subject:</strong>
-  <%= @lesson.subject %>
+  <% if @lesson.subject.nil? %>
+  	Neexistuje
+  <% else %>
+  	<%= @lesson.subject.name %>
+  <% end %>
 </p>
 
 <p>
@@ -12,7 +16,11 @@
 
 <p>
   <strong>Teacher:</strong>
-  <%= @lesson.teacher %>
+  <% if @lesson.teacher.nil? %>
+  	Neexistuje
+  <% else %>
+  	<%= @lesson.teacher.name %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_lesson_path(@lesson) %> |

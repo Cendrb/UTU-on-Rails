@@ -71,6 +71,6 @@ class SchoolDaysController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def school_day_params
-    params.require(:school_day).permit(:date, :weekday)
+    params.require(:school_day).permit(:date)
   end
 end

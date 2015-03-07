@@ -33,15 +33,6 @@ class Exam < ActiveRecord::Base
     return !SnoozedExam.find_by("user_id = :user AND exam_id = :item AND snooze_date > :now", { user: User.current, item: self, now: Time.now }).nil?
   end
   
-  def find_and_set_lesson
-    puts "\n\nDILDO\n\n"
-    self.lesson = Lesson.joins(:school_day).where("school_days.date >= ?", Date.today).where(subject: self.subject).last
-    if(self.lesson.nil?)
-      raise "error"
-    end
-    self.save!
-  end
-  
   def snooze(snooze_date)
     if(!is_snoozed?)
       SnoozedExam.create(user: User.current, exam: self, snooze_date: snooze_date)
@@ -50,5 +41,22 @@ class Exam < ActiveRecord::Base
   
   def unsnooze
     SnoozedExam.where("user_id = :user AND exam_id = :item", { user: User.current, item: self }).destroy_all
+  end
+  
+  def find_and_set_lesson
+    # puts "\n\nDILDO\n\n"
+    if(self.group == 0)
+      # not group dependent
+      if(self.subject.name == "HuO")
+        # use HuO group (first)
+        self.lesson = Lesson.joins(:school_day => :timetable).where("school_days.date >= ?", self.date).where(subject: self.subject).where("timetables.group = 1").first
+      else
+        # use VýO group (second)
+        self.lesson = Lesson.joins(:school_day => :timetable).where("school_days.date >= ?", self.date).where(subject: self.subject).where("timetables.group = 2").first
+      end
+    else
+      # group dependent
+      self.lesson = Lesson.joins(:school_day => :timetable).where("school_days.date >= ?", self.date).where(subject: self.subject).where("timetables.group = ?", self.group).first
+    end
   end
 end

@@ -42,4 +42,21 @@ class Task < ActiveRecord::Base
   def unsnooze
     SnoozedTask.where("user_id = :user AND task_id = :item", { user: User.current, item: self }).destroy_all
   end
+  
+  def find_and_set_lesson
+    # puts "\n\nDILDO\n\n"
+    if(self.group == 0)
+      # not group dependent
+      if(self.subject.name == "HuO")
+        # use HuO group (first)
+        self.lesson = Lesson.joins(:school_day => :timetable).where("school_days.date >= ?", self.date).where(subject: self.subject).where("timetables.group = 1").first
+      else
+        # use VýO group (second)
+        self.lesson = Lesson.joins(:school_day => :timetable).where("school_days.date >= ?", self.date).where(subject: self.subject).where("timetables.group = 2").first
+      end
+    else
+      # group dependent
+      self.lesson = Lesson.joins(:school_day => :timetable).where("school_days.date >= ?", self.date).where(subject: self.subject).where("timetables.group = ?", self.group).first
+    end
+  end
 end

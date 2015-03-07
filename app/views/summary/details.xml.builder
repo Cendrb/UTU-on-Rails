@@ -7,12 +7,24 @@ xml.utu do
 	end
 	xml.tasks do
 		@tasks.each do |task|
-			xml.task('id' => task.id, 'title' => task.title, 'description' => task.description, 'subject' => task.subject.name, 'date' => task.date, 'group' => task.group, 'additional_info_url' => task.additional_info_url)
+			if task.lesson.nil?
+			  # use "hardcoded" date
+				xml.task('id' => task.id, 'title' => task.title, 'description' => task.description, 'subject' => task.subject.name, 'date' => task.date, 'group' => task.group, 'additional_info_url' => task.additional_info_url)
+			else
+			  # use date based on timetable
+				xml.task('id' => task.id, 'title' => task.title, 'description' => task.description, 'subject' => task.subject.name, 'date' => task.lesson.school_day.date, 'group' => task.group, 'additional_info_url' => task.additional_info_url)
+			end
 		end
 	end
 	xml.exams do
 		@exams.each do |exam|
-			xml.exam('id' => exam.id, 'title' => exam.title, 'description' => exam.description, 'subject' => exam.subject.name, 'date' => exam.date, 'group' => exam.group, 'additional_info_url' => exam.additional_info_url)
+		  if exam.lesson.nil?
+		    # use "hardcoded" date
+		    xml.exam('id' => exam.id, 'title' => exam.title, 'description' => exam.description, 'subject' => exam.subject.name, 'date' => exam.date, 'group' => exam.group, 'additional_info_url' => exam.additional_info_url)
+		  else
+		    # use date based on timetable
+		    xml.exam('id' => exam.id, 'title' => exam.title, 'description' => exam.description, 'subject' => exam.subject.name, 'date' => exam.lesson.school_day.date, 'group' => exam.group, 'additional_info_url' => exam.additional_info_url)
+		  end
 		end
 	end
 end

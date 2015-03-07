@@ -9,7 +9,8 @@
       <th>Popis</th>
       <th>Předmět</th>
       <th>Více informací</th>
-      <th>Datum</th>
+      <th>Datum původní</th>
+      <th>Datum další hodiny po původním datu</th>
       <th>Skupina</th>
       <th></th>
       <th></th>
@@ -26,6 +27,11 @@
         <td><%= task.subject.name %></td>
         <td><%= task.additional_info_url %></td>
         <td><%= l task.date %></td>
+        <% if task.lesson.nil? %>
+        	Další hodina nenalezena
+        <% else %>
+        	<td><%= link_to (l task.lesson.school_day.date), task.lesson %></td>
+        <% end %>
         <td><%= task.group %></td>
         <td><%= link_to 'Zobrazit', task %></td>
         <td><%= link_to 'Upravit', edit_task_path(task) %></td>

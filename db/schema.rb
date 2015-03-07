@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150305181644) do
+ActiveRecord::Schema.define(version: 20150307132152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,7 +101,6 @@ ActiveRecord::Schema.define(version: 20150305181644) do
 
   create_table "school_days", force: true do |t|
     t.date     "date"
-    t.integer  "weekday"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "timetable_id"
@@ -172,6 +171,7 @@ ActiveRecord::Schema.define(version: 20150305181644) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "baka_account_id"
+    t.integer  "group"
   end
 
   create_table "users", force: true do |t|

@@ -4,7 +4,7 @@
 
 <tr>
     <td> 
-    	<div class="timetable_weekday"><%= get_weekday school_day.weekday %></div>
+    	<div class="timetable_weekday"><%= I18n.t(:"date.abbr_day_names")[school_day.date.wday] %></div>
     	<div class="timetable_date"><%= school_day.date.strftime("%d. %m.") %></div>
     </td>
     

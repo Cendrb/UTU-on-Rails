@@ -34,6 +34,7 @@ cs:
       default: ! '%d. %m. %Y'
       long: ! '%d. %B %Y'
       short: ! '%d %b'
+      weekday: ! '%A'
     month_names:
     -
     - Leden

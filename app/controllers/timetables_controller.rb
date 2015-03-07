@@ -13,9 +13,7 @@ class TimetablesController < ApplicationController
   # GET /timetables/1.json
   def show
     current_date = Date.today
-    puts "\n\n\n" + current_date.beginning_of_week.to_s + " " + current_date.end_of_week.to_s
     @current_week_days = @timetable.school_days.where(:date => current_date.beginning_of_week..current_date.end_of_week )
-    puts "\n\n\n\n" + @current_week_days.count.to_s
     
     next_week_date = Date.today + 1.week
     @next_week_days = @timetable.school_days.where(:date => next_week_date.beginning_of_week..next_week_date.end_of_week )
@@ -95,6 +93,6 @@ class TimetablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def timetable_params
-      params.require(:timetable).permit(:name, :baka_account_id)
+      params.require(:timetable).permit(:name, :baka_account_id, :group)
     end
 end

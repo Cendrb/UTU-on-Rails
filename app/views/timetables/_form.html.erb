@@ -16,6 +16,10 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :group %><br>
+    <%= f.number_field :group %>
+  </div>
+  <div class="field">
     <%= f.label :baka_account_id, 'Účet na Bakalářích' %><br>
     <%= f.collection_select :baka_account_id, BakaAccount.all, :id, :name %>
   </div>

@@ -7,7 +7,7 @@
 
 <p>
   <strong>Weekday:</strong>
-  <%= @school_day.weekday %>
+  <%= get_weekday @school_day.date.wday %>
 </p>
 
 <%= link_to 'Edit', edit_school_day_path(@school_day) %> |

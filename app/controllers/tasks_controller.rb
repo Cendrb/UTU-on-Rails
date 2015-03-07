@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_task_from_task_id, only: [:transform_to_exam, :hide, :reveal, :snooze, :unsnooze]
+  after_action :find_and_set_lesson, only: [:create, :update]
   skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy, :hide, :reveal, :snooze, :unsnooze]
   # GET /tasks
   # GET /tasks.json
@@ -118,6 +119,11 @@ class TasksController < ApplicationController
       format.html { redirect_html_back }
       format.whoa { render plain: "WHOA" }
     end
+  end
+  
+  def find_and_set_lesson
+    @task.find_and_set_lesson
+    @task.save!
   end
 
   # Use callbacks to share common setup or constraints between actions.

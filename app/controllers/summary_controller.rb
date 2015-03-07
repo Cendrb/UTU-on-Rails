@@ -123,7 +123,7 @@ class SummaryController < ApplicationController
   
   def temp
     Exam.in_future.first.find_and_set_lesson
-    redirect_to :utu
+    redirect_to :details
   end
 
   def administrator_logged_in

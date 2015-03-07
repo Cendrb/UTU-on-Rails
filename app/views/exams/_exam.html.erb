@@ -9,7 +9,6 @@
     <% end %>
 
     <h3><%= link_to exam.title, exam_path(exam), method: :get %></h3>
-    
     <p>
         <%= sanitize(exam.description) %>
     </p>
@@ -21,7 +20,11 @@
     
     <p>
         <strong>Datum: </strong>
-        <%= l exam.date %>
+        <% if exam.lesson.nil? %>
+        	<%= l exam.date %> (<%= I18n.t(:"date.day_names")[exam.date.wday] %>)?
+        <% else %>
+        	<%= l exam.lesson.school_day.date %> (<%= I18n.t(:"date.day_names")[exam.lesson.school_day.date.wday] %>)
+        <% end %>
     </p>
     
     <p>

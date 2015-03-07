@@ -170,10 +170,15 @@ a.change_data {
 /* Nadpisy */
 #main{
   h1 {
+      a
+      {
+        text-decoration: none;
+        color: $text-color;
+      }
       font-size: 33px;
       padding-bottom: 0.4em;
       margin-bottom: 0.7em;
-      border-bottom: solid 2px $h2-line-color; 
+      border-bottom: solid 2px $h2-line-color;
   }
   h2 {
       font-size: 24px;
@@ -250,7 +255,11 @@ a.change_data {
   {
       font-size: 2em;
       text-align: center;
-      margin-top: 0.5em;
+      margin-top: 0.7em;
+      a
+      {
+        text-decoration: none;
+      }
   }
   
   .lesson_room

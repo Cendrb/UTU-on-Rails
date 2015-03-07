@@ -1,7 +1,7 @@
 class Timetable < ActiveRecord::Base
   has_many :school_days,  -> { order(date: :asc) }, dependent: :destroy
   belongs_to :baka_account
-  validates :name, :baka_account, presence: {presence: true, message: "nesmí být prázdný"}
+  validates :name, :baka_account, :group, presence: {presence: true, message: "nesmí být prázdný"}
   
   def get_timetable
     browser = Mechanize.new
@@ -56,6 +56,9 @@ class Timetable < ActiveRecord::Base
   private
     # Parses data from a html (source = string) and saves to the given timetable (target = Timetable)
   def parse_timetable_from_html_and_save_to_db(source, target)
+    # delete old records
+    SchoolDay.where("date < ?", 1.week.ago).destroy_all
+    
     doc = Nokogiri::HTML(source)
     
     timetable = doc.at_css("div#trozvrh")
@@ -69,15 +72,12 @@ class Timetable < ActiveRecord::Base
       #day_title = day.at_css("td.r_rozden div.r_bunkaden div.r_den").content
       date = Date.parse(day.at_css("td.r_rozden div.r_bunkaden div.r_datum").content + Time.now.year.to_s)
       
-      duplicates = SchoolDay.where(date: date)
-      duplicates.each do |duplicate|
-        duplicate.destroy
-      end
-
+      duplicates = SchoolDay.where(date: date, timetable: self).destroy_all
+      
       #lessons = day.css("td.r_rrw div.r_bunka, td.r_rrzm div.r_bunkazm")
       lessons = day.children
 
-      school_day = target.school_days.create(weekday: days.index(day), date: date, timetable: target)
+      school_day = target.school_days.create(date: date, timetable: target)
       
       counter = 0
       
@@ -123,12 +123,19 @@ class Timetable < ActiveRecord::Base
                   school_day.lessons.create(subject: subject, room: room, teacher: teacher, serial_number: counter, not_normal: true, not_normal_comment: rinfo["title"])
                 else
                   school_day.lessons.create(subject: subject, room: room, teacher: teacher, serial_number: counter)
+                end
               end
-            end
             end
           end
         end
       end
+      # executed after loading a day
+    end
+    # executed after loading a timetable
+    Exam.in_future.find_each do |exam|
+      exam.find_and_set_lesson
+      exam.save!
+      # puts "\n\n\n\n\n\n#{exam.date} X #{exam.lesson.school_day.date}\n\n\n\n\n\n\n"
     end
   end
 end
