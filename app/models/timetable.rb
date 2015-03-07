@@ -1,5 +1,5 @@
 class Timetable < ActiveRecord::Base
-  has_many :school_days,  -> { where("date >= ?", Date.today).order(date: :asc) }, dependent: :destroy
+  has_many :school_days,  -> { order(date: :asc) }, dependent: :destroy
   belongs_to :baka_account
   validates :name, :baka_account, presence: {presence: true, message: "nesmí být prázdný"}
   

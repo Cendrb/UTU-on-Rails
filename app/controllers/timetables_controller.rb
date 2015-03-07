@@ -14,10 +14,11 @@ class TimetablesController < ApplicationController
   def show
     current_date = Date.today
     puts "\n\n\n" + current_date.beginning_of_week.to_s + " " + current_date.end_of_week.to_s
-    @current_week_days = @timetable.school_days.where("date >= :min AND date <= :max", { min: current_date.beginning_of_week, max: current_date.end_of_week } )
+    @current_week_days = @timetable.school_days.where(:date => current_date.beginning_of_week..current_date.end_of_week )
+    puts "\n\n\n\n" + @current_week_days.count.to_s
     
     next_week_date = Date.today + 1.week
-    @next_week_days = @timetable.school_days.where("date >= :min AND date <= :max", { min: next_week_date.beginning_of_week, max: next_week_date.end_of_week } )
+    @next_week_days = @timetable.school_days.where(:date => next_week_date.beginning_of_week..next_week_date.end_of_week )
   end
 
   # GET /timetables/new

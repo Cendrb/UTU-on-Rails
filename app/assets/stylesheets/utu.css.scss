@@ -250,18 +250,22 @@ a.change_data {
   {
       font-size: 2em;
       text-align: center;
+      margin-top: 0.5em;
   }
   
   .lesson_room
   {
     text-align: right;
     position: relative;
-    top: 1.5em;
+    margin-top: 1.0em;
+    margin-left: auto;
+    margin-bottom: 0.2em;
+    margin-right: 0.5em;
   }
     
   .lesson_teacher
   {
-    top: 1.1em;
+    margin-top: 1.1em;
     text-align: center;
     position: relative;
     width: 100%;
