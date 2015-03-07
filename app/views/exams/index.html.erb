@@ -25,10 +25,10 @@
         <td><%= exam.title %></td>
         <td><%= exam.description %></td>
         <td><%= exam.subject.name %></td>
-        <td><%= exam.additional_info_url %></td>
+        <td><%= truncate exam.additional_info_url %></td>
         <td><%= l exam.date %></td>
         <% if exam.lesson.nil? %>
-        	Další hodina nenalezena
+        	<td>Další hodina nenalezena</td>
         <% else %>
         	<td><%= link_to (l exam.lesson.school_day.date), exam.lesson %></td>
         <% end %>

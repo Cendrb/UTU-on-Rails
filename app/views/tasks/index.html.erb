@@ -25,10 +25,10 @@
         <td><%= task.title %></td>
         <td><%= task.description %></td>
         <td><%= task.subject.name %></td>
-        <td><%= task.additional_info_url %></td>
+        <td><%= truncate task.additional_info_url %></td>
         <td><%= l task.date %></td>
         <% if task.lesson.nil? %>
-        	Další hodina nenalezena
+        	<td>Další hodina nenalezena</td>
         <% else %>
         	<td><%= link_to (l task.lesson.school_day.date), task.lesson %></td>
         <% end %>
