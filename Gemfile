@@ -27,7 +27,7 @@ gem 'mechanize'
 #gem 'bootstrap-datepicker-rails'
 
 # For better forms
-#gem 'simple_form'
+gem 'simple_form'
 
 # To keep Heroku dynos awake
 gem 'dynopoker'
