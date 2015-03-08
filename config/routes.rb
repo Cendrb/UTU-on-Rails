@@ -19,7 +19,6 @@ UTUOnRails::Application.routes.draw do
 
   resources :timetables do
     get 'fetch_baka' => :fetch_baka
-    get 'fetch_all' => :fetch_baka_for_all
   end
 
   resources :lessons
@@ -98,7 +97,7 @@ UTUOnRails::Application.routes.draw do
   
   get 'vote' => 'day_teachers#new'
   
-  get 'fetch_baka' => 'summary#refresh_baka'
+  get 'fetch_baka' => 'timetables#fetch_baka_for_all'
   
   get 'details' => 'summary#details'
   post 'details' => 'summary#post_details'

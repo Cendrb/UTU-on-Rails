@@ -87,4 +87,10 @@ config.action_mailer.smtp_settings = {
   password:             'suprakindrlo',
   authentication:       'plain',
   enable_starttls_auto: true  }
+  
+  Dynopoker.configure do |config|
+    config.address = 'http://utu.herokuapp.com/fetch_baka'
+    #  config.enable = false # default is true
+      config.poke_frequency = 60 # default is 1800s (30min)
+  end
 end

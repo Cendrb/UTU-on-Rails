@@ -78,6 +78,7 @@ class TimetablesController < ApplicationController
     timetables.each do |timetable|
       timetable.get_timetable
     end
+    redirect_to :utu
   end
 
   private
