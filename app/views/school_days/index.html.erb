@@ -14,7 +14,7 @@
     <% @school_days.each do |school_day| %>
       <tr>
         <td><%= l school_day.date %></td>
-        <td><%= I18n.t(:"date.day_names")[@school_day.date.wday] %></td>
+        <td><%= I18n.t(:"date.day_names")[school_day.date.wday] %></td>
         <td><%= school_day.timetable.name %></td>
         <td><%= link_to 'Show', school_day %></td>
         <td><%= link_to 'Edit', edit_school_day_path(school_day) %></td>
