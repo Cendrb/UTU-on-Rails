@@ -85,8 +85,7 @@ class SummaryController < ApplicationController
       end
     end
 
-
-      DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'])
+    DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'])
 
     respond_to do |format|
       format.html
@@ -107,20 +106,34 @@ class SummaryController < ApplicationController
 
   end
 
-  def migrate
-    User.all.each do |user|
-      user.hidden_events.each do |i|
-        DoneEvent.create(user: user, event_id: i)
-      end
-      user.hidden_exams.each do |i|
-        DoneExam.create(user: user, exam_id: i)
-      end
-      user.hidden_tasks.each do |i|
-        DoneTask.create(user: user, task_id: i)
+  def update
+    if(Time.now.hour > 17 && Time.now.hour < 19)
+      # mark todays tasks and exams as in_past
+      SchoolDay.where(date: Date.today).find_each do |day|
+        day.lessons.find_each do |lesson|
+          lesson.exams.find_each do |exam|
+            exam.date = 1.day.ago
+            exam.save!
+          end
+          lesson.tasks.find_each do |task|
+            task.date = 1.day.ago
+            task.save!
+          end
+        end
       end
     end
+
+    timetables = Timetable.all
+    timetables.each do |timetable|
+      timetable.get_timetable
+    end
+    redirect_to :utu
   end
-  
+
+  def migrate
+    
+  end
+
   def temp
     Exam.in_future.first.find_and_set_lesson
     redirect_to :details

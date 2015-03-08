@@ -58,5 +58,6 @@ class Task < ActiveRecord::Base
       # group dependent
       self.lesson = Lesson.joins(:school_day => :timetable).where("school_days.date >= ?", self.date).where(subject: self.subject).where("timetables.group = ?", self.group).first
     end
+    self.date = self.lesson.school_day.date
   end
 end

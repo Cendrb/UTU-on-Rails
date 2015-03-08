@@ -97,7 +97,7 @@ UTUOnRails::Application.routes.draw do
   
   get 'vote' => 'day_teachers#new'
   
-  get 'fetch_baka' => 'timetables#fetch_baka_for_all'
+  get 'update' => 'summary#update'
   
   get 'details' => 'summary#details'
   post 'details' => 'summary#post_details'

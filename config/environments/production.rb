@@ -89,7 +89,7 @@ config.action_mailer.smtp_settings = {
   enable_starttls_auto: true  }
   
   Dynopoker.configure do |config|
-    config.address = 'http://utu.herokuapp.com/fetch_baka'
+    config.address = 'http://utu.herokuapp.com/update'
     #  config.enable = false # default is true
     config.poke_frequency = 900 # default is 1800s (30min)
   end

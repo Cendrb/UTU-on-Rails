@@ -72,14 +72,6 @@ class TimetablesController < ApplicationController
     @timetable.get_timetable
     redirect_to @timetable
   end
-  
-    def fetch_baka_for_all
-    timetables = Timetable.all
-    timetables.each do |timetable|
-      timetable.get_timetable
-    end
-    redirect_to :utu
-  end
 
   private
   

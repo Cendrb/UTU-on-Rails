@@ -137,5 +137,12 @@ class Timetable < ActiveRecord::Base
       exam.save!
       # puts "\n\n\n\n\n\n#{exam.date} X #{exam.lesson.school_day.date}\n\n\n\n\n\n\n"
     end
+    
+    # executed after loading a timetable
+    Task.in_future.find_each do |task|
+      task.find_and_set_lesson
+      task.save!
+      # puts "\n\n\n\n\n\n#{task.date} X #{task.lesson.school_day.date}\n\n\n\n\n\n\n"
+    end
   end
 end
