@@ -43,6 +43,6 @@ config.action_mailer.smtp_settings = {
   Dynopoker.configure do |config|
     config.address = 'http://utu.herokuapp.com/fetch_baka'
     #  config.enable = false # default is true
-    #  config.poke_frequency = 123 # default is 1800s (30min)
+    config.poke_frequency = 900 # default is 1800s (30min)
   end
 end
