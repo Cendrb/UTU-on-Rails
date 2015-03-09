@@ -12,22 +12,25 @@
 <h2>Úvod</h2>
 <p>Vítejte na webové verzi Utu. Veškerá data jsou uložena pouze ve zdejší databázi a i desktopová aplikace tento web využívá. Tato stránka "běží na" frameworku <%= link_to 'Ruby on Rails', 'http://rubyonrails.org/' %>, který mimo jiné využívá třeba Twitter.
 
+<h2>Služba</h2>
+<% if @current_service %>
+	<p>Službu na aktuální týden má <strong><%= @current_service.first_name %></strong> a <strong><%= @current_service.second_name %></strong>
+<% else %>
+	<p>Na aktuální týden nebyla určena žádná služba.
+<% end %>
+<br />
+Soupis veškěrých služeb naleznete <%= link_to "zde", :services %></p>
 <% if logged_in? %>
-    <h2>Služba</h2>
-    <% if @error %>
-        <%= @error %>
-    <% else %>
-    <% if @service %>
-        <p>
-            Vaše období služby začíná <%= l @service.service_start %> a končí <%= l @service.service_end %>
-        </p>
-        <%= link_to 'Více informací o vaší službě', @service %>
-        <% else %>
-        <p>Nebyly nalezeny žádné služby</p>
+    	<% if @service %>
+	        <p>
+	            Vaše období služby začíná <strong><%= l @service.service_start %></strong> a končí <strong><%= l @service.service_end %></strong>
+	        
+	        <br />
+	        <%= link_to 'Více informací o vaší službě', @service %>
+	        </p>
         <% end %>
-    <% end %>
     
-    <% else %>
+<% else %>
     <h5>Pro zpřístupnění následujících funkcí se prosím <%= link_to 'přihlašte', login_path %> nebo <%= link_to 'zaregistrujte', register_path %>.</h5>
     <ul>
         <li>

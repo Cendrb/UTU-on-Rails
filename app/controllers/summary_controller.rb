@@ -9,21 +9,10 @@ class SummaryController < ApplicationController
   before_filter :authenticate, only: :subjects
   def summary
     if logged_in?
-      user_names = current_user.name.split
-      services = Service.in_future
-      services.each do |service|
-        user_names.each do |user_name|
-          if service.first_name.include?(user_name) || service.second_name.include?(user_name)
-            @service = service
-            @error = nil
-            return "penis"
-          else
-            @error = "Vaše příjmení není v záznamech o službách.\nBuď již te  nto rok nemáte službu nebo vaše jméno není platné (porovnáváno příjmení aktuálně přihlášeného uživatele a jméno ve službách)"
-          end
-        end
-      end
+      @service = Service.in_future.where("first_name LIKE :user_name OR second_name LIKE :user_name", { user_name: "%#{current_user.name}%"} ).first
     end
-    @near_payments = Event.order(:event_start).in_future.where("pay_date <= :pay", { :pay => Date.today + 7.days } )
+    @current_service = Service.where("service_start <= :today AND service_end >= :today", { today: Date.today }).first
+    @near_payments = Event.order(:event_start).in_future.where("pay_date <= :pay", { :pay => Date.today + 7.days } ).where("pay_date != event_start")
   end
 
   def post_details
