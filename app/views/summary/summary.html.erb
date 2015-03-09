@@ -12,6 +12,21 @@
 <h2>Úvod</h2>
 <p>Vítejte na webové verzi Utu. Veškerá data jsou uložena pouze ve zdejší databázi a i desktopová aplikace tento web využívá. Tato stránka "běží na" frameworku <%= link_to 'Ruby on Rails', 'http://rubyonrails.org/' %>, který mimo jiné využívá třeba Twitter.
 
+<% if false %>
+<h2>Hrůzy zítřka</h2>
+<table class="timetable">
+	<%= render @today_school_day, date: false, blank_hours: false %>
+</table>
+<% @today_school_day.lessons.each do |lesson| %>
+	<% lesson.exams.each do |exam| %>
+		<%= render exam %>
+	<% end %>
+	<% lesson.tasks.each do |task| %>
+		<%= render task %>
+	<% end %>
+<% end %>
+<% end %>
+
 <h2>Služba</h2>
 <% if @current_service %>
 	<p>Službu na aktuální týden má <strong><%= @current_service.first_name %></strong> a <strong><%= @current_service.second_name %></strong>
@@ -19,7 +34,7 @@
 	<p>Na aktuální týden nebyla určena žádná služba.
 <% end %>
 <br />
-Soupis veškěrých služeb naleznete <%= link_to "zde", :services %></p>
+Soupis veškerých služeb naleznete <%= link_to "zde", :services %></p>
 <% if logged_in? %>
     	<% if @service %>
 	        <p>
