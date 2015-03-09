@@ -127,7 +127,7 @@ class SummaryController < ApplicationController
     timetables.each do |timetable|
       timetable.get_timetable
     end
-    redirect_to :utu
+    redirect_to :details
   end
 
   def migrate
