@@ -1,7 +1,11 @@
 <h1>Rozvrh</h1>
 <% if @timetable %>
-	<%= render @timetable %>
-	<p>Zobrazené rozvrhy jsou přispůsobeny pro aktuálně přihlášeného uživatele. (skupina <%= current_user.group %>.)</p>
+	<p>Zobrazené rozvrhy jsou přispůsobeny pro aktuálně přihlášeného uživatele. (skupina <%= current_user.group %>. Pokud chcete zobrazit jiný rozvrh použijte následující odkazy.)</p>
+	<%= link_to "1. skupina", @first_group_timetable, remote: true, format: :js, id: "first_group" %>
+	<%= link_to "2. skupina", @second_group_timetable, remote: true, format: :js, id: "second_group" %>
+	<div id="timetable_placeholder">
+		<%= render @timetable %>
+	</div>
 <% else %>
 	<p>Vyberte prosím svou skupinu. (u <%= link_to "přihlášených", :login %> uživatelů se odpovídající rozvrh zobrazuje automaticky)</p>
 	<%= link_to "1. skupina", @first_group_timetable, remote: true, format: :js, id: "first_group", style: "font-weight:bold" %>
