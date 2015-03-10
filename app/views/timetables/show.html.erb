@@ -1,21 +1,7 @@
 <p id="notice">
 	<%= notice %>
 </p>
-<table class="timetable">
-
-	<% @current_week_days.each do |day| %>
-		<%= render day %>
-	<% end %>
-
-</table>
-
-<table class="timetable">
-
-	<% @next_week_days.each do |day| %>
-		<%= render day %>
-	<% end %>
-
-</table>
+<%= render @timetable %>
 
 
 <%= link_to 'Edit', edit_timetable_path(@timetable) %> |

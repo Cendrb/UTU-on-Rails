@@ -1,5 +1,5 @@
 class TimetablesController < ApplicationController
-  before_filter :authenticate_admin, except: [:show, :index, :fetch_baka, :fetch_baka_for_all]
+  before_filter :authenticate_admin, except: [:show, :index, :fetch_baka, :fetch_baka_for_all, :summary]
   before_action :set_timetable, only: [:show, :edit, :update, :destroy]
   before_action :set_timetable_from_timetable_id, only: [:fetch_baka]
 
@@ -12,11 +12,10 @@ class TimetablesController < ApplicationController
   # GET /timetables/1
   # GET /timetables/1.json
   def show
-    current_date = Date.today
-    @current_week_days = @timetable.school_days.where(:date => current_date.beginning_of_week..current_date.end_of_week )
-    
-    next_week_date = Date.today + 1.week
-    @next_week_days = @timetable.school_days.where(:date => next_week_date.beginning_of_week..next_week_date.end_of_week )
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /timetables/new
@@ -71,6 +70,15 @@ class TimetablesController < ApplicationController
   def fetch_baka
     @timetable.get_timetable
     redirect_to @timetable
+  end
+  
+  def summary
+    if logged_in?
+      @timetable = Timetable.where(group: current_user.group).first
+    else
+      @first_group_timetable = Timetable.find_by_group(1)
+      @second_group_timetable = Timetable.find_by_group(2)
+    end
   end
 
   private

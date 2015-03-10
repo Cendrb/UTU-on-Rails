@@ -102,6 +102,9 @@ UTUOnRails::Application.routes.draw do
   get 'details' => 'summary#details'
   post 'details' => 'summary#post_details'
   
+  get 'rozvrh' => 'timetables#summary'
+  get 'timetable' => 'timetables#summary'
+  
   get 'service_list' => 'summary#service_list'
   
   get 'administration' => 'summary#administration'

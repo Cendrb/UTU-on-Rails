@@ -3,10 +3,12 @@
 </p>
 
 <tr>
-    <td> 
-    	<div class="timetable_weekday"><%= I18n.t(:"date.abbr_day_names")[school_day.date.wday] %></div>
-    	<div class="timetable_date"><%= school_day.date.strftime("%d. %m.") %></div>
-    </td>
+	<% if date %>
+	    <td> 
+	    	<div class="timetable_weekday"><%= I18n.t(:"date.abbr_day_names")[school_day.date.wday] %></div>
+	    	<div class="timetable_date"><%= school_day.date.strftime("%d. %m.") %></div>
+	    </td>
+    <% end %>
     
     <% counter = 0 %>
     <% school_day.lessons.each do |lesson| %>
@@ -19,9 +21,11 @@
     	<% end %>
        	<%= render lesson %>
     <% end %>
-    <% (9 - school_day.lessons.last.serial_number).times do |blank| %>
-        <div class="lesson">
-            <td></td>
-        </div>
-    <% end %>
+    <% if blank_hours %>
+	    <% (9 - school_day.lessons.last.serial_number).times do |blank| %>
+	        <div class="lesson">
+	            <td></td>
+	        </div>
+	    <% end %>
+	<% end %>
 </tr>

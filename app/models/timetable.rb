@@ -53,6 +53,16 @@ class Timetable < ActiveRecord::Base
     parse_timetable_from_html_and_save_to_db(page.body, self)
   end
   
+  def get_current_week_days
+    current_date = Date.today
+    return self.school_days.where(:date => current_date.beginning_of_week..current_date.end_of_week )
+  end
+  
+  def get_next_week_days
+    next_week_date = Date.today + 1.week
+    return self.school_days.where(:date => next_week_date.beginning_of_week..next_week_date.end_of_week )
+  end
+  
   private
     # Parses data from a html (source = string) and saves to the given timetable (target = Timetable)
   def parse_timetable_from_html_and_save_to_db(source, target)

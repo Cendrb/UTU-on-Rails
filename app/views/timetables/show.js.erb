@@ -1,0 +1,8 @@
+$("#timetable_placeholder").html("<%= escape_javascript(render @timetable) %>");
+<% if @timetable.group == 1 %>
+	$("#first_group").css("font-weight", "bold");
+	$("#second_group").css("font-weight", "normal");
+<% else %>
+	$("#first_group").css("font-weight", "normal");
+	$("#second_group").css("font-weight", "bold");
+<% end %>

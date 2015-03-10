@@ -8,6 +8,8 @@ class SummaryController < ApplicationController
   before_filter :authenticate_admin, only: [:refresh, :migrate, :temp]
   before_filter :authenticate, only: :subjects
   def summary
+    @today_school_day = SchoolDay.where("date = ?", Date.tomorrow).first
+    
     if logged_in?
       @service = Service.in_future.where("first_name LIKE :user_name OR second_name LIKE :user_name", { user_name: "%#{current_user.name}%"} ).first
     end
