@@ -79,4 +79,69 @@ class Subject < ActiveRecord::Base
       return "#{number_of_tasks} úkolů"
     end
   end
+    
+  def get_average_time_between_exams
+    previous = nil
+    dates = []
+    Exam.where(subject: self).pluck(:date).each do |date|
+      if(previous != nil)
+        dates << ((date - previous).to_i)
+      end
+      previous = date
+    end
+    if(dates.count == 0)
+      return "žádné testy nenalezeny"
+    end
+    average_days = dates.inject(:+).to_i / dates.length
+    if(average_days == 0)
+      return "méně než jeden den"
+    end
+    if(average_days == 1)
+      return "1 den"
+    end
+    if(average_days > 1 && average_days < 5)
+      return "#{average_days} dny"
+    end
+    if(average_days > 4)
+      return "#{average_days} dní"
+    end
+    return average_days
+  end
+  
+  def get_next_expected_exam
+    previous = nil
+    dates = []
+    Exam.where(subject: self).pluck(:date).each do |date|
+      if(previous != nil)
+        dates << ((date - previous).to_i)
+      end
+      previous = date
+    end
+    if(dates.count == 0)
+      return "žádné testy nenalezeny"
+    end
+    average_days = dates.inject(:+).to_i / dates.length
+    next_exam = Exam.last.date + average_days.days
+    
+    number_of_days = next_exam.mjd - Date.today.mjd
+    
+    if(number_of_days < -1)
+      return "před #{number_of_days} dny"
+    end
+    if(number_of_days == -1)
+      return "včera"
+    end
+    if(number_of_days == 0)
+      return "dnes"
+    end
+    if(number_of_days == 1)
+      return "zítra"
+    end
+    if(number_of_days > 1 && number_of_days < 5)
+      return "za #{number_of_days} dny"
+    end
+    if(number_of_days > 4)
+      return "za #{number_of_days} dní"
+    end
+  end
 end
