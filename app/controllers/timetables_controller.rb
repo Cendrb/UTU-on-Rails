@@ -75,6 +75,8 @@ class TimetablesController < ApplicationController
   def summary
     if logged_in?
       @timetable = Timetable.where(group: current_user.group).first
+      @first_group_timetable = Timetable.find_by_group(1)
+      @second_group_timetable = Timetable.find_by_group(2)
     else
       @first_group_timetable = Timetable.find_by_group(1)
       @second_group_timetable = Timetable.find_by_group(2)
