@@ -27,6 +27,8 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    
+    @user.access_level = 0
 
     respond_to do |format|
       if @user.save
