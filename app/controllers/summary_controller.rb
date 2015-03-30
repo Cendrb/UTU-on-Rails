@@ -118,7 +118,7 @@ class SummaryController < ApplicationController
     timetables.each do |timetable|
       timetable.get_timetable
     end
-    redirect_to :details
+    render nothing: true
   end
 
   def migrate
