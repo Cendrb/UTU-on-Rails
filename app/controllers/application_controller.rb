@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     end
     
     def troll
-      render plain: UserAgent.new(request.env['HTTP_USER_AGENT']).browser
+      render plain: UserAgent.parse(request.env['HTTP_USER_AGENT']).browser
     end
     
     def detect_device_format
