@@ -28,7 +28,9 @@ class ApplicationController < ActionController::Base
     end
     
     def troll
-      render plain: UserAgent.parse(request.env['HTTP_USER_AGENT']).browser
+      if UserAgent.parse(request.env['HTTP_USER_AGENT']).browser == "Internet Explorer"
+        redirect_to "http://explorer.je.sračka.homo.com"
+      end
     end
     
     def detect_device_format
