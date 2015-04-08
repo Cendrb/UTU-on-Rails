@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     
     def troll
       if UserAgent.parse(request.env['HTTP_USER_AGENT']).browser == "Internet Explorer"
-        render plain: "<h1>Explorer je sračka!</h1>"
+        return redirect_to "http://explorer.je.sračka.homo.com"
       end
     end
     
