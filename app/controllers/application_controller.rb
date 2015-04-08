@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :detect_device_format
   before_action :set_locale
+  before_action :troll
   layout :layout
   before_filter :set_current_account
   
@@ -24,6 +25,10 @@ class ApplicationController < ActionController::Base
       else
         return "desktop_main"
       end
+    end
+    
+    def troll
+      render plain: UserAgent.new(request.env['HTTP_USER_AGENT']).browser
     end
     
     def detect_device_format
