@@ -37,7 +37,7 @@
     </p>
     <% if !task.additional_info_url.nil? && !task.additional_info_url.empty? %>
         <p>
-            <%= link_to "Další informace", task.additional_info_url %>
+            <%= link_to "Další informace", task.additional_info_url, target: '_blank' %>
         </p>
     <% end %>
 </div>

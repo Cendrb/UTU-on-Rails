@@ -38,7 +38,7 @@
     
     <% if !exam.additional_info_url.nil? && !exam.additional_info_url.empty? %>
         <p>
-            <%= link_to "Další informace", exam.additional_info_url %>
+            <%= link_to "Další informace", exam.additional_info_url, target: '_blank' %>
         </p>
     <% end %>
 </div>
