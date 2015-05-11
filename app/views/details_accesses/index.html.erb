@@ -20,7 +20,7 @@
                 <td>Bez přihlášení</td>
             <% end %>
             <td><%= details_access.ip_address %></td>
-            <td><%= details_access.user_agent %> (<%= details_access.get_user_agent_string %></td>
+            <td><%= details_access.get_user_agent_string %> (<%= details_access.user_agent %>)</td>
             <td><%= l details_access.created_at %></td>
             <td><%= link_to 'Zobrazit', details_access %></td>
             <td><%= link_to 'Odstranit', details_access, method: :delete %></td>
