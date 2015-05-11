@@ -14,4 +14,18 @@ class DetailsAccess < ActiveRecord::Base
       statisticsRecord.save!
     end
   end
+  
+  def get_user_agent_string
+    if access.user_agent == "Apache-HttpClient/UNAVAILABLE (java 1.4)"
+        result = "Android app"
+      else
+        if access.user_agent == "" || access.user_agent == nil
+          result = "Windows app"
+        else
+          agent = UserAgent.parse(access.user_agent)
+          result = "#{agent.platform} (#{agent.browser})"
+        end
+      end
+      return result
+  end
 end

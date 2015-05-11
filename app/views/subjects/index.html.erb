@@ -12,9 +12,9 @@
     <% @subjects.each do |subject| %>
       <tr>
         <td><%= subject.name %></td>
-        <td><%= link_to 'Show', subject %></td>
-        <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
-        <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Zobrazit', subject %></td>
+        <td><%= link_to 'Upravit', edit_subject_path(subject) %></td>
+        <td><%= link_to 'Odstranit', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -18,9 +18,9 @@
         <td><%= teacher.description %></td>
         <td><%= teacher.group %></td>
         <td><%= teacher.abbr %></td>
-        <td><%= link_to 'Show', teacher %></td>
-        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Zobrazit', teacher %></td>
+        <td><%= link_to 'Upravit', edit_teacher_path(teacher) %></td>
+        <td><%= link_to 'Odstranit', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

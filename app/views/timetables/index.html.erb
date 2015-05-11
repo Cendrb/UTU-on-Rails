@@ -16,9 +16,9 @@
         <td><%= timetable.name %></td>
         <td><%= timetable.baka_account.name %></td>
         <td><%= timetable.group %></td>
-        <td><%= link_to 'Show', timetable %></td>
-        <td><%= link_to 'Edit', edit_timetable_path(timetable) %></td>
-        <td><%= link_to 'Destroy', timetable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Zobrazit', timetable %></td>
+        <td><%= link_to 'Upravit', edit_timetable_path(timetable) %></td>
+        <td><%= link_to 'Odstranit', timetable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

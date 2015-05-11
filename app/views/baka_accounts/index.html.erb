@@ -16,9 +16,9 @@
           <td><%= baka_account.name %></td></td>
         <td><%= baka_account.username %></td>
         <td>Surprise Motherfucker!</td>
-        <td><%= link_to 'Show', baka_account %></td>
-        <td><%= link_to 'Edit', edit_baka_account_path(baka_account) %></td>
-        <td><%= link_to 'Destroy', baka_account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Zobrazit', baka_account %></td>
+        <td><%= link_to 'Upravit', edit_baka_account_path(baka_account) %></td>
+        <td><%= link_to 'Odstranit', baka_account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
