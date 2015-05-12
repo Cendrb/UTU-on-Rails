@@ -16,7 +16,7 @@ class Task < ActiveRecord::Base
   end
   
   def is_done?
-    return !DoneTask.find_by("user_id = :user AND task_id = :item", { user: User.current, item: self }).nil?
+    return DoneTask.where("user_id = :user AND task_id = :item", { user: User.current, item: self }).count > 0
   end
   
   def mark_as_undone

@@ -17,7 +17,7 @@ class Event < ActiveRecord::Base
   validates_with EventDateValidator
   
   def is_done?
-    return !DoneEvent.find_by("user_id = :user AND event_id = :item", { user: User.current, item: self }).nil?
+    return DoneEvent.where("user_id = :user AND event_id = :item", { user: User.current, item: self }).count > 0
   end
   
   def mark_as_undone

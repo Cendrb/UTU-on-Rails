@@ -16,7 +16,7 @@ class Exam < ActiveRecord::Base
   end
   
   def is_done?
-    return !DoneExam.find_by("user_id = :user AND exam_id = :item", { user: User.current, item: self }).nil?
+    return DoneExam.where("user_id = :user AND exam_id = :item", { user: User.current, item: self }).count > 0
   end
   
   def mark_as_undone
