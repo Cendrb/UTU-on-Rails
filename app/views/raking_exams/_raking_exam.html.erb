@@ -1,0 +1,49 @@
+<div class="exam">
+    
+    <% if logged_in? %>
+        <% if raking_exam.is_done? %>
+            <%= button_to 'Obnovit', exam_reveal_path(raking_exam), method: :post, class: 'hide_or_reveal' %>
+        <% else %>
+            <%= button_to 'Skrýt', exam_hide_path(raking_exam), method: :post, class: 'hide_or_reveal' %>
+        <% end %>
+    <% end %>
+
+    <h3><%= link_to raking_exam.title, raking_exam_path(raking_exam), method: :get %></h3>
+    <p>
+        <%= sanitize(raking_exam.description) %>
+    </p>
+    
+    <p>
+        <strong>Předmět: </strong>
+        <%= raking_exam.subject.name %>
+    </p>
+    
+    <p>
+        <strong>Datum: </strong>
+        <% if raking_exam.lesson.nil? %>
+        	<%= l raking_exam.date %> (<%= I18n.t(:"date.day_names")[raking_exam.date.wday] %>)
+        <% else %>
+        	<%= l raking_exam.lesson.school_day.date %> (<%= I18n.t(:"date.day_names")[raking_exam.lesson.school_day.date.wday] %>)
+        <% end %>
+    </p>
+    
+    <p>
+    	<strong>Konec zkoušení: </strong>
+    	<%= l raking_exam.get_next_raking_date %> (<%= I18n.t(:"date.day_names")[raking_exam.get_next_raking_date.wday] %>
+    </p>
+    
+    <p>
+        <strong>Skupina: </strong>
+        <% if raking_exam.group == 0 %>
+            obě skupiny
+        <% else %>
+            <%= raking_exam.group %>.
+        <% end %>
+    </p>
+    
+    <% if !raking_exam.additional_info_url.nil? && !raking_exam.additional_info_url.empty? %>
+        <p>
+            <%= link_to "Další informace", raking_exam.additional_info_url, target: '_blank' %>
+        </p>
+    <% end %>
+</div>

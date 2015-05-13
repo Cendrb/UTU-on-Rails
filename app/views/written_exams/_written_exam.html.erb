@@ -1,0 +1,44 @@
+<div class="exam">
+    
+    <% if logged_in? %>
+        <% if written_exam.is_done? %>
+            <%= button_to 'Obnovit', exam_reveal_path(written_exam), method: :post, class: 'hide_or_reveal' %>
+        <% else %>
+            <%= button_to 'Skrýt', exam_hide_path(written_exam), method: :post, class: 'hide_or_reveal' %>
+        <% end %>
+    <% end %>
+
+    <h3><%= link_to written_exam.title, written_exam_path(written_exam), method: :get %></h3>
+    <p>
+        <%= sanitize(written_exam.description) %>
+    </p>
+    
+    <p>
+        <strong>Předmět: </strong>
+        <%= written_exam.subject.name %>
+    </p>
+    
+    <p>
+        <strong>Datum: </strong>
+        <% if written_exam.lesson.nil? %>
+        	<%= l written_exam.date %> (<%= I18n.t(:"date.day_names")[written_exam.date.wday] %>)
+        <% else %>
+        	<%= l written_exam.lesson.school_day.date %> (<%= I18n.t(:"date.day_names")[written_exam.lesson.school_day.date.wday] %>)
+        <% end %>
+    </p>
+    
+    <p>
+        <strong>Skupina: </strong>
+        <% if written_exam.group == 0 %>
+            obě skupiny
+        <% else %>
+            <%= written_exam.group %>.
+        <% end %>
+    </p>
+    
+    <% if !written_exam.additional_info_url.nil? && !written_exam.additional_info_url.empty? %>
+        <p>
+            <%= link_to "Další informace", written_exam.additional_info_url, target: '_blank' %>
+        </p>
+    <% end %>
+</div>

@@ -1,0 +1,47 @@
+<h1>Seznam zkoušení</h1>
+
+<%= link_to 'Nové zkoušení', new_raking_exam_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Název</th>
+      <th>Popis</th>
+      <th>Předmět</th>
+      <th>Více informací</th>
+      <th>Datum původní</th>
+      <th>Datum další hodiny po původním datu</th>
+      <th>Skupina</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rakings.each do |raking| %>
+      <tr>
+        <td><%= raking.title %></td>
+        <td><%= raking.description %></td>
+        <td><%= raking.subject.name %></td>
+        <td><%= truncate exam.additional_info_url %></td>
+        <td><%= l raking.date %></td>
+        <% if raking.lesson.nil? %>
+        	<td>Další hodina nenalezena</td>
+        <% else %>
+        	<td><%= link_to (l raking.lesson.school_day.date), raking.lesson %></td>
+        <% end %>
+        <td><%= exam.group %></td>
+        <td><%= link_to 'Zobrazit', raking %></td>
+        <td><%= link_to 'Upravit', edit_raking_exam_path(raking) %></td>
+        <td><%= link_to 'Exterminate', raking, method: :delete, data: { confirm: 'Jste si jisti?' } %></td>
+        <td><%= link_to 'Převést na úkol', exam_transform_to_task_path(raking), data: { confirm: 'Jste si jisti?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nové zkoušení', new_raking_exam_path %>

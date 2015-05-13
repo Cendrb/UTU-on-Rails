@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512180348) do
+ActiveRecord::Schema.define(version: 20150513161106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "additional_infos", force: true do |t|
+    t.string   "name"
+    t.text     "url"
+    t.integer  "task_id"
+    t.integer  "exam_id"
+    t.integer  "raking_id"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "baka_accounts", force: true do |t|
     t.string   "username"
@@ -84,6 +95,8 @@ ActiveRecord::Schema.define(version: 20150512180348) do
     t.string   "additional_info_url"
     t.integer  "subject_id"
     t.integer  "lesson_id"
+    t.string   "type"
+    t.boolean  "passed"
   end
 
   create_table "lessons", force: true do |t|
@@ -97,17 +110,6 @@ ActiveRecord::Schema.define(version: 20150512180348) do
     t.integer  "serial_number"
     t.string   "not_normal_comment"
     t.string   "event_name"
-  end
-
-  create_table "rakings", force: true do |t|
-    t.date     "end"
-    t.integer  "subject_id"
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "group"
-    t.string   "additional_info_url"
   end
 
   create_table "school_days", force: true do |t|
@@ -166,6 +168,7 @@ ActiveRecord::Schema.define(version: 20150512180348) do
     t.string   "additional_info_url"
     t.integer  "subject_id"
     t.integer  "lesson_id"
+    t.boolean  "passed"
   end
 
   create_table "teachers", force: true do |t|

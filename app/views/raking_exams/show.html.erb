@@ -2,7 +2,7 @@
 
 <p>
   <strong>End:</strong>
-  <%= @raking.end %>
+  <%= @raking.date %>
 </p>
 
 <p>
@@ -12,7 +12,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @raking.name %>
+  <%= @raking.title %>
 </p>
 
 <p>
@@ -20,5 +20,5 @@
   <%= @raking.description %>
 </p>
 
-<%= link_to 'Edit', edit_raking_path(@raking) %> |
-<%= link_to 'Back', rakings_path %>
+<%= link_to 'Edit', edit_raking_exam_path(@raking) %> |
+<%= link_to 'Back', raking_exams_path %>

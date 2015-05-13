@@ -1,0 +1,3 @@
+class WrittenExam < Exam
+  
+end

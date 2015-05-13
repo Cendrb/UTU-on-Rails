@@ -1,11 +1,12 @@
-class RakingsController < ApplicationController
+class RakingExamsController < ApplicationController
   before_filter :authenticate_admin, except: [:show]
   before_action :set_raking, only: [:show, :edit, :update, :destroy]
+  after_action :find_and_set_lesson, only: [:create, :update]
 
   # GET /rakings
   # GET /rakings.json
   def index
-    @rakings = Raking.all
+    @rakings = Exam.rakings.all
   end
 
   # GET /rakings/1
@@ -15,7 +16,9 @@ class RakingsController < ApplicationController
 
   # GET /rakings/new
   def new
-    @raking = Raking.new
+    @raking = RakingExam.new
+    @raking.date = next_workday
+    @raking.group = 0
   end
 
   # GET /rakings/1/edit
@@ -25,7 +28,7 @@ class RakingsController < ApplicationController
   # POST /rakings
   # POST /rakings.json
   def create
-    @raking = Raking.new(raking_params)
+    @raking = RakingExam.new(raking_params)
 
     respond_to do |format|
       if @raking.save
@@ -65,11 +68,16 @@ class RakingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_raking
-      @raking = Raking.find(params[:id])
+      @raking = RakingExam.find(params[:id])
+    end
+    
+    def find_and_set_lesson
+      @raking.find_and_set_lesson
+      @raking.save!
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def raking_params
-      params.require(:raking).permit(:end, :subject_id, :name, :description)
+      params.require(:raking_exam).permit(:title, :description, :subject_id, :date, :group, :additional_info_url)
     end
 end

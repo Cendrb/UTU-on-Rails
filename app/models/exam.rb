@@ -2,7 +2,12 @@ class Exam < ActiveRecord::Base
   belongs_to :subject
   belongs_to :lesson
   
-  scope :in_future, -> { where('date >= :today', { today: Date.today }) }
+  self.inheritance_column = :type
+  
+  scope :rakings, -> { where(type: 'RakingExam') } 
+  scope :written, -> { where(type: 'WrittenExam') } 
+  
+  scope :in_future, -> { where('date >= :today AND passed = false', { today: Date.today }) }
   scope :for_group, lambda { |group| where("\"group\" = :group OR \"group\" = 0", { group: group }) }
   scope :between_dates, lambda { |from, to| where("date >= :from AND date <= :to", { from: from, to: to } ) }
   scope :id_not_on_list, lambda { |list| where("NOT (ARRAY[id] <@ ARRAY[:ids])", { ids: list } ) }
@@ -10,6 +15,20 @@ class Exam < ActiveRecord::Base
   
   validates :title, :subject_id, :group, :date, presence: {presence: true, message: "nesmí být prázdný"}
   validates :group, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 2, only_integer: true, message: "neexistuje - zadejte 0 pro obě skupiny" }
+  
+  has_many :additional_infos
+  has_many :done_exams
+    
+  before_create :init
+  
+  def self.types
+    %(RakingExam WrittenExam)
+  end
+  
+  def init
+     self.passed = false
+     true
+  end
   
   def get_task
     Task.new(title: title, description: description, subject: subject, group: group, date: date)

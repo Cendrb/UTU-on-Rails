@@ -46,7 +46,7 @@ class SummaryController < ApplicationController
       if logged_in?
         user = current_user
 
-        @events = Event.all.order(:event_start).in_future
+        @events = Event.order(:event_start).in_future
         @exams = Exam.order(:date).in_future.for_group(user.group)
         @tasks = Task.order(:date).in_future.for_group(user.group)
 
@@ -103,11 +103,11 @@ class SummaryController < ApplicationController
       SchoolDay.where(date: Date.today).find_each do |day|
         day.lessons.find_each do |lesson|
           lesson.exams.find_each do |exam|
-            exam.date = 1.day.ago
+            exam.passed = true
             exam.save!
           end
           lesson.tasks.find_each do |task|
-            task.date = 1.day.ago
+            task.passed = trues
             task.save!
           end
         end
@@ -126,7 +126,17 @@ class SummaryController < ApplicationController
   end
 
   def temp
-    Exam.in_future.first.find_and_set_lesson
+    Exam.find_each do |e|
+      e.type = "WrittenExam"
+      e.passed = false
+      e.save!
+    end
+    
+    Task.find_each do |e|
+      e.passed = false
+      e.save!
+    end
+    
     redirect_to :details
   end
 

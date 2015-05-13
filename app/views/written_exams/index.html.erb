@@ -1,0 +1,23 @@
+<h1>Seznam testů</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @written_exams.each do |written_exam| %>
+      <tr>
+        <td><%= link_to 'Show', written_exam %></td>
+        <td><%= link_to 'Edit', edit_written_exam_path(written_exam) %></td>
+        <td><%= link_to 'Destroy', written_exam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Written exam', new_written_exam_path %>
