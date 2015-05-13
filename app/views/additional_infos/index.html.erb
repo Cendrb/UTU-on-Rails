@@ -1,0 +1,35 @@
+<h1>Listing additional_infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Url</th>
+      <th>Task</th>
+      <th>Exam</th>
+      <th>Raking</th>
+      <th>Event</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @additional_infos.each do |additional_info| %>
+      <tr>
+        <td><%= additional_info.name %></td>
+        <td><%= additional_info.url %></td>
+        <td><%= additional_info.task_id %></td>
+        <td><%= additional_info.exam_id %></td>
+        <td><%= additional_info.raking_id %></td>
+        <td><%= additional_info.event_id %></td>
+        <td><%= link_to 'Show', additional_info %></td>
+        <td><%= link_to 'Edit', edit_additional_info_path(additional_info) %></td>
+        <td><%= link_to 'Destroy', additional_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Additional info', new_additional_info_path %>

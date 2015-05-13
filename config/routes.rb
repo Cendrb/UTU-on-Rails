@@ -1,5 +1,9 @@
 UTUOnRails::Application.routes.draw do
 
+  resources :additional_infos
+
+  resources :rakings
+
   controller :charts do
     get 'accesses_per_hour_of_day'
     get 'accesses_per_hour_of_last_day'

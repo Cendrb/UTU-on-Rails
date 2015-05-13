@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  url: MyText
+  task_id: 1
+  exam_id: 1
+  raking_id: 1
+  event_id: 1
+
+two:
+  name: MyString
+  url: MyText
+  task_id: 1
+  exam_id: 1
+  raking_id: 1
+  event_id: 1

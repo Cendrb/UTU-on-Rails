@@ -5,7 +5,7 @@ class DetailsAccessesController < ApplicationController
   # GET /details_accesses
   # GET /details_accesses.json
   def index
-    @details_accesses = DetailsAccess.all
+    @details_accesses = DetailsAccess.order("created_at DESC")
   end
 
   # GET /details_accesses/1
