@@ -43,8 +43,10 @@
 <%= link_to 'Odhlásit', logout_path, class: 'administration_link' %><br />
 <%= link_to 'Zrušit účet', destroy_account_path(user), method: :delete, class: 'administration_link', data: {confirm: "Opravdu si přejete zrušit váš účet?"} %>
 
-<h3>Nastavení zobrazení položek</h3>
-<%= render partial: 'users/hide_settings', locals: {user: user}%>
+<% if false %>
+	<h3>Nastavení zobrazení položek</h3>
+	<%= render partial: 'users/hide_settings', locals: {user: user}%>
+<% end %>
 
 <h3>Přehledy a statistiky</h3>
 <%= link_to("Statistika předmětů", subjects_summary_path, class: 'administration_link') %><br />

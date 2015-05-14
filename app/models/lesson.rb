@@ -8,4 +8,8 @@ class Lesson < ActiveRecord::Base
   def exams_or_tasks?
     return self.exams.count > 0 || self.tasks.count > 0
   end
+  
+  def get_titles_string
+    return (self.exams.pluck(:title) + self.tasks.pluck(:title)).join("\n")
+  end
 end

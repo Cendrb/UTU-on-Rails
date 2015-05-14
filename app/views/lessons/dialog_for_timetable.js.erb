@@ -1,0 +1,16 @@
+$("#main").append("<div class=\"dialog\"></div>");
+
+<% @exams.each do |exam| %>
+	$(".dialog").append("<%= escape_javascript(render exam) %>");
+<% end %>
+
+<% @tasks.each do |task| %>
+	$(".dialog").append("<%= escape_javascript(render task) %>");
+<% end %>
+
+$(".dialog").dialog(
+{
+	close: function(event, ui){
+		$(this).dialog("destroy").remove();
+	}
+});

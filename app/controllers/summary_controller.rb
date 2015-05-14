@@ -50,23 +50,6 @@ class SummaryController < ApplicationController
         @exams = Exam.order(:date).in_future.for_group(user.group)
         @tasks = Task.order(:date).in_future.for_group(user.group)
 
-        if request.format.html?
-          # Umožnění skrytí jednotlivých položek
-          if !user.show_hidden_events
-            @events = drop_hidden(@events)
-          end
-          if !user.show_hidden_exams
-            @exams = drop_hidden(@exams)
-          end
-          if !user.show_hidden_tasks
-            @tasks = drop_hidden(@tasks)
-          end
-        else
-          @events = drop_hidden(@events)
-          @exams = drop_hidden(@exams)
-          @tasks = drop_hidden(@tasks)
-        end
-
         @exams = drop_todays_after(@exams, 12)
         @tasks = drop_todays_after(@tasks, 12)
       else

@@ -9,7 +9,11 @@
                 <h1>Události</h1>
                 <% end %>
                 <% @events.each do |e| %>
-                    <%= render e %>
+                	<% if e.is_done? %>
+                		<%= render partial: "events/hidden", locals: {e: e} %>
+                	<% else %>
+                    	<%= render e %>
+                    <% end %>
                     <%= render 'line' unless e == @events.last %>
                 <% end %>
             </div></td>
@@ -21,7 +25,11 @@
                 <h1>Úkoly</h1>
                 <% end %>
                 <% @tasks.each do |e| %>
-                    <%= render e %>
+                    <% if e.is_done? %>
+                		<%= render partial: "tasks/hidden", locals: {e: e} %>
+                	<% else %>
+                    	<%= render e %>
+                    <% end %>
                     <%= render 'line' unless e == @tasks.last %>
                 <% end %>
             </div></td>
@@ -33,7 +41,11 @@
                 <h1>Testy</h1>
                 <% end %>
                 <% @exams.each do |e| %>
-                    <%= render e %>
+                    <% if e.is_done? %>
+                		<%= render partial: "exams/hidden", locals: {e: e} %>
+                	<% else %>
+                    	<%= render e %>
+                    <% end %>
                     <%= render 'line' unless e == @exams.last %>
                 <% end %>
             </div></td>

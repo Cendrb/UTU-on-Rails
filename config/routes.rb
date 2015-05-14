@@ -35,6 +35,9 @@ UTUOnRails::Application.routes.draw do
     get 'fetch_baka' => :fetch_baka
   end
 
+  controller :lessons do
+    get 'lessons/dialog_for_timetable', as: :dialog_for_timetable
+  end
   resources :lessons
 
   resources :school_days

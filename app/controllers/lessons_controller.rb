@@ -61,6 +61,11 @@ class LessonsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def dialog_for_timetable
+    @exams = Exam.where(id: params[:exams])
+    @tasks = Exam.where(id: params[:tasks])
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
