@@ -6,7 +6,8 @@
 
 	<% if lesson.exams_or_tasks? %>
 		<div class="lesson_subject lesson_warning" title="<%= lesson.get_titles_string %>">
-			<%= link_to lesson.subject.name, {controller: :lessons, action: :dialog_for_timetable, exams: lesson.exams.pluck(:id), tasks: lesson.tasks.pluck(:id)}, remote: true %>
+			<%= lesson.subject.name %> <% #link_to lesson.subject.name, {controller: :lessons, action: :dialog_for_timetable, exams: lesson.exams.pluck(:id), tasks: lesson.tasks.pluck(:id)}, remote: true 
+			%>
 		</div>
 	<% else %>
 		<div class="lesson_subject">
