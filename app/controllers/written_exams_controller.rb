@@ -7,7 +7,7 @@ class WrittenExamsController < ApplicationController
   # GET /written_exams
   # GET /written_exams.json
   def index
-    @written_exams = WrittenExam.all
+    @written_exams = WrittenExam.order(:date)
   end
 
   # GET /written_exams/1
@@ -67,7 +67,6 @@ class WrittenExamsController < ApplicationController
   end
   
   def transform_to_raking
-    byebug
     id = @written_exam.id
     @written_exam.type = "RakingExam"
     @written_exam.end_date = @written_exam.date
@@ -82,6 +81,11 @@ class WrittenExamsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_written_exam
       @written_exam = WrittenExam.find(params[:id])
+    end
+    
+    def find_and_set_lesson
+      @written_exam.find_and_set_lesson
+      @written_exam.save!
     end
     
     def set_written_exam_from_written_exam_id
