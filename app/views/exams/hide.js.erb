@@ -1,0 +1,1 @@
+$(".exam[data-id=<%= @exam.id %>]").replaceWith("<%= escape_javascript(render partial: "exams/hidden", locals: { exam: @exam }) %>");

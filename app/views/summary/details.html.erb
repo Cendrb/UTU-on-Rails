@@ -10,7 +10,7 @@
                 <% end %>
                 <% @events.each do |e| %>
                 	<% if e.is_done? %>
-                		<%= render partial: "events/hidden", locals: {e: e} %>
+                		<%= render partial: "events/hidden", locals: {event: e} %>
                 	<% else %>
                     	<%= render e %>
                     <% end %>
@@ -26,7 +26,7 @@
                 <% end %>
                 <% @tasks.each do |e| %>
                     <% if e.is_done? %>
-                		<%= render partial: "tasks/hidden", locals: {e: e} %>
+                		<%= render partial: "tasks/hidden", locals: {task: e} %>
                 	<% else %>
                     	<%= render e %>
                     <% end %>
@@ -42,7 +42,7 @@
                 <% end %>
                 <% @exams.each do |e| %>
                     <% if e.is_done? %>
-                		<%= render partial: "exams/hidden", locals: {e: e} %>
+                		<%= render partial: "exams/hidden", locals: {exam: e} %>
                 	<% else %>
                     	<%= render e %>
                     <% end %>

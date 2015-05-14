@@ -1,10 +1,10 @@
-<div class="task">
+<div class="task" data-id=<%= task.id %>>
     
     <% if logged_in? %>
         <% if task.is_done? %>
-            <%= button_to 'Obnovit', task_reveal_path(task), method: :post, class: 'hide_or_reveal' %>
+            <%= button_to 'Obnovit', task_reveal_path(task), method: :post, remote: true, class: 'hide_or_reveal' %>
         <% else %>
-            <%= button_to 'Skrýt', task_hide_path(task), method: :post, class: 'hide_or_reveal' %>
+            <%= button_to 'Skrýt', task_hide_path(task), method: :post, remote: true, class: 'hide_or_reveal' %>
         <% end %>
     <% end %>
     

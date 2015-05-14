@@ -108,6 +108,7 @@ class EventsController < ApplicationController
   def redirect_back
     respond_to do |format|
       format.html { redirect_html_back }
+      format.js
       format.whoa { render plain: "WHOA" }
     end
   end

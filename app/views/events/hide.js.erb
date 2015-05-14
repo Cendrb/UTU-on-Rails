@@ -1,0 +1,1 @@
+$(".event[data-id=<%= @event.id %>]").replaceWith("<%= escape_javascript(render partial: "events/hidden", locals: { event: @event }) %>");
