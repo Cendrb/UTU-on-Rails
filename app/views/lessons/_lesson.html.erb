@@ -1,37 +1,42 @@
-<% if lesson.not_normal %>
-	<% if lesson.subject.nil? %>
-		<td class="lesson_changed" title="<%= lesson.not_normal_comment %>"></td>
-	<% else %>
-		<td class="lesson_changed" title="<%= lesson.not_normal_comment %>">
-			<div class="lesson_subject">
-				<%= lesson.subject.name %>
-			</div>
-			<div class="lesson_teacher" title="<%= lesson.teacher.name %>">
-				<%= lesson.teacher.abbr %>
-			</div>
-			<div class="lesson_room">
-				<%= lesson.room %>
-			</div>
-		</td>
+<td class="lesson">
+	<% if lesson.exams_or_tasks? %>
+		<div class="lesson_warning">!</div>
 	<% end %>
-<% else %>
-	<% if !lesson.event_name.nil? %>
-		<td class="lesson_event"> 
-			<div class="lesson_subject">
-				<%= lesson.event_name %>
+	<% if lesson.not_normal %>
+		<% if lesson.subject.nil? %>
+			<div class="lesson_changed" title="<%= lesson.not_normal_comment %>"></div>
+		<% else %>
+			<div class="lesson_changed" title="<%= lesson.not_normal_comment %>">
+				<div class="lesson_subject">
+					<%= lesson.subject.name %>
+				</div>
+				<div class="lesson_teacher" title="<%= lesson.teacher.name %>">
+					<%= lesson.teacher.abbr %>
+				</div>
+				<div class="lesson_room">
+					<%= lesson.room %>
+				</div>
 			</div>
-		</td>
+		<% end %>
 	<% else %>
-		<td class="lesson">
-			<div class="lesson_subject">
-				<%= lesson.subject.name %>
+		<% if !lesson.event_name.nil? %>
+			<div class="lesson_event"> 
+				<div class="lesson_subject">
+					<%= lesson.event_name %>
+				</div>
 			</div>
-			<div class="lesson_teacher" title="<%= lesson.teacher.name %>">
-				<%= lesson.teacher.abbr %>
+		<% else %>
+			<div class="lesson">
+				<div class="lesson_subject">
+					<%= lesson.subject.name %>
+				</div>
+				<div class="lesson_teacher" title="<%= lesson.teacher.name %>">
+					<%= lesson.teacher.abbr %>
+				</div>
+				<div class="lesson_room">
+					<%= lesson.room %>
+				</div>
 			</div>
-			<div class="lesson_room">
-				<%= lesson.room %>
-			</div>
-		</td>
+		<% end %>
 	<% end %>
-<% end %>
+</td>

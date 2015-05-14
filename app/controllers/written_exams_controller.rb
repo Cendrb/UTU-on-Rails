@@ -2,6 +2,7 @@ class WrittenExamsController < ApplicationController
   before_filter :authenticate_admin, except: [:show]
   before_action :set_written_exam, only: [:show, :edit, :update, :destroy]
   after_action :find_and_set_lesson, only: [:create, :update]
+  before_action :set_written_exam_from_written_exam_id, only: [:transform_to_raking]
 
   # GET /written_exams
   # GET /written_exams.json
@@ -64,11 +65,27 @@ class WrittenExamsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def transform_to_raking
+    byebug
+    id = @written_exam.id
+    @written_exam.type = "RakingExam"
+    @written_exam.end_date = @written_exam.date
+    @written_exam.save!
+    
+    @written_exam.find_and_set_lesson
+    
+    redirect_to @written_exam
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_written_exam
       @written_exam = WrittenExam.find(params[:id])
+    end
+    
+    def set_written_exam_from_written_exam_id
+      @written_exam = WrittenExam.find(params[:written_exam_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

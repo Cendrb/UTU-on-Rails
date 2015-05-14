@@ -19,17 +19,17 @@
     </p>
     
     <p>
-        <strong>Datum: </strong>
-        <% if raking_exam.lesson.nil? %>
-        	<%= l raking_exam.date %> (<%= I18n.t(:"date.day_names")[raking_exam.date.wday] %>)
-        <% else %>
-        	<%= l raking_exam.lesson.school_day.date %> (<%= I18n.t(:"date.day_names")[raking_exam.lesson.school_day.date.wday] %>)
-        <% end %>
+    	<strong>Další zkoušení: </strong>
+    	<% if raking_exam.date.nil? %>
+    		Už nikdy více
+    	<% else %>
+    		<%= l raking_exam.date %> (<%= I18n.t(:"date.day_names")[raking_exam.date.wday] %>)
+    	<% end %>
     </p>
     
     <p>
-    	<strong>Konec zkoušení: </strong>
-    	<%= l raking_exam.get_next_raking_date %> (<%= I18n.t(:"date.day_names")[raking_exam.get_next_raking_date.wday] %>
+        <strong>Konec zkoušení: </strong>
+       	<%= l raking_exam.end_date %> (<%= I18n.t(:"date.day_names")[raking_exam.end_date.wday] %>)
     </p>
     
     <p>

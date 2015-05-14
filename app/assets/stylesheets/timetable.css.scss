@@ -1,0 +1,63 @@
+.timetable
+{
+  border-collapse: collapse;
+  width: 100%;
+  td
+  {
+    width: 10em;
+    height: 7em;
+    border: 1px solid black;
+  }
+  .lesson_subject
+  {
+      font-size: 2em;
+      text-align: center;
+      margin-top: 0.7em;
+      a
+      {
+        text-decoration: none;
+      }
+  }
+  
+  .lesson_room
+  {
+    text-align: right;
+    position: relative;
+    margin-top: 0.85em;
+    margin-left: auto;
+    margin-bottom: 0.2em;
+    margin-right: 0.5em;
+  }
+    
+  .lesson_teacher
+  {
+    margin-top: 1.1em;
+    text-align: center;
+    position: relative;
+    width: 100%;
+  }
+  
+  .lesson_event
+  {
+    background-color: rgb(44, 150, 44);
+  }
+  
+  .lesson_changed
+  {
+    background-color: #ED5050;
+  }
+  
+  .timetable_weekday
+  {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  
+  .timetable_date
+  {
+    margin-top: 0.15em;
+    font-size: 1em;
+  }
+  
+  round-color: white;
+}

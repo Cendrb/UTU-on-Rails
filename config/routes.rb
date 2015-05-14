@@ -1,10 +1,18 @@
 UTUOnRails::Application.routes.draw do
 
-  resources :written_exams
+  resources :written_exams do
+    controller :written_exams do
+      get 'transform_to_raking' => :transform_to_raking
+    end
+  end
 
   resources :additional_infos
 
-  resources :raking_exams
+  resources :raking_exams do
+    controller :raking_exams do
+      get 'transform_to_written' => :transform_to_written
+    end
+  end
 
   controller :charts do
     get 'accesses_per_hour_of_day'

@@ -1,24 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>End:</strong>
-  <%= @raking.date %>
-</p>
-
-<p>
-  <strong>Subject:</strong>
-  <%= @raking.subject_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @raking.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @raking.description %>
-</p>
+<%= render @raking %>
 
 <%= link_to 'Edit', edit_raking_exam_path(@raking) %> |
 <%= link_to 'Back', raking_exams_path %>
