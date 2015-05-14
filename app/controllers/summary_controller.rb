@@ -109,18 +109,7 @@ class SummaryController < ApplicationController
   end
 
   def temp
-    Exam.find_each do |e|
-      e.type = "WrittenExam"
-      e.passed = false
-      e.save!
-    end
     
-    Task.find_each do |e|
-      e.passed = false
-      e.save!
-    end
-    
-    redirect_to :details
   end
 
   def administrator_logged_in
