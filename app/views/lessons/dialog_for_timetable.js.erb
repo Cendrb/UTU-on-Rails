@@ -13,5 +13,6 @@ $(".dialog[data-identifier=<%= random %>]").dialog(
 {
 	close: function(event, ui){
 		$(this).dialog("destroy").remove();
-	}
+	},
+	modal: true
 });
