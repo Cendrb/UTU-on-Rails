@@ -56,6 +56,9 @@ gem 'jquery-rails'
 # Add UI to jquery package
 gem 'jquery-ui-rails'
 
+# Enable document.ready with turbolinks
+gem 'jquery-turbolinks'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
