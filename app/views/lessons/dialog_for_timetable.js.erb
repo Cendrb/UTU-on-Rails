@@ -1,14 +1,15 @@
-$("#main").append("<div class=\"dialog\"></div>");
+<% random = rand(36**10).to_s(36) %>
+$("#main").append("<div class=\"dialog\" data-identifier=\"<%= random %>\"></div>");
 
 <% @exams.each do |exam| %>
-	$(".dialog").append("<%= escape_javascript(render exam) %>");
+	$(".dialog[data-identifier='<%= random %>']").append("<%= escape_javascript(render exam) %>");
 <% end %>
 
 <% @tasks.each do |task| %>
-	$(".dialog").append("<%= escape_javascript(render task) %>");
+	$(".dialog[data-identifier='<%= random %>']").append("<%= escape_javascript(render task) %>");
 <% end %>
 
-$(".dialog").dialog(
+$(".dialog[data-identifier=<%= random %>]").dialog(
 {
 	close: function(event, ui){
 		$(this).dialog("destroy").remove();
