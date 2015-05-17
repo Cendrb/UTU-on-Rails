@@ -64,7 +64,7 @@ class LessonsController < ApplicationController
   
   def dialog_for_timetable
     @exams = Exam.where(id: params[:exams])
-    @tasks = Exam.where(id: params[:tasks])
+    @tasks = Task.where(id: params[:tasks])
   end
 
   private
