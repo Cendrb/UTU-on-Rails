@@ -1,6 +1,6 @@
 <div class="exam" data-id=<%= exam.id %>>
-    
-    <% if logged_in? %>
+
+    <% if logged_in? && !defined?(no_hide) %>
         <% if exam.is_done? %>
             <%= button_to 'Obnovit', exam_reveal_path(exam), method: :post, remote: true, class: 'hide_or_reveal' %>
         <% else %>

@@ -2,11 +2,11 @@
 $("#main").append("<div class=\"dialog\" data-identifier=\"<%= random %>\"></div>");
 
 <% @exams.each do |exam| %>
-	$(".dialog[data-identifier='<%= random %>']").append("<%= escape_javascript(render exam) %>");
+	$(".dialog[data-identifier='<%= random %>']").append("<%= escape_javascript(render partial: "exams/exam", locals: {exam: exam, no_hide: true}) %>");
 <% end %>
 
 <% @tasks.each do |task| %>
-	$(".dialog[data-identifier='<%= random %>']").append("<%= escape_javascript(render task) %>");
+	$(".dialog[data-identifier='<%= random %>']").append("<%= escape_javascript(render partial: "tasks/task", locals: {task: task, no_hide: true}) %>");
 <% end %>
 
 $(".dialog[data-identifier=<%= random %>]").dialog(
@@ -14,5 +14,10 @@ $(".dialog[data-identifier=<%= random %>]").dialog(
 	close: function(event, ui){
 		$(this).dialog("destroy").remove();
 	},
-	modal: true
+	modal: true,
+	resizable: false,
+	draggable: false,
+	dialogClass: "timetable_dialog",
+	close: function(event, ui) { $('#wrap').show(); },
+	open: function(event, ui) { $('.ui-widget-overlay').bind('click', function () { $(this).siblings('.ui-dialog').find('.ui-dialog-content').dialog('close'); }); }
 });

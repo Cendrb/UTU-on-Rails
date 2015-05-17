@@ -1,6 +1,5 @@
 <div class="task" data-id=<%= task.id %>>
-    
-    <% if logged_in? %>
+    <% if logged_in? && !defined?(no_hide) %>
         <% if task.is_done? %>
             <%= button_to 'Obnovit', task_reveal_path(task), method: :post, remote: true, class: 'hide_or_reveal' %>
         <% else %>
