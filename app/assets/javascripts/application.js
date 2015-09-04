@@ -15,4 +15,13 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require turbolinks
+//= require nprogress
+//= require nprogress-turbolinks
 //= require_tree .
+
+NProgress.configure({
+    showSpinner: false,
+    trickleRate: 0.04,
+    trickleSpeed: 700,
+    easing: "ease"
+});

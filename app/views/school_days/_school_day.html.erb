@@ -16,15 +16,15 @@
     	<% while counter != lesson.serial_number %>
     	   	<% counter += 1 %>
     		<div class="lesson">
-            	<td></td>
+              <td></td>
         	</div>
     	<% end %>
        	<%= render lesson %>
     <% end %>
     <% if blank_hours %>
-	    <% (9 - school_day.lessons.last.serial_number).times do |blank| %>
+	    <% (9 - (school_day.lessons.last ? school_day.lessons.last.serial_number : 0)).times do |blank| %>
 	        <div class="lesson">
-	            <td></td>
+              <td></td>
 	        </div>
 	    <% end %>
 	<% end %>

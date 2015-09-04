@@ -32,6 +32,12 @@ gem 'simple_form'
 # To keep Heroku dynos awake
 gem 'dynopoker'
 
+# Progress bars for turbolinks and ajax calls
+gem 'nprogress-rails'
+
+# Another javascript library - faster animations than JQuery
+gem 'greensock-rails'
+
 # Country dependent penises
 gem 'country_select'
 
