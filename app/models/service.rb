@@ -19,4 +19,12 @@ class Service < ActiveRecord::Base
       service.save!
     end
   end
+
+  def self.pyj
+    Service.where("service_start > ?", Date.strptime("27.2.2016", "%d.%m.%Y")).each do |zidan|
+      zidan.service_start-=1.day
+      zidan.service_end-=1.day
+      zidan.save!
+    end
+  end
 end
