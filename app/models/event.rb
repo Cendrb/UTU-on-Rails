@@ -16,7 +16,7 @@ class Event < ActiveRecord::Base
   validates :price, numericality: true
   validates_with EventDateValidator
   
-  has_many :additional_infos
+  has_many :info_item_bindings
   has_many :done_events
   
   def is_done?

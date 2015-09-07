@@ -5,3 +5,4 @@
 # Mime::Type.register_alias "text/html", :iphone
 
 Mime::Type.register "text/plaintext", :whoa
+Mime::Type.register "text/plaintext", :csv

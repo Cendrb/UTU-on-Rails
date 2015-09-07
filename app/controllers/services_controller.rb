@@ -6,6 +6,14 @@ class ServicesController < ApplicationController
   # GET /services.json
   def index
     @services = Service.order(:service_start)
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"sluzba.csv\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
   end
 
   # GET /services/1
