@@ -2,6 +2,8 @@ class Subject < ActiveRecord::Base
   has_many :lessons
   has_many :exams
   has_many :tasks
+
+  has_many :planned_raking_lists
   
   def get_exam_before_days
     exam = Exam.for_group(User.current.group).where("subject_id = ?", self).where("date <= ?", Date.today).order(date: :desc).first

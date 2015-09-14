@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :done_exams
   has_many :done_tasks
 
+  has_many :planned_raking_entries
+
   cattr_accessor :current
   attr_accessor :password_confirmation
   attr_reader :password

@@ -1,5 +1,9 @@
 UTUOnRails::Application.routes.draw do
 
+  resources :planned_raking_entries
+
+  resources :planned_raking_lists
+
   resources :written_exams do
     controller :written_exams do
       get 'transform_to_raking' => :transform_to_raking
@@ -13,6 +17,8 @@ UTUOnRails::Application.routes.draw do
       get 'transform_to_written' => :transform_to_written
     end
   end
+
+  get 'rake' => 'planned_raking_entries#new'
 
   controller :charts do
     get 'accesses_per_hour_of_day'

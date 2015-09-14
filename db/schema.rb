@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904063749) do
+ActiveRecord::Schema.define(version: 20150914214711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,6 +115,25 @@ ActiveRecord::Schema.define(version: 20150904063749) do
     t.integer  "serial_number"
     t.string   "not_normal_comment"
     t.string   "event_name"
+  end
+
+  create_table "planned_raking_entries", force: true do |t|
+    t.string   "name"
+    t.integer  "planned_raking_list_id"
+    t.integer  "user_id"
+    t.boolean  "finished"
+    t.integer  "sorting_order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "planned_raking_lists", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "subject_id"
+    t.date     "beginning"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "school_days", force: true do |t|

@@ -1,0 +1,31 @@
+<h1>Listing planned_raking_lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Subject</th>
+      <th>Beginning</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @planned_raking_lists.each do |planned_raking_list| %>
+      <tr>
+        <td><%= planned_raking_list.title %></td>
+        <td><%= planned_raking_list.description %></td>
+        <td><%= planned_raking_list.subject.name %></td>
+        <td><%= planned_raking_list.beginning %></td>
+        <td><%= link_to 'Show', planned_raking_list %></td>
+        <td><%= link_to 'Edit', edit_planned_raking_list_path(planned_raking_list) %></td>
+        <td><%= link_to 'Destroy', planned_raking_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Planned raking list', new_planned_raking_list_path %>

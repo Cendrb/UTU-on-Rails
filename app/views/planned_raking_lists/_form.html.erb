@@ -1,0 +1,34 @@
+<%= form_for(@planned_raking_list) do |f| %>
+
+    <% if @planned_raking_list.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@planned_raking_list.errors.count, "error") %> prohibited this motorku from being
+            saved:</h2>
+
+          <ul>
+            <% @planned_raking_list.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :title, "Název" %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :description, "Popis" %><br>
+      <%= f.text_area :description %>
+    </div>
+    <div class="field">
+      <%= f.label :subject_id, "Předmět" %><br>
+      <%= f.collection_select :subject_id, Subject.all, :id, :name %>
+    </div>
+    <div class="field">
+      <%= f.label :beginning, "Začátek" %><br>
+      <%= f.date_select :beginning %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
