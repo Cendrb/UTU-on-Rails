@@ -17,7 +17,7 @@
         <td><%= planned_raking_list.subject.name %></td>
         <td><%= format_date planned_raking_list.beginning %></td>
         <td><%= link_to 'Seznam zkoušených', planned_raking_list %></td>
-        <td><%= link_to 'Přihlásit se', edit_planned_raking_list_path(planned_raking_list) %></td>
+        <td><%= link_to 'Přihlásit se', new_planned_raking_entry_path %><br></td>
         <% if admin_logged_in? %>
             <td><%= link_to 'Upravit', edit_planned_raking_list_path(planned_raking_list) %></td>
             <td><%= link_to 'Odstranit', planned_raking_list, method: :delete, data: {confirm: 'Are you sure?'} %></td>
