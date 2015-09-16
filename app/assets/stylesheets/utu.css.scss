@@ -248,3 +248,17 @@ a.change_data {
   color: red;
   font-size: 20px;
 }
+
+.stretch
+{
+  width: 100%;
+  th
+  {
+    text-align: left;
+  }
+}
+
+.move_cursor
+{
+  cursor: move;
+}

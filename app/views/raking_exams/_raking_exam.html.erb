@@ -22,13 +22,13 @@
     	<% if raking_exam.date.nil? %>
     		Už nikdy více
     	<% else %>
-    		<%= l raking_exam.date %> (<%= I18n.t(:"date.day_names")[raking_exam.date.wday] %>)
+    		<%= format_date raking_exam.date %>
     	<% end %>
     </p>
     
     <p>
         <strong>Konec zkoušení: </strong>
-       	<%= l raking_exam.end_date %> (<%= I18n.t(:"date.day_names")[raking_exam.end_date.wday] %>)
+       	<%= format_date raking_exam.end_date %>
     </p>
     
     <p>

@@ -20,9 +20,9 @@
     <p>
         <strong>Datum: </strong>
         <% if task.lesson.nil? %>
-        	<%= l task.date %> (<%= I18n.t(:"date.day_names")[task.date.wday] %>)
+        	<%= format_date task.date %>
         <% else %>
-        	<%= l task.lesson.school_day.date %> (<%= I18n.t(:"date.day_names")[task.lesson.school_day.date.wday] %>)
+        	<%= format_date task.lesson.school_day.date %>
         <% end %>
     </p>
     

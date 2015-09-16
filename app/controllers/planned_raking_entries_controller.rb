@@ -37,7 +37,7 @@ class PlannedRakingEntriesController < ApplicationController
 
     respond_to do |format|
       if @planned_raking_entry.save
-        format.html { redirect_to @planned_raking_entry, notice: 'Planned raking entry was successfully created.' }
+        format.html { redirect_to @planned_raking_entry.planned_raking_list, notice: 'Přihlášení proběhlo úspěšně' }
         format.json { render :show, status: :created, location: @planned_raking_entry }
       else
         format.html { render :new }
@@ -78,6 +78,6 @@ class PlannedRakingEntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def planned_raking_entry_params
-      params.require(:planned_raking_entry).permit(:name, :planned_raking_list_id, :user_id, :finished, :sorting_order)
+      params.require(:planned_raking_entry).permit(:name, :planned_raking_list_id, :user_id, :description)
     end
 end

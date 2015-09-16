@@ -25,6 +25,10 @@
       <%= f.collection_select :subject_id, Subject.all, :id, :name %>
     </div>
     <div class="field">
+      <%= f.label :rekt_per_hour, "Předpokládaný počet zkoušení za hodinu" %><br>
+      <%= f.number_field :rekt_per_hour %>
+    </div>
+    <div class="field">
       <%= f.label :beginning, "Začátek" %><br>
       <%= f.date_select :beginning %>
     </div>

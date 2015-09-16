@@ -2,7 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1><%= @data[:list].title %></h1>
+<h2>Administrace <%= @data[:list].title %></h2>
 
 <table class="stretch">
   <thead>
@@ -12,10 +12,10 @@
     <th>Předpokládané datum zkoušení (nejhorší scénář)</th>
   </tr>
   </thead>
-  <tbody>
+  <tbody id="planned_raking_entries_sortable">
   <% counter = 0.0 %>
   <% @data[:entries].each do |entry| %>
-      <tr>
+      <tr class="move_cursor">
         <td><%= entry.name %></td>
         <td><%= entry.description %></td>
         <td><%= format_date timetable.get_next_hour_for(@data[:list].subject, Date.today, counter.floor).school_day.date %></td>
@@ -23,8 +23,3 @@
   <% end %>
   </tbody>
 </table>
-
-<p>
-  <%= link_to 'Přihlásit se do seznamu', new_planned_raking_entry_path %><br>
-  <%= link_to 'Zpět', planned_raking_lists_path %>
-</p>

@@ -62,6 +62,26 @@ class Timetable < ActiveRecord::Base
     next_week_date = Date.today + 1.week
     return self.school_days.where(:date => next_week_date.beginning_of_week..next_week_date.end_of_week )
   end
+
+  def get_next_hour_for(subject, date, counter = 0)
+    return Lesson.joins(school_day: :timetable).where("timetables.id = ?", self.id).where("school_days.date >= ?", date).where(subject: subject).order("school_days.date").offset(counter).first
+  end
+
+  def self.timetable_for(subject, group)
+    if group == 0
+      # not group dependent
+      if subject.name == "HuO"
+        # use HuO group (first)
+        return Timetable.where(group: 1).first
+      else
+        # use VýO group (second)
+        return Timetable.where(group: 2).first
+      end
+    else
+      # group dependent
+      return Timetable.where(group: group).first
+    end
+  end
   
   private
     # Parses data from a html (source = string) and saves to the given timetable (target = Timetable)

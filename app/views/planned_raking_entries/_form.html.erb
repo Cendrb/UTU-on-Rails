@@ -4,7 +4,6 @@
         <div id="error_explanation">
           <h2><%= pluralize(@planned_raking_entry.errors.count, "error") %> prohibited this motorku from being
             saved:</h2>
-
           <ul>
             <% @planned_raking_entry.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
@@ -19,12 +18,17 @@
       <%= f.text_field :name %>
     </div>
     <div class="field">
+      <%= f.label :description, "Téma" %><br>
+      <%= f.text_field :description %>
+      (pokud se jedná o prezentaci, <b>můžete</b> zde zadat nějaký krátký popis, aby ostatní případně neměli stejný nápad)
+    </div>
+    <div class="field">
       <%= f.label :planned_raking_list_id, "Seznam zkoušení" %><br>
       <%= f.collection_select :planned_raking_list_id, PlannedRakingList.all, :id, :title %>
     </div>
     <div class="field">
       <%= f.label :user_id, "Uživatel" %><br>
-      <%= logged_in? ? current_user.name : "pokud se přidáte do seznamu až poté, co se přihlásíte, budou se vám zobrazovat personalizovaná upozornění v přehledu" %>
+      <%= logged_in? ? current_user.name : "pokud se přidáte do seznamu až poté, co se přihlásíte, budou se vám zobrazovat personalizovaná upozornění v přehledu" %><%= link_to '(přihlásit se)', login_path  if !logged_in?%>
     </div>
     <div class="actions">
       <%= f.submit "Odeslat" %>

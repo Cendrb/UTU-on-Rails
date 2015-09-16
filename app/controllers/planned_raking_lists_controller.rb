@@ -1,5 +1,5 @@
 class PlannedRakingListsController < ApplicationController
-  before_action :set_planned_raking_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_planned_raking_list, only: [:show, :edit, :update, :destroy, :admin_show]
   before_filter :authenticate_admin, except: [:show]
 
   # GET /planned_raking_lists
@@ -11,6 +11,15 @@ class PlannedRakingListsController < ApplicationController
   # GET /planned_raking_lists/1
   # GET /planned_raking_lists/1.json
   def show
+    @data = {}
+    @data[:list] = @planned_raking_list
+    @data[:entries] = @planned_raking_list.planned_raking_entries.where(finished: false).order(:sorting_order)
+  end
+
+  def admin_show
+    @data = {}
+    @data[:list] = @planned_raking_list
+    @data[:entries] = @planned_raking_list.planned_raking_entries.where(finished: false).order(:sorting_order)
   end
 
   # GET /planned_raking_lists/new
@@ -70,6 +79,6 @@ class PlannedRakingListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def planned_raking_list_params
-      params.require(:planned_raking_list).permit(:title, :description, :subject_id, :beginning)
+      params.require(:planned_raking_list).permit(:title, :description, :subject_id, :beginning, :rekt_per_hour)
     end
 end

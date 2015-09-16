@@ -1,31 +1,32 @@
-<h1>Listing planned_raking_lists</h1>
+<h1>Seznam plánovaných zkoušení</h1>
 
-<table>
+<table class="stretch">
   <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Subject</th>
-      <th>Beginning</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Název</th>
+    <th>Předmět</th>
+    <th>Začátek zkoušení</th>
+    <th colspan="2"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @planned_raking_lists.each do |planned_raking_list| %>
+  <% @planned_raking_lists.each do |planned_raking_list| %>
       <tr>
         <td><%= planned_raking_list.title %></td>
-        <td><%= planned_raking_list.description %></td>
         <td><%= planned_raking_list.subject.name %></td>
-        <td><%= planned_raking_list.beginning %></td>
-        <td><%= link_to 'Show', planned_raking_list %></td>
-        <td><%= link_to 'Edit', edit_planned_raking_list_path(planned_raking_list) %></td>
-        <td><%= link_to 'Destroy', planned_raking_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= format_date planned_raking_list.beginning %></td>
+        <td><%= link_to 'Seznam zkoušených', planned_raking_list %></td>
+        <td><%= link_to 'Přihlásit se', edit_planned_raking_list_path(planned_raking_list) %></td>
+        <% if admin_logged_in? %>
+            <td><%= link_to 'Upravit', edit_planned_raking_list_path(planned_raking_list) %></td>
+            <td><%= link_to 'Odstranit', planned_raking_list, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <% end %>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Planned raking list', new_planned_raking_list_path %>
+<%= link_to 'New Planned raking list', new_planned_raking_list_path if admin_logged_in? %>

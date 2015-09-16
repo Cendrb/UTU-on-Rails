@@ -21,9 +21,9 @@
     <p>
         <strong>Datum: </strong>
         <% if written_exam.lesson.nil? %>
-        	<%= l written_exam.date %> (<%= I18n.t(:"date.day_names")[written_exam.date.wday] %>)
+        	<%= format_date written_exam.date %>
         <% else %>
-        	<%= l written_exam.lesson.school_day.date %> (<%= I18n.t(:"date.day_names")[written_exam.lesson.school_day.date.wday] %>)
+        	<%= format_date written_exam.lesson.school_day.date %>
         <% end %>
     </p>
     

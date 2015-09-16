@@ -2,6 +2,8 @@ UTUOnRails::Application.routes.draw do
 
   resources :planned_raking_entries
 
+
+  get 'planned_raking_lists/admin_show/:id' => "planned_raking_lists#admin_show", as: "admin_show_planned_raking_lists"
   resources :planned_raking_lists
 
   resources :written_exams do

@@ -1844,6 +1844,7 @@
       <column name="beginning" sqlType="date" precision="13" scale="0" nullable="true" jdbcType="91"/>
       <column name="created_at" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
       <column name="updated_at" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="rekt_per_hour" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="planned_raking_lists_pkey" columns="id"/>
     </table>
     <table name="planned_raking_lists_id_seq" schema="public" catalog="UTU_development" type="SEQUENCE">

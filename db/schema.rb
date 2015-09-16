@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914214711) do
+ActiveRecord::Schema.define(version: 20150916132505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 20150914214711) do
     t.integer  "sorting_order"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
   end
 
   create_table "planned_raking_lists", force: true do |t|
@@ -134,6 +135,7 @@ ActiveRecord::Schema.define(version: 20150914214711) do
     t.date     "beginning"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "rekt_per_hour"
   end
 
   create_table "school_days", force: true do |t|

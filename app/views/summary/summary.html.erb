@@ -12,20 +12,6 @@
 <h2>Úvod</h2>
 <p>Vítejte na webové verzi Utu. Veškerá data jsou uložena pouze ve zdejší databázi a i desktopová aplikace tento web využívá. Tato stránka "běží na" frameworku <%= link_to 'Ruby on Rails', 'http://rubyonrails.org/' %>, který mimo jiné využívá třeba Twitter.
 
-<% if false %>
-<h2>Hrůzy zítřka</h2>
-<table class="timetable">
-	<%= render @today_school_day, date: false, blank_hours: false %>
-</table>
-<% @today_school_day.lessons.each do |lesson| %>
-	<% lesson.exams.each do |exam| %>
-		<%= render exam %>
-	<% end %>
-	<% lesson.tasks.each do |task| %>
-		<%= render task %>
-	<% end %>
-<% end %>
-<% end %>
 
 <h2>Služba</h2>
 <% if @current_service %>
@@ -34,7 +20,8 @@
 	<p>Na aktuální týden nebyla určena žádná služba.
 <% end %>
 <br />
-Soupis veškerých služeb naleznete <%= link_to "zde", :services %></p>
+Soupis veškerých služeb najdete <%= link_to "zde", :services %></p>
+
 <% if logged_in? %>
     	<% if @service %>
 	        <p>
@@ -65,6 +52,10 @@ Soupis veškerých služeb naleznete <%= link_to "zde", :services %></p>
         </li>
     </ul>
 <% end %>
+
+<h2>Plánovaná skoušení</h2>
+<p>Seznamy zkoušených i možnost přihlášení najdete <%= link_to 'zde', planned_raking_lists_path %></p>
+
 <% if @near_payments && @near_payments.count > 0 %>
     <h2>Platby</h2>
     <% @near_payments.each do |payment| %>
