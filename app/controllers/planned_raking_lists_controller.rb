@@ -1,6 +1,6 @@
 class PlannedRakingListsController < ApplicationController
   before_action :set_planned_raking_list, only: [:show, :edit, :update, :destroy, :admin_show]
-  before_filter :authenticate_admin, except: [:show]
+  before_filter :authenticate_admin, except: [:show, :index]
 
   # GET /planned_raking_lists
   # GET /planned_raking_lists.json
