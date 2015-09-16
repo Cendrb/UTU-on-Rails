@@ -18,7 +18,7 @@
       <tr class="move_cursor">
         <td><%= entry.name %></td>
         <td><%= entry.description %></td>
-        <td><%= format_date timetable.get_next_hour_for(@data[:list].subject, Date.today, counter.floor).school_day.date %></td>
+        <td><%= timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor) ? (format_date timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor).school_day.date) : (format_date @data[:list].beginning) %></td>
       </tr>
   <% end %>
   </tbody>
