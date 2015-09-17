@@ -23,6 +23,17 @@ class PlannedRakingEntriesController < ApplicationController
   def edit
   end
 
+  def sort
+    array = params[:data]
+    puts array
+    array.each do |pair|
+      entry = PlannedRakingEntry.find(pair.last.last)
+      entry.sorting_order = pair.first.first
+      entry.save
+    end
+    render nothing: true
+  end
+
   # POST /planned_raking_entries
   # POST /planned_raking_entries.json
   def create

@@ -1,5 +1,7 @@
 UTUOnRails::Application.routes.draw do
 
+
+  post 'planned_raking_entries/sort' => 'planned_raking_entries#sort'
   resources :planned_raking_entries
 
 

@@ -15,7 +15,7 @@
   <tbody id="planned_raking_entries_sortable">
   <% counter = 0.0 %>
   <% @data[:entries].each do |entry| %>
-      <tr class="move_cursor">
+      <tr class="move_cursor" data-entry-id="<%= entry.id %>">
         <td><%= entry.name %></td>
         <td><%= entry.description %></td>
         <td><%= timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor) ? (format_date timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor).school_day.date) : (format_date @data[:list].beginning) %></td>
@@ -23,3 +23,4 @@
   <% end %>
   </tbody>
 </table>
+<div id="planned_raking_list_status">Všechny změny uloženy</div>
