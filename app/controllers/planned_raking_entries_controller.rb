@@ -17,6 +17,7 @@ class PlannedRakingEntriesController < ApplicationController
   # GET /planned_raking_entries/new
   def new
     @planned_raking_entry = PlannedRakingEntry.new
+    @planned_raking_entry.planned_raking_list_id = params[:list_id] if params[:list_id]
   end
 
   # GET /planned_raking_entries/1/edit
