@@ -4,7 +4,7 @@
   <thead>
   <tr>
     <th>Název</th>
-    <th>Předmět</th>
+    <th>Počet přihlášených</th>
     <th>Začátek zkoušení</th>
     <th colspan="2"></th>
   </tr>
@@ -14,7 +14,7 @@
   <% @planned_raking_lists.each do |planned_raking_list| %>
       <tr>
         <td><%= planned_raking_list.title %></td>
-        <td><%= planned_raking_list.subject.name %></td>
+        <td><%= planned_raking_list.planned_raking_entries.where(finished: false).count %></td>
         <td><%= format_date planned_raking_list.beginning %></td>
         <td><%= link_to 'Seznam zkoušených', planned_raking_list %></td>
         <td><%= link_to 'Přihlásit se', new_planned_raking_entry_path(list_id: planned_raking_list.id) %><br></td>
