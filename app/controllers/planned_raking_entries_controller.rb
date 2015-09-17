@@ -1,6 +1,6 @@
 
 class PlannedRakingEntriesController < ApplicationController
-  before_action :set_planned_raking_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_planned_raking_entry, only: [:show, :edit, :update, :destroy, :mark_as_rekt]
   before_filter :authenticate_admin, except: [:new, :show, :index, :create]
 
   # GET /planned_raking_entries
@@ -33,6 +33,11 @@ class PlannedRakingEntriesController < ApplicationController
       entry.save
     end
     render nothing: true
+  end
+
+  def mark_as_rekt
+    @planned_raking_entry.finished = true
+    @planned_raking_entry.save!
   end
 
   # POST /planned_raking_entries
