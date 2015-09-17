@@ -1,7 +1,7 @@
 
 class PlannedRakingEntriesController < ApplicationController
   before_action :set_planned_raking_entry, only: [:show, :edit, :update, :destroy, :mark_as_rekt]
-  before_filter :authenticate_admin, except: [:new, :show, :index, :create]
+  before_filter :authenticate_admin, except: [:new, :create]
 
   # GET /planned_raking_entries
   # GET /planned_raking_entries.json

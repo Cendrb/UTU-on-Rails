@@ -1,6 +1,42 @@
 <h1>Upravit motorku</h1>
 
-<%= render 'form' %>
+<%= form_for(@planned_raking_entry) do |f| %>
+
+    <% if @planned_raking_entry.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@planned_raking_entry.errors.count, "error") %> prohibited this motorku from being
+            saved:</h2>
+          <ul>
+            <% @planned_raking_entry.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    <div class="field">
+      <%= f.label :name, "Celé jméno" %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :description, "Téma" %><br>
+      <%= f.text_field :description %>
+      (pokud se jedná o prezentaci, <b>můžete</b> zde zadat nějaký krátký popis, aby ostatní případně neměli stejný nápad)
+    </div>
+    <div class="field">
+      <%= f.label :planned_raking_list_id, "Seznam zkoušení" %><br>
+      <%= f.collection_select :planned_raking_list_id, PlannedRakingList.all, :id, :title %>
+    </div>
+    <div class="field">
+      <%= f.label :user_id, "Uživatel" %><br>
+      <%= f.collection_select :user_id, User.all, :id, :name %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Odeslat" %>
+    </div>
+<% end %>
+
 
 <%= link_to 'Zobrazit', @planned_raking_list %> |
 <%= link_to 'Úprava seznamu zkoušených (změna pořadí apod.)', admin_show_planned_raking_lists_path(@planned_raking_list) %> |
