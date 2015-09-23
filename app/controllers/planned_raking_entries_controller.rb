@@ -28,6 +28,7 @@ class PlannedRakingEntriesController < ApplicationController
     array = params[:data]
     puts array
     array.each do |pair|
+      puts pair
       entry = PlannedRakingEntry.find(pair.last.last)
       entry.sorting_order = pair.first.first
       entry.save
