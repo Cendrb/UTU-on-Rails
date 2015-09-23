@@ -94,6 +94,6 @@ class WrittenExamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def written_exam_params
-      params[:written_exam].permit(:title, :description, :subject_id, :date, :group, :additional_info_url)
+      params[:written_exam].permit(:title, :description, :subject_id, :date, :group, :additional_info_url, :passed)
     end
 end
