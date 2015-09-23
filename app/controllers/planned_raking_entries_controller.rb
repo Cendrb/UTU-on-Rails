@@ -30,7 +30,7 @@ class PlannedRakingEntriesController < ApplicationController
     array.each do |pair|
       puts pair
       entry = PlannedRakingEntry.find(pair.last.last)
-      entry.sorting_order = pair.first.first
+      entry.sorting_order = pair.last.first
       entry.save
     end
     render nothing: true
