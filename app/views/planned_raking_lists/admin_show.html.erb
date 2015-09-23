@@ -20,6 +20,8 @@
         <td><%= entry.name %></td>
         <td><%= entry.description %></td>
         <td><%= timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor) ? (format_date timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor).school_day.date) : (format_date @data[:list].beginning) %></td>
+        <td><%= format_date entry.created_at %></td>
+        <td><%= entry.sorting_order %></td>
         <td><%= button_to "#{entry.name} byl/a již zkoušen/a", admin_show_planned_raking_entries_rekt_path, params: { id: entry.id }, remote: true %></td>
       </tr>
   <% end %>
