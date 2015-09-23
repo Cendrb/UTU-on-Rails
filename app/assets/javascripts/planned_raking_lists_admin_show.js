@@ -1,5 +1,5 @@
 $(function () {
-    $("#planned_raking_entries_sortable_dick").sortable(
+    $("#planned_raking_entries_sortable").sortable(
         {
             update: function (event, ui) {
                 $("#planned_raking_list_status").text("Ukládání...");
