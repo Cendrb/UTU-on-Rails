@@ -2,7 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<h2>Administrace <%= @data[:list].title %></h2>
+<h2>Administrace <%= @data[:list].title %> <%= @data[:list].id %></h2>
 
 <table class="stretch">
   <thead>
@@ -22,6 +22,8 @@
         <td><%= timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor) ? (format_date timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor).school_day.date) : (format_date @data[:list].beginning) %></td>
         <td><%= format_date entry.created_at %></td>
         <td><%= entry.sorting_order %></td>
+        <td><%= entry.id %></td>
+        <td><%= entry.planned_raking_list_id %></td>
         <td><%= button_to "#{entry.name} byl/a již zkoušen/a", admin_show_planned_raking_entries_rekt_path, params: { id: entry.id }, remote: true %></td>
       </tr>
   <% end %>
