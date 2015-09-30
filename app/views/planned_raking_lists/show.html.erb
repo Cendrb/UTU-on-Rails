@@ -9,7 +9,7 @@
   <tr>
     <th>Jméno</th>
     <th>Téma</th>
-    <th>Předpokládané datum zkoušení (nejhorší scénář)</th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -18,7 +18,7 @@
       <tr>
         <td><%= entry.name %></td>
         <td><%= entry.description %></td>
-        <td><%= timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor) ? (format_date timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor).school_day.date) : (format_date @data[:list].beginning) %></td>
+        <td><% timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor) ? (format_date timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor).school_day.date) : (format_date @data[:list].beginning) %></td>
       </tr>
   <% end %>
   </tbody>
