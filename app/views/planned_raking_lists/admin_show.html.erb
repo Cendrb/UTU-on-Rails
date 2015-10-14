@@ -24,7 +24,8 @@
         <td><%= entry.sorting_order %></td>
         <td><%= entry.id %></td>
         <td><%= entry.planned_raking_list_id %></td>
-        <td><%= button_to "#{entry.name} byl/a již zkoušen/a", admin_show_planned_raking_entries_rekt_path, params: { id: entry.id }, remote: true %></td>
+        <td><%= link_to "Vyhladit #{entry.name}", entry, method: :delete, data: { confirm: 'Jako vážně?' } %></td>
+        <td><%= button_to "#{entry.name} byl/a již zkoušen/a", admin_show_planned_raking_entries_rekt_path, params: { id: entry.id }, remote: true if !entry.finished %></td>
       </tr>
   <% end %>
   </tbody>

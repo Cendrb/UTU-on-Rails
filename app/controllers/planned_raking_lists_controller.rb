@@ -19,7 +19,7 @@ class PlannedRakingListsController < ApplicationController
   def admin_show
     @data = {}
     @data[:list] = @planned_raking_list
-    @data[:entries] = @planned_raking_list.planned_raking_entries.where(finished: false).order(:sorting_order)
+    @data[:entries] = @planned_raking_list.planned_raking_entries.order(:finished, :sorting_order)
   end
 
   # GET /planned_raking_lists/new
