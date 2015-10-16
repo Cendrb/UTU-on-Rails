@@ -4,21 +4,23 @@
 
 <h1><%= @data[:list].title %></h1>
 
-<table class="stretch">
+<table class="stretch planned_rakings_table">
   <thead>
   <tr>
     <th>Jméno</th>
     <th>Téma</th>
-    <th></th>
+    <th>Očekávané datum zkoušení</th>
   </tr>
   </thead>
   <tbody>
   <% counter = 0.0 %>
   <% @data[:entries].each do |entry| %>
-      <tr>
+      <% hour_offset = (counter / @data[:list].rekt_per_hour.to_f).floor %>
+      <% counter += 1 %>
+      <tr class="<%= "raking_hour_separator" if counter % @data[:list].rekt_per_hour == 0 %>">
         <td><%= entry.name %></td>
         <td><%= entry.description %></td>
-        <td><% timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor) ? (format_date timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor).school_day.date) : (format_date @data[:list].beginning) %></td>
+        <td><%= timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, hour_offset) ? (format_date timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, hour_offset).school_day.date) : "více než čtrnáct dní (dohled rozvrhu)" %></td>
       </tr>
   <% end %>
   </tbody>
