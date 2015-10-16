@@ -20,7 +20,7 @@
       <tr class="<%= "raking_hour_separator" if counter % @data[:list].rekt_per_hour == 0 %>">
         <td><%= entry.name %></td>
         <td><%= entry.description %></td>
-        <td><%= timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, hour_offset) ? (format_date timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, hour_offset).school_day.date) : "více než čtrnáct dní (dohled rozvrhu)" %></td>
+        <td><%= timetable.get_next_hour_for(@data[:list].subject, Date.today, hour_offset) ? (format_date timetable.get_next_hour_for(@data[:list].subject, Date.today, hour_offset).school_day.date) : "více než čtrnáct dní (dohled rozvrhu)" %></td>
       </tr>
   <% end %>
   </tbody>
