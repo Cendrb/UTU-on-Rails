@@ -6,7 +6,9 @@ class Timetable < ActiveRecord::Base
   def get_timetable
     browser = Mechanize.new
 
-    page = browser.get('http://84.42.144.180/bakaweb/login.aspx')
+    browser.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    page = browser.get('https://bakalari.gpisnicka.cz/bakaweb/login.aspx')
 
     page.encoding = 'utf-8'
 
@@ -36,7 +38,7 @@ class Timetable < ActiveRecord::Base
     parse_timetable_from_html_and_save_to_db(page.body, self)
 
 
-    page = browser.get('http://84.42.144.180/bakaweb/login.aspx')
+    page = browser.get('https://bakalari.gpisnicka.cz/bakaweb/login.aspx')
 
     page = browser.click(page.link_with(text: /Rozvrh/))
 
