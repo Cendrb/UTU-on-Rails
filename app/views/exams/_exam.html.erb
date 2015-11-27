@@ -29,11 +29,7 @@
     
     <p>
         <strong>Skupina: </strong>
-        <% if exam.group == 0 %>
-            obě skupiny
-        <% else %>
-            <%= exam.group %>.
-        <% end %>
+        <%= get_group_string exam %>
     </p>
     
     <% if !exam.additional_info_url.nil? && !exam.additional_info_url.empty? %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916132505) do
+ActiveRecord::Schema.define(version: 20151126163728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20150916132505) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+  end
+
+  create_table "class_members", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "sclass_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "day_teachers", force: true do |t|
@@ -79,13 +87,15 @@ ActiveRecord::Schema.define(version: 20150916132505) do
     t.string   "additional_info_url"
     t.date     "pay_date"
     t.integer  "price"
+    t.integer  "sclass_id"
+    t.integer  "sgroup_id"
   end
 
   create_table "exams", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.date     "date"
-    t.integer  "group"
+    t.integer  "sgroup_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "additional_info_url"
@@ -94,6 +104,20 @@ ActiveRecord::Schema.define(version: 20150916132505) do
     t.string   "type"
     t.boolean  "passed"
     t.date     "end_date"
+    t.integer  "sclass_id"
+  end
+
+  create_table "group_belongings", force: true do |t|
+    t.integer  "class_member_id"
+    t.integer  "sgroup_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "group_categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "info_item_bindings", force: true do |t|
@@ -136,6 +160,7 @@ ActiveRecord::Schema.define(version: 20150916132505) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "rekt_per_hour"
+    t.integer  "sclass_id"
   end
 
   create_table "school_days", force: true do |t|
@@ -145,13 +170,28 @@ ActiveRecord::Schema.define(version: 20150916132505) do
     t.integer  "timetable_id"
   end
 
+  create_table "sclasses", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "services", force: true do |t|
-    t.string   "first_name"
-    t.string   "second_name"
     t.date     "service_start"
     t.date     "service_end"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "sclass_id"
+    t.integer  "first_mate_id"
+    t.integer  "second_mate_id"
+  end
+
+  create_table "sgroups", force: true do |t|
+    t.string   "name"
+    t.integer  "group_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "timetable_abbr"
   end
 
   create_table "snoozed_events", force: true do |t|
@@ -188,13 +228,14 @@ ActiveRecord::Schema.define(version: 20150916132505) do
     t.string   "title"
     t.text     "description"
     t.date     "date"
-    t.integer  "group"
+    t.integer  "sgroup_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "additional_info_url"
     t.integer  "subject_id"
     t.integer  "lesson_id"
     t.boolean  "passed"
+    t.integer  "sclass_id"
   end
 
   create_table "teachers", force: true do |t|
@@ -218,15 +259,15 @@ ActiveRecord::Schema.define(version: 20150916132505) do
     t.string   "email"
     t.string   "hashed_password"
     t.string   "salt"
-    t.boolean  "admin"
-    t.integer  "group"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
     t.boolean  "show_hidden_events"
     t.boolean  "show_hidden_exams"
     t.boolean  "show_hidden_tasks"
     t.string   "forgot_password_code"
+    t.integer  "class_member_id"
+    t.string   "name"
+    t.integer  "access_level"
   end
 
 end

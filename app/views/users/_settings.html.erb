@@ -18,22 +18,18 @@
     </tr>
     <tr>
         <td>
-            Skupina:
+            Skupiny:
         </td>
         <td>
-            <%= user.group %>
+            <%= user.sgroups.pluck(:name).to_sentence %>
         </td>
     </tr>
     <tr>
         <td>
-            Administrátor:
+            Úroveň přístupu:
         </td>
         <td>
-            <% if user.admin %>
-                Ano
-            <% else %>
-                Ne
-            <% end %>
+            <%= "#{User.get_access_level_string(user.access_level)} (#{user.access_level})" %>
         </td>
     </tr>
 </table>

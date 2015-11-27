@@ -1,6 +1,14 @@
 UTUOnRails::Application.routes.draw do
 
 
+  resources :sgroups
+
+  resources :sclasses
+
+  resources :class_members
+
+  resources :group_categories
+
   post 'planned_raking_entries/sort' => 'planned_raking_entries#sort'
   post 'planned_raking_entries/mark_as_rekt' => 'planned_raking_entries#mark_as_rekt', as: "admin_show_planned_raking_entries_rekt"
   resources :planned_raking_entries

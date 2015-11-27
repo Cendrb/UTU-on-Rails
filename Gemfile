@@ -14,6 +14,8 @@ gem 'nokogiri'
 # Virtual browser Mechanize
 gem 'mechanize'
 
+gem 'compass'
+
 # POST request sending
 #gem 'rest-client'
 
@@ -73,6 +75,9 @@ gem 'chartkick'
 
 # Adds time methods like group_by_day, group_by_week and so on
 gem 'groupdate'
+
+# Draw entity-relationship diagrams
+gem 'rails-erd'
 
 # Parses the user_agent string from requests
 gem 'agent_orange'

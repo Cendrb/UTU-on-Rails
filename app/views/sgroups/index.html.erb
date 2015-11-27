@@ -1,0 +1,28 @@
+<h1>Listing sgroups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Group category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sgroups.each do |sgroup| %>
+      <tr>
+        <td><%= sgroup.name %></td>
+        <td><%= sgroup.timetable_abbr %></td>
+        <td><%= sgroup.group_category.name %></td>
+        <td><%= link_to 'Show', sgroup %></td>
+        <td><%= link_to 'Edit', edit_sgroup_path(sgroup) %></td>
+        <td><%= link_to 'Destroy', sgroup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sgroup', new_sgroup_path %>

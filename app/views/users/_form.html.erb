@@ -1,37 +1,41 @@
 <%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= errors_restricted_cs(@user.errors.count) %> vytvoření vašeho účtu:</h2>
+    <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= errors_restricted_cs(@user.errors.count) %> vytvoření vašeho účtu:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :class_member_id, 'Jméno' %><br>
+      <%= f.collection_select(:class_member_id, ClassMember.all, :id, :full_name) %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name, 'Příjmení (bude použito pro personalizaci zobrazení služby - bude porovnáváno se záznamy služeb)' %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email, 'Email (bez vašeho svolení vám nebudou zasílány žádné maily)' %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password, 'Heslo (pro heslo žádná omezení neplatí)' %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation, 'Potvrzení hesla' %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="field">
-    <%= f.label :group, 'Skupina (zadejte číselně - 1 nebo 2)' %><br>
-    <%= f.number_field :group %>
-  </div>
-  <div class="actions">
-    <%= f.submit 'Uložit' %>
-  </div>
+    <div class="field">
+      <%= f.label :email, 'Email (bez vašeho svolení vám nebudou zasílány žádné maily)' %><br>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :password, 'Heslo (pro heslo žádná omezení neplatí)' %><br>
+      <%= f.password_field :password %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation, 'Potvrzení hesla' %><br>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div class="field">
+      <%= label_tag :group, 'Skupiny' %><br>
+      <% GroupCategory.all.each do |category| %>
+          <strong><%= category.name %></strong>
+          <%= collection_radio_buttons 'data', "sgroups[#{category.id}]", category.sgroups, :id, :name %>
+          <br>
+      <% end %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Uložit' %>
+    </div>
 <% end %>

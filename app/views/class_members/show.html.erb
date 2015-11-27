@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @class_member.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @class_member.last_name %>
+</p>
+
+<p>
+  <strong>Sclass:</strong>
+  <%= @class_member.sclass_id %>
+</p>
+
+<%= link_to 'Edit', edit_class_member_path(@class_member) %> |
+<%= link_to 'Back', class_members_path %>

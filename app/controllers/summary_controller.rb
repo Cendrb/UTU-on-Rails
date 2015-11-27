@@ -7,14 +7,17 @@ class SummaryController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:post_details]
   before_filter :authenticate_admin, only: [:refresh, :migrate, :temp]
   before_filter :authenticate, only: :subjects
+
   def summary
     @today_school_day = SchoolDay.where("date = ?", Date.tomorrow).first
-    
+
     if logged_in?
-      @service = Service.in_future.where("first_name LIKE :user_name OR second_name LIKE :user_name", { user_name: "%#{current_user.name}%"} ).first
+      @service = Service.in_future.where("first_mate_id = :class_member OR second_mate_id = :class_member", {class_member: current_user.class_member_id}).first
     end
-    @current_service = Service.where("service_start <= :today AND service_end >= :today", { today: Date.today }).first
-    @near_payments = Event.order(:event_start).in_future.where("pay_date <= :pay", { :pay => Date.today + 7.days } ).where("pay_date != event_start")
+    @current_service = Service.where("service_start <= :today AND service_end >= :today", {today: Date.today}).first
+    @near_payments = Event.order(:event_start).in_future.where("pay_date <= :pay", {:pay => Date.today + 7.days}).where("pay_date != event_start")
+
+    puts current_user.sgroups.count
   end
 
   def post_details
@@ -33,22 +36,22 @@ class SummaryController < ApplicationController
 
   def details
     if params[:range] && params[:group]
-      from = Date.new(params[:range][:"from(1i)"].to_i,params[:range][:"from(2i)"].to_i,params[:range][:"from(3i)"].to_i)
-      to = Date.new(params[:range][:"to(1i)"].to_i,params[:range][:"to(2i)"].to_i,params[:range][:"to(3i)"].to_i)
+      from = Date.new(params[:range][:"from(1i)"].to_i, params[:range][:"from(2i)"].to_i, params[:range][:"from(3i)"].to_i)
+      to = Date.new(params[:range][:"to(1i)"].to_i, params[:range][:"to(2i)"].to_i, params[:range][:"to(3i)"].to_i)
       @events = Event.order(:event_start).between_dates(from, to)
       @exams = Exam.order(:date).between_dates(from, to)
       @tasks = Task.order(:date).between_dates(from, to)
       if params[:group] != 0
-        @exams = @exams.for_group(params[:group])
-        @tasks = @tasks.for_group(params[:group])
+        @exams = @exams.for_groups(params[:group])
+        @tasks = @tasks.for_groups(params[:group])
       end
     else
       if logged_in?
         user = current_user
 
         @events = Event.order(:event_start).in_future
-        @exams = Exam.order(:date).in_future.for_group(user.group)
-        @tasks = Task.order(:date).in_future.for_group(user.group)
+        @exams = Exam.order(:date).in_future.for_groups(user.sgroups)
+        @tasks = Task.order(:date).in_future
 
         @exams = drop_todays_after(@exams, 12)
         @tasks = drop_todays_after(@tasks, 12)
@@ -81,7 +84,7 @@ class SummaryController < ApplicationController
   end
 
   def update
-    if(Time.now.hour > 17 && Time.now.hour < 19)
+    if (Time.now.hour > 17 && Time.now.hour < 19)
       # mark todays tasks and exams as in_past
       SchoolDay.where(date: Date.today).find_each do |day|
         day.lessons.find_each do |lesson|
@@ -105,11 +108,11 @@ class SummaryController < ApplicationController
   end
 
   def migrate
-    
+
   end
 
   def temp
-    
+
   end
 
   def administrator_logged_in
@@ -119,10 +122,12 @@ class SummaryController < ApplicationController
   private
 
   def drop_todays_after(items, hour)
-    if Time.now >= (Date.today + hour.hours)
-      items.drop_while { |e| e.date == Date.today  }
-    else
-    return items
+    if items
+      if Time.now >= (Date.today + hour.hours)
+        items.drop_while { |e| e.date == Date.today }
+      else
+        return items
+      end
     end
   end
 

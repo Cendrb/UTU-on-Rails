@@ -25,15 +25,11 @@
         	<%= format_date task.lesson.school_day.date %>
         <% end %>
     </p>
-    
-    <p>
-        <strong>Skupina: </strong>
-        <% if task.group == 0 %>
-            obě skupiny
-        <% else %>
-            <%= task.group %>.
-        <% end %>
-    </p>
+
+  <p>
+    <strong>Skupina: </strong>
+    <%= get_group_string task %>
+  </p>
     <% if !task.additional_info_url.nil? && !task.additional_info_url.empty? %>
         <p>
             <%= link_to "Další informace", task.additional_info_url, target: '_blank' %>

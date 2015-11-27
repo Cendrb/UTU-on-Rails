@@ -1,46 +1,52 @@
 <div class="event" data-id=<%= event.id %>>
-    
-    <% if logged_in? %>
-        <% if event.is_done? %>
-            <%= button_to 'Obnovit', event_reveal_path(event), method: :post, remote: true, class: 'hide_or_reveal' %>
-        <% else %>
-            <%= button_to 'Skrýt', event_hide_path(event), method: :post, remote: true, class: 'hide_or_reveal' %>
-        <% end %>
-    <% end %>
-   
-    <h3><%= link_to event.title, event_path(event), method: :get %></h3>
 
-    <p>
-        <%= sanitize(event.description) %>
-    </p>
-    <p>
-        <strong>Místo: </strong>
-        <%= event.location %>
-    </p>
-    <% if event.price && event.pay_date && event.price > 0%>
-    <p>
+  <% if logged_in? %>
+      <% if event.is_done? %>
+          <%= button_to 'Obnovit', event_reveal_path(event), method: :post, remote: true, class: 'hide_or_reveal' %>
+      <% else %>
+          <%= button_to 'Skrýt', event_hide_path(event), method: :post, remote: true, class: 'hide_or_reveal' %>
+      <% end %>
+  <% end %>
+
+  <h3><%= link_to event.title, event_path(event), method: :get %></h3>
+
+  <p>
+    <%= sanitize(event.description) %>
+  </p>
+
+  <p>
+    <strong>Místo: </strong>
+    <%= event.location %>
+  </p>
+  <% if event.price && event.pay_date && event.price > 0 %>
+      <p>
         <strong>Platba: </strong>
         <% if event.pay_date == event.event_start %>
-        <%= number_to_currency(event.price, locale: :cs) %> na místě
+            <%= number_to_currency(event.price, locale: :cs) %> na místě
         <% else %>
-        <%= l event.pay_date %> zaplatit <%= number_to_currency(event.price, locale: :cs) %>
+            <%= l event.pay_date %> zaplatit <%= number_to_currency(event.price, locale: :cs) %>
         <% end %>
-    </p>
-    <% end %>
+      </p>
+  <% end %>
 
-    <p>
-        <strong>Začátek události: </strong>
-        <%= format_date event.event_start %>
-    </p>
+  <p>
+    <strong>Začátek události: </strong>
+    <%= format_date event.event_start %>
+  </p>
 
-    <p>
-        <strong>Konec události: </strong>
-        <%= format_date event.event_end %>
-    </p>
+  <p>
+    <strong>Konec události: </strong>
+    <%= format_date event.event_end %>
+  </p>
 
-    <% if !event.additional_info_url.nil? && !event.additional_info_url.empty? %>
-    <p>
+  <p>
+    <strong>Skupina: </strong>
+    <%= get_group_string event %>
+  </p>
+
+  <% if !event.additional_info_url.nil? && !event.additional_info_url.empty? %>
+      <p>
         <%= link_to "Další informace", event.additional_info_url %>
-    </p>
-    <% end %>
+      </p>
+  <% end %>
 </div>

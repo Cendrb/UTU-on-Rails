@@ -56,20 +56,34 @@ class ApplicationController < ActionController::Base
     return date
   end
 
-  def authenticate_admin
-    if current_user && current_user.admin
-    return true
+  protected
+  def authenticate_for_level(required_level)
+    current = current_user
+    if current && current.access_level >= required_level
+      return true
     else
-      redirect_to utu_path, alert: 'Nemáte dostatečná oprávnění pro přístup do této sekce'
+      if required_level == User.al_registered
+        redirect_to :login, alert: 'Pro přístup do této sekce se musíte přihlásit'
+      end
+      if required_level == User.al_admin
+        redirect_to utu_path, alert: 'Přístup do této sekce mají pouze administrátoři'
+      end
+      if required_level == User.al_superuser
+        redirect_to utu_path, alert: 'Přístup do této sekce mají pouze správci systému'
+      end
     end
   end
 
+  def authenticate_superuser
+    authenticate_for_level(User.al_superuser)
+  end
+
+  def authenticate_admin
+    authenticate_for_level(User.al_admin)
+  end
+
   def authenticate
-    if user = current_user
-    user
-    else
-      redirect_to login_url
-    end
+    authenticate_for_level(User.al_registered)
   end
 
   def current_user
@@ -96,8 +110,14 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_logged_in?
-    if user = current_user
-    user.admin
+    if current_user
+      return current_user.access_for_level?(User.al_admin)
+    end
+  end
+
+  def superuser_logged_in?
+    if current_user
+      return current_user.access_for_level?(User.al_superuser)
     end
   end
 

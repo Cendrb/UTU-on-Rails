@@ -21,12 +21,18 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    params[:data] = {}
+    @data = {}
+    @user.sgroups.each do |group|
+      @data[:sgroups][group.group_category.id] = group.id
+    end
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
+    parse_group_belongings_radios
 
     respond_to do |format|
       if @user.save
@@ -42,6 +48,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    parse_group_belongings_radios
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to administration_url, notice: 'Uživatel byl úspěšně aktualizován.' }
@@ -80,7 +88,7 @@ class UsersController < ApplicationController
   def forgot_password_send
     email = params[:email]
     user = User.find_by_email(email)
-    if(user.nil?)
+    if (user.nil?)
       redirect_to forgot_path, alert: "Žádný uživatel s danou emailovou adresou neexistuje"
     else
       UserMailer.forgot_password(user).deliver
@@ -92,7 +100,7 @@ class UsersController < ApplicationController
     puts code
 
     user = User.find_by_forgot_password_code(code)
-    if(!user.nil?)
+    if (!user.nil?)
       user.forgot_password_code = SecureRandom.hex
       user.save!
       session[:user_id] = user.id
@@ -104,10 +112,19 @@ class UsersController < ApplicationController
 
   private
 
+  def parse_group_belongings_radios
+    if @user.class_member && params[:data]
+      @user.class_member.group_belongings.destroy_all
+      params[:data][:sgroups].each do |category|
+        @user.class_member.sgroups << Sgroup.find(category[1].to_i)
+      end
+    end
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    if user = authenticate
-      if user.id != params[:id].to_i && !user.admin
+    if user = current_user
+      if user.id != params[:id].to_i && !user.access_for_level?(User.al_admin)
         redirect_to utu_path, alert: 'Nemáte práva měnit data jiných uživatelů'
       end
     end
@@ -117,6 +134,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :group, :name, :show_hidden_events, :show_hidden_exams, :show_hidden_tasks)
+    params.require(:user).permit(:email, :password, :password_confirmation, :groups, :class_member_id, :show_hidden_events, :show_hidden_exams, :show_hidden_tasks)
   end
 end

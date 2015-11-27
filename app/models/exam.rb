@@ -8,13 +8,16 @@ class Exam < ActiveRecord::Base
   scope :written, -> { where(type: 'WrittenExam') } 
   
   scope :in_future, -> { where('date >= :today AND passed = false', { today: Date.today }) }
-  scope :for_group, lambda { |group| where("\"group\" = :group OR \"group\" = 0", { group: group }) }
+  scope :for_groups, lambda { |groups| where("sgroup_id IN (:groups)", { groups: groups.select(:id) }) }
   scope :between_dates, lambda { |from, to| where("date >= :from AND date <= :to", { from: from, to: to } ) }
   scope :id_not_on_list, lambda { |list| where("NOT (ARRAY[id] <@ ARRAY[:ids])", { ids: list } ) }
   scope :id_on_list, lambda { |list| where("ARRAY[id] <@ ARRAY[:ids]", { ids: list } ) }
   
   validates :title, :subject_id, :group, presence: {presence: true, message: "nesmí být prázdný"}
   validates :group, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 2, only_integer: true, message: "neexistuje - zadejte 0 pro obě skupiny" }
+
+  belongs_to :sclass
+  belongs_to :sgroup
   
   has_many :info_item_bindings
   has_many :done_exams

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sgroup.name %>
+</p>
+
+<p>
+  <strong>Timetable abbr:</strong>
+  <%= @sgroup.timetable_abbr %>
+</p>
+
+<p>
+  <strong>Group category:</strong>
+  <%= @sgroup.group_category.name %>
+</p>
+
+<%= link_to 'Edit', edit_sgroup_path(@sgroup) %> |
+<%= link_to 'Back', sgroups_path %>

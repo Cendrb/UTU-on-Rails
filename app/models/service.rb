@@ -7,9 +7,11 @@ class ServiceDateValidator < ActiveModel::Validator
 end
 
 class Service < ActiveRecord::Base
-  validates :first_name, :second_name, :service_start, :service_end, presence: { presence: true, message: "nesmí být prázdný" }
+  validates :first_mate_id, :second_mate_id, :service_start, :service_end, presence: { presence: true, message: "nesmí být prázdný" }
   scope :in_future, -> { where('service_end >= :today', { today: Date.today }) }
   validates_with ServiceDateValidator
+
+  belongs_to :sclass
 
   def self.add_one_year
     datediff = 1.year - 1.day
@@ -18,6 +20,14 @@ class Service < ActiveRecord::Base
       service.service_end += datediff
       service.save!
     end
+  end
+
+  def first_mate
+    ClassMember.find(first_mate_id)
+  end
+
+  def second_mate
+    ClassMember.find(second_mate_id)
   end
 
   def self.pyj

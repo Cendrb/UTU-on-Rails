@@ -34,6 +34,7 @@ GEM
     builder (3.2.2)
     chartkick (1.3.2)
     choice (0.1.7)
+    chunky_png (1.3.5)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -41,6 +42,10 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    compass (0.12.7)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.2.19)
     countries (0.9.3)
       currencies (~> 0.4.2)
     country_select (2.1.1)
@@ -53,6 +58,7 @@ GEM
       logger
     erubis (2.7.0)
     execjs (2.2.2)
+    fssm (0.2.10)
     greensock-rails (1.17.0.0)
     groupdate (2.4.0)
       activesupport (>= 3)
@@ -191,6 +197,7 @@ DEPENDENCIES
   agent_orange
   chartkick
   coffee-rails (~> 4.0.1)
+  compass
   country_select
   dynopoker
   greensock-rails
