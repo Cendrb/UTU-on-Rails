@@ -21,11 +21,12 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    params[:data] = {}
-    @data = {}
+    params[:sgroups] = {}
+
     @user.sgroups.each do |group|
-      @data[:sgroups][group.group_category.id] = group.id
+      params[:sgroups][group.group_category.id] = group.id
     end
+
   end
 
   # POST /users
@@ -113,9 +114,9 @@ class UsersController < ApplicationController
   private
 
   def parse_group_belongings_radios
-    if @user.class_member && params[:data]
+    if @user.class_member && params[:sgroups]
       @user.class_member.group_belongings.destroy_all
-      params[:data][:sgroups].each do |category|
+      params[:sgroups].each do |category|
         @user.class_member.sgroups << Sgroup.find(category[1].to_i)
       end
     end
