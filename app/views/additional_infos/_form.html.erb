@@ -1,0 +1,25 @@
+<%= form_for(@additional_info) do |f| %>
+    <% if @additional_info.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@additional_info.errors.count, "error") %> prohibited this penis from being saved:</h2>
+
+          <ul>
+            <% @additional_info.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :url %><br>
+      <%= f.url_field :url %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

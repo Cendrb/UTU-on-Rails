@@ -20,9 +20,9 @@ class Exam < ActiveRecord::Base
   belongs_to :sclass
   belongs_to :sgroup
 
-  has_many :info_item_bindings, :as => :utu_item
-  has_many :lesson_item_bindings, :as => :utu_item
-  has_many :done_utu_items, :as => :utu_item
+  has_many :info_item_bindings, :as => :item
+  has_many :lesson_item_bindings, :as => :item
+  has_many :done_utu_items, :as => :item
 
 
   def self.types

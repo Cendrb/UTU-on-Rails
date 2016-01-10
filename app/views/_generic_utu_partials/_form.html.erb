@@ -56,7 +56,7 @@
           <%= f.date_select :date %>
         </div>
         <div class="field">
-          <%= f.label :subject, 'Datum' %>
+          <%= f.label :subject, 'Předmět' %>
           <br>
           <%= f.collection_select :subject_id, Subject.all, :id, :name %>
         </div>
@@ -72,7 +72,12 @@
       <%= f.collection_select :sgroup_id, Sgroup.all.unshift(Sgroup.new(name: 'zobrazit pro všechny', id: -1)), :id, :name %>
     </div>
 
-
+    <div class="field additional_infos_list">
+      <% AdditionalInfo.order(:updated_at).all.each do |info| %>
+          <%= check_box_tag "additional_infos[#{info.id}]", info.name, params[:additional_infos][info.id] == 1 %><%= info.name %>
+          <br>
+      <% end %>
+    </div>
 
     <div class="actions">
       <%= f.submit 'Uložit' %>
@@ -80,11 +85,11 @@
 <% end %>
 
 <div class="additional_info_form">
-  <%= form_tag 'additional_infos/', remote: true do %>
-      <div class="actions">
-        <%= text_field_tag :name %>
-        <%= url_field_tag :url %>
-        <%= submit_tag 'Uložit' %>
-      </div>
+  <%= form_for(AdditionalInfo.new, remote: true) do |f| %>
+      <%= f.label :name, 'Název' %>
+      <%= f.text_field :name %>
+      <%= f.label :url, 'Adresa URL' %>
+      <%= f.url_field :url %>
+      <%= f.submit 'Uložit' %>
   <% end %>
 </div>

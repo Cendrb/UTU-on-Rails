@@ -48,8 +48,6 @@
   <%= get_group_string item %>
 </p>
 
-<% if !item.additional_info_url.nil? && !item.additional_info_url.empty? %>
-    <p>
-      <%= link_to "Další informace", item.additional_info_url %>
-    </p>
+<% item.info_item_bindings.each do |binding| %>
+    <%= link_to binding.additional_info.name, binding.additional_info.url, target: :blank %><br>
 <% end %>

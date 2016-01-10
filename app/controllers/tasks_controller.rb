@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  include GenericUtuItems
+
   before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_task_from_task_id, only: [:transform_to_exam, :hide, :reveal]
@@ -19,16 +21,19 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
     @task.date = next_workday
+    new_init(@task)
   end
 
   # GET /tasks/1/edit
   def edit
+    edit_init(@task)
   end
 
   # POST /tasks
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
+    update_init(@task)
 
     respond_to do |format|
       if @task.save
@@ -44,6 +49,7 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
+    update_init(@task)
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }

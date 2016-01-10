@@ -1,4 +1,6 @@
 class RakingExamsController < ApplicationController
+  include GenericUtuItems
+
   before_filter :authenticate_admin, except: [:show]
   before_action :set_raking, only: [:show, :edit, :update, :destroy]
   before_action :set_raking_from_raking_exam_id, only: [:transform_to_written]
@@ -19,16 +21,19 @@ class RakingExamsController < ApplicationController
   def new
     @raking = RakingExam.new
     @raking.date = next_workday
+    new_init(@raking)
   end
 
   # GET /rakings/1/edit
   def edit
+    edit_init(@raking)
   end
 
   # POST /rakings
   # POST /rakings.json
   def create
     @raking = RakingExam.new(raking_params)
+    update_init(@raking)
 
     respond_to do |format|
       if @raking.save
@@ -44,6 +49,7 @@ class RakingExamsController < ApplicationController
   # PATCH/PUT /rakings/1
   # PATCH/PUT /rakings/1.json
   def update
+    update_init(@raking)
     respond_to do |format|
       if @raking.update(raking_params)
         format.html { redirect_to @raking, notice: 'Raking was successfully updated.' }

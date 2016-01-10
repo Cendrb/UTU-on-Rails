@@ -1,4 +1,6 @@
 class WrittenExamsController < ApplicationController
+  include GenericUtuItems
+
   before_filter :authenticate_admin, except: [:show]
   before_action :set_written_exam, only: [:show, :edit, :update, :destroy]
   after_action :find_and_set_lesson, only: [:create, :update]
@@ -19,16 +21,19 @@ class WrittenExamsController < ApplicationController
   def new
     @written_exam = WrittenExam.new
     @written_exam.date = next_workday
+    new_init(@written_exam)
   end
 
   # GET /written_exams/1/edit
   def edit
+    edit_init(@written_exam)
   end
 
   # POST /written_exams
   # POST /written_exams.json
   def create
     @written_exam = WrittenExam.new(written_exam_params)
+    update_init(@written_exam)
 
     respond_to do |format|
       if @written_exam.save
@@ -42,6 +47,7 @@ class WrittenExamsController < ApplicationController
   # PATCH/PUT /written_exams/1
   # PATCH/PUT /written_exams/1.json
   def update
+    update_init(@written_exam)
     respond_to do |format|
       if @written_exam.update(written_exam_params)
         format.html { redirect_to @written_exam, notice: 'Written exam was successfully updated.' }

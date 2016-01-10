@@ -3,6 +3,7 @@ module GenericUtuItem
 
   included do
     scope :for_groups, lambda { |groups| where("(sgroup_id = -1) OR (sgroup_id IN (:groups))", {groups: groups.pluck(:id)}) }
+    validates :title, :sgroup_id, :sclass_id, presence: {presence: true, message: "nesmí být prázdný"}
   end
 
   def get_utu_type

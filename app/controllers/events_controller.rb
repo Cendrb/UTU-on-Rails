@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  include GenericUtuItems
+
   before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_event_from_event_id, only: [:hide, :reveal]
@@ -20,16 +22,19 @@ class EventsController < ApplicationController
     @event.pay_date = next_workday
     @event.event_start = next_workday
     @event.event_end = next_workday
+    new_init(@event)
   end
 
   # GET /events/1/edit
   def edit
+    edit_init(@event)
   end
 
   # POST /events
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    update_init(@event)
 
     respond_to do |format|
       if @event.save
@@ -45,6 +50,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    update_init(@event)
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
