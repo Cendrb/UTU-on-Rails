@@ -1,0 +1,38 @@
+.shared_index_items_list
+{
+  padding-top: 10px;
+  .shared_index_item
+  {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid gray;
+    .shared_index_item_title
+    {
+      font-size: 16px;
+    }
+    .shared_index_item_subject
+    {
+      font-size: 20px;
+      font-weight: bold;
+      float: right;
+      margin-right: 5px;
+    }
+    .shared_index_item_description
+    {
+      margin-top: 2px;
+    }
+    .shared_index_item_date
+    {
+
+    }
+    .shared_index_item_group
+    {
+
+    }
+    .shared_index_item_actions
+    {
+      margin-top: 10px;
+      float: right;
+    }
+  }
+}

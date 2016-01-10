@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= render @written_exam %>
+<%= render partial: '_generic_utu_partials/show', locals: { item: @written_exam } %>
 
 <%= link_to 'Edit', edit_written_exam_path(@written_exam) %> |
 <%= link_to 'Back', written_exams_path %>

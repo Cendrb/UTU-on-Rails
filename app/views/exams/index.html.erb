@@ -2,46 +2,6 @@
 
 <%= link_to 'Nový test', new_exam_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Název</th>
-      <th>Popis</th>
-      <th>Předmět</th>
-      <th>Více informací</th>
-      <th>Datum původní</th>
-      <th>Datum další hodiny po původním datu</th>
-      <th>Skupina</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @exams.each do |exam| %>
-      <tr>
-        <td><%= exam.title %></td>
-        <td><%= exam.description %></td>
-        <td><%= exam.subject.name %></td>
-        <td><%= truncate exam.additional_info_url %></td>
-        <td><%= l exam.date %></td>
-        <% if exam.lesson.nil? %>
-        	<td>Další hodina nenalezena</td>
-        <% else %>
-        	<td><%= link_to (l exam.lesson.school_day.date), exam.lesson %></td>
-        <% end %>
-        <td><%= exam.group %></td>
-        <td><%= link_to 'Zobrazit', exam %></td>
-        <td><%= link_to 'Upravit', edit_exam_path(exam) %></td>
-        <td><%= link_to 'Exterminate', exam, method: :delete, data: { confirm: 'Jste si jisti?' } %></td>
-        <td><%= link_to 'Převést na úkol', exam_transform_to_task_path(exam), data: { confirm: 'Jste si jisti?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<%= render partial: "_generic_utu_partials/index", locals: { items: @exams } %><br>
 
 <%= link_to 'Nový test', new_exam_path %>

@@ -1,6 +1,6 @@
 <h1>Editing raking</h1>
 
-<%= render 'form' %>
+<%= render partial: '_generic_utu_partials/form', locals: { item: @raking, type: :raking_exam } %>
 
 <%= link_to 'Show', @raking %> |
 <%= link_to 'Back', raking_exams_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126163728) do
+ActiveRecord::Schema.define(version: 20160110195824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,23 +55,10 @@ ActiveRecord::Schema.define(version: 20151126163728) do
     t.datetime "updated_at"
   end
 
-  create_table "done_events", force: true do |t|
+  create_table "done_utu_items", force: true do |t|
+    t.integer  "item_id"
+    t.string   "item_type"
     t.integer  "user_id"
-    t.integer  "event_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "done_exams", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "exam_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "done_tasks", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "task_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -122,6 +109,14 @@ ActiveRecord::Schema.define(version: 20151126163728) do
 
   create_table "info_item_bindings", force: true do |t|
     t.integer  "additional_info_id"
+    t.integer  "item_id"
+    t.string   "item_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lesson_item_bindings", force: true do |t|
+    t.integer  "lesson_id"
     t.integer  "item_id"
     t.string   "item_type"
     t.datetime "created_at"
@@ -192,30 +187,6 @@ ActiveRecord::Schema.define(version: 20151126163728) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "timetable_abbr"
-  end
-
-  create_table "snoozed_events", force: true do |t|
-    t.integer  "user_id"
-    t.datetime "snooze_date"
-    t.integer  "event_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "snoozed_exams", force: true do |t|
-    t.integer  "user_id"
-    t.datetime "snooze_date"
-    t.integer  "exam_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "snoozed_tasks", force: true do |t|
-    t.integer  "user_id"
-    t.datetime "snooze_date"
-    t.integer  "task_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "subjects", force: true do |t|

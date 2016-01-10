@@ -1,0 +1,21 @@
+<div class="shared_index_items_list">
+  <% items.each do |item| %>
+      <% type = item.get_utu_type %>
+      <div class="shared_index_item">
+        <div class="shared_index_item_subject"><%= item.subject.name if type != :event %></div>
+        <div class="shared_index_item_title"><%= item.title %></div>
+        <div class="shared_index_item_description"><%= item.description %></div>
+        <div class="shared_index_item_price"><%= number_to_currency(item.price, locale: :cs) if type == :event %></div>
+        <div class="shared_index_item_location"><%= item.location if type == :event %></div>
+        <div class="shared_index_item_actions"><%= get_admin_links item %></div>
+        <div class="shared_index_item_date">
+          <% if type == :event %>
+              <%= "#{l item.event_start} - #{l item.event_end}" %>
+          <% else %>
+              <%= get_next_lesson_string item %>
+          <% end %>
+        </div>
+        <div class="shared_index_item_group"><%= get_group_string item %></div>
+      </div>
+  <% end %>
+</div>

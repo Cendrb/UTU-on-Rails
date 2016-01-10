@@ -1,0 +1,90 @@
+<%= form_for(item) do |f| %>
+    <% if item.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= errors_restricted_cs(item.errors.count) %> uložení této sračky:</h2>
+
+          <ul>
+            <% item.errors.full_messages.each do |msg| %>
+                <li>
+                  <%= msg %>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title, 'Název' %>
+      <br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :description, 'Popis' %>
+      <br>
+      <%= f.text_area :description, rows: 6, cols: 30 %>
+    </div>
+    <% if type == :event %>
+        <div class="field">
+          <%= f.label :location, 'Místo' %>
+          <br>
+          <%= f.text_field :location %>
+        </div>
+        <div class="field">
+          <%= f.label :price, 'Cena (nepovinné)' %>
+          <br>
+          <%= f.number_field :price %>
+        </div>
+        <div class="field">
+          <%= f.label :pay_date, 'Termín platby - pokud má proběhnout platba na místě, tak nastavte na shodné datum jako počátek akce' %>
+          <br>
+          <%= f.date_select :pay_date %>
+        </div>
+        <div class="field">
+          <%= f.label :event_start, 'Počátek akce' %>
+          <br>
+          <%= f.date_select :event_start %>
+        </div>
+        <div class="field">
+          <%= f.label :event_end, 'Konec akce' %>
+          <br>
+          <%= f.date_select :event_end %>
+        </div>
+    <% else %>
+        <div class="field">
+          <%= f.label :date, 'Datum' %>
+          <br>
+          <%= f.date_select :date %>
+        </div>
+        <div class="field">
+          <%= f.label :subject, 'Datum' %>
+          <br>
+          <%= f.collection_select :subject_id, Subject.all, :id, :name %>
+        </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :sclass_id, 'Třída' %>
+      <br>
+      <%= f.collection_select :sclass_id, Sclass.all.unshift(Sclass.new(name: 'zobrazit pro všechny', id: -1)), :id, :name %>
+    </div>
+    <div class="field">
+      <%= f.label :sgroup_id, 'Skupina' %>
+      <br>
+      <%= f.collection_select :sgroup_id, Sgroup.all.unshift(Sgroup.new(name: 'zobrazit pro všechny', id: -1)), :id, :name %>
+    </div>
+
+
+
+    <div class="actions">
+      <%= f.submit 'Uložit' %>
+    </div>
+<% end %>
+
+<div class="additional_info_form">
+  <%= form_tag 'additional_infos/', remote: true do %>
+      <div class="actions">
+        <%= text_field_tag :name %>
+        <%= url_field_tag :url %>
+        <%= submit_tag 'Uložit' %>
+      </div>
+  <% end %>
+</div>

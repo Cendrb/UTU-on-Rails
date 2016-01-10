@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= render @exam %>
+<%= render partial: '_generic_utu_partials/show', locals: { item: @exam } %>
 
 <% if logged_in? %>
 <%= link_to 'Upravit', edit_exam_path(@exam) %> |

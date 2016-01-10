@@ -1,0 +1,55 @@
+<% type = item.get_utu_type %>
+
+<%= button_to 'Skrýt', hide_item_path(id: item.id, type: type), method: :post, remote: true, class: 'hide_or_reveal' %>
+<h3><%= link_to item.title, item %></h3>
+
+<p>
+  <%= sanitize(item.description) %>
+</p>
+
+<% if type == :event %>
+    <p>
+      <strong>Místo: </strong>
+      <%= item.location %>
+    </p>
+    <% if item.price && item.pay_date && item.price > 0 %>
+        <p>
+          <strong>Platba: </strong>
+          <% if item.pay_date == item.event_start %>
+              <%= number_to_currency(item.price, locale: :cs) %> na místě
+          <% else %>
+              <%= l item.pay_date %> zaplatit <%= number_to_currency(item.price, locale: :cs) %>
+          <% end %>
+        </p>
+    <% end %>
+
+    <p>
+      <strong>Začátek události: </strong>
+      <%= format_date item.event_start %>
+    </p>
+
+    <p>
+      <strong>Konec události: </strong>
+      <%= format_date item.event_end %>
+    </p>
+<% else %>
+    <p>
+      <strong>Předmět: </strong>
+      <%= item.subject.name %>
+    </p>
+    <p>
+      <strong>Datum: </strong>
+      <%= format_date item.date %>
+    </p>
+<% end %>
+
+<p>
+  <strong>Skupina: </strong>
+  <%= get_group_string item %>
+</p>
+
+<% if !item.additional_info_url.nil? && !item.additional_info_url.empty? %>
+    <p>
+      <%= link_to "Další informace", item.additional_info_url %>
+    </p>
+<% end %>

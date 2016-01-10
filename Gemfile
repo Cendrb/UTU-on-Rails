@@ -31,6 +31,9 @@ gem 'compass'
 # To keep Heroku dynos awake
 gem 'dynopoker'
 
+# Material Icons by Google
+gem 'material_icons'
+
 # Progress bars for turbolinks and ajax calls
 gem 'nprogress-rails'
 

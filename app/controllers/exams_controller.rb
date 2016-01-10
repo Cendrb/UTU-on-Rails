@@ -1,9 +1,9 @@
 class ExamsController < ApplicationController
   before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
-  before_action :set_exam_from_exam_id, only: [:transform_to_task, :hide, :reveal, :snooze, :unsnooze]
+  before_action :set_exam_from_exam_id, only: [:transform_to_task, :hide, :reveal]
   after_action :find_and_set_lesson, only: [:create, :update]
-  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy, :hide, :reveal, :snooze, :unsnooze]
+  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy, :hide, :reveal]
   # GET /exams
   # GET /exams.json
   def index
@@ -18,7 +18,6 @@ class ExamsController < ApplicationController
   # GET /exams/new
   def new
     @exam = Exam.new
-    @exam.group = 0
     @exam.date = next_workday
   end
 
@@ -34,11 +33,9 @@ class ExamsController < ApplicationController
     respond_to do |format|
       if @exam.save
         format.html { redirect_to @exam, notice: 'Exam was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @exam }
         format.whoa { render plain: 'success' }
       else
         format.html { render action: 'new' }
-        format.json { render json: @exam.errors, status: :unprocessable_entity }
         format.whoa { render plain: 'fail' }
       end
     end
@@ -50,11 +47,9 @@ class ExamsController < ApplicationController
     respond_to do |format|
       if @exam.update(exam_params)
         format.html { redirect_to @exam, notice: 'Exam was successfully updated.' }
-        format.json { head :no_content }
         format.whoa { render plain: 'success' }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @exam.errors, status: :unprocessable_entity }
         format.whoa { render plain: 'fail' }
       end
     end
@@ -66,7 +61,6 @@ class ExamsController < ApplicationController
     @exam.destroy
     respond_to do |format|
       format.html { redirect_to exams_url }
-      format.json { head :no_content }
       format.whoa { render plain: 'success' }
     end
   end
@@ -78,30 +72,6 @@ class ExamsController < ApplicationController
       @exam.destroy
       redirect_to task, notice: 'Test byl úspešně převeden na úkol a uložen do databáze.'
     end
-  end
-
-  def hide
-    @exam.mark_as_done
-
-    redirect_back
-  end
-
-  def reveal
-    @exam.mark_as_undone
-
-    redirect_back
-  end
-  
-  def snooze
-     @exam.snooze(params[:date])
-    
-    redirect_back
-  end
-
-  def unsnooze
-    @exam.unsnooze
-
-    redirect_back
   end
 
   private
@@ -138,6 +108,6 @@ class ExamsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def exam_params
-    params.require(:exam).permit(:title, :description, :subject_id, :date, :group, :additional_info_url)
+    params.require(:exam).permit(:title, :description, :subject_id, :date, :sgroup_id, :sclass_id, :additional_info_url, :passed)
   end
 end

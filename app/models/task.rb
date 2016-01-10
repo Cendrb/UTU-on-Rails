@@ -1,78 +1,26 @@
 class Task < ActiveRecord::Base
-  belongs_to :subject
-  belongs_to :lesson
+  include GenericUtuItem
+  include Hideable
+  include Lessonable
 
-  scope :in_future, -> { where('date >= :today AND passed != true', { today: Date.today }) }
-  scope :for_group, lambda { |group| where("\"group\" = :group OR \"group\" = 0", { group: group }) }
-  scope :between_dates, lambda { |from, to| where("date >= :from AND date <= :to", { from: from, to: to } ) }
-  scope :id_not_on_list, lambda { |list| where("NOT (ARRAY[id] <@ ARRAY[:ids])", { ids: list } ) }
-  scope :id_on_list, lambda { |list| where("ARRAY[id] <@ ARRAY[:ids]", { ids: list } ) }
-  
-  validates :title, :subject_id, :group, :date, presence: {presence: true, message: "nesmí být prázdný"}
-  validates :group, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 2, only_integer: true, message: "neexistuje - zadejte 0 pro obě skupiny" }
+  belongs_to :subject
+
+  scope :in_future, -> { where('date >= :today AND passed != true', {today: Date.today}) }
+  scope :for_group, lambda { |group| where("\"group\" = :group OR \"group\" = 0", {group: group}) }
+  scope :between_dates, lambda { |from, to| where("date >= :from AND date <= :to", {from: from, to: to}) }
+  scope :id_not_on_list, lambda { |list| where("NOT (ARRAY[id] <@ ARRAY[:ids])", {ids: list}) }
+  scope :id_on_list, lambda { |list| where("ARRAY[id] <@ ARRAY[:ids]", {ids: list}) }
+
+  validates :date, :subject_id, presence: {presence: true, message: "nesmí být prázdný"}
 
   belongs_to :sclass
   belongs_to :sgroup
 
-  has_many :info_item_bindings
-  has_many :done_tasks
-  
-  before_create :init
-  
-  def init
-     self.passed = false
-     true
-  end
-  
-  def get_exam
-    Exam.new(title: title, description: description, subject: subject, group: group, date: date)
-  end
-  
-  def is_done?
-    return DoneTask.where("user_id = :user AND task_id = :item", { user: User.current, item: self }).count > 0
-  end
-  
-  def mark_as_undone
-    DoneTask.where("user_id = :user AND task_id = :item", { user: User.current, item: self }).destroy_all
-  end
-  
-  def mark_as_done
-    if(!is_done?)
-      DoneTask.create(user: User.current, task: self)
-    end
-  end
-  
-  def is_snoozed?
-    return !SnoozedTask.find_by("user_id = :user AND task_id = :item AND snooze_date > :now", { user: User.current, item: self, now: Time.now }).nil?
-  end
-  
-  def snooze(snooze_date)
-    if(!is_snoozed?)
-      SnoozedTask.create(user: User.current, task: self, snooze_date: snooze_date)
-    end
-  end
-  
-  def unsnooze
-    SnoozedTask.where("user_id = :user AND task_id = :item", { user: User.current, item: self }).destroy_all
-  end
-  
-  def find_and_set_lesson
-    # puts "\n\nDILDO\n\n"
-    if(self.group == 0)
-      # not group dependent
-      if(self.subject.name == "HuO")
-        # use HuO group (first)
-        self.lesson = Lesson.joins(:school_day => :timetable).where("school_days.date >= ?", self.date).where(subject: self.subject).where("timetables.group = 1").first
-      else
-        # use VýO group (second)
-        self.lesson = Lesson.joins(:school_day => :timetable).where("school_days.date >= ?", self.date).where(subject: self.subject).where("timetables.group = 2").order("school_days.date ASC").first
-      end
-    else
-      # group dependent
-      self.lesson = Lesson.joins(:school_day => :timetable).where("school_days.date >= ?", self.date).where(subject: self.subject).where("timetables.group = ?", self.group).order("school_days.date ASC").first
-    end
-    if(self.lesson)
-      self.date = self.lesson.school_day.date
-    end
+  has_many :info_item_bindings, :as => :utu_item
+  has_many :lesson_item_bindings, :as => :utu_item
+  has_many :done_utu_items, :as => :utu_item
+
+  def get_exam(type)
+    Exam.new(title: title, description: description, subject: subject, sgroup_id: sgroup_id, sclass_id: sclass_id, date: date, type: type)
   end
 end

@@ -49,9 +49,10 @@ class SummaryController < ApplicationController
       if logged_in?
         user = current_user
 
-        @events = Event.order(:event_start).in_future
+        @events = Event.order(:event_start).in_future.for_groups(user.sgroups)
         @exams = Exam.order(:date).in_future.for_groups(user.sgroups)
-        @tasks = Task.order(:date).in_future
+        @tasks = Task.order(:date).in_future.for_groups(user.sgroups)
+        puts Event.all.pluck(:sgroup_id)
 
         @exams = drop_todays_after(@exams, 12)
         @tasks = drop_todays_after(@tasks, 12)

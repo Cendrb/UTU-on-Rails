@@ -19,7 +19,6 @@ class RakingExamsController < ApplicationController
   def new
     @raking = RakingExam.new
     @raking.date = next_workday
-    @raking.group = 0
   end
 
   # GET /rakings/1/edit
@@ -91,6 +90,6 @@ class RakingExamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def raking_params
-      params.require(:raking_exam).permit(:title, :description, :subject_id, :end_date, :group, :additional_info_url, :passed)
+      params.require(:raking_exam).permit(:title, :description, :subject_id, :date, :sgroup_id, :sclass_id, :additional_info_url, :passed)
     end
 end

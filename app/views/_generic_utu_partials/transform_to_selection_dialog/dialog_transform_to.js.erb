@@ -1,0 +1,18 @@
+<% random = rand(36**10).to_s(36) %>
+$("#main").append("<div class=\"dialog\" data-identifier=\"<%= random %>\"></div>");
+
+
+$(".dialog[data-identifier='<%= random %>']").append("<%= escape_javascript(render partial: "_generic_utu_partials/transform_to_selection_dialog/transform_to_selection_dialog", locals: {item: @item, type: @type}) %>");
+
+$(".dialog[data-identifier=<%= random %>]").dialog(
+    {
+      title: "<%= @item.title %>",
+      modal: true,
+      resizable: false,
+      draggable: false,
+      dialogClass: "transform_to_selection_dialog",
+      open: function(event, ui) { $('.ui-widget-overlay').bind('click', function () { $(this).siblings('.ui-dialog').find('.ui-dialog-content').dialog('close'); }); },
+      close: function(event, ui){
+        $(this).dialog("destroy").remove();
+      }
+    });

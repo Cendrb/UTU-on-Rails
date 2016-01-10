@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
   before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :set_task_from_task_id, only: [:transform_to_exam, :hide, :reveal, :snooze, :unsnooze]
+  before_action :set_task_from_task_id, only: [:transform_to_exam, :hide, :reveal]
   after_action :find_and_set_lesson, only: [:create, :update]
-  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy, :hide, :reveal, :snooze, :unsnooze]
+  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy, :hide, :reveal]
   # GET /tasks
   # GET /tasks.json
   def index
@@ -18,7 +18,6 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
-    @task.group = 0
     @task.date = next_workday
   end
 
@@ -34,11 +33,9 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @task }
         format.whoa { render plain: 'success' }
       else
         format.html { render action: 'new' }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
         format.whoa { render plain: 'fail' }
       end
     end
@@ -50,11 +47,9 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { head :no_content }
         format.whoa { render plain: 'success' }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
         format.whoa { render plain: 'fail' }
       end
     end
@@ -66,13 +61,13 @@ class TasksController < ApplicationController
     @task.destroy
     respond_to do |format|
       format.html { redirect_to tasks_url }
-      format.json { head :no_content }
       format.whoa { render plain: 'success' }
     end
   end
 
   def transform_to_exam
-    exam = @task.get_exam
+    type = params[:type] == 'raking_exam' ? 'RakingExam' : 'WrittenExam'
+    exam = @task.get_exam(type)
     Task.transaction do
       exam.save
       @task.destroy
@@ -89,18 +84,6 @@ class TasksController < ApplicationController
   def reveal
     @task.mark_as_undone
     
-    redirect_back
-  end
-  
-  def snooze
-     @task.snooze(params[:date])
-    
-    redirect_back
-  end
-
-  def unsnooze
-    @task.unsnooze
-
     redirect_back
   end
 
@@ -138,6 +121,6 @@ class TasksController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def task_params
-    params.require(:task).permit(:title, :description, :subject_id, :date, :group, :additional_info_url, :passed)
+    params.require(:task).permit(:title, :description, :subject_id, :date, :sgroup_id, :sclass_id, :additional_info_url, :passed)
   end
 end

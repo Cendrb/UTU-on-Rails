@@ -1,5 +1,5 @@
 <h1>New written_exam</h1>
 
-<%= render 'form' %>
+<%= render partial: '_generic_utu_partials/form', locals: { item: @written_exam, type: :written_exam } %>
 
 <%= link_to 'Back', written_exams_path %>

@@ -1,0 +1,13 @@
+<p><%= item.description %></p>
+<% if type == 'task' %>
+    <%= link_to 'Převést na test', task_transform_to_exam_path(task_id: item.id, type: 'written_exam') %>
+    <%= link_to 'Převést na zkoušení', task_transform_to_exam_path(task_id: item.id, type: 'raking_exam') %>
+<% else %>
+    <% if type == 'written_exam' %>
+        <%= link_to 'Převést na úkol', exam_transform_to_task_path(exam_id: item.id) %><br/>
+        <%= link_to 'Převést na zkoušení', written_exam_transform_to_raking_path(item) %>
+    <% else %>
+        <%= link_to 'Převést na úkol', exam_transform_to_task_path(exam_id: item.id) %><br/>
+        <%= link_to 'Převést na test', raking_exam_transform_to_written_path(item) %>
+    <% end %>
+<% end %>

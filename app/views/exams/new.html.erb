@@ -1,5 +1,5 @@
 <h1>Nový test</h1>
 
-<%= render 'form' %>
+<%= render partial: '_generic_utu_partials/form', locals: { item: @exam, type: :exam } %>
 
 <%= link_to 'Zpět na správu testů', exams_path %>

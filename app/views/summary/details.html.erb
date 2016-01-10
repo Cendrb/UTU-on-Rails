@@ -1,54 +1,45 @@
 <div id="details">
-    <table class="details">
-        <tr>
-            <td class="details_block">
-            <div class="details_block">
-            	<% if admin_logged_in? %>
-                <h1><%= link_to "Události", events_path %></h1>
-                <% else %>
-                <h1>Události</h1>
-                <% end %>
-                <% @events.each do |e| %>
-                	<% if e.is_done? %>
-                		<%= render partial: "events/hidden", locals: {event: e} %>
-                	<% else %>
-                    	<%= render e %>
-                    <% end %>
-                    <%= render 'line' unless e == @events.last %>
-                <% end %>
-            </div></td>
-            <td class="details_block" id="middle_detail_block">
-            <div id="middle_detail_block" class="details_block">
-                <% if admin_logged_in? %>
-                <h1><%= link_to "Úkoly", tasks_path %></h1>
-                <% else %>
-                <h1>Úkoly</h1>
-                <% end %>
-                <% @tasks.each do |e| %>
-                    <% if e.is_done? %>
-                		<%= render partial: "tasks/hidden", locals: {task: e} %>
-                	<% else %>
-                    	<%= render e %>
-                    <% end %>
-                    <%= render 'line' unless e == @tasks.last %>
-                <% end %>
-            </div></td>
-            <td class="details_block">
-            <div class="details_block">
-                <% if admin_logged_in? %>
-                <h1><%= link_to "Testy", written_exams_path %></h1>
-                <% else %>
-                <h1>Testy</h1>
-                <% end %>
-                <% @exams.each do |e| %>
-                    <% if e.is_done? %>
-                		<%= render partial: "exams/hidden", locals: {exam: e} %>
-                	<% else %>
-                    	<%= render e %>
-                    <% end %>
-                    <%= render 'line' unless e == @exams.last %>
-                <% end %>
-            </div></td>
-        </tr>
-    </table>
+  <table class="details">
+    <tr>
+      <td class="details_block">
+        <div class="details_block">
+          <% if admin_logged_in? %>
+              <h1><%= link_to "Události", events_path %></h1>
+          <% else %>
+              <h1>Události</h1>
+          <% end %>
+          <% @events.each do |e| %>
+              <%= render partial: "_generic_utu_partials/show", locals: { item: e } %>
+              <%= render 'line' unless e == @events.last %>
+          <% end %>
+        </div>
+      </td>
+      <td class="details_block" id="middle_detail_block">
+        <div id="middle_detail_block" class="details_block">
+          <% if admin_logged_in? %>
+              <h1><%= link_to "Úkoly", tasks_path %></h1>
+          <% else %>
+              <h1>Úkoly</h1>
+          <% end %>
+          <% @tasks.each do |e| %>
+              <%= render partial: "_generic_utu_partials/show", locals: { item: e } %>
+              <%= render 'line' unless e == @tasks.last %>
+          <% end %>
+        </div>
+      </td>
+      <td class="details_block">
+        <div class="details_block">
+          <% if admin_logged_in? %>
+              <h1><%= link_to "Testy", written_exams_path %></h1>
+          <% else %>
+              <h1>Testy</h1>
+          <% end %>
+          <% @exams.each do |e| %>
+              <%= render partial: "_generic_utu_partials/show", locals: { item: e } %>
+              <%= render 'line' unless e == @exams.last %>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+  </table>
 </div>

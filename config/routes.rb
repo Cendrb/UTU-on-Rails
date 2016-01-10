@@ -80,10 +80,6 @@ UTUOnRails::Application.routes.draw do
       get 'transform_to_task' => :transform_to_task
       get 'hide' => :hide
       get 'reveal' => :reveal
-      post 'hide' => :hide
-      post 'reveal' => :reveal
-      post 'snooze' => :snooze
-      post 'unsnooze' => :unsnooze
     end
   end
 
@@ -92,10 +88,6 @@ UTUOnRails::Application.routes.draw do
       get 'transform_to_exam' => :transform_to_exam
       get 'hide' => :hide
       get 'reveal' => :reveal
-      post 'hide' => :hide
-      post 'reveal' => :reveal
-      post 'snooze' => :snooze
-      post 'unsnooze' => :unsnooze
     end
   end
 
@@ -103,10 +95,6 @@ UTUOnRails::Application.routes.draw do
     controller :events do
       get 'hide' => :hide
       get 'reveal' => :reveal
-      post 'hide' => :hide
-      post 'reveal' => :reveal
-      post 'snooze' => :snooze
-      post 'unsnooze' => :unsnooze
     end
   end
 
@@ -116,6 +104,10 @@ UTUOnRails::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root to: 'summary#summary', as: 'utu'
+
+  # hiding
+  post 'hiding/hide' => 'hiding#hide', as: 'hide_item'
+  post 'hiding/reveal' => 'hiding#reveal', as: 'reveal_item'
 
   get 'temp' => 'summary#temp'
   
@@ -147,6 +139,10 @@ UTUOnRails::Application.routes.draw do
   
   get 'register' => 'users#new'
   delete 'destroy_account/:id', to: 'users#self_destroy', as: 'destroy_account'
+
+
+  # transform to selection dialog
+  get 'show_transform_to_selection_dialog' => 'generic_actions#transform_to_selection_dialog'
 
 # Example of regular route:
 #   get 'products/:id' => 'catalog#view'

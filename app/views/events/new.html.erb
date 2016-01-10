@@ -1,5 +1,5 @@
 <h1>Nová událost</h1>
 
-<%= render 'form' %>
+<%= render partial: '_generic_utu_partials/form', locals: { item: @event, type: :event } %>
 
 <%= link_to 'Zpět na správu událostí', events_path %>

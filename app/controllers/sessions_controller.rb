@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         cookies.permanent.signed[:user_id] = user.id
       end
       session[:user_id] = user.id
-      if user.admin
+      if admin_logged_in?
         redirect_to administration_url
       else
         redirect_to utu_url

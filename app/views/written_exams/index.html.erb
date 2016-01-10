@@ -2,44 +2,6 @@
 
 <%= link_to 'Nový test', new_written_exam_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Název</th>
-      <th>Popis</th>
-      <th>Předmět</th>
-      <th>Více informací</th>
-      <th>Datum původní</th>
-      <th>Datum další hodiny po původním datu</th>
-      <th>Skupina</th>
-      <th colspan="5"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @written_exams.each do |written| %>
-      <tr>
-        <td><%= written.title %></td>
-        <td><%= written.description %></td>
-        <td><%= written.subject.name %></td>
-        <td><%= truncate written.additional_info_url %></td>
-        <td><%= l written.date %></td>
-        <% if written.lesson.nil? %>
-        	<td>Další hodina nenalezena</td>
-        <% else %>
-        	<td><%= link_to (l written.lesson.school_day.date), written.lesson %></td>
-        <% end %>
-        <td><%= written.group %></td>
-        <td><%= link_to 'Zobrazit', written %></td>
-        <td><%= link_to 'Upravit', edit_written_exam_path(written) %></td>
-        <td><%= link_to 'Exterminate', written, method: :delete, data: { confirm: 'Jste si jisti?' } %></td>
-        <td><%= link_to 'Převést na úkol', exam_transform_to_task_path(written), data: { confirm: 'Jste si jisti?' } %></td>
-        <td><%= link_to 'Převést na zkoušení', written_exam_transform_to_raking_path(written), data: { confirm: 'Jste si jisti?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<%= render partial: "_generic_utu_partials/index", locals: { items: @written_exams } %>
 
 <%= link_to 'Nový test', new_written_exam_path %>

@@ -1,1 +1,0 @@
-$(".task[data-id=<%= @task.id %>]").replaceWith("<%= escape_javascript(render partial: "tasks/task", locals: { task: @task }) %>");

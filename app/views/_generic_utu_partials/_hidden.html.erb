@@ -1,0 +1,5 @@
+<% type = item.get_utu_type %>
+
+<%= button_to 'Obnovit', reveal_item_path(id: item.id, type: type), method: :post, remote: true, class: 'hide_or_reveal' %>
+
+<h3 class="details_done"><%= item.title %></h3>

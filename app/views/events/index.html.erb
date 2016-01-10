@@ -2,42 +2,7 @@
 
 <%= link_to 'Nová událost', new_event_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Název</th>
-      <th>Popis</th>
-      <th>Místo</th>
-      <th>Další informace</th>
-      <th>Cena</th>
-      <th>Termín platby</th>
-      <th>Začátek</th>
-      <th>Konec</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.description %></td>
-        <td><%= event.location %></td>
-        <td><%= event.additional_info_url %></td>
-        <td><%= number_to_currency(event.price, :locale => :cs) %></td>
-        <td><%= l event.pay_date %></td>
-        <td><%= l event.event_start %></td>
-        <td><%= l event.event_end %></td>
-        <td><%= link_to 'Zobrazit', event %></td>
-        <td><%= link_to 'Upravit', edit_event_path(event) %></td>
-        <td><%= link_to 'Odstranit', event, method: :delete, data: { confirm: 'Jste si jisti?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<%= render partial: "_generic_utu_partials/index", locals: { items: @events } %>
 <br>
 
 <%= link_to 'Nová událost', new_event_path %>

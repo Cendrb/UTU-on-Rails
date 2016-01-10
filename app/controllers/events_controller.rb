@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
-  before_filter :authenticate_admin, except: [:hide, :reveal, :snooze, :unsnooze]
+  before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :set_event_from_event_id, only: [:hide, :reveal, :snooze, :unsnooze]
-  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy, :hide, :reveal, :snooze, :unsnooze]
+  before_action :set_event_from_event_id, only: [:hide, :reveal]
+  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy, :hide, :reveal]
   # GET /events
   # GET /events.json
   def index
@@ -34,11 +34,9 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @event }
         format.whoa { render plain: 'success' }
       else
         format.html { render action: 'new' }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
         format.whoa { render plain: 'fail' }
       end
     end
@@ -50,11 +48,9 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { head :no_content }
         format.whoa { render plain: 'success' }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
         format.whoa { render plain: 'fail' }
       end
     end
@@ -66,33 +62,8 @@ class EventsController < ApplicationController
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url }
-      format.json { head :no_content }
       format.whoa { render plain: 'success' }
     end
-  end
-
-  def hide
-     @event.mark_as_done
-    
-    redirect_back
-  end
-
-  def reveal
-    @event.mark_as_undone
-
-    redirect_back
-  end
-  
-  def snooze
-     @event.snooze(params[:date])
-    
-    redirect_back
-  end
-
-  def unsnooze
-    @event.unsnooze
-
-    redirect_back
   end
 
   private
@@ -124,6 +95,6 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:title, :description, :location, :event_start, :event_end, :additional_info_url, :price, :pay_date)
+    params.require(:event).permit(:title, :description, :location, :event_start, :event_end, :sgroup_id, :sclass_id, :additional_info_url, :price, :pay_date)
   end
 end

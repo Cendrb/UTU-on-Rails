@@ -19,7 +19,6 @@ class WrittenExamsController < ApplicationController
   def new
     @written_exam = WrittenExam.new
     @written_exam.date = next_workday
-    @written_exam.group = 0
   end
 
   # GET /written_exams/1/edit
@@ -34,10 +33,8 @@ class WrittenExamsController < ApplicationController
     respond_to do |format|
       if @written_exam.save
         format.html { redirect_to @written_exam, notice: 'Written exam was successfully created.' }
-        format.json { render :show, status: :created, location: @written_exam }
       else
         format.html { render :new }
-        format.json { render json: @written_exam.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -51,7 +48,6 @@ class WrittenExamsController < ApplicationController
         format.json { render :show, status: :ok, location: @written_exam }
       else
         format.html { render :edit }
-        format.json { render json: @written_exam.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -62,12 +58,10 @@ class WrittenExamsController < ApplicationController
     @written_exam.destroy
     respond_to do |format|
       format.html { redirect_to written_exams_url, notice: 'Written exam was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
   
   def transform_to_raking
-    id = @written_exam.id
     @written_exam.type = "RakingExam"
     @written_exam.end_date = @written_exam.date
     @written_exam.save!
@@ -94,6 +88,6 @@ class WrittenExamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def written_exam_params
-      params[:written_exam].permit(:title, :description, :subject_id, :date, :group, :additional_info_url, :passed)
+      params[:written_exam].permit(:title, :description, :subject_id, :date, :sgroup_id, :sclass_id, :additional_info_url, :passed)
     end
 end

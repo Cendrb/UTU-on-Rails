@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= render @task %>
+<%= render partial: '_generic_utu_partials/show', locals: { item: @task } %>
 
 <% if logged_in? %>
 <%= link_to 'Upravit', edit_task_path(@task) %> |
