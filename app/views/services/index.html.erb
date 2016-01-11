@@ -16,8 +16,8 @@
   <tbody>
     <% @services.each do |service| %>
       <tr>
-        <td><%= service.first_name %></td>
-        <td><%= service.second_name %></td>
+        <td><%= service.first_mate.full_name %></td>
+        <td><%= service.second_mate.full_name %></td>
         <td><%= l service.service_start %></td>
         <td><%= l service.service_end %></td>
         <td><%= link_to 'Zobrazit', service %></td>

@@ -96,6 +96,6 @@ class PlannedRakingEntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def planned_raking_entry_params
-      params.require(:planned_raking_entry).permit(:name, :planned_raking_list_id, :user_id, :description)
+      params.require(:planned_raking_entry).permit(:planned_raking_list_id, :class_member_id, :description)
     end
 end

@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @user.sclass = Sclass.first
   end
 
   # GET /users/1/edit
@@ -109,6 +110,11 @@ class UsersController < ApplicationController
     else
       redirect_to forgot_path, alert: "Použitý odkaz je neplatný"
     end
+  end
+
+  def class_select_changed
+    @sclass = Sclass.find(params[:sclass_id])
+    render 'users/user_form/replace_class_member_select'
   end
 
   private

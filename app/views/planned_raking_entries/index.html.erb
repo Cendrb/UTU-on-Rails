@@ -3,9 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Class member</th>
       <th>Planned raking list</th>
-      <th>User</th>
       <th>Finished</th>
       <th>Sorting order</th>
       <th colspan="3"></th>
@@ -15,9 +14,8 @@
   <tbody>
     <% @planned_raking_entries.each do |planned_raking_entry| %>
       <tr>
-        <td><%= planned_raking_entry.name %></td>
+        <td><%= planned_raking_entry.class_member.full_name %></td>
         <td><%= planned_raking_entry.planned_raking_list.title %></td>
-        <td><%= planned_raking_entry.user.name if planned_raking_entry.user %></td>
         <td><%= planned_raking_entry.finished %></td>
         <td><%= planned_raking_entry.sorting_order %></td>
         <td><%= link_to 'Show', planned_raking_entry %></td>

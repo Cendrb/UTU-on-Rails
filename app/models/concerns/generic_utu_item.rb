@@ -2,7 +2,8 @@ module GenericUtuItem
   extend ActiveSupport::Concern
 
   included do
-    scope :for_groups, lambda { |groups| where("(sgroup_id = -1) OR (sgroup_id IN (:groups))", {groups: groups.pluck(:id)}) }
+    scope :for_groups, lambda { |groups| where("(sgroup_id = -1) OR (sgroup_id IN (:groups))", { groups: groups.pluck(:id)}) }
+    scope :for_class, lambda { |sclass| where("(sclass_id = -1) OR (sclass_id = :sclass)", { sclass: sclass.id }) }
     validates :title, :sgroup_id, :sclass_id, presence: {presence: true, message: "nesmí být prázdný"}
   end
 

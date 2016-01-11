@@ -1,6 +1,10 @@
 UTUOnRails::Application.routes.draw do
 
 
+  resources :holidays
+
+  resources :school_years
+
   resources :sgroups
 
   resources :sclasses
@@ -71,6 +75,10 @@ UTUOnRails::Application.routes.draw do
     get 'logout' => :destroy
   end
 
+  controller :users do
+    # user_form class select
+    post 'users/class_select_changed'
+  end
   resources :users
 
   resources :services
@@ -109,7 +117,8 @@ UTUOnRails::Application.routes.draw do
   post 'hiding/hide' => 'hiding#hide', as: 'hide_item'
   post 'hiding/reveal' => 'hiding#reveal', as: 'reveal_item'
 
-  get 'temp' => 'summary#temp'
+  # for occasional data migrations
+  get 'migrate' => 'summary#migrate'
   
   get 'analyze' => 'details_accesses#analyze'
   get 'statistics' => 'details_accesses#analyze'

@@ -5,7 +5,7 @@ class PlannedRakingListsController < ApplicationController
   # GET /planned_raking_lists
   # GET /planned_raking_lists.json
   def index
-    @planned_raking_lists = PlannedRakingList.all
+    @planned_raking_lists = PlannedRakingList.all.order(:sclass_id)
   end
 
   # GET /planned_raking_lists/1
@@ -79,6 +79,6 @@ class PlannedRakingListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def planned_raking_list_params
-      params.require(:planned_raking_list).permit(:title, :description, :subject_id, :beginning, :rekt_per_hour)
+      params.require(:planned_raking_list).permit(:title, :description, :sclass_id, :subject_id, :beginning, :rekt_per_hour)
     end
 end

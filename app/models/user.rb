@@ -12,8 +12,6 @@ class User < ActiveRecord::Base
   has_many :done_exams
   has_many :done_tasks
 
-  has_many :planned_raking_entries
-
   has_many :sgroups, through: :class_member
 
   belongs_to :class_member

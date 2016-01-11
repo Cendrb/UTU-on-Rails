@@ -13,9 +13,11 @@ module GenericUtuItems
   end
 
   def update_init(object)
-    object.info_item_bindings.destroy_all
-    params[:additional_infos].each do |checkbox|
-      object.info_item_bindings << InfoItemBinding.create(item_id: object.id, item_type: object.get_utu_type, additional_info_id: checkbox[0].to_i)
+    if params[:additional_infos]
+      object.info_item_bindings.destroy_all
+      params[:additional_infos].each do |checkbox|
+        object.info_item_bindings << InfoItemBinding.create(item_id: object.id, item_type: object.get_utu_type, additional_info_id: checkbox[0].to_i)
+      end
     end
   end
 end

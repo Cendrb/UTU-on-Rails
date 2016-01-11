@@ -12,8 +12,12 @@
     <% end %>
 
     <div class="field">
+      <%= label_tag :sclass_id, "Třída" %><br>
+      <%= select_tag(:class_id, options_from_collection_for_select(Sclass.all, :id, :name), class: 'user_form_class_select') %>
+    </div>
+    <div class="field">
       <%= f.label :class_member_id, 'Jméno' %><br>
-      <%= f.collection_select(:class_member_id, ClassMember.all, :id, :full_name) %>
+      <%= f.collection_select(:class_member_id, @user.class_member.sclass.class_members, :id, :full_name) %>
     </div>
     <div class="field">
       <%= f.label :email, 'Email (bez vašeho svolení vám nebudou zasílány žádné maily)' %><br>
@@ -35,8 +39,6 @@
               <%= radio_button_tag "sgroups[#{category.id}]", sgroup.id, checked = (params[:sgroups][category.id] == sgroup.id) %>
               <%= label_tag "sgroups[#{category.id}]", sgroup.name %>
           <% end %>
-
-           <% # collection_radio_buttons 'data.sgroups', "fetch(#{category.id})", category.sgroups, :id, :name %>
           <br>
       <% end %>
     </div>

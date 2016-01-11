@@ -2,17 +2,12 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @planned_raking_entry.name %>
+  <%= @planned_raking_entry.class_member.name %>
 </p>
 
 <p>
   <strong>Planned raking list:</strong>
-  <%= @planned_raking_entry.planned_raking_list_id %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @planned_raking_entry.user_id %>
+  <%= @planned_raking_entry.planned_raking_list_id.name %>
 </p>
 
 <p>

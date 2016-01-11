@@ -35,32 +35,23 @@ class SummaryController < ApplicationController
   end
 
   def details
-    if params[:range] && params[:group]
-      from = Date.new(params[:range][:"from(1i)"].to_i, params[:range][:"from(2i)"].to_i, params[:range][:"from(3i)"].to_i)
-      to = Date.new(params[:range][:"to(1i)"].to_i, params[:range][:"to(2i)"].to_i, params[:range][:"to(3i)"].to_i)
-      @events = Event.order(:event_start).between_dates(from, to)
-      @exams = Exam.order(:date).between_dates(from, to)
-      @tasks = Task.order(:date).between_dates(from, to)
-      if params[:group] != 0
-        @exams = @exams.for_groups(params[:group])
-        @tasks = @tasks.for_groups(params[:group])
-      end
+    #from = Date.new(params[:range][:"from(1i)"].to_i, params[:range][:"from(2i)"].to_i, params[:range][:"from(3i)"].to_i)
+    #to = Date.new(params[:range][:"to(1i)"].to_i, params[:range][:"to(2i)"].to_i, params[:range][:"to(3i)"].to_i)
+    sclass = current_class
+    if logged_in?
+      user = current_user
+
+      @events = Event.order(:event_start).in_future.for_groups(user.sgroups).for_class(sclass)
+      @exams = Exam.order(:date).in_future.for_groups(user.sgroups).for_class(sclass)
+      @tasks = Task.order(:date).in_future.for_groups(user.sgroups).for_class(sclass)
+      puts Event.all.pluck(:sgroup_id)
+
+      @exams = drop_todays_after(@exams, 12)
+      @tasks = drop_todays_after(@tasks, 12)
     else
-      if logged_in?
-        user = current_user
-
-        @events = Event.order(:event_start).in_future.for_groups(user.sgroups)
-        @exams = Exam.order(:date).in_future.for_groups(user.sgroups)
-        @tasks = Task.order(:date).in_future.for_groups(user.sgroups)
-        puts Event.all.pluck(:sgroup_id)
-
-        @exams = drop_todays_after(@exams, 12)
-        @tasks = drop_todays_after(@tasks, 12)
-      else
-        @events = (Event.all.order(:event_start)).in_future
-        @exams = drop_todays_after(Exam.order(:date).in_future, 12)
-        @tasks = drop_todays_after(Task.order(:date).in_future, 12)
-      end
+      @events = (Event.all.order(:event_start)).in_future.for_class(sclass)
+      @exams = drop_todays_after(Exam.order(:date).in_future, 12).for_class(sclass)
+      @tasks = drop_todays_after(Task.order(:date).in_future, 12).for_class(sclass)
     end
 
     DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'])
@@ -109,11 +100,11 @@ class SummaryController < ApplicationController
   end
 
   def migrate
-
-  end
-
-  def temp
-
+    # raking lists (add sclass_id)
+    # raking entries (migrate from name to class_member_id)
+    # users (migrate from name to class_member_id)
+    # users (migrate from group to groups-and-belongings-and-stuff)
+    # utu_items (add sgroup_id, add sclass_id)
   end
 
   def administrator_logged_in

@@ -3,5 +3,5 @@
 <% counter = 0 %>
 <% @services.each do |service| %>
     <% counter += 1 %>
-    <%== ",#{counter},\"#{service.first_name}, #{service.second_name}\",#{service.service_start.strftime("%e.%-m.")} - #{service.service_end.strftime("%e.%-m. %Y")}" %>
+    <%== ",#{counter},\"#{service.first_mate.full_name}, #{service.second_mate.full_name}\",#{service.service_start.strftime("%e.%-m.")} - #{service.service_end.strftime("%e.%-m. %Y")}" %>
 <% end %>

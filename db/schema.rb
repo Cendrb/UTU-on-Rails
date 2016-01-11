@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110195824) do
+ActiveRecord::Schema.define(version: 20160111202336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,14 @@ ActiveRecord::Schema.define(version: 20160110195824) do
     t.datetime "updated_at"
   end
 
+  create_table "holidays", force: true do |t|
+    t.date     "holiday_beginning"
+    t.date     "holiday_end"
+    t.integer  "school_year_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "info_item_bindings", force: true do |t|
     t.integer  "additional_info_id"
     t.integer  "item_id"
@@ -139,12 +147,12 @@ ActiveRecord::Schema.define(version: 20160110195824) do
   create_table "planned_raking_entries", force: true do |t|
     t.string   "name"
     t.integer  "planned_raking_list_id"
-    t.integer  "user_id"
     t.boolean  "finished"
     t.integer  "sorting_order"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.integer  "class_member_id"
   end
 
   create_table "planned_raking_lists", force: true do |t|
@@ -165,6 +173,12 @@ ActiveRecord::Schema.define(version: 20160110195824) do
     t.integer  "timetable_id"
   end
 
+  create_table "school_years", force: true do |t|
+    t.integer  "beginning_year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sclasses", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -179,6 +193,7 @@ ActiveRecord::Schema.define(version: 20160110195824) do
     t.integer  "sclass_id"
     t.integer  "first_mate_id"
     t.integer  "second_mate_id"
+    t.integer  "school_year_id"
   end
 
   create_table "sgroups", force: true do |t|

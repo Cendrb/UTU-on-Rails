@@ -8,31 +8,31 @@ class ApplicationController < ActionController::Base
   before_action :troll
   layout :layout
   before_filter :set_current_account
-  
+
   def set_current_account
     User.current = current_user
   end
-  
+
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
   private
-    
-    def layout
-      if request.variant && request.variant.first == :mobile
-        return "desktop_main"
-      else
-        return "desktop_main"
-      end
-    end
-    
-    def troll
 
+  def layout
+    if request.variant && request.variant.first == :mobile
+      return "desktop_main"
+    else
+      return "desktop_main"
     end
-    
-    def detect_device_format
-      case request.user_agent
+  end
+
+  def troll
+
+  end
+
+  def detect_device_format
+    case request.user_agent
       when /iPad/i
         request.variant = :tablet
       when /iPhone/i
@@ -43,8 +43,8 @@ class ApplicationController < ActionController::Base
         request.variant = :tablet
       when /Windows Phone/i
         request.variant = :mobile
-      end
     end
+  end
 
   protected
 
@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
     date = Date.today
     begin
       date += 1.day
-    end while(date.strftime("%A") == "Sunday" || date.strftime("%A") == "Saturday")
+    end while (date.strftime("%A") == "Sunday" || date.strftime("%A") == "Saturday")
     return date
   end
 
@@ -90,7 +90,8 @@ class ApplicationController < ActionController::Base
     begin
       if !session[:user_id].nil?
         User.find(session[:user_id])
-      else if !cookies.signed[:user_id].nil?
+      else
+        if !cookies.signed[:user_id].nil?
           User.find(cookies.signed[:user_id])
         end
       end
@@ -101,11 +102,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_class
+    if current_user && current_user.class_member
+      return current_user.class_member.sclass
+    else
+      return Sclass.first
+    end
+  end
+
   def logged_in?
     if current_user
-    true
+      true
     else
-    false
+      false
     end
   end
 
@@ -121,5 +130,5 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :logged_in?, :current_user, :admin_logged_in?, :mobile_device?
+  helper_method :logged_in?, :current_user, :admin_logged_in?, :current_class
 end

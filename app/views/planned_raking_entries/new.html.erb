@@ -14,10 +14,11 @@
         </div>
     <% end %>
 
+    <% sclass = @planned_raking_entry.planned_raking_list ? @planned_raking_entry.planned_raking_list.sclass : current_class %>
 
     <div class="field">
-      <%= f.label :name, "Celé jméno" %><br>
-      <%= f.text_field :name %>
+      <%= f.label :class_member_id, "Jméno" %><br>
+      <%= f.collection_select(:class_member_id, ClassMember.where(sclass: sclass), :id, :full_name) %>
     </div>
     <div class="field">
       <%= f.label :description, "Téma" %><br>
@@ -26,11 +27,7 @@
     </div>
     <div class="field">
       <%= f.label :planned_raking_list_id, "Seznam zkoušení" %><br>
-      <%= f.collection_select :planned_raking_list_id, PlannedRakingList.all, :id, :title %>
-    </div>
-    <div class="field">
-      <%= f.label :user_id, "Uživatel" %><br>
-      <%= logged_in? ? current_user.name : "pokud se přidáte do seznamu až poté, co se přihlásíte, budou se vám zobrazovat personalizovaná upozornění v přehledu" %><%= link_to '(přihlásit se)', login_path  if !logged_in?%>
+      <%= f.collection_select :planned_raking_list_id, PlannedRakingList.where(sclass: sclass), :id, :title %>
     </div>
     <div class="actions">
       <%= f.submit "Odeslat" %>

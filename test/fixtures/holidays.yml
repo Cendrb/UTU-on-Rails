@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  holiday_beginning: 2016-01-11
+  holiday_end: 2016-01-11
+  school_year_id: MyString
+
+two:
+  holiday_beginning: 2016-01-11
+  holiday_end: 2016-01-11
+  school_year_id: MyString

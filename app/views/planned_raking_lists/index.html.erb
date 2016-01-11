@@ -2,6 +2,7 @@
 <table class="stretch">
   <thead>
   <tr>
+    <th>Třída</th>
     <th>Název</th>
     <th>Počet přihlášených</th>
     <th>Začátek zkoušení</th>
@@ -12,6 +13,7 @@
   <tbody>
   <% @planned_raking_lists.each do |planned_raking_list| %>
       <tr>
+        <td><%= planned_raking_list.sclass.name %></td>
         <td><%= planned_raking_list.title %></td>
         <td><%= planned_raking_list.planned_raking_entries.where(finished: false).count %></td>
         <td><%= format_date planned_raking_list.beginning %></td>

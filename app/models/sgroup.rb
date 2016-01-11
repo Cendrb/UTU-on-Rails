@@ -5,7 +5,7 @@ class Sgroup < ActiveRecord::Base
 
   def self.parse_deprecated(deprecated_group)
     if(deprecated_group == 0)
-      return nil
+      return -1
     end
     if(deprecated_group == 1)
       return Sgroup.find_or_create_by("první skupina")
@@ -24,7 +24,7 @@ class Sgroup < ActiveRecord::Base
         return 2
       end
     else
-      return nil
+      return 0
     end
   end
 end
