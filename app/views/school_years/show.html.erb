@@ -3,6 +3,26 @@
 <h3>
   <%= @school_year.readable_name %>
 </h3>
+<h4>Automatické generování služeb</h4>
+<p>Následující proces vymaže <b>VŠECHNY</b> služby pro tento školní rok a nahradí je novými až do 31.6.</p>
+<%= form_tag(school_year_path(@school_year) + "/generate_services_from") do %>
+<div class="field">
+  <%= label_tag :date, 'Generovat od data' %><br>
+  <%= date_field_tag :date %>
+</div>
+    <div class="field">
+      <%= label_tag :group_category_id, 'Kategorie skupiny braná jako kritérium pro dělení do dvojic (dva ze stejné skupiny nebudou spolu)' %><br>
+      <%= select_tag :group_category_id, options_from_collection_for_select(GroupCategory.all, :id, :name) %>
+    </div>
+    <div class="field">
+      <%= label_tag :sclass_id, 'Generovat pro třídu' %><br>
+      <%= select_tag :sclass_id, options_from_collection_for_select(Sclass.all, :id, :name) %>
+    </div>
+    <div class="field">
+      <%= submit_tag 'VYGENEROVAT' %>
+    </div>
+<% end %>
+<p>Poznámka: po kliknutí na VYGENEROVAT je nutné chvíli počkat, 69 query na databázi najednou je už trošku moc</p>
 
 
 <%= link_to 'Edit', edit_school_year_path(@school_year) %> |

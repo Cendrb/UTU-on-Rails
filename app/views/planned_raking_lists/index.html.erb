@@ -20,6 +20,7 @@
         <td><%= link_to 'Seznam zkoušených', planned_raking_list %></td>
         <td><%= link_to 'Přihlásit se', new_planned_raking_entry_path(list_id: planned_raking_list.id) %><br></td>
         <% if admin_logged_in? %>
+            <td><%= link_to 'Nahlaš rekt' %></td>
             <td><%= link_to 'Upravit motorku', edit_planned_raking_list_path(planned_raking_list) %></td>
             <td><%= link_to 'Upravit zidany', admin_show_planned_raking_lists_path(planned_raking_list) %></td>
             <td><%= link_to 'Odstranit', planned_raking_list, method: :delete, data: {confirm: 'Are you sure?'} %></td>

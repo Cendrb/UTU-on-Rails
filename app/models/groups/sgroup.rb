@@ -24,12 +24,13 @@ class Sgroup < ActiveRecord::Base
 
   def self.get_deprecated(group)
     if(group)
-      if(group == Sgroup.find_or_create_by("první skupina"))
+      if(group == Sgroup.find_by_name("první skupina"))
         return 1
       end
-      if(group == Sgroup.find_or_create_by("druhá skupina"))
+      if(group == Sgroup.find_by_name("druhá skupina"))
         return 2
       end
+      return 0
     else
       return 0
     end

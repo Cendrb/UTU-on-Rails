@@ -63,17 +63,18 @@ class SchoolYearsController < ApplicationController
 
   def generate_services_from
     date = Date.parse(params[:date])
-    group_category_criteria = GroupCategory.find(params[:group_category])
+    group_category_criteria = GroupCategory.find(params[:group_category_id])
+    sclass = Sclass.find(params[:sclass_id])
 
     first_group = group_category_criteria.sgroups.first
     second_group = group_category_criteria.sgroups.last
 
-    first_mate_array = current_class.class_members.joins(group_belongings: :sgroup).where("sgroups.id = ?", first_group.id).to_a
-    second_mates_array = current_class.class_members.joins(group_belongings: :sgroup).where("sgroups.id = ?", second_group.id).to_a
+    first_mate_array = sclass.class_members.joins(group_belongings: :sgroup).where("sgroups.id = ?", first_group.id).to_a
+    second_mates_array = sclass.class_members.joins(group_belongings: :sgroup).where("sgroups.id = ?", second_group.id).to_a
 
     @created_services = []
 
-    @school_year.services.where(sclass_id: current_class.id).destroy_all
+    @school_year.services.where(sclass_id: sclass.id).destroy_all
 
     end_of_year = Date.new(@school_year.beginning_year + 1, 6, 30)
     next_monday = date - (date.wday - 1).days
@@ -101,28 +102,28 @@ class SchoolYearsController < ApplicationController
           # sum up the ar- FUCK IT MULTIPLE HOLIDAYS WITHIN ONE WEEK NOT SUPPORTED!!!
           if holidays.first.holiday_beginning > date_for_cycle
             # holidays begin after monday = squeeze one more service in but keep the same pair of people
-            @created_services << Service.create!(sclass_id: current_class.id, school_year_id: @school_year.id, service_start: date_for_cycle, service_end: holidays.first.holiday_beginning - 1.days, first_mate_id: first_mate.id, second_mate_id: second_mate.id)
+            @created_services << Service.create!(sclass_id: sclass.id, school_year_id: @school_year.id, service_start: date_for_cycle, service_end: holidays.first.holiday_beginning - 1.days, first_mate_id: first_mate.id, second_mate_id: second_mate.id)
             mates_used = true
           end
 
           if holidays.first.holiday_end < end_of_school_week
             # holidays end before friday = squeeze one more service in but keep the same pair of people
-            @created_services << Service.create!(sclass_id: current_class.id, school_year_id: @school_year.id, service_start: holidays.first.holiday_end + 1.days, service_end: end_of_school_week, first_mate_id: first_mate.id, second_mate_id: second_mate.id)
+            @created_services << Service.create!(sclass_id: sclass.id, school_year_id: @school_year.id, service_start: holidays.first.holiday_end + 1.days, service_end: end_of_school_week, first_mate_id: first_mate.id, second_mate_id: second_mate.id)
             mates_used = true
           end
         else
           # no holidays, just set the whole week
-          @created_services << Service.create!(sclass_id: current_class.id, school_year_id: @school_year.id, service_start: date_for_cycle, service_end: end_of_school_week, first_mate_id: first_mate.id, second_mate_id: second_mate.id)
+          @created_services << Service.create!(sclass_id: sclass.id, school_year_id: @school_year.id, service_start: date_for_cycle, service_end: end_of_school_week, first_mate_id: first_mate.id, second_mate_id: second_mate.id)
           mates_used = true
         end
         date_for_cycle += 7.days
 
         # out of mates? just fetch new ones from database
         if first_mate_array.size == 0
-          first_mate_array = current_class.class_members.joins(group_belongings: :sgroup).where("sgroups.id = ?", first_group.id).to_a
+          first_mate_array = sclass.class_members.joins(group_belongings: :sgroup).where("sgroups.id = ?", first_group.id).to_a
         end
         if second_mates_array.size == 0
-          second_mates_array = current_class.class_members.joins(group_belongings: :sgroup).where("sgroups.id = ?", second_group.id).to_a
+          second_mates_array = sclass.class_members.joins(group_belongings: :sgroup).where("sgroups.id = ?", second_group.id).to_a
         end
       end
     end

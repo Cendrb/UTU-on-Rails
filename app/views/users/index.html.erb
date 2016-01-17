@@ -5,7 +5,7 @@
     <tr>
       <th>Jméno</th>
       <th>Email</th>
-      <th>Administrátor?</th>
+      <th>Úroveň přístupu</th>
       <th>Skupina</th>
       <th></th>
       <th></th>
@@ -18,8 +18,8 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= user.admin %></td>
-        <td><%= user.group %></td>
+        <td><%= "#{User.get_access_level_string(user.access_level)} (#{user.access_level})" %></td>
+        <td><%= user.sgroups.pluck(:name).to_sentence %></td>
         <td><%= link_to 'Zobrazit', user %></td>
         <td><%= link_to 'Upravit', edit_user_path(user) %></td>
         <td><%= link_to 'Odstranit', user, method: :delete, data: { confirm: 'Jste si jisti?' } %></td>

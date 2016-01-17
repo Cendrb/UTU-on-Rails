@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    params[:sgroups] = {}
   end
 
   # GET /users/1/edit
