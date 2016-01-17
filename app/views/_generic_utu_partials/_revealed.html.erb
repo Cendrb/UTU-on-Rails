@@ -1,6 +1,7 @@
 <% type = item.get_utu_type %>
+<% no_hide |= false %>
 
-<%= button_to 'Skrýt', hide_item_path(id: item.id, type: type), method: :post, remote: true, class: 'hide_or_reveal' %>
+<%= button_to 'Skrýt', hide_item_path(id: item.id, type: type), method: :post, remote: true, class: 'hide_or_reveal' unless no_hide %>
 <h3><%= link_to item.title, item %></h3>
 
 <p>
@@ -39,7 +40,7 @@
     </p>
     <p>
       <strong>Datum: </strong>
-      <%= format_date item.date %>
+      <%= format_date item.get_lesson_date %> [<%= l item.date %>]
     </p>
 <% end %>
 

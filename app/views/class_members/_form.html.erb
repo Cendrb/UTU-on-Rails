@@ -1,29 +1,40 @@
 <%= form_for(@class_member) do |f| %>
-  <% if @class_member.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@class_member.errors.count, "error") %> prohibited this class_member from being saved:</h2>
+    <% if @class_member.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@class_member.errors.count, "error") %> prohibited this class_member from being saved:</h2>
 
-      <ul>
-      <% @class_member.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @class_member.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :sclass_id %><br>
-    <%= f.collection_select :sclass_id, Sclass.all, :id, :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="field">
+      <%= f.label :sclass_id %><br>
+      <%= f.collection_select :sclass_id, Sclass.all, :id, :name %>
+    </div>
+    <div class="field">
+      <%= label_tag :group, 'Skupiny' %><br>
+      <% GroupCategory.all.each do |category| %>
+          <strong><%= category.name %></strong>
+          <% category.sgroups.each do |sgroup| %>
+              <%= radio_button_tag "sgroups[#{category.id}]", sgroup.id %>
+              <%= label_tag "sgroups[#{category.id}]", sgroup.name %>
+          <% end %>
+          <br>
+      <% end %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

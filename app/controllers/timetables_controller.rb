@@ -74,12 +74,10 @@ class TimetablesController < ApplicationController
   
   def summary
     if logged_in?
-      @timetable = Timetable.where(group: current_user.group).first
-      @first_group_timetable = Timetable.find_by_group(1)
-      @second_group_timetable = Timetable.find_by_group(2)
+      @timetables = Timetable.joins("LEFT JOIN group_timetable_bindings ON timetables.id = group_timetable_bindings.timetable_id").joins("LEFT JOIN sgroups ON sgroups.id = group_timetable_bindings.sgroup_id").where("sgroups.id IN (?)", current_user.sgroups.pluck(:id)).where("timetables.sclass_id = ?", current_class.id).uniq
     else
-      @first_group_timetable = Timetable.find_by_group(1)
-      @second_group_timetable = Timetable.find_by_group(2)
+      @timetables = {}
+      @timetables << current_class.default_timetable
     end
   end
 

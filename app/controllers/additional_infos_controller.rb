@@ -1,5 +1,6 @@
 class AdditionalInfosController < ApplicationController
   before_action :set_additional_info, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_admin
 
   # GET /additional_infos
   # GET /additional_infos.json
@@ -29,7 +30,7 @@ class AdditionalInfosController < ApplicationController
     respond_to do |format|
       if @additional_info.save
         format.html { redirect_to @additional_info, notice: 'Additional info was successfully created.' }
-        format.js { render 'form/append_new_checkbox' }
+        format.js { render 'additional_infos/form/append_new_checkbox' }
         format.json { render :show, status: :created, location: @additional_info }
       else
         format.html { render :new }

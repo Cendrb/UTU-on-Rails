@@ -1,29 +1,34 @@
 <%= form_for(@holiday) do |f| %>
-  <% if @holiday.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@holiday.errors.count, "error") %> prohibited this holiday from being saved:</h2>
+    <% if @holiday.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@holiday.errors.count, "error") %> prohibited this holiday from being saved:</h2>
 
-      <ul>
-      <% @holiday.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @holiday.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :holiday_beginning %><br>
-    <%= f.date_select :holiday_beginning %>
-  </div>
-  <div class="field">
-    <%= f.label :holiday_end %><br>
-    <%= f.date_select :holiday_end %>
-  </div>
-  <div class="field">
-    <%= f.label :school_year_id %><br>
-    <%= f.collection_select(:school_year_id, SchoolYear.order("beginning_year DESC").all, :id, :readable_name) %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :holiday_beginning %><br>
+      <%= f.date_select :holiday_beginning %>
+    </div>
+    <div class="field">
+      <%= f.label :holiday_end %><br>
+      <%= f.date_select :holiday_end %>
+    </div>
+    <div class="field">
+      <%= f.label :school_year_id %><br>
+      <%= f.collection_select(:school_year_id, SchoolYear.order("beginning_year DESC").all, :id, :readable_name) %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

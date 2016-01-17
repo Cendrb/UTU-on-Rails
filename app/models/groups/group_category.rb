@@ -1,3 +1,4 @@
 class GroupCategory < ActiveRecord::Base
-  has_many :sgroups
+  validates_presence_of :name
+  has_many :sgroups, dependent: :destroy
 end

@@ -1,3 +1,13 @@
+<div id="additional_info_form">
+  <h5>přidat url (více informací)</h5>
+  <%= form_for(AdditionalInfo.new, remote: true) do |f| %>
+      <%= f.label :name, 'Název' %>
+      <%= f.text_field :name %>
+      <%= f.label :url, 'Adresa URL' %>
+      <%= f.url_field :url %>
+      <%= f.submit 'Uložit' %>
+  <% end %>
+</div>
 <%= form_for(item) do |f| %>
     <% if item.errors.any? %>
         <div id="error_explanation">
@@ -73,23 +83,21 @@
     </div>
 
     <div class="field additional_infos_list">
-      <% AdditionalInfo.order(:updated_at).all.each do |info| %>
+      <%= f.label :penios, 'Více informací' %><br>
+      <% AdditionalInfo.order(:updated_at).limit(8).all.each do |info| %>
           <%= check_box_tag "additional_infos[#{info.id}]", info.name, params[:additional_infos][info.id] == 1 %><%= info.name %>
           <br>
       <% end %>
     </div>
 
+    <% if type != :event %>
+        <div class="field">
+          <%= f.label :passed, 'Již proběhlo (nezobrazí se v přehledu)' %><br>
+          <%= f.check_box :passed %>
+        </div>
+    <% end %>
+
     <div class="actions">
       <%= f.submit 'Uložit' %>
     </div>
 <% end %>
-
-<div class="additional_info_form">
-  <%= form_for(AdditionalInfo.new, remote: true) do |f| %>
-      <%= f.label :name, 'Název' %>
-      <%= f.text_field :name %>
-      <%= f.label :url, 'Adresa URL' %>
-      <%= f.url_field :url %>
-      <%= f.submit 'Uložit' %>
-  <% end %>
-</div>

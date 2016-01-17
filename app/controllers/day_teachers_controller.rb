@@ -76,7 +76,7 @@ class DayTeachersController < ApplicationController
   private
 
   def set_teachers_list_variable
-    @teachers = Teacher.for_group(current_user.group)
+    @teachers = Teacher.order(:name).all
   end
 
   # Use callbacks to share common setup or constraints between actions.

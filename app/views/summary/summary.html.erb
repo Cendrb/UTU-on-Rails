@@ -15,7 +15,7 @@
 
 <h2>Služba</h2>
 <% if @current_service %>
-	<p>Službu na aktuální týden má <strong><%= @current_service.first_name %></strong> a <strong><%= @current_service.second_name %></strong>
+	<p>Službu na aktuální týden má <strong><%= @current_service.first_mate.full_name %></strong> a <strong><%= @current_service.second_mate.full_name %></strong>
 <% else %>
 	<p>Na aktuální týden nebyla určena žádná služba.
 <% end %>

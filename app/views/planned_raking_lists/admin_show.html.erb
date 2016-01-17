@@ -1,33 +1,8 @@
-<% timetable = Timetable.timetable_for(@data[:list].subject, 0) %>
+<h2>Administrace <%= @data[:list].title %></h2>
 
-<p id="notice"><%= notice %></p>
+<strong>Výběr kola</strong>
+<%= select_tag(:round_selector, options_from_collection_for_select(@data[:list].raking_rounds, :id, :number), prompt: "Vyberte kolo pro zobrazení...") %>
 
-<h2>Administrace <%= @data[:list].title %> <%= @data[:list].id %></h2>
-
-<table class="stretch">
-  <thead>
-  <tr>
-    <th>Jméno</th>
-    <th>Téma</th>
-    <th>Předpokládané datum zkoušení (nejhorší scénář)</th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody id="planned_raking_entries_sortable">
-  <% counter = 0.0 %>
-  <% @data[:entries].each do |entry| %>
-      <tr class="move_cursor" data-entry-id="<%= entry.id %>">
-        <td><%= entry.name %></td>
-        <td><%= entry.description %></td>
-        <td><%= timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor) ? (format_date timetable.get_next_hour_for(@data[:list].subject, @data[:list].beginning, counter.floor).school_day.date) : (format_date @data[:list].beginning) %></td>
-        <td><%= format_date entry.created_at %></td>
-        <td><%= entry.sorting_order %></td>
-        <td><%= entry.id %></td>
-        <td><%= entry.planned_raking_list_id %></td>
-        <td><%= link_to "Vyhladit #{entry.name}", entry, method: :delete, data: { confirm: 'Jako vážně?' } %></td>
-        <td><%= button_to "#{entry.name} byl/a již zkoušen/a", admin_show_planned_raking_entries_rekt_path, params: { id: entry.id }, remote: true if !entry.finished %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-<div id="planned_raking_list_status">Všechny změny uloženy</div>
+<div id="planned_raking_entries_div" data-id="<%= @data[:list].id %> data-admin="true">
+  <%= render partial: "planned_raking_lists/show/admin_show", locals: {list: @data[:list], round: @data[:round]} %>
+</div>

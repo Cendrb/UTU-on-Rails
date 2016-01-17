@@ -1,12 +1,8 @@
 <% random = rand(36**10).to_s(36) %>
 $("#main").append("<div class=\"dialog\" data-identifier=\"<%= random %>\"></div>");
 
-<% @exams.each do |exam| %>
-	$(".dialog[data-identifier='<%= random %>']").append("<%= escape_javascript(render partial: "exams/exam", locals: {exam: exam, no_hide: true}) %>");
-<% end %>
-
-<% @tasks.each do |task| %>
-	$(".dialog[data-identifier='<%= random %>']").append("<%= escape_javascript(render partial: "tasks/task", locals: {task: task, no_hide: true}) %>");
+<% @items.each do |item| %>
+	$(".dialog[data-identifier='<%= random %>']").append("<%= escape_javascript(render partial: "_generic_utu_partials/show", locals: {item: item, no_hide: true}) %>");
 <% end %>
 
 $(".dialog[data-identifier=<%= random %>]").dialog(

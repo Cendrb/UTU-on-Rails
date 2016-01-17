@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111202336) do
+ActiveRecord::Schema.define(version: 20160116145141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20160111202336) do
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
+    t.integer  "class_member_id"
   end
 
   create_table "class_members", force: true do |t|
@@ -107,12 +107,20 @@ ActiveRecord::Schema.define(version: 20160111202336) do
     t.datetime "updated_at"
   end
 
+  create_table "group_timetable_bindings", force: true do |t|
+    t.integer  "sgroup_id"
+    t.integer  "timetable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "holidays", force: true do |t|
     t.date     "holiday_beginning"
     t.date     "holiday_end"
     t.integer  "school_year_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "info_item_bindings", force: true do |t|
@@ -145,7 +153,6 @@ ActiveRecord::Schema.define(version: 20160111202336) do
   end
 
   create_table "planned_raking_entries", force: true do |t|
-    t.string   "name"
     t.integer  "planned_raking_list_id"
     t.boolean  "finished"
     t.integer  "sorting_order"
@@ -153,6 +160,8 @@ ActiveRecord::Schema.define(version: 20160111202336) do
     t.datetime "updated_at"
     t.text     "description"
     t.integer  "class_member_id"
+    t.integer  "raking_round_id"
+    t.string   "grade"
   end
 
   create_table "planned_raking_lists", force: true do |t|
@@ -164,6 +173,14 @@ ActiveRecord::Schema.define(version: 20160111202336) do
     t.datetime "updated_at"
     t.integer  "rekt_per_hour"
     t.integer  "sclass_id"
+  end
+
+  create_table "raking_rounds", force: true do |t|
+    t.integer  "planned_raking_list_id"
+    t.integer  "school_year_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "number"
   end
 
   create_table "school_days", force: true do |t|
@@ -183,6 +200,7 @@ ActiveRecord::Schema.define(version: 20160111202336) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "default_timetable_id"
   end
 
   create_table "services", force: true do |t|
@@ -227,7 +245,6 @@ ActiveRecord::Schema.define(version: 20160111202336) do
   create_table "teachers", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "group"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "abbr"
@@ -238,7 +255,7 @@ ActiveRecord::Schema.define(version: 20160111202336) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "baka_account_id"
-    t.integer  "group"
+    t.integer  "sclass_id"
   end
 
   create_table "users", force: true do |t|

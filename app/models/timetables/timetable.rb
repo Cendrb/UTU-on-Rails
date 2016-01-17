@@ -1,7 +1,12 @@
 class Timetable < ActiveRecord::Base
   has_many :school_days, -> { order(date: :asc) }, dependent: :destroy
   belongs_to :baka_account
-  validates :name, :baka_account, :group, presence: {presence: true, message: 'nesmí být prázdný'}
+  belongs_to :sclass
+
+  has_many :group_timetable_bindings, dependent: :destroy
+  has_many :sgroups, through: :group_timetable_bindings
+
+  validates :name, :baka_account, :sgroup, :sclass, presence: {presence: true, message: 'nesmí být prázdný'}
 
   def get_timetable
     browser = Mechanize.new
@@ -69,20 +74,23 @@ class Timetable < ActiveRecord::Base
     return Lesson.joins(school_day: :timetable).where('timetables.id = ?', self.id).where('school_days.date >= ?', date).where(subject: subject).order('school_days.date').offset(counter).first
   end
 
-  def self.timetable_for(subject, group)
-    if group == 0
-      # not group dependent
-      if subject.name == 'HuO'
-        # use HuO group (first)
-        return Timetable.where(group: 1).first
+  def self.timetable_for(sclass, sgroup = nil)
+    if sgroup
+      timetable = sgroup.timetables.where(sclass: sclass).first
+      if timetable
+        return timetable
       else
-        # use VýO group (second)
-        return Timetable.where(group: 2).first
+        return sclass.default_timetable
       end
     else
-      # group dependent
-      return Timetable.where(group: group).first
+      return sclass.default_timetable
     end
+
+  end
+
+
+  def full_name
+    return "#{name} (#{sclass.name} - #{sgroups.pluck(:name).to_sentence})"
   end
 
   private
@@ -103,10 +111,12 @@ class Timetable < ActiveRecord::Base
     days.each do |day|
       date = Date.parse(day.at_css('td.r_rozden div.r_bunkaden div.r_datum').content + Time.now.year.to_s)
 
+      # remove duplicates
       duplicates = SchoolDay.where(date: date, timetable: self).destroy_all
 
       lessons = day.children
 
+      # create current schoolday
       school_day = target.school_days.create(date: date, timetable: target)
 
       counter = 0
@@ -127,7 +137,7 @@ class Timetable < ActiveRecord::Base
 
             teacher = Teacher.find_by_name(teacher_string)
             if (!teacher)
-              teacher = Teacher.create(name: teacher_string, group: 0, abbr: abbr_string)
+              teacher = Teacher.create(name: teacher_string, abbr: abbr_string)
             end
 
             school_day.lessons.create(subject: subject, room: room, teacher: teacher, serial_number: counter)

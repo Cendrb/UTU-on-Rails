@@ -16,10 +16,6 @@ class Task < ActiveRecord::Base
   belongs_to :sclass
   belongs_to :sgroup
 
-  has_many :info_item_bindings, :as => :item
-  has_many :lesson_item_bindings, :as => :item
-  has_many :done_utu_items, :as => :item
-
   def get_exam(type)
     Exam.new(title: title, description: description, subject: subject, sgroup_id: sgroup_id, sclass_id: sclass_id, date: date, type: type)
   end

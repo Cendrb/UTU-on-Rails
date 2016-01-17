@@ -3,6 +3,8 @@ class ClassMember < ActiveRecord::Base
   belongs_to :sclass
   has_one :user
 
+  has_one :baka_account
+
   has_many :planned_raking_entries
 
   has_many :group_belongings

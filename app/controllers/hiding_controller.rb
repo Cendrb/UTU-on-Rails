@@ -1,4 +1,6 @@
 class HidingController < ApplicationController
+  before_filter :authenticate
+
   def hide
     id = params[:id]
     @type = params[:type]

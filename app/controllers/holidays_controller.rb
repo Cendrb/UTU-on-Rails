@@ -1,5 +1,7 @@
 class HolidaysController < ApplicationController
   before_action :set_holiday, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_admin, except: [:index, :show]
+  before_filter :authenticate, only: [:index, :show]
 
   # GET /holidays
   # GET /holidays.json
@@ -69,6 +71,6 @@ class HolidaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def holiday_params
-      params.require(:holiday).permit(:holiday_beginning, :holiday_end, :school_year_id)
+      params.require(:holiday).permit(:holiday_beginning, :holiday_end, :school_year_id, :name)
     end
 end

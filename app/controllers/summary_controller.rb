@@ -85,7 +85,7 @@ class SummaryController < ApplicationController
             exam.save!
           end
           lesson.tasks.find_each do |task|
-            task.passed = trues
+            task.passed = true
             task.save!
           end
         end
@@ -105,6 +105,7 @@ class SummaryController < ApplicationController
     # users (migrate from name to class_member_id)
     # users (migrate from group to groups-and-belongings-and-stuff)
     # utu_items (add sgroup_id, add sclass_id)
+    # planned_raking_entries (wipe)
   end
 
   def administrator_logged_in

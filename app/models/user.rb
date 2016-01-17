@@ -8,9 +8,7 @@ class User < ActiveRecord::Base
   has_many :day_teachers
   has_many :details_accesses
 
-  has_many :done_events
-  has_many :done_exams
-  has_many :done_tasks
+  has_many :done_utu_items
 
   has_many :sgroups, through: :class_member
 

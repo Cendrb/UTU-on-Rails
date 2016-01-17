@@ -21,16 +21,19 @@ class ExamsController < ApplicationController
   def new
     @exam = Exam.new
     @exam.date = next_workday
+    new_init(@exam)
   end
 
   # GET /exams/1/edit
   def edit
+    edit_init(@exam)
   end
 
   # POST /exams
   # POST /exams.json
   def create
     @exam = Exam.new(exam_params)
+    update_init(@exam)
 
     respond_to do |format|
       if @exam.save
@@ -96,7 +99,7 @@ class ExamsController < ApplicationController
   
   def find_and_set_lesson
     @exam.find_and_set_lesson
-    @exam.save!
+    @exam.save
   end
 
   # Use callbacks to share common setup or constraints between actions.

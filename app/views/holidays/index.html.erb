@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th>Holiday beginning</th>
       <th>Holiday end</th>
       <th>School year</th>
@@ -13,9 +14,10 @@
   <tbody>
     <% @holidays.each do |holiday| %>
       <tr>
+        <td><%= holiday.name %></td>
         <td><%= holiday.holiday_beginning %></td>
         <td><%= holiday.holiday_end %></td>
-        <td><%= holiday.school_year_id %></td>
+        <td><%= holiday.school_year.readable_name %></td>
         <td><%= link_to 'Show', holiday %></td>
         <td><%= link_to 'Edit', edit_holiday_path(holiday) %></td>
         <td><%= link_to 'Destroy', holiday, method: :delete, data: { confirm: 'Are you sure?' } %></td>

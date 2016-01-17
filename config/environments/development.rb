@@ -40,9 +40,9 @@ config.action_mailer.smtp_settings = {
   authentication:       'plain',
   enable_starttls_auto: true  }
   
-  Dynopoker.configure do |config|
-    config.address = 'http://localhost:3000/update'
+  #Dynopoker.configure do |config|
+    #config.address = 'http://localhost:3000/update'
     #  config.enable = false # default is true
-    config.poke_frequency = 900 # default is 1800s (30min)
-  end
+    #config.poke_frequency = 900 # default is 1800s (30min)
+  #end
 end

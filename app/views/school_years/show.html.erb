@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Beginning year:</strong>
-  <%= @school_year.beginning_year %>
-</p>
+<h3>
+  <%= @school_year.readable_name %>
+</h3>
+
 
 <%= link_to 'Edit', edit_school_year_path(@school_year) %> |
 <%= link_to 'Back', school_years_path %>

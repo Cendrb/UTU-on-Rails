@@ -113,7 +113,7 @@ class TasksController < ApplicationController
   
   def find_and_set_lesson
     @task.find_and_set_lesson
-    @task.save!
+    @task.save
   end
 
   # Use callbacks to share common setup or constraints between actions.

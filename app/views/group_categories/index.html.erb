@@ -1,9 +1,10 @@
 <h1>Listing group_categories</h1>
 
-<table>
+<table class="stretch">
   <thead>
     <tr>
       <th>Name</th>
+      <th>Obsažené skupiny</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,7 +13,8 @@
     <% @group_categories.each do |group_category| %>
       <tr>
         <td><%= group_category.name %></td>
-        <td><%= link_to 'Show', group_category %></td>
+        <td><%= group_category.sgroups.pluck(:name).to_sentence %></td>
+        <td><%= link_to 'Nová skupina', new_sgroup_path(group_category_id: group_category.id) %></td>
         <td><%= link_to 'Edit', edit_group_category_path(group_category) %></td>
         <td><%= link_to 'Destroy', group_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

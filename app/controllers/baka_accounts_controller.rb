@@ -70,6 +70,6 @@ class BakaAccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def baka_account_params
-      params.require(:baka_account).permit(:username, :password, :name)
+      params.require(:baka_account).permit(:username, :password, :class_member_id)
     end
 end

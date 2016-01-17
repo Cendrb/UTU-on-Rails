@@ -3,6 +3,8 @@ UTUOnRails::Application.routes.draw do
 
   resources :holidays
 
+
+  get 'school_years/:id/generate_services_from' => 'school_years#generate_services_from'
   resources :school_years
 
   resources :sgroups

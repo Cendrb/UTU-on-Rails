@@ -11,10 +11,6 @@
     </div>
   <% end %>
 
-    <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
   <div class="field">
     <%= f.label :username %><br>
     <%= f.text_field :username %>
@@ -23,6 +19,10 @@
     <%= f.label :password %><br>
     <%= f.password_field :password %>
   </div>
+    <div class="field">
+      <%= f.label :class_member_id %><br>
+      <%= f.collection_select :class_member_id, ClassMember.where(sclass: current_class), :id, :full_name %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

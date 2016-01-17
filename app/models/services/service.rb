@@ -7,7 +7,7 @@ class ServiceDateValidator < ActiveModel::Validator
 end
 
 class Service < ActiveRecord::Base
-  validates :first_mate_id, :second_mate_id, :service_start, :service_end, :sclass_id, presence: { presence: true, message: "nesmí být prázdný" }
+  validates :first_mate_id, :second_mate_id, :service_start, :service_end, :sclass_id, :school_year, presence: { presence: true, message: "nesmí být prázdný" }
   scope :in_future, -> { where('service_end >= :today', { today: Date.today }) }
   validates_with ServiceDateValidator
 

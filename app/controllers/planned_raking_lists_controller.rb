@@ -13,13 +13,25 @@ class PlannedRakingListsController < ApplicationController
   def show
     @data = {}
     @data[:list] = @planned_raking_list
-    @data[:entries] = @planned_raking_list.planned_raking_entries.where(finished: false).order(:sorting_order)
+    @data[:round] = @planned_raking_list.raking_rounds.last
+    @data[:admin] = false
+
+    respond_to do |format|
+      format.html { render "show.html.erb" }
+      format.js { render "planned_raking_lists/show/remote_show" }
+    end
   end
 
   def admin_show
     @data = {}
     @data[:list] = @planned_raking_list
-    @data[:entries] = @planned_raking_list.planned_raking_entries.order(:finished, :sorting_order)
+    @data[:round] = @planned_raking_list.raking_rounds.last
+    @data[:admin] = true
+
+    respond_to do |format|
+      format.html { render "admin_show.html.erb" }
+      format.js { render "planned_raking_lists/show/remote_show" }
+    end
   end
 
   # GET /planned_raking_lists/new

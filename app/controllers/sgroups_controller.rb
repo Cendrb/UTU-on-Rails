@@ -16,6 +16,9 @@ class SgroupsController < ApplicationController
   # GET /sgroups/new
   def new
     @sgroup = Sgroup.new
+    if params[:group_category_id]
+      @sgroup.group_category_id = params[:group_category_id].to_i
+    end
   end
 
   # GET /sgroups/1/edit

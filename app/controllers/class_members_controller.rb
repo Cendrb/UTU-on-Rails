@@ -20,16 +20,23 @@ class ClassMembersController < ApplicationController
 
   # GET /class_members/1/edit
   def edit
+    params[:sgroups] = {}
+
+    @class_member.sgroups.each do |group|
+      params[:sgroups][group.group_category.id] = group.id
+    end
   end
 
   # POST /class_members
   # POST /class_members.json
   def create
     @class_member = ClassMember.new(class_member_params)
+    parse_group_belongings_radios
 
     respond_to do |format|
       if @class_member.save
         format.html { redirect_to @class_member, notice: 'Class member was successfully created.' }
+        format.js { render "class_members/sclass_show/add_table_tr_for_sclass_show" }
         format.json { render :show, status: :created, location: @class_member }
       else
         format.html { render :new }
@@ -41,6 +48,7 @@ class ClassMembersController < ApplicationController
   # PATCH/PUT /class_members/1
   # PATCH/PUT /class_members/1.json
   def update
+    parse_group_belongings_radios
     respond_to do |format|
       if @class_member.update(class_member_params)
         format.html { redirect_to @class_member, notice: 'Class member was successfully updated.' }
@@ -63,13 +71,22 @@ class ClassMembersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_class_member
-      @class_member = ClassMember.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_class_member
+    @class_member = ClassMember.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def class_member_params
-      params.require(:class_member).permit(:first_name, :last_name, :sclass_id)
+  def parse_group_belongings_radios
+    if params[:sgroups]
+      @class_member.group_belongings.destroy_all
+      params[:sgroups].each do |category|
+        GroupBelonging.create(sgroup_id: category[1].to_i, class_member_id: @class_member.id)
+      end
     end
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def class_member_params
+    params.require(:class_member).permit(:first_name, :last_name, :sclass_id)
+  end
 end

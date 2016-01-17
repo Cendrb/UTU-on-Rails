@@ -1,9 +1,66 @@
 <p id="notice"><%= notice %></p>
 
+<h3><%= @sclass.name %></h3>
+<div id="sclass_show_user_form">
+  <h4>Nový uživatel</h4>
+  <%= form_for(ClassMember.new(sclass_id: @sclass.id), remote: true) do |f| %>
+      <%= f.hidden_field :sclass_id %>
+      <div class="field">
+        <%= f.label :first_name, 'Jméno' %>
+        <%= f.text_field :first_name %>
+        <%= f.text_field :last_name %>
+      </div>
+      <div class="field">
+        <%= label_tag :group, 'Skupiny' %><br>
+        <% GroupCategory.all.each do |category| %>
+            <strong><%= category.name %></strong>
+            <% category.sgroups.each do |sgroup| %>
+                <%= radio_button_tag "sgroups[#{category.id}]", sgroup.id %>
+                <%= label_tag "sgroups[#{category.id}]", sgroup.name %>
+            <% end %>
+            <br>
+        <% end %>
+      </div>
+      <div class="field">
+        <%= f.submit "Uložit" %>
+      </div>
+  <% end %>
+</div>
 <p>
-  <strong>Name:</strong>
-  <%= @sclass.name %>
+  <strong>Default timetable:</strong>
+  <%= @sclass.default_timetable.full_name %>
 </p>
+<table>
+  <thead>
+  <tr>
+    <th>Jméno</th>
+    <th>Skupiny</th>
+    <th>Uživatel?</th>
+  </tr>
+  </thead>
+  <tbody id="sclass_show_users_tbody">
+  <% @sclass.class_members.order(:last_name).each do |member| %>
+      <%= render partial: "class_members/sclass_show/table_tr_for_sclass_show", locals: { class_member: member } %>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<table>
+  <thead>
+  <tr>
+    <th>Jméno rozvrhu</th>
+    <th>Podporované skupiny</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @sclass.timetables.each do |timetable| %>
+      <tr>
+        <td><%= timetable.name %></td>
+        <td><%= timetable.sgroups.pluck(:name).to_sentence %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_sclass_path(@sclass) %> |
 <%= link_to 'Back', sclasses_path %>

@@ -1,0 +1,4 @@
+<% @created_services.each do |reported| %>
+    <%= reported.first_mate.full_name %> <%= reported.second_mate.full_name %> (<%= l reported.service_start %> - <%= l reported.service_end %>)
+    <br>
+<% end %>

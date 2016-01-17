@@ -2,7 +2,7 @@ module Hideable
   extend ActiveSupport::Concern
 
   def is_done?
-    DoneUtuItem.where('user_id = :user AND item_id = :item AND item_type = :type', { user: User.current, item: self, type: self.get_utu_type }).count > 0
+    DoneUtuItem.where('user_id = :user AND item_id = :item AND item_type = :type', { user: User.current, item: self, type: self.get_utu_type }).exists?
   end
 
   def mark_as_undone

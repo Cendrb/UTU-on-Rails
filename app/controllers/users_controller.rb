@@ -17,7 +17,6 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    @user.sclass = Sclass.first
   end
 
   # GET /users/1/edit
@@ -123,7 +122,7 @@ class UsersController < ApplicationController
     if @user.class_member && params[:sgroups]
       @user.class_member.group_belongings.destroy_all
       params[:sgroups].each do |category|
-        @user.class_member.sgroups << Sgroup.find(category[1].to_i)
+        GroupBelonging.create(sgroup_id: category[1].to_i, class_member_id: @user.class_member.id)
       end
     end
   end

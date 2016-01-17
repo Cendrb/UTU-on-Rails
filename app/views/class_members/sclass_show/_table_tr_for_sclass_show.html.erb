@@ -1,0 +1,5 @@
+<tr>
+  <td><%= class_member.full_name %></td>
+  <td><%= class_member.sgroups.pluck(:name).to_sentence %></td>
+  <td><%= format_boolean !class_member.user.nil? %></td>
+</tr>

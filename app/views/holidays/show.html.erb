@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h3><%= @holiday.name %></h3>
+
 <p>
   <strong>Holiday beginning:</strong>
   <%= @holiday.holiday_beginning %>
@@ -12,7 +14,7 @@
 
 <p>
   <strong>School year:</strong>
-  <%= @holiday.school_year_id %>
+  <%= @holiday.school_year.readable_name %>
 </p>
 
 <%= link_to 'Edit', edit_holiday_path(@holiday) %> |

@@ -15,6 +15,10 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+    <div>
+      <%= f.label :default_timetable_id %><br>
+      <%= f.collection_select :default_timetable_id, Timetable.all, :id, :full_name %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

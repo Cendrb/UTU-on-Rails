@@ -13,7 +13,7 @@
   <tbody>
     <% @baka_accounts.each do |baka_account| %>
       <tr>
-          <td><%= baka_account.name %></td></td>
+          <td><%= baka_account.class_member ? baka_account.class_member.full_name : "NO CLASS_MEMBER ASSOCIATED" %></td></td>
         <td><%= baka_account.username %></td>
         <td>Surprise Motherfucker!</td>
         <td><%= link_to 'Zobrazit', baka_account %></td>

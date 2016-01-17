@@ -12,7 +12,7 @@
           <% if type == :event %>
               <%= "#{l item.event_start} - #{l item.event_end}" %>
           <% else %>
-              <%= get_next_lesson_string item %>
+              <%= format_date item.get_lesson_date %> [<%= l item.date %>]
           <% end %>
         </div>
         <div class="shared_index_item_group"><%= get_group_string item %></div>

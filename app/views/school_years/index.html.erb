@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Beginning year</th>
+      <th>Years</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -11,7 +11,7 @@
   <tbody>
     <% @school_years.each do |school_year| %>
       <tr>
-        <td><%= school_year.beginning_year %></td>
+        <td><%= school_year.readable_name %></td>
         <td><%= link_to 'Show', school_year %></td>
         <td><%= link_to 'Edit', edit_school_year_path(school_year) %></td>
         <td><%= link_to 'Destroy', school_year, method: :delete, data: { confirm: 'Are you sure?' } %></td>

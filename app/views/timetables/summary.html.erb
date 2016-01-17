@@ -1,19 +1,18 @@
 <h1>Rozvrh</h1>
 
-<% if @timetable %>
-	<p>Zobrazené rozvrhy jsou přispůsobeny pro aktuálně přihlášeného uživatele. (skupina <%= current_user.group %>.) Pokud chcete zobrazit jiný rozvrh použijte následující odkazy.</p>
-	<%= link_to "1. skupina", @first_group_timetable, remote: true, format: :js, id: "first_group" %>
-	<%= link_to "2. skupina", @second_group_timetable, remote: true, format: :js, id: "second_group" %>
-	<div id="timetable_placeholder">
-		<%= render @timetable %>
-	</div>
+<% if logged_in? %>
+    <p>Rozvrhy jsou přizpůsobeny pro aktuálního uživatele a jeho vybrané skupiny</p>
+    <% @timetables.each do |timetable| %>
+        <div class="timetables_summary_timetable_link">
+        <%= link_to timetable.sgroups.pluck(:name).to_sentence, timetable, remote: true, format: :js, id: timetable.id %>
+        </div>
+    <% end %>
+    <div id="timetable_placeholder">
+      <%= render partial: "timetable", locals: { timetable: @timetables.first } %>
+    </div>
 <% else %>
-	<p>Vyberte prosím svou skupinu. (u <%= link_to "přihlášených", :login %> uživatelů se odpovídající rozvrh zobrazuje automaticky)</p>
-	<%= link_to "1. skupina", @first_group_timetable, remote: true, format: :js, id: "first_group", style: "font-weight:bold" %>
-	<%= link_to "2. skupina", @second_group_timetable, remote: true, format: :js, id: "second_group" %>
-	<div id="timetable_placeholder">
-		<%= render @first_group_timetable %>
-	</div>
+    <p>Zobrazuje se pouze výchozí rozvrh pro Vaši třídu. Pro zobrazení jednotlivých skupin se prosím přihlašte</p>
+    <%= render partial: "timetable", locals: { timetable: @timetables.first } %>
 <% end %>
 
-<p>Rozvrhy jsou obnovovány každých 15 minut z bakalářů. Rozvrhy jsou stále ve verzi beta a jejich vzhled se bude v budoucnu měnit.</p>
+<p>Rozvrhy jsou obnovovány každých 30 minut z bakalářů.</p>

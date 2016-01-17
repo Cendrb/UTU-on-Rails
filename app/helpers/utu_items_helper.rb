@@ -7,10 +7,6 @@ module UtuItemsHelper
     end
   end
 
-  def get_next_lesson_string(utu_item)
-    return "TODO"
-  end
-
   def get_admin_links(utu_item)
     type = utu_item.get_utu_type
 

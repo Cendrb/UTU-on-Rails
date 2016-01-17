@@ -1,7 +1,14 @@
 class Sgroup < ActiveRecord::Base
+  validates_presence_of :group_category, :name
+
   belongs_to :group_category
-  has_many :group_belongings
+
+  has_many :group_belongings, dependent: :destroy
   has_many :class_members, through: :group_belongings
+
+  has_many :group_timetable_bindings, dependent: :destroy
+  has_many :timetables, through: :group_timetable_bindings
+
 
   def self.parse_deprecated(deprecated_group)
     if(deprecated_group == 0)

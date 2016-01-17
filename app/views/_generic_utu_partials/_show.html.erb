@@ -1,13 +1,18 @@
 <% type = item.get_utu_type %>
+<% no_hide |= false %>
 
 <div class="utu_item" data-id=<%= item.id %> data-type="<%= type %>">
-  <% if logged_in? %>
-      <% if item.is_done? %>
-          <%= render partial: '_generic_utu_partials/hidden', locals: { item: item } %>
-      <% else %>
-          <%= render partial: '_generic_utu_partials/revealed', locals: { item: item } %>
-      <% end %>
+  <% if no_hide %>
+      <%= render partial: '_generic_utu_partials/revealed', locals: {item: item, no_hide: true} %>
   <% else %>
-      <%= render partial: '_generic_utu_partials/revealed', locals: { item: item } %>
+      <% if logged_in? %>
+          <% if item.is_done? %>
+              <%= render partial: '_generic_utu_partials/hidden', locals: {item: item} %>
+          <% else %>
+              <%= render partial: '_generic_utu_partials/revealed', locals: {item: item} %>
+          <% end %>
+      <% else %>
+          <%= render partial: '_generic_utu_partials/revealed', locals: {item: item} %>
+      <% end %>
   <% end %>
 </div>
