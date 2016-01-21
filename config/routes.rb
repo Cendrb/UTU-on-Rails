@@ -17,10 +17,13 @@ UTUOnRails::Application.routes.draw do
 
   post 'planned_raking_entries/sort' => 'planned_raking_entries#sort'
   post 'planned_raking_entries/mark_as_rekt' => 'planned_raking_entries#mark_as_rekt', as: "admin_show_planned_raking_entries_rekt"
-  resources :planned_raking_entries
+  get 'planned_raking_entries/new_planned_rekt' => 'planned_raking_entries#new_planned_rekt', as: 'new_planned_rekt_raking_entry'
+  get 'planned_reking_entries/new_already_rekt' => 'planned_raking_entries#new_already_rekt', as: 'new_already_rekt_raking_entry'
+  resources :planned_raking_entries, except: :new
 
 
   get 'planned_raking_lists/admin_show/:id' => "planned_raking_lists#admin_show", as: "admin_show_planned_raking_lists"
+  post 'planned_raking_lists/create_new_round/:id' => "planned_raking_lists#create_new_round", as: "create_new_round_planned_raking_lists"
   resources :planned_raking_lists
 
   resources :written_exams do

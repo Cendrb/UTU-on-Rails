@@ -9,4 +9,13 @@ class SchoolYear < ActiveRecord::Base
   def readable_name
     return "#{beginning_year}/#{beginning_year + 1}"
   end
+
+  def self.current
+    if Date.today.month >= 9 && Date.today.month <= 12
+      return SchoolYear.find_by_beginning_year(Date.today.year)
+    end
+    if Date.today.month >= 1 && Date.today.month <= 6
+      return SchoolYear.find_by_beginning_year(Date.today.year - 1)
+    end
+  end
 end

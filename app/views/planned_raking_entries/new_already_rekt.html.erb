@@ -1,0 +1,35 @@
+<h1>Already rekt form</h1>
+
+<%= form_for(@planned_raking_entry) do |f| %>
+
+    <% if @planned_raking_entry.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@planned_raking_entry.errors.count, "error") %> prohibited this motorku from being
+            saved:</h2>
+          <ul>
+            <% @planned_raking_entry.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <% sclass = @planned_raking_entry.planned_raking_list ? @planned_raking_entry.planned_raking_list.sclass : current_class %>
+
+    <%= f.hidden_field :finished %>
+    <div class="field">
+      <%= f.label :class_member_id, "Jméno" %><br>
+      <%= f.collection_select(:class_member_id, ClassMember.where(sclass: sclass), :id, :full_name) %>
+    </div>
+    <div class="field">
+      <%= f.label :grade, "Známka" %><br>
+      <%= f.text_field :grade %>
+    </div>
+    <div class="field">
+      <%= f.label :planned_raking_list_id, "Seznam zkoušení" %><br>
+      <%= f.collection_select :planned_raking_list_id, PlannedRakingList.where(sclass: sclass), :id, :title %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Odeslat" %>
+    </div>
+<% end %>

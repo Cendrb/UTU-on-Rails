@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160116145141) do
+ActiveRecord::Schema.define(version: 20160121181948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -173,6 +173,7 @@ ActiveRecord::Schema.define(version: 20160116145141) do
     t.datetime "updated_at"
     t.integer  "rekt_per_hour"
     t.integer  "sclass_id"
+    t.boolean  "planned"
   end
 
   create_table "raking_rounds", force: true do |t|

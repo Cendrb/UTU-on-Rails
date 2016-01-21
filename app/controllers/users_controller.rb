@@ -34,10 +34,10 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    parse_group_belongings_radios
 
     respond_to do |format|
       if @user.save
+        parse_group_belongings_radios
         format.html { redirect_to login_url, notice: 'Váš účet byl úspěšně vytvořen.' }
         format.json { render action: 'show', status: :created, location: @user }
       else

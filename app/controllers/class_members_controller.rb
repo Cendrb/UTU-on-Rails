@@ -5,7 +5,7 @@ class ClassMembersController < ApplicationController
   # GET /class_members
   # GET /class_members.json
   def index
-    @class_members = ClassMember.all
+    @class_members = ClassMember.order(:sclass_id, :last_name)
   end
 
   # GET /class_members/1
@@ -15,6 +15,7 @@ class ClassMembersController < ApplicationController
 
   # GET /class_members/new
   def new
+    params[:sgroups] = {}
     @class_member = ClassMember.new
   end
 
@@ -31,11 +32,11 @@ class ClassMembersController < ApplicationController
   # POST /class_members.json
   def create
     @class_member = ClassMember.new(class_member_params)
-    parse_group_belongings_radios
 
     respond_to do |format|
       if @class_member.save
-        format.html { redirect_to @class_member, notice: 'Class member was successfully created.' }
+        parse_group_belongings_radios
+        format.html { redirect_to class_members_path, notice: 'Class member was successfully created.' }
         format.js { render "class_members/sclass_show/add_table_tr_for_sclass_show" }
         format.json { render :show, status: :created, location: @class_member }
       else
@@ -51,7 +52,7 @@ class ClassMembersController < ApplicationController
     parse_group_belongings_radios
     respond_to do |format|
       if @class_member.update(class_member_params)
-        format.html { redirect_to @class_member, notice: 'Class member was successfully updated.' }
+        format.html { redirect_to sclass_path(@class_member.sclass), notice: 'Class member was successfully updated.' }
         format.json { render :show, status: :ok, location: @class_member }
       else
         format.html { render :edit }

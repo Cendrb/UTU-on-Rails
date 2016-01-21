@@ -1,11 +1,11 @@
 class PlannedRakingListsController < ApplicationController
-  before_action :set_planned_raking_list, only: [:show, :edit, :update, :destroy, :admin_show]
+  before_action :set_planned_raking_list, only: [:show, :edit, :update, :destroy, :admin_show, :create_new_round]
   before_filter :authenticate_admin, except: [:show, :index]
 
   # GET /planned_raking_lists
   # GET /planned_raking_lists.json
   def index
-    @planned_raking_lists = PlannedRakingList.all.order(:sclass_id)
+    @planned_raking_lists = PlannedRakingList.where(sclass_id: current_class).order(:planned)
   end
 
   # GET /planned_raking_lists/1
@@ -13,7 +13,11 @@ class PlannedRakingListsController < ApplicationController
   def show
     @data = {}
     @data[:list] = @planned_raking_list
-    @data[:round] = @planned_raking_list.raking_rounds.last
+    if params[:raking_round_number]
+      @data[:round] = @planned_raking_list.raking_rounds.find_by_number(params[:raking_round_number].to_i)
+    else
+      @data[:round] = @planned_raking_list.current_round
+    end
     @data[:admin] = false
 
     respond_to do |format|
@@ -25,13 +29,22 @@ class PlannedRakingListsController < ApplicationController
   def admin_show
     @data = {}
     @data[:list] = @planned_raking_list
-    @data[:round] = @planned_raking_list.raking_rounds.last
+    if params[:raking_round_number]
+      @data[:round] = @planned_raking_list.raking_rounds.find_by_number(params[:raking_round_number].to_i)
+    else
+      @data[:round] = @planned_raking_list.current_round
+    end
     @data[:admin] = true
 
     respond_to do |format|
       format.html { render "admin_show.html.erb" }
       format.js { render "planned_raking_lists/show/remote_show" }
     end
+  end
+
+  def create_new_round
+    RakingRound.create!(number: @planned_raking_list.current_round.number + 1, planned_raking_list_id: @planned_raking_list.id, school_year: SchoolYear.current)
+    redirect_to admin_show_planned_raking_lists_path(@planned_raking_list)
   end
 
   # GET /planned_raking_lists/new
@@ -91,6 +104,6 @@ class PlannedRakingListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def planned_raking_list_params
-      params.require(:planned_raking_list).permit(:title, :description, :sclass_id, :subject_id, :beginning, :rekt_per_hour)
+      params.require(:planned_raking_list).permit(:title, :description, :sclass_id, :subject_id, :beginning, :rekt_per_hour, :planned)
     end
 end

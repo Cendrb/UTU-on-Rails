@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   before_action :troll
   layout :layout
   before_filter :set_current_account
+  #before_filter :currently_updating
 
   def set_current_account
     User.current = current_user
@@ -84,6 +85,14 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     authenticate_for_level(User.al_registered)
+  end
+
+  def currently_updating
+    if authenticate_superuser
+      return true
+    else
+      render "application/update_in_progress"
+    end
   end
 
   def current_user

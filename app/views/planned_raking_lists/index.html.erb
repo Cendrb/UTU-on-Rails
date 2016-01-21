@@ -17,13 +17,15 @@
         <td><%= planned_raking_list.title %></td>
         <td><%= planned_raking_list.planned_raking_entries.where(finished: false).count %></td>
         <td><%= format_date planned_raking_list.beginning %></td>
-        <td><%= link_to 'Seznam zkoušených', planned_raking_list %></td>
-        <td><%= link_to 'Přihlásit se', new_planned_raking_entry_path(list_id: planned_raking_list.id) %><br></td>
+        <td><%= link_to mi.view_list, planned_raking_list %></td>
+        <td><%= link_to mi.person_add, new_planned_rekt_raking_entry_path(list_id: planned_raking_list.id) %></td>
         <% if admin_logged_in? %>
-            <td><%= link_to 'Nahlaš rekt' %></td>
-            <td><%= link_to 'Upravit motorku', edit_planned_raking_list_path(planned_raking_list) %></td>
-            <td><%= link_to 'Upravit zidany', admin_show_planned_raking_lists_path(planned_raking_list) %></td>
-            <td><%= link_to 'Odstranit', planned_raking_list, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+            <td><%= link_to mi.check, new_already_rekt_raking_entry_path(list_id: planned_raking_list.id) %></td>
+            <td><div class="vertical_menu_splitter"></div></td>
+            <td><%= link_to mi.supervisor_account, admin_show_planned_raking_lists_path(planned_raking_list) %></td>
+            <td><div class="vertical_menu_splitter"></div></td>
+            <td><%= link_to mi.edit, edit_planned_raking_list_path(planned_raking_list) %></td>
+            <td><%= link_to mi.delete, planned_raking_list, method: :delete, data: {confirm: 'Are you sure?'} %></td>
         <% end %>
       </tr>
   <% end %>
