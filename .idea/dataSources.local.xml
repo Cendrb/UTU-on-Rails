@@ -8,14 +8,22 @@
       <default-schemas>UTU_development.public</default-schemas>
     </data-source>
     <data-source name="Rails UTU-on-Rails: production" uuid="0837b947-d5ab-4c4b-8803-e5abf5eb6d95">
-      <first-sync>true</first-sync>
-      <user-name>UTU on Rails</user-name>
+      <secret-storage>memory</secret-storage>
+      <user-name>yrfxcxkqukzxaa</user-name>
     </data-source>
     <data-source name="Rails UTU-on-Rails: test" uuid="2219c2f4-777d-496f-9453-c081d93a6d4c">
       <user-name>postgres</user-name>
       <user-password>dfcedfcbdfc4dfc0dfcfdfcddfcbdfd3</user-password>
       <schema-pattern>UTU_test.pg_catalog UTU_test.public</schema-pattern>
       <default-schemas>UTU_test.public</default-schemas>
+    </data-source>
+    <data-source name="PostgreSQL - postgres@localhost" uuid="297b2093-8eb0-4261-8a97-cc4cc15208ee">
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="PostgreSQL - postgres@localhost [2]" uuid="b29f618f-370f-4efe-9872-47b8737accb7">
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
     </data-source>
   </component>
 </project>
