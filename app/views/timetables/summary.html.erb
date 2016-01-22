@@ -11,7 +11,8 @@
       <%= render partial: "timetable", locals: { timetable: @timetables.first } %>
     </div>
 <% else %>
-    <p>Zobrazuje se pouze výchozí rozvrh pro Vaši třídu. Pro zobrazení jednotlivých skupin se prosím přihlašte</p>
+    <p>Zobrazuje se pouze výchozí rozvrh pro Vaši třídu. Pro zobrazení jednotlivých skupin se
+      prosím <%= link_to 'přihlašte', login_path %></p>
     <%= render partial: "timetable", locals: { timetable: @timetables.first } %>
 <% end %>
 

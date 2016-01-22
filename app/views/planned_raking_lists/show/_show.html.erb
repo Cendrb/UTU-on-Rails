@@ -1,32 +1,51 @@
 <% timetable = Timetable.timetable_for(@data[:list].sclass) %>
 
 <h3><%= round.number %>. kolo</h3>
-
-<table class="stretch planned_rakings_table">
-  <thead>
-  <tr>
-    <th>Jméno</th>
-    <th>Téma</th>
-    <th>Očekávané datum zkoušení</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% counter = 0.0 %>
-  <% round.planned_raking_entries.where(finished: false).order(:sorting_order).each do |entry| %>
-      <% hour_offset = (counter / @data[:list].rekt_per_hour.to_f).floor %>
-      <% counter += 1 %>
-      <tr class="<%= "raking_hour_separator" if counter % @data[:list].rekt_per_hour == 0 %>">
-        <td><%= entry.class_member.full_name %></td>
-        <td><%= entry.description %></td>
-        <td><%= timetable.get_next_hour_for(@data[:list].subject, Date.today, hour_offset) ? (format_date timetable.get_next_hour_for(@data[:list].subject, Date.today, hour_offset).school_day.date) : "více než čtrnáct dní (dohled rozvrhu)" %></td>
+<% if @data[:list].planned %>
+    <table class="stretch planned_rakings_table">
+      <thead>
+      <tr>
+        <th>Jméno</th>
+        <th>Téma</th>
+        <th>Očekávané datum zkoušení</th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+      </thead>
+      <tbody>
+      <% counter = 0.0 %>
+      <% round.planned_raking_entries.where(finished: false).order(:sorting_order).each do |entry| %>
+          <% hour_offset = (counter / @data[:list].rekt_per_hour.to_f).floor %>
+          <% counter += 1 %>
+          <tr class="<%= "raking_hour_separator" if counter % @data[:list].rekt_per_hour == 0 %>">
+            <td><%= entry.class_member.full_name %></td>
+            <td><%= entry.description %></td>
+            <td><%= timetable.get_next_hour_for(@data[:list].subject, Date.today, hour_offset) ? (format_date timetable.get_next_hour_for(@data[:list].subject, Date.today, hour_offset).school_day.date) : "více než čtrnáct dní (dohled rozvrhu)" %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% else %>
+    <table class="stretch planned_rakings_table">
+      <thead>
+      <tr>
+        <th>Jméno</th>
+        <th>Téma</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% round.planned_raking_entries.order(:sorting_order).each do |entry| %>
+          <tr>
+            <td><%= entry.class_member.full_name %></td>
+            <td><%= entry.description %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
 
 <div>
-  <p>Počet ještě nezkoušených lidí: <%= round.planned_raking_list.sclass.class_members.count - ActiveRecord::Base.connection.execute("SELECT COUNT(*) FROM(SELECT DISTINCT ON (planned_raking_entries.class_member_id) * FROM planned_raking_entries WHERE(planned_raking_entries.raking_round_id = #{round.id})) AS penis").values[0][0].to_i %>
-  <br>
+  <p>Počet ještě nezkoušených
+    lidí: <%= round.planned_raking_list.sclass.class_members.count - ActiveRecord::Base.connection.execute("SELECT COUNT(*) FROM(SELECT DISTINCT ON (planned_raking_entries.class_member_id) * FROM planned_raking_entries WHERE(planned_raking_entries.raking_round_id = #{round.id})) AS penis").values[0][0].to_i %>
+    <br>
     <%= round.planned_raking_list.sclass.class_members.where("id NOT IN (:list_ids)", list_ids: round.planned_raking_entries.select("DISTINCT ON(planned_raking_entries.class_member_id) planned_raking_entries.class_member_id").map(&:class_member_id)).order(:last_name).map(&:full_name).to_sentence %>
   </p>
 </div>

@@ -18,7 +18,7 @@
         <td><%= planned_raking_list.planned_raking_entries.where(finished: false).count %></td>
         <td><%= format_date planned_raking_list.beginning %></td>
         <td><%= link_to mi.view_list, planned_raking_list %></td>
-        <td><%= link_to mi.person_add, new_planned_rekt_raking_entry_path(list_id: planned_raking_list.id) %></td>
+        <td><%= link_to mi.person_add, new_planned_rekt_raking_entry_path(list_id: planned_raking_list.id) if planned_raking_list.planned %></td>
         <% if admin_logged_in? %>
             <td><%= link_to mi.check, new_already_rekt_raking_entry_path(list_id: planned_raking_list.id) %></td>
             <td><div class="vertical_menu_splitter"></div></td>
