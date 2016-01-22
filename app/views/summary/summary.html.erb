@@ -58,7 +58,7 @@ Soupis veškerých služeb najdete <%= link_to "zde", :services %></p>
     </ul>
 <% end %>
 
-<h2><%= 'Poslední zprávy' if @data[:articles] && @data[:articles].count > 0 %></h2>
+<%= '<h2>Poslední zprávy</h2>'.html_safe if @data[:articles] && @data[:articles].count > 0 %>
 <% @data[:articles].each do |article| %>
     <%= render partial: "articles/article", locals: {article: article, hide_published: true} %>
 <% end %>
