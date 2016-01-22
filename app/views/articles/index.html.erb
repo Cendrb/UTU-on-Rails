@@ -1,0 +1,10 @@
+<h1>Listing articles</h1>
+
+<div class="articles_index">
+  <% @articles.each do |article| %>
+      <%= render article %>
+  <% end %>
+</div>
+<br>
+
+<%= link_to 'New Article', new_article_path %>

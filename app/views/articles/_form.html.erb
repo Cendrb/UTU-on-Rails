@@ -1,0 +1,46 @@
+<%= form_for(@article) do |f| %>
+    <% if @article.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+          <ul>
+            <% @article.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title, 'Nadpis' %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :text, 'Text článku' %><br>
+      <%= f.text_area :text, rows: 20, cols: 100 %>
+    </div>
+    <div class="field">
+      <%= f.label :published, 'Uveřejněno' %><br>
+      <%= f.check_box :published %>
+    </div>
+    <div class="field">
+      <%= f.label :sclass_id, 'Třída' %><br>
+      <%= f.collection_select :sclass_id, Sclass.all.unshift(Sclass.new(name: 'zobrazit pro všechny', id: -1)), :id, :name %>
+    </div>
+    <div class="field">
+      <%= f.label :sgroup_id, 'Skupina' %><br>
+      <%= f.collection_select :sgroup_id, Sgroup.all.unshift(Sgroup.new(name: 'zobrazit pro všechny', id: -1)), :id, :name %>
+    </div>
+    <div class="field">
+      <%= f.label :show_in_details, 'Zobrazit v detailech jako událost' %><br>
+      <%= f.check_box :show_in_details %>
+      <%= f.label :show_in_details_until, 'do' %>
+      <%= f.datetime_select :show_in_details_until %>
+    </div>
+    <div class="field">
+
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
