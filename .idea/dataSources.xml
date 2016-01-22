@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2828176963">
+  <component name="DataSourceManagerImpl" format="xml" hash="3945819221">
     <data-source source="LOCAL" name="Rails UTU-on-Rails: development" uuid="58753685-f1b0-4273-a381-9290b15e8b59">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
@@ -26,7 +26,7 @@
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/config/database.yml</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://ec2-54-197-227-238.compute-1.amazonaws.com/dc734vvumo191f</jdbc-url>
+      <jdbc-url>jdbc:postgresql:UTU on Rails_production</jdbc-url>
       <explain-plan-config>
         <provider>com.intellij.database.plan.ExplainPlanProvider.NullExplainPlanProvider</provider>
       </explain-plan-config>
