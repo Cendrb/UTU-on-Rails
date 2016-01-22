@@ -16,8 +16,6 @@ class SummaryController < ApplicationController
     end
     @current_service = Service.where("service_start <= :today AND service_end >= :today", {today: Date.today}).first
     @near_payments = Event.order(:event_start).in_future.where("pay_date <= :pay", {:pay => Date.today + 7.days}).where("pay_date != event_start")
-
-    puts current_user.sgroups.count
   end
 
   def post_details
@@ -50,8 +48,8 @@ class SummaryController < ApplicationController
       @tasks = drop_todays_after(@tasks, 12)
     else
       @events = (Event.all.order(:event_start)).in_future.for_class(sclass)
-      @exams = drop_todays_after(Exam.order(:date).in_future, 12).for_class(sclass)
-      @tasks = drop_todays_after(Task.order(:date).in_future, 12).for_class(sclass)
+      @exams = drop_todays_after(Exam.order(:date).in_future.for_class(sclass), 12)
+      @tasks = drop_todays_after(Task.order(:date).in_future.for_class(sclass), 12)
     end
 
     DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'])
