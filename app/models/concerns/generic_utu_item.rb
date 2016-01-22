@@ -8,6 +8,9 @@ module GenericUtuItem
 
     has_many :info_item_bindings, :as => :item, dependent: :destroy
     has_many :done_utu_items, :as => :item, dependent: :destroy
+
+    belongs_to :sgroup
+    belongs_to :sclass
   end
 
   def get_utu_type(only_basic = false)
@@ -16,6 +19,9 @@ module GenericUtuItem
     end
     if self.instance_of?(Task)
       return :task
+    end
+    if self.instance_of?(Article)
+      return :article
     end
     if only_basic
       if self.instance_of?(WrittenExam) || self.instance_of?(RakingExam)

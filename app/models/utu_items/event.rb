@@ -18,7 +18,4 @@ class Event < ActiveRecord::Base
   validates :event_start, :event_end, :location, presence: {presence: true, message: "nesmí být prázdný"}
   validates :price, numericality: true
   validates_with EventDateValidator
-
-  belongs_to :sclass
-  belongs_to :sgroup
 end

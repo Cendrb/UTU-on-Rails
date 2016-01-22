@@ -5,16 +5,16 @@ class HidingController < ApplicationController
     id = params[:id]
     @type = params[:type]
     if @type == 'event'
-      # event
       @item = Event.find(id)
-    else
-      if @type == 'task'
-        # task
-        @item = Task.find(id)
-      else
-        # exam
-        @item = Exam.find(id)
-      end
+    end
+    if @type == 'task'
+      @item = Task.find(id)
+    end
+    if @type == 'exam'
+      @item = Exam.find(id)
+    end
+    if @type == 'article'
+      @item = Article.find(id)
     end
 
     @item.mark_as_done
@@ -24,17 +24,19 @@ class HidingController < ApplicationController
     id = params[:id]
     @type = params[:type]
     if @type == 'event'
-      # event
       @item = Event.find(id)
-    else
-      if @type == 'task'
-        # task
-        @item = Task.find(id)
-      else
-        @item = Exam.find(id)
-      end
+    end
+    if @type == 'task'
+      @item = Task.find(id)
+    end
+    if @type == 'exam'
+      @item = Exam.find(id)
+    end
+    if @type == 'article'
+      @item = Article.find(id)
     end
 
     @item.mark_as_undone
   end
+
 end

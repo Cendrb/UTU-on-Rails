@@ -1,6 +1,8 @@
 UTUOnRails::Application.routes.draw do
 
 
+  resources :articles
+
   resources :holidays
 
 

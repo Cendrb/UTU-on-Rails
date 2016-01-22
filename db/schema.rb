@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121181948) do
+ActiveRecord::Schema.define(version: 20160122151429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 20160121181948) do
     t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "articles", force: true do |t|
+    t.string "title"
+    t.text "text"
+    t.boolean "published"
+    t.integer "sclass_id"
+    t.integer "sgroup_id"
+    t.datetime "show_in_details_until"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean "show_in_details"
+    t.datetime "published_on"
   end
 
   create_table "baka_accounts", force: true do |t|
@@ -71,7 +84,6 @@ ActiveRecord::Schema.define(version: 20160121181948) do
     t.date     "event_end"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "additional_info_url"
     t.date     "pay_date"
     t.integer  "price"
     t.integer  "sclass_id"
@@ -85,7 +97,6 @@ ActiveRecord::Schema.define(version: 20160121181948) do
     t.integer  "sgroup_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "additional_info_url"
     t.integer  "subject_id"
     t.integer  "lesson_id"
     t.string   "type"
@@ -236,7 +247,6 @@ ActiveRecord::Schema.define(version: 20160121181948) do
     t.integer  "sgroup_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "additional_info_url"
     t.integer  "subject_id"
     t.integer  "lesson_id"
     t.boolean  "passed"
@@ -270,7 +280,6 @@ ActiveRecord::Schema.define(version: 20160121181948) do
     t.boolean  "show_hidden_tasks"
     t.string   "forgot_password_code"
     t.integer  "class_member_id"
-    t.string   "name"
     t.integer  "access_level"
   end
 

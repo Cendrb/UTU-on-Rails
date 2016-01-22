@@ -1,0 +1,16 @@
+<% hide_published |= false %>
+<div class="article">
+  <div class="article_published">
+    <% if !hide_published && admin_logged_in? %>
+        <% if article.published %>
+            <%= mi.public %>
+        <% else %>
+            <%= mi.lock %>
+        <% end %>
+    <% end %>
+  </div>
+  <div class="article_title"><%= article.title %></div>
+  <div class="article_text"><%= truncate(strip_tags(article.text), length: 30) %></div>
+  <div class="article_actions"><%= link_to mi.edit, edit_article_path(article) if admin_logged_in? %></div>
+  <div class="article_read_more"><%= link_to 'Číst dál', article %></div>
+</div>

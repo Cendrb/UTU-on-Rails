@@ -17,10 +17,6 @@ class Exam < ActiveRecord::Base
 
   validates :date, :subject_id, presence: {presence: true, message: " nesmí být prázdný "}
 
-  belongs_to :sclass
-  belongs_to :sgroup
-
-
   def self.types
     %(RakingExam WrittenExam)
   end

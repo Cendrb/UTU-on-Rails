@@ -3,7 +3,7 @@
 <strong>Výběr kola</strong>
 <%= select_tag(:round_selector, options_from_collection_for_select(@data[:list].raking_rounds, :id, :number), prompt: "Vyberte kolo pro zobrazení...") %>
 
-<div id="planned_raking_entries_div" data-id="<%= @data[:list].id %> data-admin="false">
+<div id="planned_raking_entries_div" data-id="<%= @data[:list].id %>" data-admin="false">
   <%= render partial: "planned_raking_lists/show/show", locals: {list: @data[:list], round: @data[:round]} %>
 </div>
 

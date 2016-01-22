@@ -9,7 +9,7 @@ class ExamsController < ApplicationController
   # GET /exams
   # GET /exams.json
   def index
-    @exams = Exam.order("date DESC")
+    @exams = Exam.order("date DESC").limit(20)
   end
 
   # GET /exams/1

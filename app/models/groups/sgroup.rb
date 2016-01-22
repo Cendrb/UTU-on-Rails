@@ -9,6 +9,8 @@ class Sgroup < ActiveRecord::Base
   has_many :group_timetable_bindings, dependent: :destroy
   has_many :timetables, through: :group_timetable_bindings
 
+  has_many :articles
+
 
   def self.parse_deprecated(deprecated_group)
     if(deprecated_group == 0)

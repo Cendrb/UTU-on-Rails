@@ -9,13 +9,13 @@ class SummaryController < ApplicationController
   before_filter :authenticate, only: :subjects
 
   def summary
-    @today_school_day = SchoolDay.where("date = ?", Date.tomorrow).first
+    @data = {}
+    @data[:current_service] = Service.where("service_start <= :today AND service_end >= :today", {today: Date.today}).first
+    @data[:articles] = Article.where(published: true).order("published_on DESC")
 
     if logged_in?
-      @service = Service.in_future.where("first_mate_id = :class_member OR second_mate_id = :class_member", {class_member: current_user.class_member_id}).first
+      @data[:user_service] = Service.in_future.where("first_mate_id = :class_member OR second_mate_id = :class_member", {class_member: current_user.class_member_id}).first
     end
-    @current_service = Service.where("service_start <= :today AND service_end >= :today", {today: Date.today}).first
-    @near_payments = Event.order(:event_start).in_future.where("pay_date <= :pay", {:pay => Date.today + 7.days}).where("pay_date != event_start")
   end
 
   def post_details
@@ -39,7 +39,7 @@ class SummaryController < ApplicationController
     if logged_in?
       user = current_user
 
-      @events = Event.order(:event_start).in_future.for_groups(user.sgroups).for_class(sclass)
+      @events = Event.order(:event_start).in_future.for_groups(user.sgroups).for_class(sclass) + Article.where(published: true).where(show_in_details: true).where("show_in_details_until > :today", {today: Time.now})
       @exams = Exam.order(:date).in_future.for_groups(user.sgroups).for_class(sclass)
       @tasks = Task.order(:date).in_future.for_groups(user.sgroups).for_class(sclass)
       puts Event.all.pluck(:sgroup_id)

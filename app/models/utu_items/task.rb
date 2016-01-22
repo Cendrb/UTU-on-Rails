@@ -13,9 +13,6 @@ class Task < ActiveRecord::Base
 
   validates :date, :subject_id, presence: {presence: true, message: "nesmí být prázdný"}
 
-  belongs_to :sclass
-  belongs_to :sgroup
-
   def get_exam(type)
     Exam.new(title: title, description: description, subject: subject, sgroup_id: sgroup_id, sclass_id: sclass_id, date: date, type: type)
   end
