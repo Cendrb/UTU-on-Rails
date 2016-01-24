@@ -58,6 +58,8 @@ GEM
       logger
     erubis (2.7.0)
     execjs (2.2.2)
+    font-awesome-rails (4.5.0.0)
+      railties (>= 3.2, < 5.0)
     fssm (0.2.10)
     greensock-rails (1.17.0.0)
     groupdate (2.4.0)
@@ -189,6 +191,9 @@ GEM
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     webrobots (0.1.1)
+    wysiwyg-rails (2.0.5)
+      font-awesome-rails (~> 4.4, >= 4.4.0.0)
+      railties (>= 3.2, < 5.0)
 
 PLATFORMS
   ruby
@@ -224,3 +229,4 @@ DEPENDENCIES
   useragent
   validates_email_format_of
   web-console (~> 2.0)
+  wysiwyg-rails

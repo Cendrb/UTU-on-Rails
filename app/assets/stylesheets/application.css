@@ -12,4 +12,9 @@
  *= require_tree .
  *= require jquery-ui
  *= require material_icons
+ *= require froala_editor.min.css
+ *= require froala_style.min.css
+ *= require font-awesome
+ *= require plugins/image.min.css
+ *= require plugins/colors.min.css
  */

@@ -11,6 +11,9 @@ gem 'pg'
 # HTML parser Nokogiri
 gem 'nokogiri'
 
+# wysiwyg editor for articles
+gem 'wysiwyg-rails'
+
 # Virtual browser Mechanize
 gem 'mechanize'
 
@@ -71,7 +74,7 @@ gem 'jquery-turbolinks'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.1.3' 
+gem 'jbuilder', '~> 2.1.3'
 
 # For graphs
 gem 'chartkick'
