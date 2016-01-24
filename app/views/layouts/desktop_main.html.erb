@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>UTU on Rails</title>
-        <%= favicon_link_tag 'favicon.ico' %>
-        <%= stylesheet_link_tag 'application', "data-turbolinks-track" => true, media: "all" %>
-        <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-        <%= csrf_meta_tags %>
-    </head>
-    <body>
-    	<div id="wrap">
-      </div>
-        <div id="penis">
-            <div id="background">
+<head>
+  <title>UTU on Rails</title>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= stylesheet_link_tag 'application', "data-turbolinks-track" => true, media: "all" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
 
-                <div id="summary">
-                    <div id="header">
-                        <h1><%= @page_title || "UTU" %></h1>
-                    </div>
+<div id="background">
 
-                    <div id="menu">
-                        <%= render 'menu' %>
-                    </div>
+  <div id="summary">
+    <div id="header">
+      <h1><%= @page_title || "UTU" %></h1>
+    </div>
 
-                    <div id="main">
-                        <!---
+    <div id="menu">
+      <%= render 'menu' %>
+    </div>
+
+    <div id="main">
+      <!---
                         <% if notice %>
                         <p id="notice"><%= notice %></p>
                         <% end %>
@@ -32,25 +30,24 @@
                         <% end %>
                         --->
 
-                        <%= yield %>
-                        <% if Rails.env.development? %>
-                        <h3>Params</h3>
-                        <%= debug(params) %>
-                        <h3>Session</h3>
-                        <%= debug(session) %>
-                        <h3>Response</h3>
-                        <%= debug(response) %>
-                        <h3>Request</h3>
-                        <%= debug(request) %>
-                        <% end %>
-                    </div>
+      <%= yield %>
+      <% if Rails.env.development? %>
+          <h3>Params</h3>
+          <%= debug(params) %>
+          <h3>Session</h3>
+          <%= debug(session) %>
+          <h3>Response</h3>
+          <%= debug(response) %>
+          <h3>Request</h3>
+          <%= debug(request) %>
+      <% end %>
+    </div>
 
-                    <div id="footer">
-                        <div id="theme"></div>
-                        <div id="powered"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
+    <div id="footer">
+      <div id="theme"></div>
+      <div id="powered"></div>
+    </div>
+  </div>
+</div>
+</body>
 </html>

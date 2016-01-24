@@ -120,9 +120,11 @@ UTUOnRails::Application.routes.draw do
   # root 'welcome#index'
   root to: 'summary#summary', as: 'utu'
 
-  # hiding
-  post 'hiding/hide' => 'hiding#hide', as: 'hide_item'
-  post 'hiding/reveal' => 'hiding#reveal', as: 'reveal_item'
+  # hiding - web uses get, apps use post
+  post 'hiding/hide' => 'hiding#hide'
+  post 'hiding/reveal' => 'hiding#reveal'
+  get 'hiding/hide' => 'hiding#hide', as: 'hide_item'
+  get 'hiding/reveal' => 'hiding#reveal', as: 'reveal_item'
 
   # for occasional data migrations
   get 'migrate' => 'summary#migrate'
