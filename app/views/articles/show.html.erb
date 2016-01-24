@@ -3,5 +3,7 @@
 <h2><%= @article.title %></h2>
 <p><%= @article.text.html_safe %></p>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<% if admin_logged_in? %>
+    <%= link_to 'Edit', edit_article_path(@article) %> |
+    <%= link_to 'Back', articles_path %>
+<% end %>

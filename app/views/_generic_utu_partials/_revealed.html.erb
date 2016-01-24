@@ -5,7 +5,7 @@
 <h3><%= link_to item.title, item %></h3>
 <% if type == :article %>
     <p>
-      <%= truncate(strip_tags(item.text), length: 30) %>
+      <%= truncate(strip_tags(item.text), length: 150) %>
     </p>
 <% else %>
     <p>

@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_admin
+  before_filter :authenticate_admin, except: [:show]
 
   # GET /articles
   # GET /articles.json

@@ -11,7 +11,7 @@
   </div>
   <div class="article_actions"><%= link_to mi.edit, edit_article_path(article) if admin_logged_in? %><%= link_to mi.delete, article, method: :delete, data: {confirm: "Opravdu chcete odstranit článek #{article.title}"} if admin_logged_in? %></div>
   <div class="article_title"><%= article.title %></div>
-  <div class="article_text"><%= truncate(strip_tags(article.text), length: 30) %></div>
+  <div class="article_text"><%= truncate(strip_tags(article.text), length: 150) %></div>
   <div class="article_published_on"><%= l article.published_on, format: :date if article.published %></div>
   <div class="article_read_more"><%= link_to 'Číst dál', article %></div>
 </div>
