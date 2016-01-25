@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.order("event_start DESC").limit(20)
+    @events = Event.order("event_start DESC").limit(30)
   end
 
   # GET /events/1

@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.order("date DESC").limit(20)
+    @tasks = Task.order("date DESC").limit(30)
   end
 
   # GET /tasks/1

@@ -9,7 +9,7 @@ class RakingExamsController < ApplicationController
   # GET /rakings
   # GET /rakings.json
   def index
-    @rakings = Exam.rakings.all
+    @rakings = RakingExam.order("date DESC").limit(30)
   end
 
   # GET /rakings/1

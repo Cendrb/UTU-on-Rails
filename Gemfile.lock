@@ -216,6 +216,7 @@ GEM
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     webrobots (0.1.2)
+    will_paginate (3.0.7)
     wysiwyg-rails (2.0.5)
       font-awesome-rails (~> 4.4, >= 4.4.0.0)
       railties (>= 3.2, < 5.0)
@@ -255,4 +256,5 @@ DEPENDENCIES
   useragent
   validates_email_format_of
   web-console (~> 2.0)
+  will_paginate (~> 3.0.6)
   wysiwyg-rails

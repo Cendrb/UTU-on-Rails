@@ -9,7 +9,7 @@ class WrittenExamsController < ApplicationController
   # GET /written_exams
   # GET /written_exams.json
   def index
-    @written_exams = WrittenExam.order(:date).limit(20)
+    @written_exams = WrittenExam.order("date DESC").limit(30)
   end
 
   # GET /written_exams/1
