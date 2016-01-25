@@ -1,8 +1,8 @@
 <% type = item.get_utu_type %>
 <% no_hide |= false %>
 
-<%= link_to mi.visibility_off.md_36, hide_item_path(id: item.id, type: item.get_utu_type), remote: true, class: 'hide_or_reveal' unless no_hide %>
-<h3><%= link_to item.title, item %></h3>
+<%= link_to mi.visibility_off.md_36, hide_item_path(id: item.id, type: item.get_utu_type), remote: true, class: 'shared_show_hide_or_reveal' unless no_hide %>
+<h3 class="shared_show_title"><%= link_to item.title, item %></h3>
 <% if type == :article %>
     <p>
       <%= truncate(strip_tags(item.text), length: 150) %>
@@ -40,7 +40,7 @@
     </p>
 <% else %>
     <% if type == :article %>
-        <%= link_to 'Číst dál', item %>
+        <p><%= link_to 'Číst dál', item %></p>
     <% else %>
         <p>
           <strong>Předmět: </strong>

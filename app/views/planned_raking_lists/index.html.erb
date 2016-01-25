@@ -1,37 +1,75 @@
-<h1>Seznam plánovaných zkoušení</h1>
-<table class="stretch">
-  <thead>
-  <tr>
-    <th>Třída</th>
-    <th>Název</th>
-    <th>Počet přihlášených</th>
-    <th>Začátek zkoušení</th>
-    <th colspan="2"></th>
-  </tr>
-  </thead>
+<h1>Seznamy zkoušení</h1>
 
-  <tbody>
-  <% @planned_raking_lists.each do |planned_raking_list| %>
+<div class="planned_raking_list_planned">
+  <h2>Plánovaná zkoušení</h2>
+  <table class="stretch table">
+    <thead>
+    <tr>
+      <th>Název</th>
+      <th>Již zkoušeno</th>
+      <th>Zbývá na seznamu</th>
+      <th>Aktuální kolo</th>
+      <th colspan="8"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @data[:planned_lists].each do |planned_raking_list| %>
+        <tr>
+          <td><%= "#{planned_raking_list.title} (#{planned_raking_list.subject.name})" %></td>
+          <td><%= "#{planned_raking_list.current_round.already_rekt_count}/#{planned_raking_list.sclass.class_members.count}" %></td>
+          <td><%= planned_raking_list.current_round.planned_raking_entries.where(finished: false).count %></td>
+          <td><%= planned_raking_list.current_round.number %></td>
+          <td><%= link_to mi.view_list, planned_raking_list %></td>
+          <td><%= link_to mi.person_add, new_planned_rekt_raking_entry_path(list_id: planned_raking_list.id) if planned_raking_list.planned %></td>
+          <% if admin_logged_in? %>
+              <td><%= link_to mi.check, new_already_rekt_raking_entry_path(list_id: planned_raking_list.id) %></td>
+              <td>
+                <div class="vertical_menu_splitter"></div>
+              </td>
+              <td><%= link_to mi.supervisor_account, admin_show_planned_raking_lists_path(planned_raking_list) %></td>
+              <td><%= link_to mi.edit, edit_planned_raking_list_path(planned_raking_list) %></td>
+              <td><%= link_to mi.delete, planned_raking_list, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          <% end %>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="planned_raking_list_ordinary">
+  <h2>Ostatní zkoušení</h2>
+  <table class="stretch table">
+    <thead>
       <tr>
-        <td><%= planned_raking_list.sclass.name %></td>
-        <td><%= planned_raking_list.title %></td>
-        <td><%= planned_raking_list.planned_raking_entries.where(finished: false).count %></td>
-        <td><%= format_date planned_raking_list.beginning %></td>
-        <td><%= link_to mi.view_list, planned_raking_list %></td>
-        <td><%= link_to mi.person_add, new_planned_rekt_raking_entry_path(list_id: planned_raking_list.id) if planned_raking_list.planned %></td>
-        <% if admin_logged_in? %>
-            <td><%= link_to mi.check, new_already_rekt_raking_entry_path(list_id: planned_raking_list.id) %></td>
-            <td><div class="vertical_menu_splitter"></div></td>
-            <td><%= link_to mi.supervisor_account, admin_show_planned_raking_lists_path(planned_raking_list) %></td>
-            <td><div class="vertical_menu_splitter"></div></td>
-            <td><%= link_to mi.edit, edit_planned_raking_list_path(planned_raking_list) %></td>
-            <td><%= link_to mi.delete, planned_raking_list, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-        <% end %>
+        <th>Název</th>
+        <th>Již zkoušeno</th>
+        <th>Aktuální kolo</th>
+        <th colspan="6"></th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+    <% @data[:ordinary_lists].each do |planned_raking_list| %>
+        <tr>
+          <td><%= "#{planned_raking_list.title} (#{planned_raking_list.subject.name})" %></td>
+          <td><%= "#{planned_raking_list.current_round.already_rekt_count}/#{planned_raking_list.sclass.class_members.count}" %></td>
+          <td><%= planned_raking_list.current_round.number %></td>
+          <% if admin_logged_in? %>
+              <td><%= link_to mi.check, new_already_rekt_raking_entry_path(list_id: planned_raking_list.id) %></td>
+              <td>
+                <div class="vertical_menu_splitter"></div>
+              </td>
+              <td><%= link_to mi.supervisor_account, admin_show_planned_raking_lists_path(planned_raking_list) %></td>
+              <td><%= link_to mi.edit, edit_planned_raking_list_path(planned_raking_list) %></td>
+              <td><%= link_to mi.delete, planned_raking_list, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          <% end %>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div style="clear: both"></div>
 <br>
 
 <%= link_to 'New Planned raking list', new_planned_raking_list_path if admin_logged_in? %>

@@ -8,12 +8,30 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require jquery-ui
+ *= require jquery-ui/draggable
+ *= require jquery-ui/sortable
+ *= require jquery-ui/tooltip
+ *= require jquery-ui/dialog
  *= require material_icons
  *= require froala_editor.min.css
  *= require froala_style.min.css
  *= require font-awesome
  *= require nprogress
- *= require_tree .
- *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "utu";
+@import "main_menu";
+@import "_hs";
+@import "_bootstrap_modifications";
+@import "details";
+@import "articles";
+@import "nprogress_config";
+@import "planned_rakings";
+@import "scaffolds";
+@import "sclasses_show";
+@import "summary";
+@import "timetable";
+@import "utu_items_shared/form";
+@import "utu_items_shared/index";
+@import "utu_items_shared/show";

@@ -5,8 +5,8 @@ class PlannedRakingList < ActiveRecord::Base
   has_many :raking_rounds, dependent: :destroy
 
   validates_presence_of :beginning, :subject, :title, :rekt_per_hour, :sclass
-  after_create do
-    RakingRound.create(number: 1, planned_raking_list_id: id)
+  after_commit do
+    RakingRound.create!(number: 1, planned_raking_list_id: id, school_year: SchoolYear.current)
   end
 
   def current_round

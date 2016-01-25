@@ -1,0 +1,20 @@
+.raking_hour_separator {
+  border-bottom: 1px solid #cacaca;
+}
+
+.planned_rakings_table {
+  border-collapse: collapse;
+}
+
+.planned_raking_list_planned {
+  float: left;
+  width: 60%;
+  padding-right: 4px;
+  border-right: 1px solid #eeeeee;
+}
+
+.planned_raking_list_ordinary {
+  float: right;
+  width: 40%;
+  padding-left: 4px;
+}

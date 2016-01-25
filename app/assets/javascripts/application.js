@@ -13,7 +13,12 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require jquery-ui
+
+//= require jquery-ui/draggable
+//= require jquery-ui/sortable
+//= require jquery-ui/tooltip
+//= require jquery-ui/dialog
+
 //= require froala_editor.min.js
 //= require plugins/lists.min.js
 //= require plugins/font_size.min.js
@@ -22,6 +27,7 @@
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
+//= require bootstrap
 //= require_tree .
 
 NProgress.configure({

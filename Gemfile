@@ -19,18 +19,6 @@ gem 'mechanize'
 
 gem 'compass'
 
-# POST request sending
-#gem 'rest-client'
-
-# Spring from Rails 4.1
-#gem 'spring', group: :development
-
-# For scheduling tasks
-#gem 'whenever' - not working on heroku - removed
-
-# Datepicker
-#gem 'bootstrap-datepicker-rails'
-
 # To keep Heroku dynos awake
 gem 'dynopoker'
 
@@ -50,7 +38,10 @@ gem 'country_select'
 gem 'validates_email_format_of'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '>= 3.2'
+
+# bootstrap css and js
+gem 'bootstrap-sass', '~> 3.3.6'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 2.5.3'

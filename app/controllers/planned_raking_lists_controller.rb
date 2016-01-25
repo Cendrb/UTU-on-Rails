@@ -5,7 +5,10 @@ class PlannedRakingListsController < ApplicationController
   # GET /planned_raking_lists
   # GET /planned_raking_lists.json
   def index
-    @planned_raking_lists = PlannedRakingList.where(sclass_id: current_class).order(:planned)
+    @data = {}
+
+    @data[:planned_lists] = PlannedRakingList.where(sclass_id: current_class).where(planned: true)
+    @data[:ordinary_lists] = PlannedRakingList.where(sclass_id: current_class).where(planned: false)
   end
 
   # GET /planned_raking_lists/1

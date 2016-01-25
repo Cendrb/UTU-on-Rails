@@ -44,8 +44,9 @@
 
 <div>
   <p>Počet ještě nezkoušených
-    lidí: <%= round.planned_raking_list.sclass.class_members.count - ActiveRecord::Base.connection.execute("SELECT COUNT(*) FROM(SELECT DISTINCT ON (planned_raking_entries.class_member_id) * FROM planned_raking_entries WHERE(planned_raking_entries.raking_round_id = #{round.id})) AS penis").values[0][0].to_i %>
+    lidí: <%= %>
     <br>
-    <%= round.planned_raking_list.sclass.class_members.where("id NOT IN (:list_ids)", list_ids: round.planned_raking_entries.select("DISTINCT ON(planned_raking_entries.class_member_id) planned_raking_entries.class_member_id").map(&:class_member_id)).order(:last_name).map(&:full_name).to_sentence %>
+    <%= round.not_rekt_yet_count %><br>
+    <%= round.not_rekt_yet_query.map(&:full_name).to_sentence %>
   </p>
 </div>
