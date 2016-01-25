@@ -6,6 +6,6 @@
   @extend .form-group;
 }
 
-table:not(.details) {
+table:not(.details .timetable) {
   @extend .table
 }
