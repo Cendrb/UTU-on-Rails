@@ -1,3 +1,11 @@
 .field {
   @extend .form-group;
 }
+
+.actions {
+  @extend .form-group;
+}
+
+table:not(.details) {
+  @extend .table
+}

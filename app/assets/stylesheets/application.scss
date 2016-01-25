@@ -20,10 +20,10 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "_bootstrap_modifications";
 @import "utu";
 @import "main_menu";
 @import "_hs";
-@import "_bootstrap_modifications";
 @import "details";
 @import "articles";
 @import "nprogress_config";
