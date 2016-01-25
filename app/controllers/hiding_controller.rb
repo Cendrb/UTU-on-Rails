@@ -10,8 +10,11 @@ class HidingController < ApplicationController
     if @type == 'task'
       @item = Task.find(id)
     end
-    if @type == 'exam'
-      @item = Exam.find(id)
+    if @type == 'written_exam'
+      @item = WrittenExam.find(id)
+    end
+    if @type == 'raking_exam'
+      @item = RakingExam.find(id)
     end
     if @type == 'article'
       @item = Article.find(id)
@@ -29,8 +32,11 @@ class HidingController < ApplicationController
     if @type == 'task'
       @item = Task.find(id)
     end
-    if @type == 'exam'
-      @item = Exam.find(id)
+    if @type == 'written_exam'
+      @item = WrittenExam.find(id)
+    end
+    if @type == 'raking_exam'
+      @item = RakingExam.find(id)
     end
     if @type == 'article'
       @item = Article.find(id)
