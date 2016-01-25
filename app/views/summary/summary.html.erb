@@ -20,9 +20,9 @@
 
 <div class="summary_section">
   <h2>Služba</h2>
-  <% if @data[:current_service] %>
-      <p>Službu na aktuální týden má <strong><%= @data[:current_service].first_mate.full_name %></strong> a
-        <strong><%= @data[:current_service].second_mate.full_name %></strong>
+  <% if @data[:service][:current] %>
+      <p>Službu na aktuální týden má <strong><%= @data[:service][:current].first_mate.full_name %></strong> a
+        <strong><%= @data[:service][:current].second_mate.full_name %></strong>
   <% else %>
       <p>Na aktuální týden nebyla určena žádná služba.
   <% end %>
@@ -30,13 +30,13 @@
   Soupis veškerých služeb najdete <%= link_to "zde", :services %></p>
 
   <% if logged_in? %>
-      <% if @data[:user_service] %>
+      <% if @data[:service][:user] %>
           <p>
-            Vaše období služby začíná <strong><%= l @data[:user_service].service_start %></strong> a končí
-            <strong><%= l @data[:user_service].service_end %></strong>
+            Vaše období služby začíná <strong><%= l @data[:service][:user].service_start %></strong> a končí
+            <strong><%= l @data[:service][:user].service_end %></strong>
 
             <br/>
-            <%= link_to 'Více informací o vaší službě', @data[:user_service] %>
+            <%= link_to 'Více informací o vaší službě', @data[:service][:user] %>
           </p>
       <% end %>
 
@@ -63,6 +63,14 @@
   <% end %>
 </div>
 
+<div class="summary_section">
+  <h2>Zkoušení</h2>
+  <% @data[:rakings][:chances].each do |chance_pair| %>
+      <%= chance_pair[:name] %> <%= number_with_precision(chance_pair[:chance], precision: 2).to_s + '%' %> (zatím
+      vyzkoušeno <%= chance_pair[:already_rekt] %> ze <%= chance_pair[:total] %>)
+  <% end %>
+</div>
+
 <% if @data[:articles] && @data[:articles].count > 0 %>
     <div class="summary_section">
       <h2>Poslední zprávy</h2>
@@ -71,24 +79,25 @@
       <% end %>
     </div>
 <% end %>
+<!---
 <div class="summary_section">
   <h2>Manuální zobrazení podrobností z libovolného období</h2>
   <%= form_tag(details_path, method: 'get') do %>
       <div class="field">
         <%= label_tag :from, 'Od:' %>
-        <%= date_select :range, :from, order: [:day, :month, :year] %>
+    <%= date_select :range, :from, order: [:day, :month, :year] %>
       </div>
       <div class="field">
         <%= label_tag :to, 'Do:' %>
-        <%= date_select :range, :to, order: [:day, :month, :year] %>
+    <%= date_select :range, :to, order: [:day, :month, :year] %>
       </div>
       <div class="field">
         <%= label_tag :group, 'Skupina:' %>
-        <%= number_field_tag :group, '1' %>
+    <%= number_field_tag :group, '1' %>
       </div>
       <div class="field">
         <%= submit_tag 'Zobrazit' %>
       </div>
   <% end %>
 </div>
-
+--->
