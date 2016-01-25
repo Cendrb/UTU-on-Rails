@@ -19,6 +19,10 @@
       <%= f.label :url %><br>
       <%= f.url_field :url %>
     </div>
+    <div class="field">
+      <%= f.label :subject_id %><br>
+      <%= f.collection_select(:subject_id, Subject.all, :id, :name) %>
+    </div>
     <div class="actions">
       <%= f.submit %>
     </div>

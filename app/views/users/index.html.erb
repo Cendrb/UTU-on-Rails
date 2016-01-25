@@ -16,7 +16,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
+        <td><%= user.to_s %></td>
         <td><%= user.email %></td>
         <td><%= "#{User.get_access_level_string(user.access_level)} (#{user.access_level})" %></td>
         <td><%= user.sgroups.pluck(:name).to_sentence %></td>

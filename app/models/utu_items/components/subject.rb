@@ -5,6 +5,8 @@ class Subject < ActiveRecord::Base
 
   has_many :planned_raking_lists
 
+  has_many :additional_infos
+
   validates_presence_of :name
   
   def get_exam_before_days

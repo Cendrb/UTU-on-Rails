@@ -71,6 +71,6 @@ class AdditionalInfosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def additional_info_params
-      params.require(:additional_info).permit(:name, :url)
+      params.require(:additional_info).permit(:name, :url, :subject_id)
     end
 end

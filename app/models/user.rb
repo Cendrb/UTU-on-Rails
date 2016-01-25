@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
   attr_accessor :password_confirmation
   attr_reader :password
 
+  after_validation do
+    access_level = User.al_registered
+  end
+
   def to_s
     return class_member.full_name
   end
