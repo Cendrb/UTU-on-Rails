@@ -2,17 +2,17 @@
   <%= form_tag do %>
 
       <div class="field">
-        <%= label_tag(:email, 'Email:') %>
+        <%= label_tag(:email, 'Email') %>
         <%= text_field_tag :email, params[:email], class: 'form-control' %>
       </div>
 
       <div class="field">
-        <%= label_tag(:password, 'Heslo:') %>
+        <%= label_tag(:password, 'Heslo') %>
         <%= password_field_tag :password, params[:password], class: 'form-control' %>
       </div>
 
       <div class="field">
-        <%= label_tag(:permanent, 'Trvalé přihlášení:') %>
+        <%= label_tag(:permanent, 'Trvalé přihlášení') %>
         <%= check_box_tag :permanent, params[:permanent], class: 'form-control' %>
       </div>
 
