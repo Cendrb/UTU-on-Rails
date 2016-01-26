@@ -107,6 +107,10 @@ class SummaryController < ApplicationController
     render nothing: true
   end
 
+  def welcome_screen
+    render '_unsortables/welcome_screen', layout: false
+  end
+
   def migrate
     # raking lists (add sclass_id)
     # raking entries (migrate from name to class_member_id)

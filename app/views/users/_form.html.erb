@@ -12,24 +12,20 @@
     <% end %>
 
     <div class="field">
-      <%= label_tag :sclass_id, "Třída" %><br>
-      <%= select_tag(:class_id, options_from_collection_for_select(Sclass.all, :id, :name), class: 'user_form_class_select') %>
-    </div>
-    <div class="field">
       <%= f.label :class_member_id, 'Jméno' %><br>
-      <%= f.collection_select(:class_member_id, current_class.class_members.order(:last_name), :id, :full_name) %>
+      <%= f.collection_select(:class_member_id, current_class.class_members.order(:last_name), :id, :full_name, {}, {class: 'form-control'}) %>
     </div>
     <div class="field">
       <%= f.label :email, 'Email (bez vašeho svolení vám nebudou zasílány žádné maily)' %><br>
-      <%= f.text_field :email %>
+      <%= f.text_field :email, {class: 'form-control'} %>
     </div>
     <div class="field">
       <%= f.label :password, 'Heslo (pro heslo žádná omezení neplatí)' %><br>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, {class: 'form-control'} %>
     </div>
     <div class="field">
       <%= f.label :password_confirmation, 'Potvrzení hesla' %><br>
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation, {class: 'form-control'} %>
     </div>
     <div class="field">
       <%= label_tag :group, 'Skupiny' %><br>

@@ -9,31 +9,4 @@
     <%= alert %>
 </p>
 <% end %>
-<div class="login">
-    <%= form_tag do %>
-
-    <div class="field">
-        <%= label_tag(:email, 'Email:') %>
-        <%= text_field_tag :email, params[:email] %>
-    </div>
-
-    <div class="field">
-        <%= label_tag(:password, 'Heslo:') %>
-        <%= password_field_tag :password, params[:password] %>
-    </div>
-
-    <div class="field">
-        <%= label_tag(:permanent, 'Trvalé přihlášení:') %>
-        <%= check_box_tag :permanent, params[:permanent] %>
-    </div>
-
-    <div class="field">
-        <%= submit_tag 'Přihlásit' %>
-    </div>
-    <p>
-        <%= link_to 'Zapomenuté heslo', forgot_path %>
-        <br />
-        <%= link_to 'Registrace', register_path %>
-    </p>
-    <% end %>
-</div>
+<%= render partial: 'sessions/new' %>

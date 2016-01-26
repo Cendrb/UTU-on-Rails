@@ -128,6 +128,9 @@ UTUOnRails::Application.routes.draw do
 
   # for occasional data migrations
   get 'migrate' => 'summary#migrate'
+
+  # just link to welcome screen
+  get 'welcome_screen' => 'summary#welcome_screen'
   
   get 'analyze' => 'details_accesses#analyze'
   get 'statistics' => 'details_accesses#analyze'

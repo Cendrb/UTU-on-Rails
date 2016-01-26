@@ -91,7 +91,7 @@ class ApplicationController < ActionController::Base
     if authenticate_superuser
       return true
     else
-      render "application/update_in_progress"
+      render "_unsortables/update_in_progress"
     end
   end
 

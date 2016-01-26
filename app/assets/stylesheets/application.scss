@@ -20,11 +20,12 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "_bootstrap_modifications";
+@import "variables";
 @import "utu";
-@import "main_menu";
 @import "_hs";
+@import "main_menu";
 @import "additional_infos";
+@import "welcome_screen";
 @import "details";
 @import "articles";
 @import "nprogress_config";
@@ -36,3 +37,4 @@
 @import "utu_items_shared/form";
 @import "utu_items_shared/index";
 @import "utu_items_shared/show";
+@import "_bootstrap_modifications";

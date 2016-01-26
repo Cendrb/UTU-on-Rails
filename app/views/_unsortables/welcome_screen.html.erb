@@ -1,0 +1,43 @@
+<html>
+<head>
+  <title>UTU on Rails</title>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= stylesheet_link_tag 'application', "data-turbolinks-track" => true, media: "all" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="welcome_screen_header">
+  <div id="welcome_screen_header_content">
+    <h1>UTU</h1>
+  </div>
+</div>
+<div id="welcome_screen_body">
+  <div id="welcome_screen_body_content">
+    <p>Material icons are beautifully crafted, delightful, and easy to use in your web, Android, and iOS projects. Learn
+      more about material design and our process for making these icons in the system icons section of the material
+      design guidelines.
+    </p>
+    <p>
+      Začněte tím, že vyberete svou třídu
+    </p>
+    <%= select_tag(:sclass_select, options_from_collection_for_select(Sclass.all, :id, :name), class: 'form-control', prompt: '') %>
+    <div id="welcome_screen_class_saved_section">
+      <p>
+        Vaše volba třídy je nyní uložena. Pokud ji budete chtít kdykoliv změnit stačí navštívit záložku Nastavení. Před
+        pokračováním Vám doporučujeme se zaregistrovat, potrvá to jen pár minut.
+      </p>
+      <%= link_to 'Zaregistrovat se', '#', class: 'btn btn-primary welcome_screen_register_button' %>
+      <%= link_to 'Přihlásit se', '#', class: 'btn btn-primary welcome_screen_login_button' %>
+      <%= link_to 'Vstoupit na stránky', utu_path, class: 'btn btn-primary' %>
+    </div>
+    <div id="welcome_screen_form_container" class="panel panel-primary">
+      <div class="panel-heading"><h3 id="welcome_screen_form_heading" class="panel-heading"></h3></div>
+      <div id="welcome_screen_form_placeholder" class="panel-body">
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
