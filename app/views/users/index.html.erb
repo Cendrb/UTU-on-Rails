@@ -2,29 +2,32 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Jméno</th>
-      <th>Email</th>
-      <th>Úroveň přístupu</th>
-      <th>Skupina</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+  <tr>
+    <th>Jméno</th>
+    <th>Email</th>
+    <th>Úroveň přístupu</th>
+    <th>Skupina</th>
+    <th>
+      <div class="float_right_actions"><%= link_to mi.add.md_36, new_user_path if admin_logged_in? %></div>
+    </th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+  <% @users.each do |user| %>
       <tr>
         <td><%= user.to_s %></td>
         <td><%= user.email %></td>
         <td><%= "#{User.get_access_level_string(user.access_level)} (#{user.access_level})" %></td>
         <td><%= user.sgroups.pluck(:name).to_sentence %></td>
-        <td><%= link_to 'Zobrazit', user %></td>
-        <td><%= link_to 'Upravit', edit_user_path(user) %></td>
-        <td><%= link_to 'Odstranit', user, method: :delete, data: { confirm: 'Jste si jisti?' } %></td>
+        <td>
+          <div class="float_right_actions">
+            <%= link_to mi.edit, edit_user_path(user) %>
+            <%= link_to mi.delete, user, method: :delete, data: {confirm: 'Jste si jisti?'} %>
+          </div>
+        </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 

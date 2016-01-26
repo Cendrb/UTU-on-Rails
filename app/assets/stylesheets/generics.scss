@@ -1,0 +1,60 @@
+.float_right_actions {
+  float: right;
+}
+
+.vertical_line {
+  border: dashed 2px #879654;
+}
+
+.vertical_menu_splitter {
+  height: 1em;
+  width: 5px;
+}
+
+.line_between_details {
+  border: solid 1px $h2-line-color;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+#alert {
+  color: red;
+  font-size: 20px;
+}
+
+.stretch {
+  width: 100%;
+  th {
+    text-align: left;
+  }
+}
+
+/* Error explanation */
+#error_explanation {
+  color: black;
+}

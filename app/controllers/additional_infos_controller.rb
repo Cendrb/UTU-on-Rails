@@ -5,7 +5,16 @@ class AdditionalInfosController < ApplicationController
   # GET /additional_infos
   # GET /additional_infos.json
   def index
-    @additional_infos = AdditionalInfo.all
+    if params[:subject_id]
+      @additional_infos = AdditionalInfo.where(subject_id: params[:subject_id]).order('created_at DESC').limit(10)
+    else
+      @additional_infos = AdditionalInfo.order('created_at DESC').limit(10)
+    end
+
+    respond_to do |format|
+      format.html { render 'index' }
+      format.js { render 'additional_infos/index/index' }
+    end
   end
 
   # GET /additional_infos/1
@@ -29,7 +38,7 @@ class AdditionalInfosController < ApplicationController
 
     respond_to do |format|
       if @additional_info.save
-        format.html { redirect_to @additional_info, notice: 'Additional info was successfully created.' }
+        format.html { redirect_to additional_infos_path, notice: 'Additional info was successfully created.' }
         format.js { render 'additional_infos/form/append_new_checkbox' }
         format.json { render :show, status: :created, location: @additional_info }
       else
@@ -44,7 +53,7 @@ class AdditionalInfosController < ApplicationController
   def update
     respond_to do |format|
       if @additional_info.update(additional_info_params)
-        format.html { redirect_to @additional_info, notice: 'Additional info was successfully updated.' }
+        format.html { redirect_to additional_infos_path, notice: 'Additional info was successfully updated.' }
         format.json { render :show, status: :ok, location: @additional_info }
       else
         format.html { render :edit }

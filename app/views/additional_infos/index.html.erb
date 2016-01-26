@@ -1,27 +1,7 @@
 <h1>Další materiály</h1>
-<h2>Poslední přidané</h2>
-<table>
-  <thead>
-  <tr>
-    <th>Název</th>
-    <th>Url</th>
-    <th>
-      <div class="additional_infos_index_actions"><%= link_to mi.add.md_36, new_additional_info_path if admin_logged_in? %></div>
-    </th>
-  </tr>
-  </thead>
+<%= label_tag :subject_selector, 'Výběr předmětu' %>
+<%= select_tag(:subject_selector, options_from_collection_for_select(Subject.all, :id, :name), {class: 'form-control additional_infos_subject_select'}) %>
+<div id="additional_infos_index_placeholder">
+  <%= render partial: 'additional_infos/index/index' %>
+</div>
 
-  <tbody>
-  <% @additional_infos.each do |additional_info| %>
-      <tr>
-        <td><%= additional_info.name %></td>
-        <td><%= additional_info.url %></td>
-        <td>
-          <div class="additional_infos_index_actions"><%= link_to mi.edit, edit_additional_info_path(additional_info) %>
-            <%= link_to mi.delete, additional_info, method: :delete, data: {confirm: "Odstranit #{additional_info.name}?"} %>
-          </div>
-        </td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>

@@ -9,7 +9,9 @@
       <th>Již zkoušeno</th>
       <th>Zbývá na seznamu</th>
       <th>Aktuální kolo</th>
-      <th colspan="8"></th>
+      <th colspan="8">
+        <div class="float_right_actions"><%= link_to mi.add.md_36, new_planned_raking_list_path if admin_logged_in? %></div>
+      </th>
     </tr>
     </thead>
 
@@ -44,7 +46,9 @@
         <th>Název</th>
         <th>Již zkoušeno</th>
         <th>Aktuální kolo</th>
-        <th colspan="6"></th>
+        <th colspan="6">
+          <div class="float_right_actions"><%= link_to mi.add.md_36, new_planned_raking_list_path if admin_logged_in? %></div>
+        </th>
       </tr>
     </thead>
 
@@ -71,5 +75,3 @@
 
 <div style="clear: both"></div>
 <br>
-
-<%= link_to 'New Planned raking list', new_planned_raking_list_path if admin_logged_in? %>

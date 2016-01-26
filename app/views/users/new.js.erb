@@ -1,1 +1,1 @@
-$("<%= params[:target] %>").html("<%= escape_javascript(render partial: 'form') %>");
+<%= replace_using_partial(params[:target], 'users/form') %>

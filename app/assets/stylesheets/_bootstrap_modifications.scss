@@ -8,11 +8,9 @@
 
 table:not(.details):not(.timetable) {
   @extend .table;
-  vertical-align: middle;
 }
 
 a.btn {
   text-decoration: none;
   color: #ffffff;
 }
-
