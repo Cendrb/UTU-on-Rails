@@ -42,11 +42,11 @@
     </table>
 <% end %>
 
-<div>
-  <p>Počet ještě nezkoušených
-    lidí: <%= %>
+<div id="planned_raking_list_show_status_messages">
+  <p>Počet ještě nezapsaných (ani nezkoušených) lidí: <%= round.not_signed_up_yet_count %>
     <br>
-    <%= round.not_rekt_yet_count %><br>
-    <%= round.not_rekt_yet_query.map(&:full_name).to_sentence %>
+    <%= round.not_signed_up_yet_query.map(&:full_name).to_sentence %>
   </p>
+  <p>Počet již zkoušených: <%= round.already_rekt_count %>
+    /<%= round.planned_raking_list.sclass.class_members.count %></p>
 </div>
