@@ -22,7 +22,7 @@ class SummaryController < ApplicationController
       @data[:rakings][:chances] = []
       PlannedRakingList.where(sclass: current_class).where(planned: false).each do |list|
         if list.current_round.planned_raking_entries.where(class_member_id: current_user.class_member).count == 0
-          @data[:rakings][:chances] << {name: list.title, chance: (list.rekt_per_hour.to_f / list.current_round.not_rekt_yet_count.to_f) * 100, already_rekt: list.current_round.already_rekt_count, total: list.sclass.class_members.count}
+          @data[:rakings][:chances] << {name: list.title, subject: list.subject.name, chance: (list.rekt_per_hour.to_f / list.current_round.not_rekt_yet_count.to_f) * 100, already_rekt: list.current_round.already_rekt_count, total: list.sclass.class_members.count}
         end
       end
     end

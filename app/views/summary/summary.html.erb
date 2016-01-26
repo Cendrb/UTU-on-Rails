@@ -66,8 +66,9 @@
 <div class="summary_section">
   <h2>Zkoušení</h2>
   <% @data[:rakings][:chances].each do |chance_pair| %>
-      <%= chance_pair[:name] %> <%= number_with_precision(chance_pair[:chance], precision: 2).to_s + '%' %> (zatím
-      vyzkoušeno <%= chance_pair[:already_rekt] %> ze <%= chance_pair[:total] %>)
+      <%= "#{chance_pair[:name]} (#{chance_pair[:subject]})" %> <%= number_with_precision(chance_pair[:chance], precision: 2).to_s + '%' %>
+      (zatím
+      vyzkoušeno <%= chance_pair[:already_rekt] %> ze <%= chance_pair[:total] %>)<br>
   <% end %>
 </div>
 
