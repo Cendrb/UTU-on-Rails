@@ -1,27 +1,27 @@
-<h1>Listing additional_infos</h1>
-
+<h1>Další materiály</h1>
+<h2>Poslední přidané</h2>
 <table>
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Url</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Název</th>
+    <th>Url</th>
+    <th>
+      <div class="additional_infos_index_actions"><%= link_to mi.add.md_36, new_additional_info_path if admin_logged_in? %></div>
+    </th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @additional_infos.each do |additional_info| %>
+  <% @additional_infos.each do |additional_info| %>
       <tr>
         <td><%= additional_info.name %></td>
         <td><%= additional_info.url %></td>
-        <td><%= link_to 'Show', additional_info %></td>
-        <td><%= link_to 'Edit', edit_additional_info_path(additional_info) %></td>
-        <td><%= link_to 'Destroy', additional_info, method: :delete, data: { confirm: 'Jste si jisti?' } %></td>
+        <td>
+          <div class="additional_infos_index_actions"><%= link_to mi.edit, edit_additional_info_path(additional_info) %>
+            <%= link_to mi.delete, additional_info, method: :delete, data: {confirm: "Odstranit #{additional_info.name}?"} %>
+          </div>
+        </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Additional info', new_additional_info_path %>

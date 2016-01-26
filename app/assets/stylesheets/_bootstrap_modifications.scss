@@ -7,5 +7,6 @@
 }
 
 table:not(.details):not(.timetable) {
-  @extend .table
+  @extend .table;
+  vertical-align: middle;
 }
