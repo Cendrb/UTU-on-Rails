@@ -4,8 +4,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[TASK] viewport is weird again">
+    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[TASK] viewport is weird again and again">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/additional_infos/index.html.erb" afterPath="$PROJECT_DIR$/app/views/additional_infos/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/material_main.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/material_main.html.erb" />
     </list>
     <ignored path="UTU-on-Rails.iws" />
@@ -108,11 +109,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="material_main.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="material_main.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/material_main.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20376712">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+            <state vertical-scroll-proportion="-10.461538">
+              <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="additional_infos_controller.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/additional_infos_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -164,7 +175,6 @@
         <option value="$PROJECT_DIR$/app/views/additional_infos/index/index.js.erb" />
         <option value="$PROJECT_DIR$/app/helpers/javascript_helper.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/additional_infos.js" />
-        <option value="$PROJECT_DIR$/app/views/additional_infos/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/additional_infos_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/additional_infos.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/generics.scss" />
@@ -212,6 +222,7 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/material_design.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/planned_rakings.scss" />
         <option value="$PROJECT_DIR$/app/views/layouts/material_main.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/additional_infos/index.html.erb" />
       </list>
     </option>
   </component>
@@ -463,7 +474,7 @@
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="plan&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_lists_controller.rb&#10;mate&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/material_main.html.erb&#10;deta&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/summary/details.html.erb&#10;mater&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/material_main.html.erb&#10;welc&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_unsortables/welcome_screen.html.erb&#10;wel&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_unsortables/welcome_screen.html.erb&#10;desk&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/desktop_main.html.erb&#10;users&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/users_controller.rb&#10;des&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/desktop_main.html.erb&#10;admini&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/summary/administration.html.erb&#10;user&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/users_controller.rb&#10;route&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/routes.rb&#10;app&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/application_controller.rb&#10;sess&#9;null&#9;null&#10;_hidd&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_generic_utu_partials/_hidden.html.erb&#10;revea&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_generic_utu_partials/_revealed.html.erb&#10;appl&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/application_controller.rb&#10;summ&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/summary/summary.html.erb&#10;sum&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/timetables/summary.html.erb&#10;materi&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/assets/stylesheets/material_design.scss&#10;ap c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/application_controller.rb&#10;raki l c&#9;null&#9;null&#10;rou&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/routes.rb&#10;users c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/users_controller.rb&#10;rout&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/routes.rb&#10;scla&#9;null&#9;null&#10;utu&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/assets/stylesheets/utu.scss&#10;add i c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/additional_infos_controller.rb&#10;_new&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/sessions/_new.html.erb&#10;summ c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/summary_controller.rb&#10;su&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/summary_controller.rb&#10;add&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/additional_infos_controller.rb&#10;rak&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/planned_rakings/raking_round.rb&#10;rak ro&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/planned_rakings/raking_round.rb&#10;plann&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_lists_controller.rb&#10;dev&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/environments/development.rb&#10;add in&#9;null&#9;null&#10;subj&#9;null&#9;null&#10;migr&#9;ACTION&#9;rails:generator:migration&#10;RAK EX&#9;null&#9;null&#10;wr e c&#9;null&#9;null&#10;task&#9;null&#9;null&#10;events&#9;null&#9;null&#10;pla r e&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_entries_controller.rb&#10;ra r&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/planned_rakings/raking_round.rb&#10;_reve&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_generic_utu_partials/_revealed.html.erb&#10;_artic&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/articles/_article.html.erb&#10;r r&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/planned_rakings/raking_round.rb&#10;p r l&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/planned_rakings/planned_raking_list.rb&#10;roun&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/planned_rakings/raking_round.rb" />
+    <property name="SearchEverywhereHistoryKey" value="add i c&#9;null&#9;null&#10;plan&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_lists_controller.rb&#10;mate&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/material_main.html.erb&#10;deta&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/summary/details.html.erb&#10;mater&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/material_main.html.erb&#10;welc&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_unsortables/welcome_screen.html.erb&#10;wel&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_unsortables/welcome_screen.html.erb&#10;desk&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/desktop_main.html.erb&#10;users&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/users_controller.rb&#10;des&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/desktop_main.html.erb&#10;admini&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/summary/administration.html.erb&#10;user&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/users_controller.rb&#10;route&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/routes.rb&#10;app&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/application_controller.rb&#10;sess&#9;null&#9;null&#10;_hidd&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_generic_utu_partials/_hidden.html.erb&#10;revea&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_generic_utu_partials/_revealed.html.erb&#10;appl&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/application_controller.rb&#10;summ&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/summary/summary.html.erb&#10;sum&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/timetables/summary.html.erb&#10;materi&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/assets/stylesheets/material_design.scss&#10;ap c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/application_controller.rb&#10;raki l c&#9;null&#9;null&#10;rou&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/routes.rb&#10;users c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/users_controller.rb&#10;rout&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/routes.rb&#10;scla&#9;null&#9;null&#10;utu&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/assets/stylesheets/utu.scss&#10;_new&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/sessions/_new.html.erb&#10;summ c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/summary_controller.rb&#10;su&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/summary_controller.rb&#10;add&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/additional_infos_controller.rb&#10;rak&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/planned_rakings/raking_round.rb&#10;rak ro&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/planned_rakings/raking_round.rb&#10;plann&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_lists_controller.rb&#10;dev&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/environments/development.rb&#10;add in&#9;null&#9;null&#10;subj&#9;null&#9;null&#10;migr&#9;ACTION&#9;rails:generator:migration&#10;RAK EX&#9;null&#9;null&#10;wr e c&#9;null&#9;null&#10;task&#9;null&#9;null&#10;events&#9;null&#9;null&#10;pla r e&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_entries_controller.rb&#10;ra r&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/planned_rakings/raking_round.rb&#10;_reve&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_generic_utu_partials/_revealed.html.erb&#10;_artic&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/articles/_article.html.erb&#10;r r&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/planned_rakings/raking_round.rb&#10;p r l&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/planned_rakings/planned_raking_list.rb&#10;roun&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/planned_rakings/raking_round.rb" />
     <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
     <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -983,7 +994,13 @@
       <option name="project" value="LOCAL" />
       <updated>1453932835450</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="[TASK] viewport is weird again and again">
+      <created>1453932950565</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1453932950565</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1025,7 +1042,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[FIX] hiding exams now works&#10;" />
     <MESSAGE value="[FEATURE] Bootstrap design&#10;[FIX] Planned raking lists now slipt into planned and nonplanned" />
     <MESSAGE value="[FEATURE] Rekt probability now shown in summary" />
     <MESSAGE value="[FIX] exams now sort in right order&#10;" />
@@ -1050,7 +1066,8 @@
     <MESSAGE value="[TASK] margins in material header" />
     <MESSAGE value="[TASK] viewport is weird" />
     <MESSAGE value="[TASK] viewport is weird again" />
-    <option name="LAST_COMMIT_MESSAGE" value="[TASK] viewport is weird again" />
+    <MESSAGE value="[TASK] viewport is weird again and again" />
+    <option name="LAST_COMMIT_MESSAGE" value="[TASK] viewport is weird again and again" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1060,21 +1077,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/summary_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionview-4.2.5/lib/action_view/helpers/form_options_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="736" column="12" selection-start-line="736" selection-start-column="12" selection-end-line="736" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.8461537">
@@ -1086,6 +1088,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16859505">
           <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1218,6 +1221,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1429,8 +1433,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/material_main.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20376712">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        <state vertical-scroll-proportion="-10.461538">
+          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/additional_infos/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17465754">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/additional_infos_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
           <folding />
         </state>
       </provider>
