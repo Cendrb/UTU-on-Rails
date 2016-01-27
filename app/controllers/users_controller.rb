@@ -113,7 +113,15 @@ class UsersController < ApplicationController
   end
 
   def enable_experimental_settings
+    user = current_user
+    if user
+      puts params[:enable]
+      puts params[:enable] == 'true'
+      user.experimental_settings = (params[:enable] == 'true')
+      user.save!
+    end
 
+    redirect_to administration_path
   end
 
   private

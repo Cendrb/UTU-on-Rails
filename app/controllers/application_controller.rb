@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :detect_device_format
   before_action :set_locale
   before_action :troll
   layout :layout
@@ -22,26 +21,15 @@ class ApplicationController < ActionController::Base
   private
 
   def layout
-    return "material_main"
+    if current_user && current_user.experimental_settings
+      return 'material_main'
+    else
+      return 'desktop_main'
+    end
   end
 
   def troll
 
-  end
-
-  def detect_device_format
-    case request.user_agent
-      when /iPad/i
-        request.variant = :tablet
-      when /iPhone/i
-        request.variant = :mobile
-      when /Android/i && /mobile/i
-        request.variant = :mobile
-      when /Android/i
-        request.variant = :tablet
-      when /Windows Phone/i
-        request.variant = :mobile
-    end
   end
 
   protected

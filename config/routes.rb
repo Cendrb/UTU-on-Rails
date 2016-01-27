@@ -128,6 +128,9 @@ UTUOnRails::Application.routes.draw do
 
   # just link to welcome screen
   get 'welcome_screen' => 'summary#welcome_screen'
+
+  # enable experimental_settings
+  get 'enable_experimental_settings' => 'users#enable_experimental_settings'
   
   get 'analyze' => 'details_accesses#analyze'
   get 'statistics' => 'details_accesses#analyze'

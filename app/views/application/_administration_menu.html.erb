@@ -30,4 +30,12 @@
   <%= link_to("Lekce", lessons_path, class: 'administration_link') %><br/>
   <%= link_to("Účty k Bakalářům", baka_accounts_path, class: 'administration_link') %><br/>
 </p>
-<%= link_to("Whoa?", day_teachers_path, class: 'administration_link') %><br/>
+<p>
+  <%= link_to("Whoa?", day_teachers_path, class: 'administration_link') %><br>
+</p>
+<% if current_user.experimental_settings %>
+    <%= link_to 'Disable experimental settings', enable_experimental_settings_path(enable: 'false'), class: 'btn btn-danger' %>
+<% else %>
+    <%= link_to 'Enable experimental settings', enable_experimental_settings_path(enable: 'true'), class: 'btn btn-danger' %>
+<% end %>
+
