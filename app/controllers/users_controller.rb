@@ -112,6 +112,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def enable_experimental_settings
+
+  end
+
   private
 
   def parse_group_belongings_radios

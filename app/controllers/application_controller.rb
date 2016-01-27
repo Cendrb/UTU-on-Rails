@@ -22,11 +22,7 @@ class ApplicationController < ActionController::Base
   private
 
   def layout
-    if request.variant && request.variant.first == :mobile
-      return "material_main"
-    else
-      return "material_main"
-    end
+    return "material_main"
   end
 
   def troll

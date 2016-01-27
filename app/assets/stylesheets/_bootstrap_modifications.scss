@@ -12,5 +12,8 @@ table:not(.details):not(.timetable) {
 
 a.btn {
   text-decoration: none;
+}
+
+a.btn-primary, a.btn-warning, a.btn-danger, a.btn-info, a.btn-success {
   color: #ffffff;
 }

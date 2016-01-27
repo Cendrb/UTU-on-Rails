@@ -1,7 +1,7 @@
 <% type = item.get_utu_type %>
 <% no_hide |= false %>
 
-<%= link_to mi.visibility_off.md_36, hide_item_path(id: item.id, type: item.get_utu_type), remote: true, class: 'shared_show_hide_or_reveal' unless no_hide %>
+<%= link_to mi.visibility_off.md_36, hide_item_path(id: item.id, type: item.get_utu_type), remote: true, class: 'shared_show_hide_or_reveal' if !no_hide && logged_in? %>
 <h3 class="shared_show_title"><%= link_to item.title, item %></h3>
 <% if type == :article %>
     <p>

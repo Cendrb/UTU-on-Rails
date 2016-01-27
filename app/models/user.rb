@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
     access_level = User.al_registered
   end
 
+  def name
+    return class_member.full_name
+  end
+
   def to_s
     return class_member.full_name
   end

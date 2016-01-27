@@ -13,17 +13,44 @@
 
   <div id="material_header">
     <div id="material_header_content">
+      <a href="<%= utu_path %>">
+        <svg id="material_header_logo" width="96" height="54" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="39" id="svg_21" y="40.5" x="6" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#ffffff" fill="#ffffff">UTU</text>
+          </g>
+        </svg>
+      </a>
+      <ul id="material_nav_menu">
+        <li><%= link_to 'Přehled', utu_path %></li>
+        <li><%= link_to 'Podrobnosti', details_path %></li>
+        <li><%= link_to 'Zkoušení', planned_raking_lists_path %></li>
+        <li><%= link_to 'Rozvrh', rozvrh_path %></li>
+      </ul>
+      <div id="material_header_info">
+        <% if logged_in? %>
+            <%= link_to current_user.name, administration_url, class: 'btn btn-default' %>
 
+        <% else %>
+            <%= link_to 'Přihlášení', login_path, class: 'btn btn-default' %>
+            <%= link_to 'Registrace', register_path, class: 'btn btn-default' %>
+            <%= link_to current_class.name, welcome_screen_path, class: 'btn btn-warning material_header_info_class' %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div id="material_body">
     <div id="material_body_content">
-
+      <%= yield %>
     </div>
   </div>
   <div id="material_footer">
     <div id="material_footer_content">
+      <div id="material_footer_left">
 
+      </div>
+      <div id="material_footer_right">
+
+      </div>
     </div>
   </div>
 </div>

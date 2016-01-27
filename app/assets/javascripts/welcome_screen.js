@@ -6,9 +6,18 @@ $(function () {
         $("#welcome_screen_class_saved_section").show();
 
         if (mode == "register")
-            fetchRegisterForm();
-        if (mode == "login")
-            fetchLoginForm();
+            $("#welcome_screen_form_placeholder").html("<p>Načítání...</p>");
+        $.ajax({
+            type: "POST",
+            url: "/sclasses/change_current",
+            data: {sclass_id: $(this).val()},
+            dataType: 'script',
+            format: 'js',
+            success: function () {
+                if (mode == "register")
+                    fetchRegisterForm();
+            }
+        });
     });
     $(".welcome_screen_register_button").click(function () {
         mode = "register";
