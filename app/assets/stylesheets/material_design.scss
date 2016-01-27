@@ -1,7 +1,7 @@
 @mixin inner-content {
   margin-left: auto;
   margin-right: auto;
-  width: 1200px;
+  width: 63%;
 }
 
 #current_class_placeholder {
@@ -66,8 +66,8 @@
         box-shadow: 0 0 10px rgb(151, 151, 151);
         padding-top: 10px;
         padding-bottom: 20px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 25px;
+        padding-right: 25px;
         background-color: rgb(246, 246, 246);
       }
     }
