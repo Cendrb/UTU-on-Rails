@@ -22,8 +22,9 @@
 }
 
 /* Main frames */
-body {
+body#old {
   overflow-y: scroll;
+  background-color: $background-color;
 
   #background {
     background-color: $background-color;

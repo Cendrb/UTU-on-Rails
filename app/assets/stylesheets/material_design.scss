@@ -1,0 +1,29 @@
+@mixin inner-content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+}
+
+#material_body_html {
+  #material_container {
+    #material_header {
+      background-color: $background-color;
+      width: 100%;
+      height: 80px;
+      #material_header_content {
+        @include inner-content;
+
+      }
+    }
+    #material_body {
+      #material_body_content {
+        @include inner-content;
+      }
+    }
+    #material_footer {
+      #material_footer_content {
+        @include inner-content;
+      }
+    }
+  }
+}

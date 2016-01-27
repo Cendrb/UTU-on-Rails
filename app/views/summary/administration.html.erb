@@ -1,4 +1,6 @@
 <h1>Nastavení</h1>
+<% set_title 'Nastavení' %>
+<%= select_tag(:main_sclass_selector, options_from_collection_for_select(Sclass.all, :id, :name, current_class.id), class: 'form-control') if !logged_in? %>
 <% if logged_in? %>
     <%= render partial: "users/settings", locals: {user: current_user} %>
 <% else %>

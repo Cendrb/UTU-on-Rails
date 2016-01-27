@@ -112,11 +112,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def class_select_changed
-    @sclass = Sclass.find(params[:sclass_id])
-    render 'users/user_form/replace_class_member_select'
-  end
-
   private
 
   def parse_group_belongings_radios

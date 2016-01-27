@@ -1,6 +1,7 @@
 class SclassesController < ApplicationController
   before_action :set_sclass, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_admin
+  before_filter :authenticate_admin, except: [:change_current]
+  skip_before_filter :current_class_check, only: [:change_current]
 
   # GET /sclasses
   # GET /sclasses.json
@@ -60,6 +61,12 @@ class SclassesController < ApplicationController
       format.html { redirect_to sclasses_url, notice: 'Sclass was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def change_current
+    session[:sclass_id] = params[:sclass_id]
+    cookies[:sclass_id] = params[:sclass_id]
+    render 'sclasses/current_class/current_class_changed'
   end
 
   private

@@ -5,6 +5,7 @@ require "nokogiri"
 
 class SummaryController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:post_details]
+  skip_before_filter :current_class_check, only: [:welcome_screen]
   before_filter :authenticate_admin, only: [:refresh, :migrate, :temp]
   before_filter :authenticate, only: :subjects
 
@@ -12,6 +13,7 @@ class SummaryController < ApplicationController
     @data = {}
     @data[:service] = {}
     @data[:rakings] = {}
+    @data[:rakings][:chances] = []
 
     @data[:service][:current] = Service.where("service_start <= :today AND service_end >= :today", {today: Date.today}).first
     @data[:articles] = Article.where(published: true).order("published_on DESC").limit(3)
@@ -19,7 +21,6 @@ class SummaryController < ApplicationController
     if logged_in?
       @data[:service][:user] = Service.in_future.where("first_mate_id = :class_member OR second_mate_id = :class_member", {class_member: current_user.class_member_id}).first
 
-      @data[:rakings][:chances] = []
       PlannedRakingList.where(sclass: current_class).where(planned: false).each do |list|
         if list.current_round.planned_raking_entries.where(class_member_id: current_user.class_member).count == 0
           @data[:rakings][:chances] << {name: list.title, subject: list.subject.name, chance: (list.rekt_per_hour.to_f / list.current_round.not_rekt_yet_count.to_f) * 100, already_rekt: list.current_round.already_rekt_count, total: list.sclass.class_members.count}

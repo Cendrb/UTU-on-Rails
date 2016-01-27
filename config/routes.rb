@@ -11,6 +11,7 @@ UTUOnRails::Application.routes.draw do
 
   resources :sgroups
 
+  post 'sclasses/change_current' => 'sclasses#change_current'
   resources :sclasses
 
   resources :class_members
@@ -20,7 +21,7 @@ UTUOnRails::Application.routes.draw do
   post 'planned_raking_entries/sort' => 'planned_raking_entries#sort'
   post 'planned_raking_entries/mark_as_rekt' => 'planned_raking_entries#mark_as_rekt', as: "admin_show_planned_raking_entries_rekt"
   get 'planned_raking_entries/new_planned_rekt' => 'planned_raking_entries#new_planned_rekt', as: 'new_planned_rekt_raking_entry'
-  get 'planned_reking_entries/new_already_rekt' => 'planned_raking_entries#new_already_rekt', as: 'new_already_rekt_raking_entry'
+  get 'planned_raking_entries/new_already_rekt' => 'planned_raking_entries#new_already_rekt', as: 'new_already_rekt_raking_entry'
   resources :planned_raking_entries, except: :new
 
 
@@ -82,10 +83,6 @@ UTUOnRails::Application.routes.draw do
     get 'logout' => :destroy
   end
 
-  controller :users do
-    # user_form class select
-    post 'users/class_select_changed'
-  end
   resources :users
 
   resources :services

@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   before_action :troll
   layout :layout
   before_filter :set_current_account
+  before_filter :current_class_check
   #before_filter :currently_updating
 
   def set_current_account
@@ -22,9 +23,9 @@ class ApplicationController < ActionController::Base
 
   def layout
     if request.variant && request.variant.first == :mobile
-      return "desktop_main"
+      return "material_main"
     else
-      return "desktop_main"
+      return "material_main"
     end
   end
 
@@ -107,7 +108,7 @@ class ApplicationController < ActionController::Base
     rescue Exception => e
       cookies.delete :user_id
       session[:user_id] = nil
-      puts "Exception rescued! (#{e.message})"
+      puts "Unable to fetch user, cookies and session wiped! (#{e.message})"
     end
   end
 
@@ -115,7 +116,25 @@ class ApplicationController < ActionController::Base
     if current_user && current_user.class_member
       return current_user.class_member.sclass
     else
-      return Sclass.first
+      begin
+        if !session[:sclass_id].nil?
+          Sclass.find(session[:sclass_id])
+        else
+          if !cookies[:sclass_id].nil?
+            Sclass.find(cookies[:sclass_id])
+          end
+        end
+      rescue Exception => e
+        cookies.delete :sclass_id
+        session[:sclass_id] = nil
+        puts "Unable to fetch sclass, cookies and session wiped! (#{e.message})"
+      end
+    end
+  end
+
+  def current_class_check
+    if !current_class
+      redirect_to welcome_screen_path
     end
   end
 
