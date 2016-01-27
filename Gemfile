@@ -22,9 +22,6 @@ gem 'mechanize'
 
 gem 'compass'
 
-# Performance analyzer
-gem 'newrelic_rpm'
-
 # To keep Heroku dynos awake
 gem 'dynopoker'
 

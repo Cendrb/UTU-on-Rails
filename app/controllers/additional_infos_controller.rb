@@ -6,9 +6,9 @@ class AdditionalInfosController < ApplicationController
   # GET /additional_infos.json
   def index
     if params[:subject_id]
-      @additional_infos = AdditionalInfo.where(subject_id: params[:subject_id]).order('created_at DESC').limit(10)
+      @additional_infos = AdditionalInfo.where(subject_id: params[:subject_id]).where(sclass: current_class).order('created_at DESC').limit(10)
     else
-      @additional_infos = AdditionalInfo.order('created_at DESC').limit(10)
+      @additional_infos = AdditionalInfo.where(sclass: current_class).order('created_at DESC').limit(10)
     end
 
     respond_to do |format|
@@ -25,6 +25,7 @@ class AdditionalInfosController < ApplicationController
   # GET /additional_infos/new
   def new
     @additional_info = AdditionalInfo.new
+    @additional_info.sclass = current_class
   end
 
   # GET /additional_infos/1/edit
@@ -80,6 +81,6 @@ class AdditionalInfosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def additional_info_params
-      params.require(:additional_info).permit(:name, :url, :subject_id)
+      params.require(:additional_info).permit(:name, :url, :subject_id, :sclass_id)
     end
 end

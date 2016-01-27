@@ -8,6 +8,7 @@ class Sclass < ActiveRecord::Base
   has_many :planned_raking_lists
   has_many :timetables
   has_many :articles
+  has_many :additional_infos
 
   def default_timetable
     return Timetable.find(default_timetable_id)
