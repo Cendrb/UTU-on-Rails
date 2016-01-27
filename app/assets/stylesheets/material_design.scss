@@ -1,7 +1,12 @@
 @mixin inner-content {
   margin-left: auto;
   margin-right: auto;
-  width: 63%;
+  @media (min-device-width: 1000px) {
+    width: 63%;
+  }
+  @media (max-device-width: 1000px) {
+    width: 100%;
+  }
 }
 
 #current_class_placeholder {
