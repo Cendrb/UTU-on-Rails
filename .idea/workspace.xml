@@ -4,7 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[TASK] viewport is weird again and again">
+    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[FEATURE]additional infos now visible">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/additional_infos/index.html.erb" afterPath="$PROJECT_DIR$/app/views/additional_infos/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/material_main.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/material_main.html.erb" />
@@ -109,17 +109,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="material_main.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="material_main.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/material_main.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.461538">
-              <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.34931508">
+              <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="additional_infos_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="additional_infos_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/additional_infos_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
@@ -1000,7 +1000,13 @@
       <option name="project" value="LOCAL" />
       <updated>1453932950565</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="[FEATURE]additional infos now visible">
+      <created>1453933293845</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1453933293845</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1042,7 +1048,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[FEATURE] Bootstrap design&#10;[FIX] Planned raking lists now slipt into planned and nonplanned" />
     <MESSAGE value="[FEATURE] Rekt probability now shown in summary" />
     <MESSAGE value="[FIX] exams now sort in right order&#10;" />
     <MESSAGE value="[FIX] users index now works&#10;[FEATURE] additional infos now have subject_id&#10;&#10;" />
@@ -1067,7 +1072,8 @@
     <MESSAGE value="[TASK] viewport is weird" />
     <MESSAGE value="[TASK] viewport is weird again" />
     <MESSAGE value="[TASK] viewport is weird again and again" />
-    <option name="LAST_COMMIT_MESSAGE" value="[TASK] viewport is weird again and again" />
+    <MESSAGE value="[FEATURE]additional infos now visible" />
+    <option name="LAST_COMMIT_MESSAGE" value="[FEATURE]additional infos now visible" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1431,14 +1437,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/material_main.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.461538">
-          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/additional_infos/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17465754">
@@ -1451,6 +1449,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/material_main.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34931508">
+          <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
           <folding />
         </state>
       </provider>
