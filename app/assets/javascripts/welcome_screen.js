@@ -3,7 +3,10 @@ var mode = "dick"
 $(function () {
     $("#sclass_select").change(function () {
         document.cookie = "sclass_id=" + $(this).val();
-        $("#welcome_screen_class_saved_section").show();
+        if ($(this).val() != "")
+            $("#welcome_screen_class_saved_section").show();
+        else
+            $("#welcome_screen_class_saved_section").hide();
 
         if (mode == "register")
             $("#welcome_screen_form_placeholder").html("<p>Načítání...</p>");

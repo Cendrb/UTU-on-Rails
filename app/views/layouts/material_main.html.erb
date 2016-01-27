@@ -33,7 +33,7 @@
         <% else %>
             <%= link_to 'Přihlášení', login_path, class: 'btn btn-default' %>
             <%= link_to 'Registrace', register_path, class: 'btn btn-default' %>
-            <%= link_to current_class.name, welcome_screen_path, class: 'btn btn-warning material_header_info_class' %>
+            <div id="current_class_placeholder"><%= render partial: 'sclasses/current_class/current_class' %></div>
         <% end %>
       </div>
     </div>

@@ -4,6 +4,11 @@
   width: 1200px;
 }
 
+#current_class_placeholder {
+  float: right;
+  margin-left: 5px;
+}
+
 #material_body_html {
   #material_container {
     #material_header {
@@ -47,10 +52,6 @@
         // Signup, sign in, class select
         #material_header_info {
           float: right;
-
-          .material_header_info_class {
-            margin-left: 5px;
-          }
 
           .btn {
             margin-top: 11px;

@@ -1,6 +1,4 @@
 <% current = current_class %>
 <% if current %>
-    <%= current_class.name %>
-<% else %>
-    Žádná třída nebyla vybrána
+    <%= link_to current.name, welcome_screen_path, class: 'btn btn-warning material_header_info_class' %>
 <% end %>
