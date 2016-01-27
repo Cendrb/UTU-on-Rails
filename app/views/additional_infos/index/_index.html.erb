@@ -13,12 +13,14 @@
   <tbody>
   <% @additional_infos.each do |additional_info| %>
       <tr>
-        <td><%= additional_info.name %></td>
+        <td><%= link_to additional_info.name, additional_info.url, target: '_blank' %></td>
         <td><%= additional_info.url %></td>
         <td><%= additional_info.subject.name if additional_info.subject %></td>
         <td>
-          <div class="float_right_actions"><%= link_to mi.edit, edit_additional_info_path(additional_info) %>
-            <%= link_to mi.delete, additional_info, method: :delete, data: {confirm: "Odstranit #{additional_info.name}?"} %>
+          <div class="float_right_actions">
+            <%= link_to mi.open_in_new, additional_info.url, target: '_blank' %>
+            <%= link_to mi.edit, edit_additional_info_path(additional_info) if admin_logged_in? %>
+            <%= link_to mi.delete, additional_info, method: :delete, data: {confirm: "Odstranit #{additional_info.name}?"} if admin_logged_in? %>
           </div>
         </td>
       </tr>
