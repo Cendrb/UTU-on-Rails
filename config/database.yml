@@ -13,11 +13,3 @@
     pool: 5
     username: postgres
     password: danjegay
-  
-  production:
-    adapter: postgresql
-    encoding: unicode
-    database: UTU on Rails_production
-    pool: 5
-    username: UTU on Rails
-    password:

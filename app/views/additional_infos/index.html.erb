@@ -3,6 +3,6 @@
 <%= label_tag :subject_selector, 'Výběr předmětu' %>
 <%= select_tag(:subject_selector, options_from_collection_for_select(Subject.all, :id, :name), {class: 'form-control additional_infos_subject_select', include_blank: 'Všechny předměty'}) %>
 <div id="additional_infos_index_placeholder">
-  <%= render partial: 'additional_infos/index/index' %>
+  <%= render partial: 'additional_infos/index/full_index' %>
 </div>
 

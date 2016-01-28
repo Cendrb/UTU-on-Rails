@@ -6,14 +6,29 @@ class AdditionalInfosController < ApplicationController
   # GET /additional_infos.json
   def index
     if params[:subject_id] && params[:subject_id] != ''
-      @additional_infos = AdditionalInfo.where(subject_id: params[:subject_id]).where(sclass: current_class).order('created_at DESC').limit(10)
+      @additional_infos = AdditionalInfo.for_class(current_class).for_subject(params[:subject_id]).limit(10)
     else
-      @additional_infos = AdditionalInfo.where(sclass: current_class).order('subject_id ASC, created_at DESC').limit(10)
+      @additional_infos = AdditionalInfo.for_class(current_class).limit(10)
     end
 
     respond_to do |format|
-      format.html { render 'index' }
-      format.js { render 'additional_infos/index/index' }
+      format.html { render 'additional_infos/index.html.erb' }
+      format.js {
+        if params[:source] == 'form'
+          if params[:item_id] && params[:item_id] != '' && params[:item_type]
+            # editing => load already ticked infos
+            @item = GenericUtuItem.find_instance(params[:item_id], params[:item_type])
+            params[:additional_infos] = {}
+            @item.info_item_bindings.each do |item|
+              params[:additional_infos][item.additional_info.id] = 1
+            end
+          end
+          @subject = Subject.find(params[:subject_id])
+          render 'additional_infos/index/form_index'
+        else
+          render 'additional_infos/index/full_index'
+        end
+      }
     end
   end
 
@@ -40,7 +55,6 @@ class AdditionalInfosController < ApplicationController
     respond_to do |format|
       if @additional_info.save
         format.html { redirect_to additional_infos_path, notice: 'Additional info was successfully created.' }
-        format.js { render 'additional_infos/form/append_new_checkbox' }
         format.json { render :show, status: :created, location: @additional_info }
       else
         format.html { render :new }
@@ -74,13 +88,13 @@ class AdditionalInfosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_additional_info
-      @additional_info = AdditionalInfo.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_additional_info
+    @additional_info = AdditionalInfo.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def additional_info_params
-      params.require(:additional_info).permit(:name, :url, :subject_id, :sclass_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def additional_info_params
+    params.require(:additional_info).permit(:name, :url, :subject_id, :sclass_id)
+  end
 end

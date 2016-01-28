@@ -13,6 +13,26 @@ module GenericUtuItem
     belongs_to :sclass
   end
 
+  def self.find_instance(id, type)
+    item = nil
+    if type == 'event'
+      item = Event.find(id)
+    end
+    if type == 'task'
+      item = Task.find(id)
+    end
+    if type == 'written_exam'
+      item = WrittenExam.find(id)
+    end
+    if type == 'raking_exam'
+      item = RakingExam.find(id)
+    end
+    if type == 'article'
+      item = Article.find(id)
+    end
+    return item
+  end
+
   def get_utu_type(only_basic = false)
     if self.instance_of?(Event)
       return :event

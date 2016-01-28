@@ -1,0 +1,17 @@
+<% type = item.get_utu_type %>
+<% if type == :event || type == :article %>
+    <%= label_tag :additional_infos, 'Více informací' %><br>
+<% else %>
+    <%= label_tag :additional_infos, "Více informací (pro předmět #{subject.name})" %><br>
+<% end %>
+<% additional_infos.each do |info| %>
+    <%= check_box_tag "additional_infos[#{info.id}]", info.name, params[:additional_infos][info.id] == 1 %>
+    <% if type == :event || type == :article %>
+        <%# not subject related - no subject select - should display it at the end %>
+        <%= "#{info.name} (#{info.subject.name})" %>
+    <% else %>
+        <%# subject related - filtered by subject select - all the same subject %>
+        <%= info.name %>
+    <% end %>
+    <br>
+<% end %>

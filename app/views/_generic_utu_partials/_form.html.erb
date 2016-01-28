@@ -1,13 +1,11 @@
-<div id="additional_info_form">
-  <h5>přidat url (více informací)</h5>
-  <%= form_for(AdditionalInfo.new, remote: true) do |f| %>
-      <%= f.label :name, 'Název' %>
-      <%= f.text_field :name %>
-      <%= f.label :url, 'Adresa URL' %>
-      <%= f.url_field :url %>
-      <%= f.submit 'Uložit' %>
-  <% end %>
-</div>
+<% if item.id %>
+    <%# not new = editing %>
+    <div class="hidden generic_utu_partial_data" data-item_id="<%= item.id %>" data-item_type="<%= item.get_utu_type %>"></div>
+    <% current_subject = item.subject %>
+<% else %>
+    <% current_subject = Subject.first %>
+<% end %>
+
 <%= form_for(item) do |f| %>
     <% if item.errors.any? %>
         <div id="error_explanation">
@@ -82,12 +80,8 @@
       <%= f.collection_select :sgroup_id, Sgroup.all.unshift(Sgroup.new(name: 'zobrazit pro všechny', id: -1)), :id, :name %>
     </div>
 
-    <div class="field additional_infos_list">
-      <%= f.label :penios, 'Více informací' %><br>
-      <% AdditionalInfo.order(:updated_at).limit(8).all.each do |info| %>
-          <%= check_box_tag "additional_infos[#{info.id}]", info.name, params[:additional_infos][info.id] == 1 %><%= info.name %>
-          <br>
-      <% end %>
+    <div class="field generic_utu_partial_additional_infos_list">
+      <%= render partial: 'additional_infos/index/form_index', locals: {additional_infos: AdditionalInfo.for_class(current_class).for_subject(current_subject).limit(10), item: item, subject: current_subject} %>
     </div>
 
     <% if type != :event %>
