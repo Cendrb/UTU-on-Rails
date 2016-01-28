@@ -18,7 +18,7 @@
     <tbody>
     <% @data[:planned_lists].each do |planned_raking_list| %>
         <tr>
-          <td><%= "#{planned_raking_list.title} (#{planned_raking_list.subject.name})" %></td>
+          <td><%= link_to "#{planned_raking_list.title} (#{planned_raking_list.subject.name})", planned_raking_list, class: 'no_underline' %></td>
           <td><%= "#{planned_raking_list.current_round.already_rekt_count}/#{planned_raking_list.sclass.class_members.count}" %></td>
           <td><%= planned_raking_list.current_round.planned_raking_entries.where(finished: false).count %></td>
           <td><%= planned_raking_list.current_round.number %></td>

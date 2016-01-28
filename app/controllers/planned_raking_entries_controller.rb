@@ -16,14 +16,16 @@ class PlannedRakingEntriesController < ApplicationController
   def new_already_rekt
     @planned_raking_entry = PlannedRakingEntry.new
     @planned_raking_entry.planned_raking_list_id = params[:list_id] if params[:list_id]
+    @planned_raking_entry.class_member_id = current_user.class_member_id if current_user
     @planned_raking_entry.finished = true
-    render "planned_raking_entries/new_already_rekt"
+    render 'planned_raking_entries/new_already_rekt'
   end
 
   def new_planned_rekt
     @planned_raking_entry = PlannedRakingEntry.new
     @planned_raking_entry.planned_raking_list_id = params[:list_id] if params[:list_id]
-    render "planned_raking_entries/new_planned_rekt"
+    @planned_raking_entry.class_member_id = current_user.class_member_id if current_user
+    render 'planned_raking_entries/new_planned_rekt'
   end
 
   # GET /planned_raking_entries/1/edit

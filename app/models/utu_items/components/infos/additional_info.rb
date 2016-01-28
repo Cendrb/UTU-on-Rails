@@ -3,5 +3,5 @@ class AdditionalInfo < ActiveRecord::Base
   belongs_to :subject
   belongs_to :sclass
 
-  validates_presence_of :name, :url, :class_id
+  validates_presence_of :name, :url, :sclass_id
 end

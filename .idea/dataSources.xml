@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1797656934">
+  <component name="DataSourceManagerImpl" format="xml" hash="2873007907">
     <data-source source="LOCAL" name="Rails UTU-on-Rails: development" uuid="58753685-f1b0-4273-a381-9290b15e8b59">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>

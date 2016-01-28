@@ -21,11 +21,7 @@ class ApplicationController < ActionController::Base
   private
 
   def layout
-    if Rails.env.development? || (current_user && current_user.experimental_settings)
-      return 'material_main'
-    else
-      return 'desktop_main'
-    end
+    return 'material_main'
   end
 
   def troll
