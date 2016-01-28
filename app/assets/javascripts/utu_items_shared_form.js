@@ -2,7 +2,7 @@ $(function() {
     var data_element = $(".generic_utu_partial_data");
     var item_id = data_element.data("item_id");
     var item_type = data_element.data("item_type");
-    $("#written_exam_subject_id").change(function () {
+    $(".generic_utu_partial_subject_select").change(function () {
         $(".generic_utu_partial_additional_infos_list").html("Načítání...");
         $.ajax({
             type: "GET",
@@ -15,7 +15,10 @@ $(function() {
                 item_type: item_type
             },
             dataType: 'script',
-            format: 'js'
+            format: 'js',
+            error: function () {
+                $(".generic_utu_partial_additional_infos_list").html("Došlo k chybě");
+            }
         });
     });
 });

@@ -43,7 +43,10 @@ function fetchRegisterForm() {
         url: "/users/new",
         data: {target: "#welcome_screen_form_placeholder"},
         dataType: 'script',
-        format: 'js'
+        format: 'js',
+        error: function () {
+            $("#welcome_screen_form_placeholder").html("<p>Došlo k chybě</p>");
+        }
     });
 }
 
@@ -54,6 +57,9 @@ function fetchLoginForm() {
         url: "/login",
         data: {target: "#welcome_screen_form_placeholder"},
         dataType: 'script',
-        format: 'js'
+        format: 'js',
+        error: function () {
+            $("#welcome_screen_form_placeholder").html("<p>Došlo k chybě</p>");
+        }
     });
 }

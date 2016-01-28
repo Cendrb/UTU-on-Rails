@@ -14,16 +14,17 @@ class AdditionalInfosController < ApplicationController
     respond_to do |format|
       format.html { render 'additional_infos/index.html.erb' }
       format.js {
-        if params[:source] == 'form'
-          if params[:item_id] && params[:item_id] != '' && params[:item_type]
+        if params[:source] == 'form' && params[:item_type]
+          params[:additional_infos] = {}
+          if params[:item_id] && params[:item_id] != ''
             # editing => load already ticked infos
-            @item = GenericUtuItem.find_instance(params[:item_id], params[:item_type])
-            params[:additional_infos] = {}
-            @item.info_item_bindings.each do |item|
-              params[:additional_infos][item.additional_info.id] = 1
+            item = GenericUtuItem.find_instance(params[:item_id], params[:item_type])
+            item.info_item_bindings.each do |penis|
+              params[:additional_infos][penis.additional_info.id] = 1
             end
           end
           @subject = Subject.find(params[:subject_id])
+          @item_type = params[:item_type]
           render 'additional_infos/index/form_index'
         else
           render 'additional_infos/index/full_index'

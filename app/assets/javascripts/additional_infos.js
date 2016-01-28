@@ -6,7 +6,10 @@ $(function () {
             url: "/additional_infos",
             data: {target: "#additional_infos_index_placeholder", subject_id: $(this).val()},
             dataType: 'script',
-            format: 'js'
+            format: 'js',
+            error: function () {
+                $("#additional_infos_index_placeholder").html("Došlo k chybě");
+            }
         });
     });
 });

@@ -1,8 +1,9 @@
 <% if item.id %>
     <%# not new = editing %>
     <div class="hidden generic_utu_partial_data" data-item_id="<%= item.id %>" data-item_type="<%= item.get_utu_type %>"></div>
-    <% current_subject = item.subject %>
+    <% current_subject = item.subject if type != :event && type != :article %>
 <% else %>
+    <div class="hidden generic_utu_partial_data" data-item_type="<%= item.get_utu_type %>"></div>
     <% current_subject = Subject.first %>
 <% end %>
 
@@ -66,7 +67,7 @@
         <div class="field">
           <%= f.label :subject, 'Předmět' %>
           <br>
-          <%= f.collection_select :subject_id, Subject.all, :id, :name %>
+          <%= f.collection_select :subject_id, Subject.all, :id, :name, {}, class: 'generic_utu_partial_subject_select' %>
         </div>
     <% end %>
     <div class="field">
@@ -81,7 +82,11 @@
     </div>
 
     <div class="field generic_utu_partial_additional_infos_list">
-      <%= render partial: 'additional_infos/index/form_index', locals: {additional_infos: AdditionalInfo.for_class(current_class).for_subject(current_subject).limit(10), item: item, subject: current_subject} %>
+      <% if type == :event || type == :article %>
+          <%= render partial: 'additional_infos/index/form_index', locals: {additional_infos: AdditionalInfo.for_class(current_class).limit(10), type: type} %>
+      <% else %>
+          <%= render partial: 'additional_infos/index/form_index', locals: {additional_infos: AdditionalInfo.for_class(current_class).for_subject(current_subject).limit(10), type: type, subject: current_subject} %>
+      <% end %>
     </div>
 
     <% if type != :event %>
