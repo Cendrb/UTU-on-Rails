@@ -8,7 +8,7 @@ class AdditionalInfosController < ApplicationController
     if params[:subject_id] && params[:subject_id] != ''
       @additional_infos = AdditionalInfo.where(subject_id: params[:subject_id]).where(sclass: current_class).order('created_at DESC').limit(10)
     else
-      @additional_infos = AdditionalInfo.where(sclass: current_class).order('created_at DESC').limit(10)
+      @additional_infos = AdditionalInfo.where(sclass: current_class).order('subject_id ASC, created_at DESC').limit(10)
     end
 
     respond_to do |format|
