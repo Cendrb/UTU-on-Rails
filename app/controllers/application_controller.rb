@@ -138,5 +138,5 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :logged_in?, :current_user, :admin_logged_in?, :current_class
+  helper_method :logged_in?, :current_user, :admin_logged_in?, :superuser_logged_in?, :current_class
 end
