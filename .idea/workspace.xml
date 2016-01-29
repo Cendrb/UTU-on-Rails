@@ -4,9 +4,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[FIX] additional infos can now be bound to utu_items now works properly">
+    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[FIX] dialogs now show for timetable">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/lessons/dialog_for_timetable.js.erb" afterPath="$PROJECT_DIR$/app/views/lessons/dialog_for_timetable.js.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/additional_infos_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/additional_infos_controller.rb" />
     </list>
     <ignored path="UTU-on-Rails.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -114,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dialog_for_timetable.js.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dialog_for_timetable.js.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/lessons/dialog_for_timetable.js.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32578397">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+            <state vertical-scroll-proportion="-5.230769">
+              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -134,11 +134,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="additional_infos_controller.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="additional_infos_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/additional_infos_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.19833334">
+              <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -243,11 +243,11 @@
         <option value="$PROJECT_DIR$/app/views/additional_infos/index/_form_index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/additional_infos/index/form_index.js.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/utu_items_shared_form.js" />
-        <option value="$PROJECT_DIR$/app/controllers/additional_infos_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/additional_infos.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/welcome_screen.js" />
         <option value="$PROJECT_DIR$/app/views/_generic_utu_partials/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/lessons/dialog_for_timetable.js.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/additional_infos_controller.rb" />
       </list>
     </option>
   </component>
@@ -1083,7 +1083,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454003111545</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="[FIX] dialogs now show for timetable">
+      <created>1454086579659</created>
+      <option name="number" value="00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1454086579659</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1093,6 +1099,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25586355" sideWeight="0.4945055" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.48933902" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3382508" sideWeight="0.56130064" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26332623" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771337" sideWeight="0.47441363" order="3" side_tool="false" content_ui="tabs" />
@@ -1102,7 +1109,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.48933902" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1125,7 +1131,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[TASK] rakigns on summary page modified&#10;" />
     <MESSAGE value="[TASK] restyling additional dogshit&#10;" />
     <MESSAGE value="[FEATURE] welcome_screen&#10;[TASK] more material design&#10;" />
     <MESSAGE value="[FIX] zasrabná dvojtečka" />
@@ -1150,7 +1155,8 @@
     <MESSAGE value="[FEATURE] additional ifnos now sorting by subjects" />
     <MESSAGE value="[FEATURE] additional infos can now be bound to utu_items" />
     <MESSAGE value="[FIX] additional infos can now be bound to utu_items now works properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="[FIX] additional infos can now be bound to utu_items now works properly" />
+    <MESSAGE value="[FIX] dialogs now show for timetable" />
+    <option name="LAST_COMMIT_MESSAGE" value="[FIX] dialogs now show for timetable" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1515,14 +1521,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/additional_infos_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/material_main.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.8461537">
@@ -1541,8 +1539,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/lessons/dialog_for_timetable.js.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32578397">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        <state vertical-scroll-proportion="-5.230769">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/additional_infos_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19833334">
+          <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
           <folding />
         </state>
       </provider>
