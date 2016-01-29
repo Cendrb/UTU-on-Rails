@@ -58,6 +58,7 @@
           <td><%= "#{planned_raking_list.title} (#{planned_raking_list.subject.name})" %></td>
           <td><%= "#{planned_raking_list.current_round.already_rekt_count}/#{planned_raking_list.sclass.class_members.count}" %></td>
           <td><%= planned_raking_list.current_round.number %></td>
+          <td><%= link_to mi.view_list, planned_raking_list %></td>
           <% if admin_logged_in? %>
               <td><%= link_to mi.check, new_already_rekt_raking_entry_path(list_id: planned_raking_list.id) %></td>
               <td>
@@ -72,6 +73,4 @@
     </tbody>
   </table>
 </div>
-
-<div style="clear: both"></div>
 <br>

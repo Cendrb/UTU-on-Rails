@@ -28,14 +28,12 @@
       <thead>
       <tr>
         <th>Jméno</th>
-        <th>Téma</th>
       </tr>
       </thead>
       <tbody>
       <% round.planned_raking_entries.order(:sorting_order).each do |entry| %>
           <tr>
             <td><%= entry.class_member.full_name %></td>
-            <td><%= entry.description %></td>
           </tr>
       <% end %>
       </tbody>
@@ -43,10 +41,12 @@
 <% end %>
 
 <div id="planned_raking_list_show_status_messages">
-  <p>Počet ještě nezapsaných (ani nezkoušených) lidí: <%= round.not_signed_up_yet_count %>
-    <br>
-    <%= round.not_signed_up_yet_query.map(&:full_name).to_sentence %>
-  </p>
+  <% if @data[:list].planned %>
+      <p>Počet ještě nezapsaných (ani nezkoušených) lidí: <%= round.not_signed_up_yet_count %>
+        <br>
+        <%= round.not_signed_up_yet_query.map(&:full_name).to_sentence %>
+      </p>
+  <% end %>
   <p>Počet již
     zkoušených: <%= "#{round.already_rekt_count}/#{round.planned_raking_list.sclass.class_members.count}" %></p>
 </div>

@@ -67,9 +67,22 @@
 <div class="summary_section">
   <h2>Zkoušení</h2>
   <% @data[:rakings][:chances].each do |chance_pair| %>
-      <%= "#{chance_pair[:name]} (#{chance_pair[:subject]})" %> <%= number_with_precision(chance_pair[:chance], precision: 2).to_s + '%' %>
-      (zatím
-      vyzkoušeno <%= chance_pair[:already_rekt] %> ze <%= chance_pair[:total] %>)<br>
+      <div class="summary_raking_chance">
+        <% if chance_pair[:was_i_rekt] %>
+            <div class="summary_raking_chance_title"><%= link_to "#{chance_pair[:name]} (#{chance_pair[:subject]})", chance_pair[:list], class: 'no_underline' %></div>
+            <div class="summary_raking_chance_round"><%= chance_pair[:round] %>. kolo</div>
+            <div class="summary_raking_chance_personalized_info">vaše známka je <%= chance_pair[:grade] %></div>
+            <div class="summary_raking_chance_general_info">zatím vyzkoušeno <%= chance_pair[:already_rekt] %>
+              ze <%= chance_pair[:total] %></div>
+        <% else %>
+            <div class="summary_raking_chance_title"><%= link_to "#{chance_pair[:name]} (#{chance_pair[:subject]})", chance_pair[:list], class: 'no_underline' %></div>
+            <div class="summary_raking_chance_round"><%= chance_pair[:round] %>. kolo</div>
+            <div class="summary_raking_chance_personalized_info">vaše šance na vyzkoušení
+              je <%= number_with_precision(chance_pair[:chance], precision: 2).to_s + '%' %></div>
+            <div class="summary_raking_chance_general_info">zatím vyzkoušeno <%= chance_pair[:already_rekt] %>
+              ze <%= chance_pair[:total] %></div>
+        <% end %>
+      </div>
   <% end %>
 </div>
 
