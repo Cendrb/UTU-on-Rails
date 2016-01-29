@@ -48,7 +48,7 @@ class SummaryController < ApplicationController
     if logged_in?
       user = current_user
 
-      @events = Event.order(:event_start).in_future.for_groups(user.sgroups).for_class(sclass) + Article.where(published: true).where(show_in_details: true).where("show_in_details_until > :today", {today: Time.now})
+      @events = Event.order(:event_start).in_future.for_groups(user.sgroups).for_class(sclass) + Article.order("published_on DESC").where(published: true).where(show_in_details: true).where("show_in_details_until > :today", {today: Time.now})
       @exams = Exam.order(:date).in_future.for_groups(user.sgroups).for_class(sclass)
       @tasks = Task.order(:date).in_future.for_groups(user.sgroups).for_class(sclass)
       puts Event.all.pluck(:sgroup_id)
