@@ -1,5 +1,5 @@
 <% random = rand(36**10).to_s(36) %>
-$("#main").append("<div class=\"dialog\" data-identifier=\"<%= random %>\"></div>");
+$("#material_container").append("<div class=\"dialog\" data-identifier=\"<%= random %>\"></div>");
 
 <% @items.each do |item| %>
 	$(".dialog[data-identifier='<%= random %>']").append("<%= escape_javascript(render partial: "_generic_utu_partials/show", locals: {item: item, no_hide: true}) %>");
