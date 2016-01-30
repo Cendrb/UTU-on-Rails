@@ -9,6 +9,9 @@ module GenericUtuItem
     has_many :info_item_bindings, :as => :item, dependent: :destroy
     has_many :done_utu_items, :as => :item, dependent: :destroy
 
+    scope :id_not_on_list, lambda { |list| where("NOT (ARRAY[id] <@ ARRAY[:ids])", {ids: list}) }
+    scope :id_on_list, lambda { |list| where("ARRAY[id] <@ ARRAY[:ids]", {ids: list}) }
+
     belongs_to :sgroup
     belongs_to :sclass
   end

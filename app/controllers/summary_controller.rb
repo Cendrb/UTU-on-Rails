@@ -49,16 +49,13 @@ class SummaryController < ApplicationController
       user = current_user
 
       @events = Event.order(:event_start).in_future.for_groups(user.sgroups).for_class(sclass) + Article.order("published_on DESC").where(published: true).where(show_in_details: true).where("show_in_details_until > :today", {today: Time.now})
-      @exams = Exam.order(:date).in_future.for_groups(user.sgroups).for_class(sclass)
-      @tasks = Task.order(:date).in_future.for_groups(user.sgroups).for_class(sclass)
+      @exams = Exam.order(:date).in_future.for_groups(user.sgroups).for_class(sclass).filter_out_todays_after(12)
+      @tasks = Task.order(:date).in_future.for_groups(user.sgroups).for_class(sclass).filter_out_todays_after(12)
       puts Event.all.pluck(:sgroup_id)
-
-      @exams = drop_todays_after(@exams, 12)
-      @tasks = drop_todays_after(@tasks, 12)
     else
-      @events = (Event.all.order(:event_start)).in_future.for_class(sclass)
-      @exams = drop_todays_after(Exam.order(:date).in_future.for_class(sclass), 12)
-      @tasks = drop_todays_after(Task.order(:date).in_future.for_class(sclass), 12)
+      @events = Event.all.order(:event_start).in_future.for_class(sclass)
+      @exams = Exam.order(:date).in_future.for_class(sclass).filter_out_todays_after(12)
+      @tasks = Task.order(:date).in_future.for_class(sclass).filter_out_todays_after(12)
     end
 
     DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'])

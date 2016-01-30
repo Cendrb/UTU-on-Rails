@@ -4,6 +4,9 @@ module Lessonable
   included do
     before_create :init
 
+    belongs_to :subject
+    validates :subject_id, presence: {presence: true, message: "nesmí být prázdný"}
+
     has_many :lesson_item_bindings, :as => :item, dependent: :destroy
     has_many :lessons, through: :lesson_item_bindings
   end

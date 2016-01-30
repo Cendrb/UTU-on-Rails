@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127223105) do
+ActiveRecord::Schema.define(version: 20160130201856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -277,9 +277,6 @@ ActiveRecord::Schema.define(version: 20160127223105) do
     t.string "salt", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "show_hidden_events"
-    t.boolean  "show_hidden_exams"
-    t.boolean  "show_hidden_tasks"
     t.string "forgot_password_code", limit: 255
     t.integer  "class_member_id"
     t.integer  "access_level"

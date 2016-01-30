@@ -2,20 +2,12 @@ class Exam < ActiveRecord::Base
   include GenericUtuItem
   include Hideable
   include Lessonable
-
-  belongs_to :subject
+  include UtuItemWithDate
 
   self.inheritance_column = :type
 
   scope :rakings, -> { where(type: 'RakingExam') }
   scope :written, -> { where(type: 'WrittenExam') }
-
-  scope :in_future, -> { where('date >= :today AND passed = false', {today: Date.today}) }
-  scope :between_dates, lambda { |from, to| where("date >= :from AND date <= :to ", {from: from, to: to}) }
-  scope :id_not_on_list, lambda { |list| where(" NOT (ARRAY[id] < @ ARRAY[:ids]) ", {ids: list}) }
-  scope :id_on_list, lambda { |list| where(" ARRAY[id] < @ ARRAY[:ids] ", {ids: list}) }
-
-  validates :date, :subject_id, presence: {presence: true, message: " nesmí být prázdný "}
 
   def self.types
     %(RakingExam WrittenExam)
