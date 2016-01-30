@@ -1,6 +1,5 @@
 UTUOnRails::Application.routes.draw do
 
-
   resources :articles
 
   resources :holidays
@@ -131,6 +130,12 @@ UTUOnRails::Application.routes.draw do
 
   # enable experimental_settings
   get 'enable_experimental_settings' => 'users#enable_experimental_settings'
+
+  # make external xml requests for details possible (without sclass and welcome_screen)
+  get 'api/pre_data' => 'external_actions#pre_data'
+  post 'api/pre_data' => 'external_actions#pre_data'
+  get 'api/data' => 'external_actions#data'
+  post 'api/data' => 'external_actions#data'
   
   get 'analyze' => 'details_accesses#analyze'
   get 'statistics' => 'details_accesses#analyze'

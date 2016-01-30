@@ -2,12 +2,14 @@ module GenericUtuItem
   extend ActiveSupport::Concern
 
   included do
+    scope :for_group_ids, lambda { |group_ids| where("(sgroup_id = -1) OR (sgroup_id IN (:groups))", {groups: group_ids}) }
     scope :for_groups, lambda { |groups| where("(sgroup_id = -1) OR (sgroup_id IN (:groups))", { groups: groups.pluck(:id)}) }
     scope :for_class, lambda { |sclass| where("(sclass_id = -1) OR (sclass_id = :sclass)", { sclass: sclass.id }) }
     validates :title, :sgroup_id, :sclass_id, presence: {presence: true, message: "nesmí být prázdný"}
 
     has_many :info_item_bindings, :as => :item, dependent: :destroy
     has_many :done_utu_items, :as => :item, dependent: :destroy
+    has_many :additional_infos, through: :info_item_bindings
 
     scope :id_not_on_list, lambda { |list| where("NOT (ARRAY[id] <@ ARRAY[:ids])", {ids: list}) }
     scope :id_on_list, lambda { |list| where("ARRAY[id] <@ ARRAY[:ids]", {ids: list}) }

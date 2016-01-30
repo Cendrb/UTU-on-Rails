@@ -8,9 +8,9 @@
         <% else %>
             <h1>Události</h1>
         <% end %>
-        <% @events.each do |e| %>
+        <% @data[:events].each do |e| %>
             <%= render partial: "_generic_utu_partials/show", locals: {item: e} %>
-            <%= render 'line' unless e == @events.last %>
+            <%= render 'line' unless e == @data[:events].last %>
         <% end %>
       </div>
     </div>
@@ -21,9 +21,9 @@
         <% else %>
             <h1>Úkoly</h1>
         <% end %>
-        <% @tasks.each do |e| %>
+        <% @data[:tasks].each do |e| %>
             <%= render partial: "_generic_utu_partials/show", locals: {item: e} %>
-            <%= render 'line' unless e == @tasks.last %>
+            <%= render 'line' unless e == @data[:tasks].last %>
         <% end %>
       </div>
     </div>
@@ -34,9 +34,9 @@
         <% else %>
             <h1>Testy</h1>
         <% end %>
-        <% @exams.each do |e| %>
+        <% @data[:exams].each do |e| %>
             <%= render partial: "_generic_utu_partials/show", locals: {item: e} %>
-            <%= render 'line' unless e == @exams.last %>
+            <%= render 'line' unless e == @data[:exams].last %>
         <% end %>
       </div>
     </div>

@@ -44,26 +44,30 @@ class SummaryController < ApplicationController
   def details
     #from = Date.new(params[:range][:"from(1i)"].to_i, params[:range][:"from(2i)"].to_i, params[:range][:"from(3i)"].to_i)
     #to = Date.new(params[:range][:"to(1i)"].to_i, params[:range][:"to(2i)"].to_i, params[:range][:"to(3i)"].to_i)
+    @data = {}
+
     sclass = current_class
     if logged_in?
       user = current_user
 
-      @events = Event.order(:event_start).in_future.for_groups(user.sgroups).for_class(sclass) + Article.order("published_on DESC").where(published: true).where(show_in_details: true).where("show_in_details_until > :today", {today: Time.now})
-      @exams = Exam.order(:date).in_future.for_groups(user.sgroups).for_class(sclass).filter_out_todays_after(12)
-      @tasks = Task.order(:date).in_future.for_groups(user.sgroups).for_class(sclass).filter_out_todays_after(12)
+      @data[:events] = Event.order(:event_start).in_future.for_groups(user.sgroups).for_class(sclass) + Article.order("published_on DESC").where(published: true).where(show_in_details: true).where("show_in_details_until > :today", {today: Time.now})
+      @data[:exams] = Exam.order(:date).in_future.for_groups(user.sgroups).for_class(sclass).filter_out_todays_after(12)
+      @data[:tasks] = Task.order(:date).in_future.for_groups(user.sgroups).for_class(sclass).filter_out_todays_after(12)
       puts Event.all.pluck(:sgroup_id)
     else
-      @events = Event.all.order(:event_start).in_future.for_class(sclass)
-      @exams = Exam.order(:date).in_future.for_class(sclass).filter_out_todays_after(12)
-      @tasks = Task.order(:date).in_future.for_class(sclass).filter_out_todays_after(12)
+      if request.format.symbol == :xml
+        # you are deprecated
+      else
+        @data[:events] = Event.all.order(:event_start).in_future.for_class(sclass)
+        @data[:exams] = Exam.order(:date).in_future.for_class(sclass).filter_out_todays_after(12)
+        @data[:tasks] = Task.order(:date).in_future.for_class(sclass).filter_out_todays_after(12)
+      end
     end
 
     DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'])
 
     respond_to do |format|
       format.html
-      format.xml
-      format.atom
     end
   end
 
