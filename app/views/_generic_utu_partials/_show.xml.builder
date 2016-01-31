@@ -20,17 +20,29 @@ builder.item do
       builder.published_on(item.published_on)
     else
       builder.date(item.get_lesson_date)
-      builder.subject(id: item.subject_id, name: item.subject.name)
+      builder.subject do
+        builder.id(item.subject_id)
+        builder.name(item.subject.name)
+      end
     end
   end
   if item.sgroup
-    builder.sgroup(id: item.sgroup_id, name: item.sgroup.name)
+    builder.sgroup do
+      builder.id(item.sgroup_id)
+      builder.name(item.sgroup.name)
+    end
   else
-    builder.sgroup(id: item.sgroup_id)
+    builder.sgroup do
+      builder.id(item.sgroup_id)
+    end
   end
   builder.additional_infos do
     item.additional_infos.each do |info|
-      builder.additional_info(id: info.id, name: info.name, url: info.url)
+      builder.additional_info do
+        builder.id(info.id)
+        builder.name(info.name)
+        builder.url(info.url)
+      end
     end
   end
   builder.done(logged_in? && item.is_done?)
