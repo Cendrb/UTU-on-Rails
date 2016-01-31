@@ -10,8 +10,8 @@ class ServicesController < ApplicationController
     respond_to do |format|
       format.html
       format.csv do
-        headers['Content-Disposition'] = "attachment; filename=\"sluzba.csv\""
-        headers['Content-Type'] ||= 'text/csv'
+        headers['Content-Disposition'] = 'attachment; filename="sluzba.csv"'
+        headers['Content-Type'] = 'text/html; charset=utf-8'
       end
     end
   end
