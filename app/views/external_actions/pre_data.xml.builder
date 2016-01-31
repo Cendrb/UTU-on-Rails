@@ -22,4 +22,9 @@ xml.utu do
       end
     end
   end
+  xml.subjects do
+    @data[:subjects].each do |item|
+      xml.subject(id: item.id, name: item.name)
+    end
+  end
 end

@@ -6,6 +6,7 @@ class ExternalActionsController < ApplicationController
     @data = {}
     @data[:sclasses] = Sclass.all
     @data[:group_categories] = GroupCategory.all
+    @data[:subjects] = Subject.all
 
     render 'pre_data.xml'
   end
@@ -24,7 +25,6 @@ class ExternalActionsController < ApplicationController
         @data[:tasks] = @data[:tasks].for_group_ids(params[:group_ids])
       end
 
-      @data[:subjects] = Subject.all
       @data[:additional_infos] = AdditionalInfo.all
 
       render 'data.xml'
