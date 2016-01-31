@@ -14,6 +14,7 @@ builder.item do
     builder.price(item.price)
     builder.start(item.event_start)
     builder.end(item.event_end)
+    builder.pay_date(item.pay_date)
   else
     if type == :article
       builder.published_on(item.published_on)
