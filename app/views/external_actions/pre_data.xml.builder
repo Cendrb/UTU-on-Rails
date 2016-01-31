@@ -5,7 +5,7 @@ xml.utu do
       xml.sclass(id: sclass.id, name: sclass.name) do
         xml.class_members do
           sclass.class_members.each do |member|
-            xml.class_member(id: member.id, full_name: member.full_name)
+            xml.class_member(id: member.id, first_name: member.first_name, last_name: member.last_name)
           end
         end
       end
