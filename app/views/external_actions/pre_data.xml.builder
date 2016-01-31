@@ -2,10 +2,16 @@ xml.instruct!
 xml.utu do
   xml.sclasses do
     @data[:sclasses].each do |sclass|
-      xml.sclass(id: sclass.id, name: sclass.name) do
+      xml.sclass do
+        xml.id(sclass.id)
+        xml.name(sclass.name)
         xml.class_members do
           sclass.class_members.each do |member|
-            xml.class_member(id: member.id, first_name: member.first_name, last_name: member.last_name)
+            xml.class_member do
+              xml.id(member.id)
+              xml.first_name(member.first_name)
+              xml.last_name(member.last_name)
+            end
           end
         end
       end
@@ -13,10 +19,15 @@ xml.utu do
   end
   xml.group_categories do
     @data[:group_categories].each do |group_category|
-      xml.group_category(id: group_category.id, name: group_category.name) do
+      xml.group_category do
+        xml.id(group_category.id)
+        xml.name(group_category.name)
         xml.sgroups do
           group_category.sgroups.each do |sgroup|
-            xml.sgroup(id: sgroup.id, name: sgroup.name)
+            xml.sgroup do
+              xml.id(sgroup.id)
+              xml.name(sgroup.name)
+            end
           end
         end
       end
@@ -24,7 +35,10 @@ xml.utu do
   end
   xml.subjects do
     @data[:subjects].each do |item|
-      xml.subject(id: item.id, name: item.name)
+      xml.subject do
+        xml.id(item.id)
+        xml.name(item.name)
+      end
     end
   end
 end

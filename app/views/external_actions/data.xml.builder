@@ -17,7 +17,11 @@ xml.utu do
   end
   xml.additional_infos do
     @data[:additional_infos].each do |item|
-      xml.additional_info(id: item.id, name: item.name, url: item.url)
+      xml.additional_info do
+        xml.id(item.id)
+        xml.name(item.name)
+        xml.url(item.url)
+      end
     end
   end
 end
