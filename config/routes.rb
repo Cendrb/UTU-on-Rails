@@ -136,6 +136,7 @@ UTUOnRails::Application.routes.draw do
   post 'api/pre_data' => 'external_actions#pre_data'
   get 'api/data' => 'external_actions#data'
   post 'api/data' => 'external_actions#data'
+  get "api/only_details" => "external_actions#only_details"
   
   get 'analyze' => 'details_accesses#analyze'
   get 'statistics' => 'details_accesses#analyze'
