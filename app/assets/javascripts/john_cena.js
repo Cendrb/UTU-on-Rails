@@ -21,6 +21,15 @@ $(function () {
     function wwe() {
         var audio = new Audio('http://adis.g6.cz/johncena/john-cena.mp3');
         audio.play();
-        $(".john_cena").show();
+        setTimeout(function(){
+          $(".john_cena").show();
+        }, 800);
     }
+    
+    if($("#material_container").data("experimental"))
+      $("a").click(function () 
+      {
+        var kej = new Audio("http://adis.g6.cz/johncena/aclick.mp3");
+        kej.play();
+      });
 });

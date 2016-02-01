@@ -10,6 +10,18 @@ class ExternalActionsController < ApplicationController
 
     render 'pre_data.xml'
   end
+  
+  def only_details
+    @data = {}
+    if params[:sclass_id]
+      sclass = Sclass.find(params[:sclass_id])
+      @data[:items] = Event.all.order(:event_start).in_future.for_class(sclass) + Exam.order(:date).in_future.for_class(sclass).filter_out_todays_after(12) + Task.order(:date).in_future.for_class(sclass).filter_out_todays_after(12)
+
+      render 'only_details.xml'
+    else
+      render plain: 'How did you end up here?!'
+    end
+  end
 
   def data
     @data = {}
