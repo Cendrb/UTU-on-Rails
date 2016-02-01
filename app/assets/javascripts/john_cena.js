@@ -24,7 +24,7 @@ $(function () {
         $(".john_cena").show();
     }
     
-    if($("body").data("experimental") == "true")
+    if($("#material_container").data("experimental") == "true")
       $("a").click(function () 
       {
         var kej = new Audio("http://adis.g6.cz/johncena/aclick.mp3");
