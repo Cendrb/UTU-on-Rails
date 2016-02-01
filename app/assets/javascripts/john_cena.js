@@ -23,4 +23,11 @@ $(function () {
         audio.play();
         $(".john_cena").show();
     }
+    
+    if($("body").data("experimental") == "true")
+      $("a").click(function () 
+      {
+        var kej = new Audio("http://adis.g6.cz/johncena/aclick.mp3");
+        kej.play();
+      });
 });
