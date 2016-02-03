@@ -55,6 +55,7 @@ $(function () {
     var milis_remaining = 0;
     var milis_passed = 0;
     var score_achieved = 0;
+    var cena_travel_time = 5;
     var playing = false;
     flying_cena.click(function () {
         current_angle = current_angle + 420;
@@ -66,13 +67,15 @@ $(function () {
         flying_cena.css('left', leftcena);
         score_achieved = score_achieved + 1;
         cena_score_div.html('SCORE ' + score_achieved);
-        milis_remaining = milis_remaining + (5000 / Math.log10(milis_passed));
+        milis_remaining = milis_remaining + (2000 - 100 * Math.log(milis_passed));
 
         if (!playing) {
             playing = true;
             milis_remaining = 5000;
             cena_time_div.show();
             cena_score_div.show();
+            cena_travel_time = 5 - Math.log10(milis_passed / 10);
+            flying_cena.css('transition', "all 0." + cena_travel_time + "s ease-in-out")
             var timer = window.setInterval(function () {
                 milis_remaining = milis_remaining - 10;
                 milis_passed = milis_passed + 10;
