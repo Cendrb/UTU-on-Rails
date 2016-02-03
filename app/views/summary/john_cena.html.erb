@@ -1,0 +1,36 @@
+<script src="//cdn.jsdelivr.net/phaser/2.4.4/phaser.min.js"></script>
+<script>
+  var game = new Phaser.Game(800, 600, Phaser.AUTO, 'material_body_content', {
+    preload: preload,
+    create: create,
+    update: update
+  });
+
+  function preload() {
+    game.load.image('johncena', 'assets/john-cena-face.png');
+    game.load.image('ground', 'assets/ground.png');
+  }
+
+  var obstacles;
+  var player;
+  function create() {
+    game.physics.startSystem(Phaser.Physics.ARCADE); // enable ingame physics
+
+    obstacles = game.add.group(); // add game_group
+    obstacles.enableBody = true; // enable physics
+
+    var ground = obstacles.create(0, game.world.height - 64, 'ground');
+    ground.body.immovable = true;
+
+    player = game.add.sprite(64, game.world.height - 150, 'johncena');
+    game.physics.arcade.enable(player);
+    player.body.bounce.y = 0.2;
+    player.body.gravity.y = 300;
+    player.body.collideWorldBounds = true;
+    player.scale.setTo(0.4, 0.4);
+  }
+
+  function update() {
+    game.physics.arcade.collide(player, obstacles);
+  }
+</script>

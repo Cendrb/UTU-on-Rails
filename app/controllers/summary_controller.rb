@@ -83,6 +83,10 @@ class SummaryController < ApplicationController
 
   end
 
+  def john_cena
+
+  end
+
   def update
     if (Time.now.hour > 17 && Time.now.hour < 19)
       # mark todays tasks and exams as in_past

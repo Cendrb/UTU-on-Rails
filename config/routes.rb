@@ -145,9 +145,9 @@ UTUOnRails::Application.routes.draw do
   get 'forgot' => 'users#forgot_password_form'
   get 'forgot_code' => 'users#forgot_password_code'
   post 'forgot' => 'users#forgot_password_send'
-  
+
+  get 'wwe' => 'summary#john_cena'
   get 'administrator_authenticated' => 'summary#administrator_logged_in'
-  
   get 'subjects_summary' => 'summary#subjects'
   
   get 'vote' => 'day_teachers#new'
