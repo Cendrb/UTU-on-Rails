@@ -4,8 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[FIX] isuck&#10;">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/external_actions.js.coffee" afterPath="" />
+    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[TASK] John Cena now consumes less data&#10;&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/john_cena.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/john_cena.js" />
     </list>
@@ -86,8 +85,8 @@
       <file leaf-file-name="john_cena.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/john_cena.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6141215">
-              <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.4187192">
+              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -762,12 +761,6 @@
       <option name="number" value="Default" />
       <updated>1444978878846</updated>
     </task>
-    <task id="LOCAL-00016" summary="[FEATURE] all tables use bootstrap table style">
-      <created>1453762909101</created>
-      <option name="number" value="00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1453762909101</updated>
-    </task>
     <task id="LOCAL-00017" summary="[FIX] timetable is no longer affected by bootstrap&#10;">
       <created>1453763517543</created>
       <option name="number" value="00017" />
@@ -1056,7 +1049,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454349813111</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="[TASK] John Cena now consumes less data&#10;&#10;">
+      <created>1454509025743</created>
+      <option name="number" value="00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1454509025743</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1098,7 +1097,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[TASK] additional infos index view tweaking" />
     <MESSAGE value="[TASK] added sclass_id to additional_infos" />
     <MESSAGE value="WHY ARENT MIGRATIONS ADDED TO THE FUCKING COMMIT!!!" />
     <MESSAGE value="[FIX] just a bunch of small fixes&#10;[FEATURE] Material design is now live!!" />
@@ -1123,7 +1121,8 @@
     <MESSAGE value="[TASK] nserviceesas&#10;" />
     <MESSAGE value="[FIX] bakasucks" />
     <MESSAGE value="[FIX] isuck&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="[FIX] isuck&#10;" />
+    <MESSAGE value="[TASK] John Cena now consumes less data&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="[TASK] John Cena now consumes less data&#10;&#10;" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1550,8 +1549,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/john_cena.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6141215">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.4187192">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
           <folding />
         </state>
       </provider>

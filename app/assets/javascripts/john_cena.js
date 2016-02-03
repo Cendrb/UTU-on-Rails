@@ -21,7 +21,7 @@ $(function () {
     }
 
     function wwe() {
-        john_cena.play();
+        john_cena.cloneNode(true).play();
         setTimeout(function(){
           $(".john_cena").show();
         }, 800);
