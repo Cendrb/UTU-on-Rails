@@ -1,4 +1,9 @@
 $(function () {
+    var material_container = $("#material_container");
+
+    var base_height = window.innerHeight;
+    var base_width = window.innerWidth;
+
     // john cena when "kana"
     var john_cena = new Audio('http://adis.g6.cz/johncena/john-cena.mp3');
     var maximum_index = 3;
@@ -26,7 +31,7 @@ $(function () {
     });
 
     // kej sound when "a" clicked - experimental must be enabled
-    if ($("#material_container").data("experimental")) {
+    if (material_container.data("experimental")) {
         var kej = new Audio("http://adis.g6.cz/johncena/aclick.mp3");
         $("a").click(function () {
             kej.play();
@@ -36,10 +41,53 @@ $(function () {
     // summon flying_cena on 10 clicks on material_header
     var header_clicked = 0;
     var header_target_clicks = 10;
+    var flying_cena = $(".flying_cena");
     $("#material_header").click(function () {
         header_clicked = header_clicked + 1;
         if (header_clicked >= header_target_clicks) {
+            flying_cena.show();
+            header_clicked = 0;
+        }
+    });
+    var current_angle = 0;
+    var cena_score_div = $("#cena_score");
+    var cena_time_div = $("#cena_time");
+    var milis_remaining = 0;
+    var milis_passed = 0;
+    var score_achieved = 0;
+    var playing = false;
+    flying_cena.click(function () {
+        current_angle = current_angle + 420;
+        flying_cena.css('transform', 'rotate(' + current_angle + 'deg)');
 
+        var topcena = Math.random() * window.innerHeight;
+        var leftcena = Math.random() * window.innerWidth;
+        flying_cena.css('top', topcena);
+        flying_cena.css('left', leftcena);
+        score_achieved = score_achieved + 1;
+        cena_score_div.html('SCORE ' + score_achieved);
+        milis_remaining = milis_remaining + (5000 / Math.log10(milis_passed));
+
+        if (!playing) {
+            playing = true;
+            milis_remaining = 5000;
+            cena_time_div.show();
+            cena_score_div.show();
+            var timer = window.setInterval(function () {
+                milis_remaining = milis_remaining - 10;
+                milis_passed = milis_passed + 10;
+                cena_time_div.html(milis_remaining);
+
+                if (milis_remaining <= 0) {
+                    cena_score_div.hide();
+                    cena_time_div.hide();
+                    flying_cena.hide();
+                    score_achieved = 0;
+                    milis_passed = 0;
+                    playing = false;
+                    window.clearInterval(timer);
+                }
+            }, 10);
         }
     });
 });

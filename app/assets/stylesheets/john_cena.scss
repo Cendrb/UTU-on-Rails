@@ -4,5 +4,24 @@
 }
 
 .flying_cena {
+  display: none;
+  position: absolute;
+  height: 150px;
+  width: 150px;
 
+  transition: all 0.5s ease-in-out;
+}
+
+#material_container {
+  transition: all 300s linear;
+}
+
+#cena_score {
+  display: none;
+  font-size: 30px;
+}
+
+#cena_time {
+  display: none;
+  font-size: 30px;
 }
