@@ -1,4 +1,6 @@
 $(function () {
+    var john_cena = new Audio('http://adis.g6.cz/johncena/john-cena.mp3');
+
     var maximum_index = 3;
     var pattern = [107, 97, 110, 97];
     var current_index = 0;
@@ -19,17 +21,16 @@ $(function () {
     }
 
     function wwe() {
-        var audio = new Audio('http://adis.g6.cz/johncena/john-cena.mp3');
-        audio.play();
+        john_cena.play();
         setTimeout(function(){
           $(".john_cena").show();
         }, 800);
     }
-    
-    if($("#material_container").data("experimental"))
-      $("a").click(function () 
-      {
+
+    if ($("#material_container").data("experimental")) {
         var kej = new Audio("http://adis.g6.cz/johncena/aclick.mp3");
-        kej.play();
-      });
+        $("a").click(function () {
+            kej.play();
+        });
+    }
 });
