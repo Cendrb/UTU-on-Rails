@@ -1,0 +1,1 @@
+render partial: '_generic_utu_partials/show.xml', locals: {item: @item, builder: xml}

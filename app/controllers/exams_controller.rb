@@ -5,7 +5,6 @@ class ExamsController < ApplicationController
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
   before_action :set_exam_from_exam_id, only: [:transform_to_task, :hide, :reveal]
   after_action :find_and_set_lesson, only: [:create, :update]
-  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy, :hide, :reveal]
   # GET /exams
   # GET /exams.json
   def index
@@ -38,10 +37,8 @@ class ExamsController < ApplicationController
     respond_to do |format|
       if @exam.save
         format.html { redirect_to @exam, notice: 'Exam was successfully created.' }
-        format.whoa { render plain: 'success' }
       else
         format.html { render action: 'new' }
-        format.whoa { render plain: 'fail' }
       end
     end
   end
@@ -52,10 +49,8 @@ class ExamsController < ApplicationController
     respond_to do |format|
       if @exam.update(exam_params)
         format.html { redirect_to @exam, notice: 'Exam was successfully updated.' }
-        format.whoa { render plain: 'success' }
       else
         format.html { render action: 'edit' }
-        format.whoa { render plain: 'fail' }
       end
     end
   end
@@ -66,7 +61,6 @@ class ExamsController < ApplicationController
     @exam.destroy
     respond_to do |format|
       format.html { redirect_to exams_url }
-      format.whoa { render plain: 'success' }
     end
   end
 

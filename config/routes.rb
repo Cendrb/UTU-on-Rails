@@ -89,25 +89,16 @@ UTUOnRails::Application.routes.draw do
   resources :exams do
     controller :exams do
       get 'transform_to_task' => :transform_to_task
-      get 'hide' => :hide
-      get 'reveal' => :reveal
     end
   end
 
   resources :tasks do
     controller :tasks do
       get 'transform_to_exam' => :transform_to_exam
-      get 'hide' => :hide
-      get 'reveal' => :reveal
     end
   end
 
-  resources :events do
-    controller :events do
-      get 'hide' => :hide
-      get 'reveal' => :reveal
-    end
-  end
+  resources :events
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -136,7 +127,9 @@ UTUOnRails::Application.routes.draw do
   post 'api/pre_data' => 'external_actions#pre_data'
   get 'api/data' => 'external_actions#data'
   post 'api/data' => 'external_actions#data'
-  get "api/only_details" => "external_actions#only_details"
+  get 'api/only_details' => 'external_actions#only_details'
+  post 'api/save' => 'external_actions#save_item'
+  post 'api/destroy' => 'external_actions#destroy_item'
 
   # xml for opensearch (google, chrome, other search engines)
   get 'opensearch' => 'external_actions#opensearch'

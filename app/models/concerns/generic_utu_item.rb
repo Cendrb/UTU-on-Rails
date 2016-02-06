@@ -39,6 +39,14 @@ module GenericUtuItem
     return item
   end
 
+  def self.success_string
+    return 'success'
+  end
+
+  def self.failure_string
+    return 'failure'
+  end
+
   def get_utu_type(only_basic = false)
     if self.instance_of?(Event)
       return :event

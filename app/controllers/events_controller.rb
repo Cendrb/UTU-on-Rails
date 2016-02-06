@@ -4,7 +4,6 @@ class EventsController < ApplicationController
   before_filter :authenticate_admin, except: [:hide, :reveal]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_event_from_event_id, only: [:hide, :reveal]
-  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy, :hide, :reveal]
   # GET /events
   # GET /events.json
   def index
@@ -39,10 +38,8 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.whoa { render plain: 'success' }
       else
         format.html { render action: 'new' }
-        format.whoa { render plain: 'fail' }
       end
     end
   end
@@ -54,10 +51,8 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.whoa { render plain: 'success' }
       else
         format.html { render action: 'edit' }
-        format.whoa { render plain: 'fail' }
       end
     end
   end
@@ -68,7 +63,6 @@ class EventsController < ApplicationController
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url }
-      format.whoa { render plain: 'success' }
     end
   end
 
@@ -101,6 +95,6 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:title, :description, :location, :event_start, :event_end, :sgroup_id, :sclass_id, :additional_info_url, :price, :pay_date)
+    params.require(:event).permit(:title, :description, :location, :event_start, :event_end, :sgroup_id, :sclass_id, :price, :pay_date)
   end
 end

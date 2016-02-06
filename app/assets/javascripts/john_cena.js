@@ -40,7 +40,7 @@ $(function () {
 
     // summon flying_cena on 10 clicks on material_header
     var header_clicked = 0;
-    var header_target_clicks = 1;
+    var header_target_clicks = 10;
     var flying_cena = $(".flying_cena");
     $("#material_header").click(function () {
         header_clicked = header_clicked + 1;

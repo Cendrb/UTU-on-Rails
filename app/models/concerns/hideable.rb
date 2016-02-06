@@ -11,7 +11,8 @@ module Hideable
 
   def mark_as_done
     if !is_done?
-      DoneUtuItem.create(user: User.current, item_id: self.id, item_type: self.get_utu_type)
+      item = DoneUtuItem.new(user: User.current, item_id: self.id, item_type: self.get_utu_type)
+      return item.save
     end
   end
 end
