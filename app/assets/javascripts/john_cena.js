@@ -40,7 +40,7 @@ $(function () {
 
     // summon flying_cena on 10 clicks on material_header
     var header_clicked = 0;
-    var header_target_clicks = 10;
+    var header_target_clicks = 1;
     var flying_cena = $(".flying_cena");
     $("#material_header").click(function () {
         header_clicked = header_clicked + 1;
@@ -61,8 +61,11 @@ $(function () {
         current_angle = current_angle + 420;
         flying_cena.css('transform', 'rotate(' + current_angle + 'deg)');
 
-        var topcena = Math.random() * window.innerHeight;
-        var leftcena = Math.random() * window.innerWidth;
+        var topcena = (Math.random()) * window.innerHeight - 75;
+        var leftcena = (Math.random()) * window.innerWidth - 75;
+        console.log("top: " + topcena + " left: " + leftcena);
+        console.log("window.innerHeight: " + window.innerHeight + " window.innerWidth: " + window.innerWidth);
+
         flying_cena.css('top', topcena);
         flying_cena.css('left', leftcena);
         score_achieved = score_achieved + 1;
