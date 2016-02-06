@@ -5,6 +5,7 @@ module GenericUtuItem
     scope :for_group_ids, lambda { |group_ids| where("(sgroup_id = -1) OR (sgroup_id IN (:groups))", {groups: group_ids}) }
     scope :for_groups, lambda { |groups| where("(sgroup_id = -1) OR (sgroup_id IN (:groups))", { groups: groups.pluck(:id)}) }
     scope :for_class, lambda { |sclass| where("(sclass_id = -1) OR (sclass_id = :sclass)", { sclass: sclass.id }) }
+    scope :like, lambda { |search_term| where('(title ILIKE :term) OR (description ILIKE :term)', {term: "%#{search_term}%"}) }
     validates :title, :sgroup_id, :sclass_id, presence: {presence: true, message: "nesmí být prázdný"}
 
     has_many :info_item_bindings, :as => :item, dependent: :destroy

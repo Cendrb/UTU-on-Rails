@@ -1,0 +1,14 @@
+<% set_title 'Výsledky hledání' %>
+<div class="details_container container-fluid">
+  <div id="details_row row">
+    <div class="details_col col-sm-12">
+      <div class="details_block">
+        <h1>Výsledky hledání <%= @data[:query] %></h1>
+        <% @data[:items].each do |e| %>
+            <%= render partial: "_generic_utu_partials/show", locals: {item: e} %>
+            <%= render 'line' unless e == @data[:items].last %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

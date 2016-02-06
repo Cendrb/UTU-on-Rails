@@ -29,7 +29,10 @@ class SummaryController < ApplicationController
 
   def search
     search_parameters = params[:query]
-    render 'details'
+    sclass = current_class
+    @data = {}
+    @data[:query] = search_parameters
+    @data[:items] = Event.for_class(sclass).order(:event_start).like(search_parameters) + Exam.for_class(sclass).order(:date).like(search_parameters) + Task.for_class(sclass).order(:date).like(search_parameters)
   end
 
   def post_details
