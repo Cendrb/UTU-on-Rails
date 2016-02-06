@@ -44,4 +44,8 @@ class ExternalActionsController < ApplicationController
       render plain: 'How did you end up here?!'
     end
   end
+
+  def opensearch
+    response.headers['Content-Type'] = 'application/opensearchdescription+xml; charset=utf-8'
+  end
 end

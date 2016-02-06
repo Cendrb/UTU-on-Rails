@@ -27,6 +27,11 @@ class SummaryController < ApplicationController
     end
   end
 
+  def search
+    search_parameters = params[:query]
+    render 'details'
+  end
+
   def post_details
     from = Date.parse(params[:from])
     to = Date.parse(params[:to])

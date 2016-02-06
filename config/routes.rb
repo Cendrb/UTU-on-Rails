@@ -137,11 +137,16 @@ UTUOnRails::Application.routes.draw do
   get 'api/data' => 'external_actions#data'
   post 'api/data' => 'external_actions#data'
   get "api/only_details" => "external_actions#only_details"
-  
+
+  # xml for opensearch (google, chrome, other search engines)
+  get 'opensearch' => 'external_actions#opensearch'
+
+  # statistics
   get 'analyze' => 'details_accesses#analyze'
   get 'statistics' => 'details_accesses#analyze'
   get 'stats' => 'details_accesses#analyze'
-  
+
+  # users are able to "forget their password"
   get 'forgot' => 'users#forgot_password_form'
   get 'forgot_code' => 'users#forgot_password_code'
   post 'forgot' => 'users#forgot_password_send'
@@ -151,11 +156,12 @@ UTUOnRails::Application.routes.draw do
   get 'subjects_summary' => 'summary#subjects'
   
   get 'vote' => 'day_teachers#new'
-  
+
+  # summary controller dogshit
   get 'update' => 'summary#update'
-  
   get 'details' => 'summary#details'
   post 'details' => 'summary#post_details'
+  get 'search' => 'summary#search'
   
   get 'rozvrh' => 'timetables#summary'
   get 'timetable' => 'timetables#summary'
