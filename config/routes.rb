@@ -130,6 +130,7 @@ UTUOnRails::Application.routes.draw do
   get 'api/only_details' => 'external_actions#only_details'
   post 'api/save' => 'external_actions#save_item'
   post 'api/destroy' => 'external_actions#destroy_item'
+  get 'api/administrator_authenticated' => 'external_actions#administrator_logged_in'
 
   # xml for opensearch (google, chrome, other search engines)
   get 'opensearch' => 'external_actions#opensearch'
@@ -145,7 +146,6 @@ UTUOnRails::Application.routes.draw do
   post 'forgot' => 'users#forgot_password_send'
 
   get 'wwe' => 'summary#john_cena'
-  get 'administrator_authenticated' => 'summary#administrator_logged_in'
   get 'subjects_summary' => 'summary#subjects'
   
   get 'vote' => 'day_teachers#new'

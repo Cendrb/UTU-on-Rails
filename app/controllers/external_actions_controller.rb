@@ -99,6 +99,10 @@ class ExternalActionsController < ApplicationController
     end
   end
 
+  def administrator_logged_in
+    render plain: admin_logged_in?
+  end
+
   def opensearch
     response.headers['Content-Type'] = 'application/opensearchdescription+xml; charset=utf-8'
   end

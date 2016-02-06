@@ -132,10 +132,6 @@ class SummaryController < ApplicationController
     # planned_raking_entries (wipe)
   end
 
-  def administrator_logged_in
-    render plain: admin_logged_in?
-  end
-
   private
 
   def drop_todays_after(items, hour)
