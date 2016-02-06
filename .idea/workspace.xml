@@ -4,11 +4,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[FIX] opensearch onboard&#10;&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/summary/search.html.erb" />
+    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[FIX] opensearch now searches&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/google5a95d0673e5fc79c.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/summary_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/summary_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/concerns/generic_utu_item.rb" afterPath="$PROJECT_DIR$/app/models/concerns/generic_utu_item.rb" />
     </list>
     <ignored path="UTU-on-Rails.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -109,8 +107,8 @@
       <file leaf-file-name="generic_utu_item.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/concerns/generic_utu_item.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22666667">
-              <caret line="8" column="78" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
+            <state vertical-scroll-proportion="0.68">
+              <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -426,11 +424,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\Aptana3Workspace\UTU-on-Rails\public" />
       <recent name="D:\Documents\Aptana3Workspace\UTU-on-Rails\app\views\external_actions" />
       <recent name="D:\Documents\Aptana3Workspace\UTU-on-Rails\app\assets\images" />
       <recent name="D:\Documents\Aptana3Workspace\UTU-on-Rails\app\views\sclasses\current_class" />
       <recent name="D:\Documents\Aptana3Workspace\UTU-on-Rails\app\views\_unsortables" />
-      <recent name="D:\Documents\Aptana3Workspace\UTU-on-Rails\app\assets\stylesheets\utu_items_shared" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\Aptana3Workspace\UTU-on-Rails\app\assets\images" />
@@ -729,12 +727,6 @@
       <option name="number" value="Default" />
       <updated>1444978878846</updated>
     </task>
-    <task id="LOCAL-00024" summary="[FEATURE] additional infos index now has better formatting">
-      <created>1453851128382</created>
-      <option name="number" value="00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1453851128382</updated>
-    </task>
     <task id="LOCAL-00025" summary="[FIX] users index no longer contains dogshit">
       <created>1453851406782</created>
       <option name="number" value="00025" />
@@ -1023,7 +1015,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454765155380</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="[FIX] opensearch now searches&#10;">
+      <created>1454766454846</created>
+      <option name="number" value="00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1454766454846</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1065,7 +1063,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[FIX] dialogs now show for timetable" />
     <MESSAGE value="[FIX] additional_infos now accessible by norma lusers" />
     <MESSAGE value="[FEATURE] much better view of rakings in summary_view&#10;" />
     <MESSAGE value="[FEATURE] some noobish text on welcome_screen_view&#10;" />
@@ -1090,7 +1087,8 @@
     <MESSAGE value="[TASK] try poking more often&#10;" />
     <MESSAGE value="[FIX] timetables should work now&#10;" />
     <MESSAGE value="[FIX] opensearch onboard&#10;&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="[FIX] opensearch onboard&#10;&#10;" />
+    <MESSAGE value="[FIX] opensearch now searches&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="[FIX] opensearch now searches&#10;" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1500,8 +1498,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/concerns/generic_utu_item.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22666667">
-          <caret line="8" column="78" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.68">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
           <folding />
         </state>
       </provider>
