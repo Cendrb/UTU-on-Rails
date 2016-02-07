@@ -1,6 +1,10 @@
 module GenericUtuItems
   extend ActiveSupport::Concern
 
+  included do
+    skip_before_filter :current_class_check, only: :show
+  end
+
   def new_init(object)
     params[:additional_infos] = []
     object.info_item_bindings = []
