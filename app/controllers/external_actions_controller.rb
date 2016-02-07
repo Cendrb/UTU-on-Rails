@@ -59,10 +59,10 @@ class ExternalActionsController < ApplicationController
         params_motorku = exam_params
     end
 
-    item = nil
+    @item = nil
     if params[:exists] == 'true'
-      item = GenericUtuItem.find_instance(params[:id], params[:type])
-      if item.update(params_motorku)
+      @item = GenericUtuItem.find_instance(params[:id], params[:type])
+      if @item.update(params_motorku)
         render 'show.xml'
       else
         render plain: GenericUtuItem.failure_string
@@ -70,15 +70,15 @@ class ExternalActionsController < ApplicationController
     else
       case params[:type]
         when 'event'
-          item = Event.new(params_motorku)
+          @item = Event.new(params_motorku)
         when 'task'
-          item = Task.new(params_motorku)
+          @item = Task.new(params_motorku)
         when 'written_exam'
-          item = WrittenExam.new(params_motorku)
+          @item = WrittenExam.new(params_motorku)
         when 'raking_exam'
-          item = RakingExam.new(params_motorku)
+          @item = RakingExam.new(params_motorku)
       end
-      if item.save
+      if @item.save
         render 'show.xml'
       else
         render plain: GenericUtuItem.failure_string
@@ -109,15 +109,15 @@ class ExternalActionsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:title, :description, :location, :event_start, :event_end, :sgroup_id, :sclass_id, :additional_info_url, :price, :pay_date)
+    params.permit(:title, :description, :location, :event_start, :event_end, :sgroup_id, :sclass_id, :additional_info_url, :price, :pay_date)
   end
 
   def exam_params
-    params.require(:exam).permit(:title, :description, :subject_id, :date, :sgroup_id, :sclass_id, :additional_info_url, :passed)
+    params.permit(:title, :description, :subject_id, :date, :sgroup_id, :sclass_id, :additional_info_url, :passed)
   end
 
   def task_params
-    params.require(:task).permit(:title, :description, :subject_id, :date, :sgroup_id, :sclass_id, :additional_info_url, :passed)
+    params.permit(:title, :description, :subject_id, :date, :sgroup_id, :sclass_id, :additional_info_url, :passed)
   end
 
 end
