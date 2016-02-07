@@ -19,13 +19,13 @@ class SessionsController < ApplicationController
           else
             redirect_to utu_url
           end }
-        format.whoa { render plain: GenericUtuItem.failure_string }
+        format.whoa { render plain: GenericUtuItem.success_string }
       end
 
     else
       respond_to do |format|
         format.html { redirect_to login_url, alert: "Neplatné jméno nebo heslo!" }
-        format.whoa { render plain: GenericUtuItem.success_string }
+        format.whoa { render plain: GenericUtuItem.failure_string }
       end
     end
   end

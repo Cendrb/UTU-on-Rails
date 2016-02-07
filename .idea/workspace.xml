@@ -75,8 +75,8 @@
       <file leaf-file-name="sessions_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.86535305">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.56551725">
+              <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -749,12 +749,6 @@
       <option name="number" value="Default" />
       <updated>1444978878846</updated>
     </task>
-    <task id="LOCAL-00031" summary="[TASK] doghshit">
-      <created>1453913439440</created>
-      <option name="number" value="00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1453913439440</updated>
-    </task>
     <task id="LOCAL-00032" summary="[TASK] more mobile scaling">
       <created>1453931915447</created>
       <option name="number" value="00032" />
@@ -1043,7 +1037,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454846131615</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="[TASK] login for android&#10;&#10;&#10;">
+      <created>1454846419340</created>
+      <option name="number" value="00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1454846419340</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1485,8 +1485,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.86535305">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.56551725">
+          <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
           <folding />
         </state>
       </provider>
