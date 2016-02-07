@@ -4,7 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[FIX] guess who cannot recognize success and failure">
+    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[FIX] external_actions fixes&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/external_actions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/external_actions_controller.rb" />
     </list>
@@ -55,8 +55,8 @@
       <file leaf-file-name="external_actions_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/external_actions_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55829227">
-              <caret line="71" column="20" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.5303777">
+              <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -749,12 +749,6 @@
       <option name="number" value="Default" />
       <updated>1444978878846</updated>
     </task>
-    <task id="LOCAL-00033" summary="[TASK] margins in material header">
-      <created>1453932102965</created>
-      <option name="number" value="00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1453932102965</updated>
-    </task>
     <task id="LOCAL-00034" summary="[TASK] viewport is weird">
       <created>1453932544069</created>
       <option name="number" value="00034" />
@@ -1043,7 +1037,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454848010896</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="[FIX] external_actions fixes&#10;">
+      <created>1454848706824</created>
+      <option name="number" value="00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1454848706825</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1085,7 +1085,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[TASK] refactoring utu_items&#10;" />
     <MESSAGE value="[FEATURE] xml api up and running&#10;" />
     <MESSAGE value="[FIX] why rubymine, why&#10;" />
     <MESSAGE value="[TASK] moving subjects to pre_data&#10;" />
@@ -1110,7 +1109,8 @@
     <MESSAGE value="[TASK] you can use show without selecting sclass&#10;&#10;" />
     <MESSAGE value="[TASK] login for android&#10;&#10;&#10;" />
     <MESSAGE value="[FIX] guess who cannot recognize success and failure" />
-    <option name="LAST_COMMIT_MESSAGE" value="[FIX] guess who cannot recognize success and failure" />
+    <MESSAGE value="[FIX] external_actions fixes&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="[FIX] external_actions fixes&#10;" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1485,8 +1485,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/external_actions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55829227">
-          <caret line="71" column="20" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.5303777">
+          <caret line="34" column="27" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
           <folding />
         </state>
       </provider>
