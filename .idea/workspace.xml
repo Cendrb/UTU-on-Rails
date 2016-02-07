@@ -4,9 +4,9 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[TASK] more api changes&#10;yayyyy&#10;&#10;&#10;">
+    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[TASK] you can use show without selecting sclass&#10;&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/concerns/generic_utu_items.rb" afterPath="$PROJECT_DIR$/app/controllers/concerns/generic_utu_items.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
     </list>
     <ignored path="UTU-on-Rails.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,7 +56,27 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/external_actions_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="41" />
+              <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="49" column="40" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sessions_controller.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7536946">
+              <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -72,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exams_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="exams_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/exams_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25373134">
-              <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -129,13 +149,12 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <push-targets>
-      <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="origin" target-branch="master" />
+      <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="heroku" target-branch="master" />
     </push-targets>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/lessons/dialog_for_timetable.js.erb" />
         <option value="$PROJECT_DIR$/app/controllers/additional_infos_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/planned_raking_lists/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/planned_raking_lists/show.html.erb" />
@@ -186,6 +205,7 @@
         <option value="$PROJECT_DIR$/app/controllers/exams_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/concerns/generic_utu_items.rb" />
         <option value="$PROJECT_DIR$/app/models/concerns/generic_utu_item.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
       </list>
     </option>
   </component>
@@ -417,7 +437,7 @@
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="database.main" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="gui&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;tas&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/tasks_controller.rb&#10;exa&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/exams_controller.rb&#10;summ&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/summary_controller.rb&#10;route&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/routes.rb&#10;task&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/tasks_controller.rb&#10;eve&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/events_controller.rb&#10;hid&#9;null&#9;null&#10;exte&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/external_actions_controller.rb&#10;ev&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/events_controller.rb&#10;ext&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/external_actions_controller.rb&#10;exams&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/exams_controller.rb&#10;g&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;gene u i&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;events&#9;null&#9;null&#10;exam&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/exams_controller.rb&#10;gene&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;routes&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/routes.rb&#10;exter&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/external_actions_controller.rb&#10;summa&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/summary_controller.rb&#10;mater&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/material_main.html.erb&#10;mate&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/material_main.html.erb&#10;ex c&#9;null&#9;null&#10;less&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/lessonable.rb&#10;_reve&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_generic_utu_partials/_revealed.html.erb&#10;services&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/services_controller.rb&#10;data&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/external_actions/data.xml.builder&#10;arti&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/utu_items/article.rb&#10;gener&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;ta&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/utu_items/task.rb&#10;users&#9;null&#9;null&#10;sum&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/summary/summary.html.erb&#10;planne&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_lists_controller.rb&#10;welc&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_unsortables/welcome_screen.html.erb&#10;plann&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_lists_controller.rb&#10;ater&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/material_main.html.erb&#10;form&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/additional_infos/index/_form_index.html.erb&#10;add i c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/additional_infos_controller.rb&#10;generic&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/concerns/generic_utu_items.rb&#10;hidi&#9;null&#9;null&#10;utu_it&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;add&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/additional_infos_controller.rb&#10;pla&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_lists_controller.rb&#10;raking&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_lists_controller.rb&#10;scla&#9;null&#9;null&#10;plan&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_lists_controller.rb&#10;deta&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/summary/details.html.erb&#10;wel&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_unsortables/welcome_screen.html.erb&#10;desk&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/desktop_main.html.erb&#10;des&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/desktop_main.html.erb" />
+    <property name="SearchEverywhereHistoryKey" value="sess&#9;null&#9;null&#10;exter&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/external_actions_controller.rb&#10;gui&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;tas&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/tasks_controller.rb&#10;exa&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/exams_controller.rb&#10;summ&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/summary_controller.rb&#10;route&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/routes.rb&#10;task&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/tasks_controller.rb&#10;eve&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/events_controller.rb&#10;hid&#9;null&#9;null&#10;exte&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/external_actions_controller.rb&#10;ev&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/events_controller.rb&#10;ext&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/external_actions_controller.rb&#10;exams&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/exams_controller.rb&#10;g&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;gene u i&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;events&#9;null&#9;null&#10;exam&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/exams_controller.rb&#10;gene&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;routes&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/routes.rb&#10;summa&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/summary_controller.rb&#10;mater&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/material_main.html.erb&#10;mate&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/material_main.html.erb&#10;ex c&#9;null&#9;null&#10;less&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/lessonable.rb&#10;_reve&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_generic_utu_partials/_revealed.html.erb&#10;services&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/services_controller.rb&#10;data&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/external_actions/data.xml.builder&#10;arti&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/utu_items/article.rb&#10;gener&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;ta&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/utu_items/task.rb&#10;users&#9;null&#9;null&#10;sum&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/summary/summary.html.erb&#10;planne&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_lists_controller.rb&#10;welc&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_unsortables/welcome_screen.html.erb&#10;plann&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_lists_controller.rb&#10;ater&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/material_main.html.erb&#10;form&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/additional_infos/index/_form_index.html.erb&#10;add i c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/additional_infos_controller.rb&#10;generic&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/concerns/generic_utu_items.rb&#10;hidi&#9;null&#9;null&#10;utu_it&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;add&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/additional_infos_controller.rb&#10;pla&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_lists_controller.rb&#10;raking&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_lists_controller.rb&#10;scla&#9;null&#9;null&#10;plan&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_lists_controller.rb&#10;deta&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/summary/details.html.erb&#10;wel&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_unsortables/welcome_screen.html.erb&#10;desk&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/desktop_main.html.erb" />
     <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
     <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -729,12 +749,6 @@
       <option name="number" value="Default" />
       <updated>1444978878846</updated>
     </task>
-    <task id="LOCAL-00029" summary="[TASK] more material">
-      <created>1453910063701</created>
-      <option name="number" value="00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1453910063701</updated>
-    </task>
     <task id="LOCAL-00030" summary="[TASK] eh, i forgot what was i doing">
       <created>1453912545977</created>
       <option name="number" value="00030" />
@@ -1023,7 +1037,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454800745413</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="[TASK] you can use show without selecting sclass&#10;&#10;">
+      <created>1454840898102</created>
+      <option name="number" value="00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1454840898103</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1033,16 +1053,16 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30063966" sideWeight="0.4945055" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33508956" sideWeight="0.5895522" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.48720682" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32876712" sideWeight="0.5533049" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26332623" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33508956" sideWeight="0.4424307" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33508956" sideWeight="0.41044775" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33508956" sideWeight="0.41044775" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23720682" sideWeight="0.50549453" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.4488273" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32876712" sideWeight="0.4466951" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.48720682" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1065,7 +1085,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[FEATURE] fu helper_methods" />
     <MESSAGE value="[FEATURE] article in details now ordered by published_on" />
     <MESSAGE value="[FEATURE] u c see him" />
     <MESSAGE value="[TASK] refactoring utu_items&#10;" />
@@ -1090,7 +1109,8 @@
     <MESSAGE value="[FIX] john cena flying limitations&#10;&#10;" />
     <MESSAGE value="[TASK] android api finally coming online&#10;&#10;" />
     <MESSAGE value="[TASK] more api changes&#10;yayyyy&#10;&#10;&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="[TASK] more api changes&#10;yayyyy&#10;&#10;&#10;" />
+    <MESSAGE value="[TASK] you can use show without selecting sclass&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="[TASK] you can use show without selecting sclass&#10;&#10;" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1279,13 +1299,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50246304">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/concerns/lessonable.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1422,14 +1435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/external_actions_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/tasks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1456,8 +1461,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/exams_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25373134">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/external_actions_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="40" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7536946">
+          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
           <folding />
         </state>
       </provider>

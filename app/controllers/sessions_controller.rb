@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token
+
   def new
   end
 
@@ -9,17 +10,22 @@ class SessionsController < ApplicationController
         cookies.permanent.signed[:user_id] = user.id
       end
       session[:user_id] = user.id
-      if admin_logged_in?
-        redirect_to administration_url
-      else
-        redirect_to utu_url
-      end
-    else
+
       respond_to do |format|
-        format.html {redirect_to login_url, alert: "Neplatné jméno nebo heslo!"}
-        format.whoa {head 69}
+        format.html {
+          if admin_logged_in?
+            redirect_to administration_url
+          else
+            redirect_to utu_url
+          end }
+        format.whoa { render plain: GenericUtuItem.failure_string }
       end
 
+    else
+      respond_to do |format|
+        format.html { redirect_to login_url, alert: "Neplatné jméno nebo heslo!" }
+        format.whoa { render plain: GenericUtuItem.success_string }
+      end
     end
   end
 
