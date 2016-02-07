@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token
+  skip_before_action :current_class_check
 
   def new
   end

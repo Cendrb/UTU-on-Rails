@@ -4,7 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[TASK] you can use show without selecting sclass&#10;&#10;">
+    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[TASK] login for android&#10;&#10;&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
     </list>
@@ -75,8 +75,8 @@
       <file leaf-file-name="sessions_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7536946">
-              <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.86535305">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -749,12 +749,6 @@
       <option name="number" value="Default" />
       <updated>1444978878846</updated>
     </task>
-    <task id="LOCAL-00030" summary="[TASK] eh, i forgot what was i doing">
-      <created>1453912545977</created>
-      <option name="number" value="00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1453912545977</updated>
-    </task>
     <task id="LOCAL-00031" summary="[TASK] doghshit">
       <created>1453913439440</created>
       <option name="number" value="00031" />
@@ -1043,7 +1037,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454840898103</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="[TASK] login for android&#10;&#10;&#10;">
+      <created>1454846131615</created>
+      <option name="number" value="00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1454846131615</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1085,7 +1085,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[FEATURE] article in details now ordered by published_on" />
     <MESSAGE value="[FEATURE] u c see him" />
     <MESSAGE value="[TASK] refactoring utu_items&#10;" />
     <MESSAGE value="[FEATURE] xml api up and running&#10;" />
@@ -1110,7 +1109,8 @@
     <MESSAGE value="[TASK] android api finally coming online&#10;&#10;" />
     <MESSAGE value="[TASK] more api changes&#10;yayyyy&#10;&#10;&#10;" />
     <MESSAGE value="[TASK] you can use show without selecting sclass&#10;&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="[TASK] you can use show without selecting sclass&#10;&#10;" />
+    <MESSAGE value="[TASK] login for android&#10;&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="[TASK] login for android&#10;&#10;&#10;" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1485,8 +1485,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7536946">
-          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.86535305">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
         </state>
       </provider>
