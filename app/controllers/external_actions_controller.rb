@@ -37,6 +37,12 @@ class ExternalActionsController < ApplicationController
         @data[:exams] = @data[:exams].for_group_ids(params[:group_ids])
         @data[:tasks] = @data[:tasks].for_group_ids(params[:group_ids])
       end
+      if logged_in?
+        user = current_user
+        @data[:events] = @data[:events].for_groups(user.sgroups)
+        @data[:exams] = @data[:exams].for_groups(user.sgroups)
+        @data[:tasks] = @data[:tasks].for_groups(user.sgroups)
+      end
 
       @data[:additional_infos] = AdditionalInfo.all
 
