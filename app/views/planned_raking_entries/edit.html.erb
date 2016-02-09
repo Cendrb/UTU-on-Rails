@@ -3,8 +3,8 @@
 <%= form_for(@planned_raking_entry) do |f| %>
 
     <% if @planned_raking_entry.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@planned_raking_entry.errors.count, "error") %> prohibited this motorku from being
+        <div id='error_explanation'>
+          <h2><%= pluralize(@planned_raking_entry.errors.count, 'error') %> prohibited this motorku from being
             saved:</h2>
           <ul>
             <% @planned_raking_entry.errors.full_messages.each do |message| %>
@@ -16,21 +16,25 @@
 
     <% sclass = @planned_raking_entry.planned_raking_list.sclass %>
 
-    <div class="field">
-      <%= f.label :class_member_id, "Jméno" %><br>
+    <div class='field'>
+      <%= f.label :class_member_id, 'Jméno' %><br>
       <%= f.collection_select(:class_member_id, ClassMember.where(sclass: sclass), :id, :full_name) %>
     </div>
-    <div class="field">
-      <%= f.label :description, "Téma" %><br>
+    <div class='field'>
+      <%= f.label :description, 'Téma' %><br>
       <%= f.text_field :description %>
       (pokud se jedná o prezentaci, <b>můžete</b> zde zadat nějaký krátký popis, aby ostatní případně neměli stejný nápad)
     </div>
-    <div class="field">
-      <%= f.label :planned_raking_list_id, "Seznam zkoušení" %><br>
+    <div class='field'>
+      <%= f.label :grade, 'Známka' %><br>
+      <%= f.text_field :grade %>
+    </div>
+    <div class='field'>
+      <%= f.label :planned_raking_list_id, 'Seznam zkoušení' %><br>
       <%= f.collection_select :planned_raking_list_id, PlannedRakingList.where(sclass: sclass), :id, :title %>
     </div>
-    <div class="actions">
-      <%= f.submit "Odeslat" %>
+    <div class='actions'>
+      <%= f.submit 'Odeslat' %>
     </div>
 <% end %>
 
