@@ -13,7 +13,7 @@
 
     <div class="field">
       <%= f.label :class_member_id, 'Jméno' %><br>
-      <%= f.collection_select(:class_member_id, current_class.class_members.order(:last_name), :id, :full_name, {}, {class: 'form-control'}) %>
+      <%= f.collection_select(:class_member_id, current_class.class_members.order(:last_name), :id, :of_name, {}, {class: 'form-control'}) %>
     </div>
     <div class="field">
       <%= f.label :email, 'Email (bez vašeho svolení vám nebudou zasílány žádné maily)' %><br>

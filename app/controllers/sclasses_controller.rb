@@ -65,7 +65,7 @@ class SclassesController < ApplicationController
 
   def change_current
     session[:sclass_id] = params[:sclass_id]
-    cookies[:sclass_id] = params[:sclass_id]
+    cookies.permanent[:sclass_id] = params[:sclass_id]
     render 'sclasses/current_class/current_class_changed'
   end
 

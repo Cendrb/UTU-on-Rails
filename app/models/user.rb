@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def to_s
-    return class_member.full_name
+    return class_member.of_name
   end
 
   def password=(password)

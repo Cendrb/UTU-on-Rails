@@ -19,7 +19,7 @@
     <%= f.hidden_field :finished %>
     <div class="field">
       <%= f.label :class_member_id, "Jméno" %><br>
-      <%= f.collection_select(:class_member_id, ClassMember.where(sclass: sclass), :id, :full_name) %>
+      <%= f.collection_select(:class_member_id, ClassMember.where(sclass: sclass), :id, :of_name) %>
     </div>
     <div class="field">
       <%= f.label :grade, "Známka" %><br>

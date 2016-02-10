@@ -18,7 +18,7 @@
 
     <div class="field">
       <%= f.label :class_member_id, "Jméno" %><br>
-      <%= f.collection_select(:class_member_id, ClassMember.where(sclass: sclass).order(:last_name), :id, :full_name) %>
+      <%= f.collection_select(:class_member_id, ClassMember.where(sclass: sclass).order(:last_name), :id, :of_name) %>
     </div>
     <div class="field">
       <%= f.label :description, "Téma" %><br>
