@@ -12,4 +12,8 @@ class PlannedRakingList < ActiveRecord::Base
   def current_round
     return raking_rounds.order(:number).last
   end
+
+  def full_name
+    return "#{title} (#{subject.name})"
+  end
 end

@@ -27,7 +27,7 @@
     </div>
     <div class="field">
       <%= f.label :planned_raking_list_id, "Seznam zkoušení" %><br>
-      <%= f.collection_select :planned_raking_list_id, PlannedRakingList.where(sclass: sclass), :id, :title %>
+      <%= f.collection_select :planned_raking_list_id, PlannedRakingList.where(sclass: sclass), :id, :full_name %>
     </div>
     <div class="actions">
       <%= f.submit "Odeslat" %>
