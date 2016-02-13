@@ -1,9 +1,3 @@
 <p id="notice"><%= notice %></p>
 
-<%= render partial: '_generic_utu_partials/show', locals: { item: @task } %>
-
-<% if logged_in? %>
-<%= link_to 'Upravit', edit_task_path(@task) %> |
-<%= link_to 'Zpět na správu úkolů', tasks_path %> |
-<% end %>
-<%= link_to 'Zpět na podrobnosti', details_path %>
+<%= render partial: '_generic_utu_partials/show', locals: {item: @task, links_enabled: true} %>

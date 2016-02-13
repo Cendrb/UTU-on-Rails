@@ -1,6 +1,3 @@
 <p id="notice"><%= notice %></p>
 
-<%= render partial: '_generic_utu_partials/show', locals: { item: @raking } %>
-
-<%= link_to 'Edit', edit_raking_exam_path(@raking) %> |
-<%= link_to 'Back', raking_exams_path %>
+<%= render partial: '_generic_utu_partials/show', locals: {item: @raking, links_enabled: true} %>
