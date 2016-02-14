@@ -2,22 +2,25 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @planned_raking_entry.class_member.name %>
+  <%= @planned_raking_entry.class_member.of_name %>
 </p>
-
+<p>
+  <strong>Popis:</strong>
+  <%= @planned_raking_entry.description %>
+</p>
 <p>
   <strong>Planned raking list:</strong>
-  <%= @planned_raking_entry.planned_raking_list_id.name %>
+  <%= @planned_raking_entry.planned_raking_list.title %>
 </p>
 
 <p>
-  <strong>Finished:</strong>
-  <%= @planned_raking_entry.finished %>
+  <strong>Rekt?:</strong>
+  <%= format_boolean @planned_raking_entry.finished %>
 </p>
 
 <p>
-  <strong>Sorting order:</strong>
-  <%= @planned_raking_entry.sorting_order %>
+  <strong>Známka:</strong>
+  <%= @planned_raking_entry.grade %>
 </p>
 
 <%= link_to 'Edit', edit_planned_raking_entry_path(@planned_raking_entry) %> |

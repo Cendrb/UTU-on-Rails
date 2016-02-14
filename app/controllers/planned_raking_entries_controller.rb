@@ -84,7 +84,7 @@ class PlannedRakingEntriesController < ApplicationController
   def update
     respond_to do |format|
       if @planned_raking_entry.update(planned_raking_entry_params)
-        format.html { redirect_to @planned_raking_entry, notice: 'Planned raking entry was successfully updated.' }
+        format.html { redirect_to admin_show_planned_raking_lists_path(@planned_raking_entry.planned_raking_list), notice: 'Planned raking entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @planned_raking_entry }
       else
         format.html { render :edit }
