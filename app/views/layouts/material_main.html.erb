@@ -39,6 +39,11 @@
             <%= link_to 'Registrace', register_path, class: 'btn btn-default' %>
             <div id="current_class_placeholder"><%= render partial: 'sclasses/current_class/current_class' %></div>
         <% end %>
+        <div id="material_header_search_box">
+          <%= form_tag search_path, method: :get do %>
+              <%= search_field_tag :query, '', class: 'form-control' %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

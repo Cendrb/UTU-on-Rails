@@ -4,9 +4,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[FIX] wtf is stack overflow in material_main.html.erb layout&#10;">
+    <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[TASK] search is now for subject too&#10;&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/concerns/lessonable.rb" afterPath="$PROJECT_DIR$/app/models/concerns/lessonable.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/material_design.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/material_design.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/material_main.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/material_main.html.erb" />
     </list>
     <ignored path="UTU-on-Rails.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,41 +53,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="summary_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/summary_controller.rb">
+      <file leaf-file-name="material_main.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/material_main.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+            <state vertical-scroll-proportion="-10.461538">
+              <caret line="34" column="86" selection-start-line="34" selection-start-column="86" selection-end-line="34" selection-end-column="86" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="generic_utu_items.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/concerns/generic_utu_items.rb">
+      <file leaf-file-name="material_design.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/material_design.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="7" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="generic_utu_item.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/concerns/generic_utu_item.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="95" selection-start-line="7" selection-start-column="95" selection-end-line="7" selection-end-column="95" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lessonable.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/concerns/lessonable.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13957307">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.580756">
+              <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -115,8 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/initializers/assets.rb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/john_cena.scss" />
         <option value="$PROJECT_DIR$/app/views/_generic_utu_partials/_revealed.html.erb" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/58753685-f1b0-4273-a381-9290b15e8b59/console.sql" />
@@ -162,10 +141,12 @@
         <option value="$PROJECT_DIR$/app/views/planned_raking_entries/show.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/planned_raking_entries_controller.rb" />
         <option value="$PROJECT_DIR$/public/500.html" />
-        <option value="$PROJECT_DIR$/app/views/layouts/material_main.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/main_menu.scss" />
         <option value="$PROJECT_DIR$/app/models/concerns/generic_utu_item.rb" />
         <option value="$PROJECT_DIR$/app/models/concerns/lessonable.rb" />
+        <option value="$PROJECT_DIR$/app/views/summary/summary.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/material_main.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/material_design.scss" />
       </list>
     </option>
   </component>
@@ -318,6 +299,28 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UTU-on-Rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UTU-on-Rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -329,7 +332,7 @@
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="database.main" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="less&#9;null&#9;null&#10;timet&#9;null&#9;null&#10;gener&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;gui&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/concerns/generic_utu_items.rb&#10;penis&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/penis&#10;summ&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/summary_controller.rb&#10;time&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/timetables/timetable.rb&#10;mater&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/material_main.html.erb&#10;routes&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/routes.rb&#10;c m&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/class_member.rb&#10;pre&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_entries_controller.rb&#10;sho&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/events/show.html.erb&#10;tasks c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/tasks_controller.rb&#10;rakingexams&#9;null&#9;null&#10;raki e c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_entries_controller.rb&#10;events&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/events_controller.rb&#10;eve c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/events_controller.rb&#10;w e c&#9;null&#9;null&#10;sess&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/sessions_controller.rb&#10;scl c&#9;null&#9;null&#10;app c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/application_controller.rb&#10;user&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/user.rb&#10;users&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/users_controller.rb&#10;userc&#9;null&#9;null&#10;prl&#9;null&#9;null&#10;prec&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_entries_controller.rb&#10;prlc&#9;null&#9;null&#10;p r e c&#9;null&#9;null&#10;pla&#9;null&#9;null&#10;det&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/summary/details.html.erb&#10;exter&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/external_actions_controller.rb&#10;tas&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/tasks_controller.rb&#10;exa&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/exams_controller.rb&#10;route&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/routes.rb&#10;task&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/tasks_controller.rb&#10;eve&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/events_controller.rb&#10;hid&#9;null&#9;null&#10;exte&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/external_actions_controller.rb&#10;ev&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/events_controller.rb&#10;ext&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/external_actions_controller.rb&#10;exams&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/exams_controller.rb&#10;g&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;gene u i&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;exam&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/exams_controller.rb&#10;gene&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;summa&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/summary_controller.rb&#10;mate&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/material_main.html.erb&#10;ex c&#9;null&#9;null&#10;_reve&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_generic_utu_partials/_revealed.html.erb&#10;services&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/services_controller.rb" />
+    <property name="SearchEverywhereHistoryKey" value="mater&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/material_main.html.erb&#10;summ&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/summary_controller.rb&#10;less&#9;null&#9;null&#10;timet&#9;null&#9;null&#10;gener&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;gui&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/concerns/generic_utu_items.rb&#10;penis&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/penis&#10;time&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/timetables/timetable.rb&#10;routes&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/routes.rb&#10;c m&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/class_member.rb&#10;pre&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_entries_controller.rb&#10;sho&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/events/show.html.erb&#10;tasks c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/tasks_controller.rb&#10;rakingexams&#9;null&#9;null&#10;raki e c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_entries_controller.rb&#10;events&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/events_controller.rb&#10;eve c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/events_controller.rb&#10;w e c&#9;null&#9;null&#10;sess&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/sessions_controller.rb&#10;scl c&#9;null&#9;null&#10;app c&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/application_controller.rb&#10;user&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/user.rb&#10;users&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/users_controller.rb&#10;userc&#9;null&#9;null&#10;prl&#9;null&#9;null&#10;prec&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/planned_raking_entries_controller.rb&#10;prlc&#9;null&#9;null&#10;p r e c&#9;null&#9;null&#10;pla&#9;null&#9;null&#10;det&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/summary/details.html.erb&#10;exter&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/external_actions_controller.rb&#10;tas&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/tasks_controller.rb&#10;exa&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/exams_controller.rb&#10;route&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/config/routes.rb&#10;task&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/tasks_controller.rb&#10;eve&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/events_controller.rb&#10;hid&#9;null&#9;null&#10;exte&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/external_actions_controller.rb&#10;ev&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/events_controller.rb&#10;ext&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/external_actions_controller.rb&#10;exams&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/exams_controller.rb&#10;g&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;gene u i&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;exam&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/exams_controller.rb&#10;gene&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/models/concerns/generic_utu_item.rb&#10;summa&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/summary_controller.rb&#10;mate&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/layouts/material_main.html.erb&#10;ex c&#9;null&#9;null&#10;_reve&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/views/_generic_utu_partials/_revealed.html.erb&#10;services&#9;FILE&#9;file://D:/Documents/Aptana3Workspace/UTU-on-Rails/app/controllers/services_controller.rb" />
     <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
     <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -641,12 +644,6 @@
       <option name="number" value="Default" />
       <updated>1444978878846</updated>
     </task>
-    <task id="LOCAL-00042" summary="[FIX] just a bunch of small fixes&#10;[FEATURE] Material design is now live!!">
-      <created>1453997386296</created>
-      <option name="number" value="00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1453997386296</updated>
-    </task>
     <task id="LOCAL-00043" summary="[FEATURE] additional ifnos now sorting by subjects">
       <created>1453998260072</created>
       <option name="number" value="00043" />
@@ -935,33 +932,39 @@
       <option name="project" value="LOCAL" />
       <updated>1455456871261</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="[TASK] search is now for subject too&#10;&#10;">
+      <created>1455485453923</created>
+      <option name="number" value="00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1455485453923</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32356077" sideWeight="0.4945055" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32876712" sideWeight="0.5959488" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26332623" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.48720682" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32982087" sideWeight="0.52558637" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33508956" sideWeight="0.4424307" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32876712" sideWeight="0.40405118" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23720682" sideWeight="0.50549453" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.40245202" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.43816632" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32356077" sideWeight="0.4945055" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26332623" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32982087" sideWeight="0.47441363" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23720682" sideWeight="0.50549453" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.48720682" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3024236" sideWeight="0.4914712" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32982087" sideWeight="0.47867805" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -977,7 +980,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[FIX] bakasucks" />
     <MESSAGE value="[FIX] isuck&#10;" />
     <MESSAGE value="[TASK] John Cena now consumes less data&#10;&#10;" />
     <MESSAGE value="[TASK] John Cena can be played multiple times&#10;&#10;&#10;" />
@@ -1002,7 +1004,8 @@
     <MESSAGE value="[FIX] bugsbugsubugsffsdfs&#10;" />
     <MESSAGE value="[FIX] no more error after planned_raking_entry update&#10;" />
     <MESSAGE value="[FIX] wtf is stack overflow in material_main.html.erb layout&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="[FIX] wtf is stack overflow in material_main.html.erb layout&#10;" />
+    <MESSAGE value="[TASK] search is now for subject too&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="[TASK] search is now for subject too&#10;&#10;" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1012,20 +1015,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/planned_raking_entries/new_planned_rekt.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3962264">
-          <caret line="20" column="114" selection-start-line="20" selection-start-column="114" selection-end-line="20" selection-end-column="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/new.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="52" selection-start-line="0" selection-start-column="52" selection-end-line="0" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1267,6 +1256,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1282,13 +1272,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/main_menu.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46655232">
-          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1296,31 +1280,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/utu.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7010309">
-          <caret line="76" column="1" selection-start-line="76" selection-start-column="1" selection-end-line="76" selection-end-column="1" />
-          <folding>
-            <element signature="e#385#1353#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/material_design.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.96391755">
-          <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/material_main.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="23" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -1349,14 +1308,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/summary_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/concerns/generic_utu_items.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1373,6 +1324,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/summary_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionview-4.2.5/lib/action_view/helpers/form_tag_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16584565">
+          <caret line="600" column="10" selection-start-line="600" selection-start-column="10" selection-end-line="600" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/summary/summary.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.038462">
+          <caret line="86" column="6" selection-start-line="86" selection-start-column="6" selection-end-line="86" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/utu.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69982845">
+          <caret line="76" column="1" selection-start-line="76" selection-start-column="1" selection-end-line="76" selection-end-column="1" />
+          <folding>
+            <element signature="e#385#1353#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/main_menu.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46655232">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/concerns/lessonable.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/concerns/generic_utu_item.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1381,10 +1382,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/concerns/lessonable.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/material_main.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13957307">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state vertical-scroll-proportion="-10.461538">
+          <caret line="34" column="86" selection-start-line="34" selection-start-column="86" selection-end-line="34" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/material_design.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.580756">
+          <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
           <folding />
         </state>
       </provider>
