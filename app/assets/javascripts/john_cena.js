@@ -126,16 +126,12 @@ function setZrsaListener() {
 
 function setTraitorListener() {
     $("a").click(function () {
-        var random = Math.random();
-        console.log(random);
-        if (random < 0.5) {
-            traitor_audio.cloneNode(true).play();
-            $(".traitor").show();
-            material_container.hide();
-            setTimeout(function () {
-                $(".traitor").hide();
-            }, 200);
-        }
+        traitor_audio.cloneNode(true).play();
+        $(".traitor").show();
+        material_container.hide();
+        setTimeout(function () {
+            $(".traitor").hide();
+        }, 200);
     });
 }
 
