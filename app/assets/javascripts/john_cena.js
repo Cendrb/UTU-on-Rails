@@ -103,6 +103,7 @@ var zrsa_audio = new Audio('http://adis.g6.cz/johncena/zrsa.mp3');
 var hehou_audio = new Audio('http://adis.g6.cz/johncena/hehou.mp3');
 var john_cena_audio = new Audio('http://adis.g6.cz/johncena/john-cena.mp3');
 var john_cena_string = "<img src=\"http://adis.g6.cz/johncena/john-cena.jpg\" width=\"1920\" height=\"1080\" class=\"john_cena\">";
+var traitor_audio = new Audio('http://adis.g6.cz/johncena/traitor.mp3');
 var material_container = $("#material_container");
 var john_cena_summoned = false;
 
@@ -121,6 +122,21 @@ function playHehou(e) {
 function setZrsaListener() {
     $(document).keydown(playZrsa);
     $(document).click(playHehou);
+}
+
+function setTraitorListener() {
+    $("a").click(function () {
+        var random = Math.random();
+        console.log(random);
+        if (random < 0.5) {
+            traitor_audio.cloneNode(true).play();
+            $(".traitor").show();
+            material_container.hide();
+            setTimeout(function () {
+                $(".traitor").hide();
+            }, 200);
+        }
+    });
 }
 
 var keyboardPhraseDetector;
@@ -147,11 +163,25 @@ keyboardPhraseDetector.addListener([20, 20, 20, 'z', 'r', 's', 'a', 20, 20, 20],
         alert('ZRSA ENABLED');
     }
 });
+keyboardPhraseDetector.addListener(['t', 'r', 'a', 'i', 't', 'o', 'r'], function () {
+    if (getCookie('traitor') == 'true') {
+        setPersistentCookie('traitor', false);
+        alert('TRAITOR DISABLED');
+    }
+    else {
+        setPersistentCookie('traitor', true);
+        setTraitorListener();
+        alert('TRAITOR ENABLED');
+    }
+});
 
 if (getCookie('zrsa') == 'true')
     setZrsaListener();
 
 $(document).ready(function () {
+    if (getCookie('traitor') == 'true')
+        setTraitorListener();
+
     var base_height = window.innerHeight;
     var base_width = window.innerWidth;
 
