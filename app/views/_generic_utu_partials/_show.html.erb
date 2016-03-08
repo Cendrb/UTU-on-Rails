@@ -16,4 +16,7 @@
           <%= render partial: '_generic_utu_partials/revealed', locals: {item: item} %>
       <% end %>
   <% end %>
+  <% if links_enabled %>
+      <div class="float_right_actions shared_show_actions"><%= get_admin_links item %></div>
+  <% end %>
 </div>
