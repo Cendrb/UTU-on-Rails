@@ -7,8 +7,7 @@ class PlannedRakingListsController < ApplicationController
   def index
     @data = {}
 
-    @data[:planned_lists] = PlannedRakingList.where(sclass_id: current_class).where(planned: true)
-    @data[:ordinary_lists] = PlannedRakingList.where(sclass_id: current_class).where(planned: false)
+    @data[:lists] = PlannedRakingList.where(sclass_id: current_class)
   end
 
   # GET /planned_raking_lists/1
@@ -53,6 +52,8 @@ class PlannedRakingListsController < ApplicationController
   # GET /planned_raking_lists/new
   def new
     @planned_raking_list = PlannedRakingList.new
+    @planned_raking_list.rekt_per_hour = 1
+    @planned_raking_list.alert_when_next_x_lessons_empty = 0
   end
 
   # GET /planned_raking_lists/1/edit

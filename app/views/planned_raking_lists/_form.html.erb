@@ -29,8 +29,9 @@
       <%= f.collection_select :subject_id, Subject.all, :id, :name %>
     </div>
     <div class="field">
-      <%= f.label :planned, 'Plánované (umožní přihlašování do seznamu)' %><br>
-      <%= f.check_box :planned %>
+      <%= f.label :alert_when_next_x_lessons_empty, 'Upozornit pokud není na následující počet hodin dostatek přihlášených' %>
+      <br>
+      <%= f.number_field :alert_when_next_x_lessons_empty %>
     </div>
     <div class="field">
       <%= f.label :rekt_per_hour, "Předpokládaný počet zkoušení za hodinu" %><br>

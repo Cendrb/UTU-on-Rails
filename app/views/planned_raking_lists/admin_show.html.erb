@@ -1,4 +1,4 @@
-<h2>Administrace <%= @data[:list].title %></h2>
+<h2>Administrace <%= @data[:list].full_name %></h2>
 
 <strong>Výběr kola</strong>
 <%= select_tag(:round_selector, options_from_collection_for_select(@data[:list].raking_rounds, :id, :number), prompt: "Vyberte kolo pro zobrazení...") %>

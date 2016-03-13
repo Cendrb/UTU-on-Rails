@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130201856) do
+ActiveRecord::Schema.define(version: 20160313120632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -186,7 +186,7 @@ ActiveRecord::Schema.define(version: 20160130201856) do
     t.datetime "updated_at"
     t.integer  "rekt_per_hour"
     t.integer  "sclass_id"
-    t.boolean  "planned"
+    t.integer "alert_when_next_x_lessons_empty"
   end
 
   create_table "raking_rounds", force: :cascade do |t|

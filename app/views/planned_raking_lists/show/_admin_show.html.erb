@@ -2,7 +2,6 @@
 
 <h3><%= round.number %>. kolo</h3>
 
-<% if @data[:list].planned %>
 <table class="stretch">
   <thead>
   <tr>
@@ -24,25 +23,3 @@
   </tbody>
 </table>
 <div id="planned_raking_list_status">Všechny změny uloženy</div>
-<% else %>
-    <table class="stretch">
-      <thead>
-      <tr>
-        <th>Jméno</th>
-        <th>Známka</th>
-        <th>Datum zkoušení</th>
-      </tr>
-      </thead>
-      <tbodys>
-        <% round.planned_raking_entries.order(:finished, :sorting_order).each do |entry| %>
-            <tr>
-              <td><%= entry.class_member.full_name %></td>
-              <td><%= entry.grade %></td>
-              <td><%= format_date entry.created_at %></td>
-              <td><%= link_to mi.edit, edit_planned_raking_entry_path(entry) %></td>
-              <td><%= link_to "Vyhladit #{entry.class_member.full_name}", entry, method: :delete, data: {confirm: "Jako vážně? #{entry.class_member.full_name}"} %></td>
-            </tr>
-        <% end %>
-      </tbodys>
-    </table>
-<% end %>

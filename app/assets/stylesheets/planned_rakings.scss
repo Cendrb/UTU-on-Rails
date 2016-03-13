@@ -3,15 +3,64 @@
 }
 
 .planned_rakings_table {
-  border-collapse: collapse;
+
+  display: none;
+  .planned_rakings_list_title {
+    font-size: 20px;
+  }
+  .planned_rakings_list_current_round {
+  }
+  .planned_rakings_list_rekt_status {
+
+  }
+  .planned_rakings_list_left_on_list {
+
+  }
 }
 
-.planned_raking_list_planned {
-  width: 100%;
+.planned_rakings_list {
+
+  border-bottom: 1px solid #dfdfdf;
+  color: #555;
+  position: relative;
+  margin-top: 7px;
+  padding-bottom: 5px;
+  margin-bottom: 7px;
+  font-size: 16px;
+  .planned_rakings_list_title {
+    display: inline;
+    font-size: 24px;
+    color: #555;
+  }
+  .planned_rakings_list_current_round {
+    display: inline;
+    margin-left: 4px;
+    font-size: 15px;
+    color: #5d5d5d;
+  }
+  .planned_rakings_list_rekt_status {
+
+  }
+  .planned_rakings_list_left_on_list {
+    margin-top: 1px;
+  }
+  .planned_rakings_list_user_actions {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  .planned_rakings_list_admin_actions {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
+  .planned_rakings_list_personalised_status {
+    margin-top: 1px;
+  }
 }
 
-.planned_raking_list_ordinary {
-  width: 100%;
+#planned_rakings_lists {
+
 }
 
 #planned_raking_list_show_status_messages {

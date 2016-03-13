@@ -8,8 +8,6 @@
 </div>
 
 <p>
-  <% if @data[:list].planned %>
-      <%= link_to 'Přihlásit se do seznamu', new_planned_rekt_raking_entry_path(list_id: @data[:list].id) %><br>
-  <% end %>
+  <%= link_to 'Přihlásit se do seznamu', new_planned_rekt_raking_entry_path(list_id: @data[:list].id) %><br>
   <%= link_to 'Zpět', planned_raking_lists_path %>
 </p>

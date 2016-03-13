@@ -1,52 +1,33 @@
 <% timetable = Timetable.timetable_for(@data[:list].sclass) %>
 
 <h3><%= round.number %>. kolo</h3>
-<% if @data[:list].planned %>
-    <table class="stretch planned_rakings_table">
-      <thead>
-      <tr>
-        <th>Jméno</th>
-        <th>Téma</th>
-        <th>Očekávané datum zkoušení</th>
+<table class="stretch planned_rakings_table">
+  <thead>
+  <tr>
+    <th>Jméno</th>
+    <th>Téma</th>
+    <th>Očekávané datum zkoušení</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% counter = 0.0 %>
+  <% round.planned_raking_entries.where(finished: false).order(:sorting_order).each do |entry| %>
+      <% hour_offset = (counter / @data[:list].rekt_per_hour.to_f).floor %>
+      <% counter += 1 %>
+      <tr class="<%= "raking_hour_separator" if counter % @data[:list].rekt_per_hour == 0 %>">
+        <td><%= entry.class_member.full_name %></td>
+        <td><%= entry.description %></td>
+        <td><%= timetable.get_next_hour_for(@data[:list].subject, Date.today, hour_offset) ? (format_date timetable.get_next_hour_for(@data[:list].subject, Date.today, hour_offset).school_day.date) : "více než čtrnáct dní (dohled rozvrhu)" %></td>
       </tr>
-      </thead>
-      <tbody>
-      <% counter = 0.0 %>
-      <% round.planned_raking_entries.where(finished: false).order(:sorting_order).each do |entry| %>
-          <% hour_offset = (counter / @data[:list].rekt_per_hour.to_f).floor %>
-          <% counter += 1 %>
-          <tr class="<%= "raking_hour_separator" if counter % @data[:list].rekt_per_hour == 0 %>">
-            <td><%= entry.class_member.full_name %></td>
-            <td><%= entry.description %></td>
-            <td><%= timetable.get_next_hour_for(@data[:list].subject, Date.today, hour_offset) ? (format_date timetable.get_next_hour_for(@data[:list].subject, Date.today, hour_offset).school_day.date) : "více než čtrnáct dní (dohled rozvrhu)" %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-<% else %>
-    <table class="stretch planned_rakings_table">
-      <thead>
-      <tr>
-        <th>Jméno</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% round.planned_raking_entries.order(:sorting_order).each do |entry| %>
-          <tr>
-            <td><%= entry.class_member.full_name %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-<% end %>
+  <% end %>
+  </tbody>
+</table>
 
 <div id="planned_raking_list_show_status_messages">
-  <% if @data[:list].planned %>
-      <p>Počet ještě nezapsaných (ani nezkoušených) lidí: <%= round.not_signed_up_yet_count %>
-        <br>
-        <%= round.not_signed_up_yet_query.map(&:full_name).to_sentence %>
-      </p>
-  <% end %>
+  <p>Počet ještě nezapsaných (ani nezkoušených) lidí: <%= round.not_signed_up_yet_count %>
+    <br>
+    <%= round.not_signed_up_yet_query.map(&:full_name).to_sentence %>
+  </p>
   <p>Počet již
     zkoušených: <%= "#{round.already_rekt_count}/#{round.planned_raking_list.sclass.class_members.count}" %></p>
 </div>

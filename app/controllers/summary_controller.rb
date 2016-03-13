@@ -12,18 +12,12 @@ class SummaryController < ApplicationController
   def summary
     @data = {}
     @data[:service] = {}
-    @data[:rakings] = {}
-    @data[:rakings][:chances] = []
 
     @data[:service][:current] = Service.where("service_start <= :today AND service_end >= :today", {today: Date.today}).first
     @data[:articles] = Article.where(published: true).order("published_on DESC").limit(3)
 
     if logged_in?
       @data[:service][:user] = Service.in_future.where("first_mate_id = :class_member OR second_mate_id = :class_member", {class_member: current_user.class_member_id}).first
-
-      PlannedRakingList.where(sclass: current_class).where(planned: false).each do |list|
-        @data[:rakings][:chances] << {list: list, round: list.current_round.number, grade: list.current_round.planned_raking_entries.where(class_member_id: current_user.class_member).pluck(:grade).first, was_i_rekt: list.current_round.planned_raking_entries.where(class_member_id: current_user.class_member).count > 0, name: list.title, subject: list.subject.name, chance: (list.rekt_per_hour.to_f / list.current_round.not_rekt_yet_count.to_f) * 100, already_rekt: list.current_round.already_rekt_count, total: list.sclass.class_members.count}
-      end
     end
   end
 
