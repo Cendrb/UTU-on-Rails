@@ -11,13 +11,13 @@
   </thead>
   <tbody>
   <% counter = 0.0 %>
-  <% round.planned_raking_entries.where(finished: false).order(:sorting_order).each do |entry| %>
+  <% round.planned_raking_entries.order(:sorting_order).each do |entry| %>
       <% hour_offset = (counter / @data[:list].rekt_per_hour.to_f).floor %>
       <% counter += 1 %>
       <tr class="<%= "raking_hour_separator" if counter % @data[:list].rekt_per_hour == 0 %>">
         <td><%= entry.class_member.full_name %></td>
         <td><%= entry.description %></td>
-        <td><%= timetable.get_next_hour_for(@data[:list].subject, Date.today, hour_offset) ? (format_date timetable.get_next_hour_for(@data[:list].subject, Date.today, hour_offset).school_day.date) : "více než čtrnáct dní (dohled rozvrhu)" %></td>
+        <td><%= timetable.get_next_hour_for(@data[:list].subject, Date.today, hour_offset) ? (format_date timetable.get_next_hour_for(@data[:list].subject, Date.today, hour_offset).school_day.date) : "více než čtrnáct dní (dohled rozvrhu)" if !entry.finished %></td>
       </tr>
   <% end %>
   </tbody>

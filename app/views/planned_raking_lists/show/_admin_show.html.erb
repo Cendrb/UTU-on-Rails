@@ -7,7 +7,7 @@
   <tr>
     <th>Jméno</th>
     <th>Téma</th>
-    <th></th>
+    <th>Známka</th>
   </tr>
   </thead>
   <tbody id="planned_raking_entries_sortable">
@@ -15,7 +15,7 @@
       <tr class="move_cursor" data-entry-id="<%= entry.id %>">
         <td><%= entry.class_member.full_name %></td>
         <td><%= entry.description %></td>
-        <td><%= entry.sorting_order %></td>
+        <td><%= entry.grade %></td>
         <td><%= link_to "Vyhladit #{entry.class_member.full_name}", entry, method: :delete, data: { confirm: "Jako vážně? #{entry.class_member.full_name}" } %></td>
         <td><%= button_to "#{entry.class_member.full_name} byl/a již zkoušen/a", admin_show_planned_raking_entries_rekt_path, params: { id: entry.id }, remote: true if !entry.finished %></td>
       </tr>
