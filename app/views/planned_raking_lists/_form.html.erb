@@ -17,6 +17,11 @@
       <%= f.collection_select(:sclass_id, Sclass.all, :id, :name) %>
     </div>
     <div class="field">
+      <%= f.label :sgroup_id, 'Skupina' %>
+      <br>
+      <%= f.collection_select :sgroup_id, Sgroup.all.unshift(Sgroup.new(name: 'zobrazit pro všechny', id: -1)), :id, :name %>
+    </div>
+    <div class="field">
       <%= f.label :title, "Název" %><br>
       <%= f.text_field :title %>
     </div>

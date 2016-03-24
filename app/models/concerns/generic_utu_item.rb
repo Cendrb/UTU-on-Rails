@@ -9,7 +9,6 @@ module GenericUtuItem
     validates :title, :sgroup_id, :sclass_id, presence: {presence: true, message: "nesmí být prázdný"}
 
     has_many :info_item_bindings, :as => :item, dependent: :destroy
-    has_many :done_utu_items, :as => :item, dependent: :destroy
     has_many :additional_infos, through: :info_item_bindings
 
     scope :id_not_on_list, lambda { |list| where("NOT (ARRAY[id] <@ ARRAY[:ids])", {ids: list}) }
@@ -36,6 +35,9 @@ module GenericUtuItem
     if type == 'article'
       item = Article.find(id)
     end
+    if type == 'planned_raking_list'
+      item = PlannedRakingList.find(id)
+    end
     return item
   end
 
@@ -56,6 +58,9 @@ module GenericUtuItem
     end
     if self.instance_of?(Article)
       return :article
+    end
+    if self.instance_of?(PlannedRakingList)
+      return :planned_raking_list
     end
     if only_basic
       if self.instance_of?(WrittenExam) || self.instance_of?(RakingExam)

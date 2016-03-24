@@ -1,4 +1,6 @@
 class PlannedRakingListsController < ApplicationController
+  include GenericUtuItems
+
   before_action :set_planned_raking_list, only: [:show, :edit, :update, :destroy, :admin_show, :create_new_round]
   before_filter :authenticate_admin, except: [:show, :index]
 
@@ -7,7 +9,12 @@ class PlannedRakingListsController < ApplicationController
   def index
     @data = {}
 
-    @data[:lists] = PlannedRakingList.where(sclass_id: current_class)
+    if current_user && params[:no_sgroup_filtering] != "true"
+      user = current_user
+      @data[:lists] = PlannedRakingList.where(sclass_id: current_class).for_groups(user.sgroups)
+    else
+      @data[:lists] = PlannedRakingList.where(sclass_id: current_class)
+    end
   end
 
   # GET /planned_raking_lists/1
@@ -108,6 +115,6 @@ class PlannedRakingListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def planned_raking_list_params
-      params.require(:planned_raking_list).permit(:title, :description, :sclass_id, :subject_id, :beginning, :rekt_per_hour, :planned)
+      params.require(:planned_raking_list).permit(:title, :description, :sclass_id, :subject_id, :beginning, :rekt_per_hour, :planned, :sgroup_id)
     end
 end
