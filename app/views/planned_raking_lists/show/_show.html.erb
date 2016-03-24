@@ -22,6 +22,24 @@
   <% end %>
   </tbody>
 </table>
+<table class="stretch planned_rakings_table" style="display: none">
+  <thead>
+  <tr>
+    <th>Jméno</th>
+    <th>Téma</th>
+    <th>Známka</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% round.planned_raking_entries.where(finished: true).order(:sorting_order).each do |entry| %>
+      <tr>
+        <td><%= entry.class_member.full_name %></td>
+        <td><%= entry.description %></td>
+        <td><%= entry.grade %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
 
 <div id="planned_raking_list_show_status_messages">
   <p>Počet ještě nezapsaných (ani nezkoušených) lidí: <%= round.not_signed_up_yet_count %>
