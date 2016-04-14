@@ -53,8 +53,10 @@ class PlannedRakingEntriesController < ApplicationController
   # POST /planned_raking_entries.json
   def create
     @planned_raking_entry = PlannedRakingEntry.new(planned_raking_entry_params)
-    @planned_raking_entry.raking_round = @planned_raking_entry.planned_raking_list.current_round
-        already_rekt = false
+    unless @planned_raking_entry.raking_round
+      @planned_raking_entry.raking_round = @planned_raking_entry.planned_raking_list.current_round
+    end
+    already_rekt = false
     if @planned_raking_entry.finished
       already_rekt = true
     else
@@ -69,11 +71,12 @@ class PlannedRakingEntriesController < ApplicationController
         format.html { redirect_to @planned_raking_entry.planned_raking_list, notice: 'Přihlášení proběhlo úspěšně' }
         format.json { render :show, status: :created, location: @planned_raking_entry }
       else
-        format.html { if already_rekt
-                        render :new_already_rekt
-                      else
-                        render :new_planned_rekt
-                      end }
+        format.html {
+          if already_rekt
+            render :new_already_rekt
+          else
+            render :new_planned_rekt
+          end }
         format.json { render json: @planned_raking_entry.errors, status: :unprocessable_entity }
       end
     end
@@ -111,6 +114,6 @@ class PlannedRakingEntriesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def planned_raking_entry_params
-    params.require(:planned_raking_entry).permit(:planned_raking_list_id, :class_member_id, :description, :finished, :grade)
+    params.require(:planned_raking_entry).permit(:planned_raking_list_id, :class_member_id, :description, :finished, :grade, :raking_round_id)
   end
 end
