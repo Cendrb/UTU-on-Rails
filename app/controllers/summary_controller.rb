@@ -90,7 +90,7 @@ class SummaryController < ApplicationController
   end
 
   def update
-    if (Time.now.hour > 17 && Time.now.hour < 19)
+    if Time.now.hour > 17 && Time.now.hour < 18
       # mark todays tasks and exams as in_past
       SchoolDay.where(date: Date.today).find_each do |day|
         day.lessons.find_each do |lesson|
@@ -110,6 +110,7 @@ class SummaryController < ApplicationController
     timetables.each do |timetable|
       timetable.get_timetable
     end
+    DetailsAccess.create(ip_address: 'Updating...', user_agent: 'Dynopoker', visited_pages: ['/update'])
     render nothing: true
   end
 

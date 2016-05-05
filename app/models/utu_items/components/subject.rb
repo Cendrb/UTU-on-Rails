@@ -10,7 +10,7 @@ class Subject < ActiveRecord::Base
   validates_presence_of :name
   
   def get_exam_before_days
-    exam = Exam.for_group(User.current.group).where("subject_id = ?", self).where("date <= ?", Date.today).order(date: :desc).first
+    exam = Exam.for_groups(User.current.sgroups).where("subject_id = ?", self).where("date <= ?", Date.today).order(date: :desc).first
     if(!exam)
       return "nikdy"
     end
@@ -31,7 +31,7 @@ class Subject < ActiveRecord::Base
   end
   
   def get_exam_after_days
-    exam = Exam.for_group(User.current.group).where("subject_id = ?", self).where("date > ?", Date.today).order(date: :asc).first
+    exam = Exam.for_groups(User.current.sgroups).where("subject_id = ?", self).where("date > ?", Date.today).order(date: :asc).first
     if(!exam)
       return "zatím nikdy"
     end
@@ -55,7 +55,7 @@ class Subject < ActiveRecord::Base
   end
 
   def get_total_exams
-    number_of_exams = Exam.for_group(User.current.group).where("date <= ?", Date.today).where("subject_id = ?", self).count
+    number_of_exams = Exam.for_groups(User.current.sgroups).where("date <= ?", Date.today).where("subject_id = ?", self).count
     if(number_of_exams == 0)
       return "žádný test"
     end
@@ -71,7 +71,7 @@ class Subject < ActiveRecord::Base
   end
 
   def get_total_tasks
-    number_of_tasks = Task.for_group(User.current.group).where("date <= ?", Date.today).where("subject_id = ?", self).count
+    number_of_tasks = Task.for_groups(User.current.sgroups).where("date <= ?", Date.today).where("subject_id = ?", self).count
     if(number_of_tasks == 0)
       return "žádný úkol"
     end
