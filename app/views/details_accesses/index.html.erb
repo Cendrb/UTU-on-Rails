@@ -1,32 +1,34 @@
 <h1>Přehled návštěv</h1>
 
 <table>
-    <thead>
-        <tr>
-            <th>Uživatel</th>
-            <th>IP adresa</th>
-            <th>User agent</th>
-            <th>Čas přístupu</th>
-            <th colspan="3"></th>
-        </tr>
-    </thead>
+  <thead>
+  <tr>
+    <th>Uživatel</th>
+    <th>IP adresa</th>
+    <th>User agent</th>
+    <th>Navštívené stránky</th>
+    <th>Čas přístupu</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
 
-    <tbody>
-        <% @details_accesses.each do |details_access| %>
-        <tr>
-            <% if !details_access.user.nil? %>
-                <td><%= details_access.user.name %> (<%= details_access.user.email %>)</td>
-            <% else %>
-                <td>Bez přihlášení</td>
-            <% end %>
-            <td><%= details_access.ip_address %></td>
-            <td><%= details_access.get_user_agent_string %> (<%= details_access.user_agent %>)</td>
-            <td><%= l details_access.created_at %></td>
-            <td><%= link_to 'Zobrazit', details_access %></td>
-            <td><%= link_to 'Odstranit', details_access, method: :delete %></td>
-        </tr>
+  <tbody>
+  <% @details_accesses.each do |details_access| %>
+      <tr>
+        <% if !details_access.user.nil? %>
+            <td><%= details_access.user.name %> (<%= details_access.user.email %>)</td>
+        <% else %>
+            <td>Bez přihlášení</td>
         <% end %>
-    </tbody>
+        <td><%= details_access.ip_address %></td>
+        <td><%= details_access.get_user_agent_string %> (<%= details_access.user_agent %>)</td>
+        <td><%= details_access.visited_pages.map { |item| DetailsAccess.format_visited_page_string(item) }.to_sentence %></td>
+        <td><%= l details_access.created_at %></td>
+        <td><%= link_to 'Zobrazit', details_access %></td>
+        <td><%= link_to 'Odstranit', details_access, method: :delete %></td>
+      </tr>
+  <% end %>
+  </tbody>
 </table>
 
 <br>

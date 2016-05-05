@@ -19,6 +19,8 @@ class SummaryController < ApplicationController
     if logged_in?
       @data[:service][:user] = Service.in_future.where("first_mate_id = :class_member OR second_mate_id = :class_member", {class_member: current_user.class_member_id}).first
     end
+
+    DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'], 'summary')
   end
 
   def search
@@ -39,6 +41,8 @@ class SummaryController < ApplicationController
       @exams = @exams.for_group(params[:group])
       @tasks = @tasks.for_group(params[:group])
     end
+
+    DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'], 'details')
 
     render 'details.xml'
   end
@@ -66,7 +70,7 @@ class SummaryController < ApplicationController
       end
     end
 
-    DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'])
+    DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'], 'details')
 
     respond_to do |format|
       format.html

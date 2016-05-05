@@ -2,16 +2,36 @@ class DetailsAccess < ActiveRecord::Base
   belongs_to :user
   
   scope :in_time_from_now, lambda { |time| where("created_at >= :time AND created_at <= :time_now", { time: Time.now - time, time_now: Time.now }) }
-  
-  def self.log_new(current_user, ip, user_agent)
+
+  def DetailsAccess.format_visited_page_string(raw)
+    case raw
+      when 'summary'
+        return 'přehled'
+      when 'planned_raking_lists'
+        return 'zkoušení'
+      when 'details'
+        return 'podrobnosti'
+      when 'timetable'
+        return 'rozvrh'
+    end
+  end
+
+  def DetailsAccess.log_new(current_user, ip, user_agent, visited_page)
     last_visits = DetailsAccess.where("created_at >= :time AND created_at <= :time_now", {time: Time.now - 30.minutes, time_now: Time.now}).where("ip_address = :ip", {ip: ip})
 
-    if (last_visits.count == 0)
-      statisticsRecord = DetailsAccess.new()
-      statisticsRecord.user = current_user
-      statisticsRecord.ip_address = ip
-      statisticsRecord.user_agent = user_agent
-      statisticsRecord.save!
+    if last_visits.count == 0
+      statistics_record = DetailsAccess.new()
+      statistics_record.user = current_user
+      statistics_record.ip_address = ip
+      statistics_record.user_agent = user_agent
+      statistics_record.visited_pages << visited_page
+      statistics_record.save!
+    else
+      statistics_record = last_visits.first
+      if !statistics_record.visited_pages.include?(visited_page)
+        statistics_record.visited_pages << visited_page
+        statistics_record.save!
+      end
     end
   end
   

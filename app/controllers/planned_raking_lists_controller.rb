@@ -9,6 +9,8 @@ class PlannedRakingListsController < ApplicationController
   def index
     @data = {}
 
+    DetailsAccess.log_new(current_user, request.remote_ip, request.env['HTTP_USER_AGENT'], 'planned_raking_lists')
+
     if current_user && params[:no_sgroup_filtering] != "true"
       user = current_user
       @data[:lists] = PlannedRakingList.where(sclass_id: current_class).for_groups(user.sgroups)
