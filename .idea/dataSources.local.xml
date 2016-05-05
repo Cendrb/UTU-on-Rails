@@ -10,6 +10,8 @@
     <data-source name="Rails UTU-on-Rails: production" uuid="0837b947-d5ab-4c4b-8803-e5abf5eb6d95">
       <secret-storage>master_key</secret-storage>
       <user-name>yrfxcxkqukzxaa</user-name>
+      <schema-pattern>dc734vvumo191f.pg_catalog dc734vvumo191f.public</schema-pattern>
+      <default-schemas>dc734vvumo191f.public</default-schemas>
     </data-source>
     <data-source name="Rails UTU-on-Rails: test" uuid="2219c2f4-777d-496f-9453-c081d93a6d4c">
       <user-name>postgres</user-name>
