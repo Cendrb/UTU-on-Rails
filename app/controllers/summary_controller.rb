@@ -5,7 +5,7 @@ require "nokogiri"
 
 class SummaryController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:post_details]
-  skip_before_filter :current_class_check, only: [:welcome_screen]
+  skip_before_filter :current_class_check, only: [:welcome_screen, :update]
   before_filter :authenticate_admin, only: [:refresh, :migrate, :temp]
   before_filter :authenticate, only: :subjects
 
