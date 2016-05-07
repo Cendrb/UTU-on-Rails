@@ -114,7 +114,6 @@ class SummaryController < ApplicationController
     timetables.each do |timetable|
       timetable.get_timetable
     end
-    DetailsAccess.create(ip_address: 'Updating...', user_agent: 'Dynopoker', visited_pages: ['/update'])
     render nothing: true
   end
 
