@@ -25,6 +25,7 @@
 //= require plugins/font_size.min.js
 //= require plugins/link.min.js
 //= require plugins/align.min.js
+//= require plugins/emoticons.min.js
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
