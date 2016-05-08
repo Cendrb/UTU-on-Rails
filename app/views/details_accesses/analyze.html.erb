@@ -7,34 +7,39 @@
 <h1>Statistika návštěvnosti v grafech</h1>
 
 <h3>Základní informace</h3>
-<strong>Celkový počet návštěv: </strong><%= @total %><br />
-<strong>Počet návštěv za posledních 24 hodin: </strong><%= @total_per_24_hours %><br />
-<strong>Průměrný počet návštěv za den: </strong><%=  @average_per_day %><br />
-<strong>Počet návštěv za posledních 30 dní: </strong><%= @total_per_30_days %><br />
-<strong>Údaje zaznamenávány od: </strong><%= l @statistics_started %><br />
+<strong>Celkový počet návštěv: </strong><%= @total %><br/>
+<strong>Počet návštěv za posledních 24 hodin: </strong><%= @total_per_24_hours %><br/>
+<strong>Průměrný počet návštěv za den: </strong><%= @average_per_day %><br/>
+<strong>Počet návštěv za posledních 30 dní: </strong><%= @total_per_30_days %><br/>
+<strong>Údaje zaznamenávány od: </strong><%= l @statistics_started %><br/>
 
-<h3>Graf počtu návštěv v závislosti na denní době (vše)</h3>
-<%= column_chart accesses_per_hour_of_day_path %>
+<div id="charts_accordion">
+  <h3>Graf počtu návštěv v závislosti na denní době (vše)</h3>
+  <div><%= column_chart accesses_per_hour_of_day_path %></div>
 
-<h3>Graf počtu návštěv v závislosti na denní době (posledních 24 hodin)</h3>
-<%= column_chart accesses_per_hour_of_last_day_path %>
+  <h3>Graf počtu návštěv v závislosti na denní době (posledních 24 hodin)</h3>
+  <div><%= column_chart accesses_per_hour_of_last_day_path, height: "300px" %></div>
 
-<h3>Graf počtu návštěv v závislosti na dni v týdnu</h3>
-<%= column_chart accesses_per_day_of_week_path %>
+  <h3>Návštěvnost jednotlivých sekcí</h3>
+  <div><%= pie_chart accesses_per_visited_page_type_path %></div>
 
-<h3>Graf počtu návštěv za posledních 30 dní</h3>
-<%= column_chart accesses_per_last_month_in_days_path %>
+  <h3>Graf počtu návštěv v závislosti na dni v týdnu</h3>
+  <div><%= column_chart accesses_per_day_of_week_path %></div>
 
-<h3>Graf počtu návštěv v závislosti na platformě</h3>
-<%= pie_chart accesses_per_device_path %>
+  <h3>Graf počtu návštěv za posledních 30 dní</h3>
+  <div><%= column_chart accesses_per_last_month_in_days_path %></div>
 
-<h3>Graf počtu návštěv v závislosti na typu přístupu</h3>
-<%= pie_chart accesses_per_user_type_path %>
+  <h3>Graf počtu návštěv v závislosti na platformě</h3>
+  <div><%= pie_chart accesses_per_device_path %></div>
 
-<% if admin_logged_in? %>
-    <h3>Graf počtu návštěv v závislosti na uživateli (pouze pro administrátory)</h3>
-    <%= pie_chart accesses_per_user_path %>
-    
-    <h3>Graf počtu návštěv v závislosti na IP adrese (pouze pro administrátory)</h3>
-    <%= pie_chart accesses_per_ip_path %>
-<% end %>
+  <h3>Graf počtu návštěv v závislosti na typu přístupu</h3>
+  <div><%= pie_chart accesses_per_user_type_path %></div>
+
+  <% if admin_logged_in? %>
+      <h3>Graf počtu návštěv v závislosti na uživateli (pouze pro administrátory)</h3>
+      <div> <%= pie_chart accesses_per_user_path %></div>
+
+      <h3>Graf počtu návštěv v závislosti na IP adrese (pouze pro administrátory)</h3>
+      <div> <%= pie_chart accesses_per_ip_path %></div>
+  <% end %>
+</div>

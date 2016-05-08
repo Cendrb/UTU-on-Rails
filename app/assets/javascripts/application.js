@@ -18,6 +18,7 @@
 //= require jquery-ui/sortable
 //= require jquery-ui/tooltip
 //= require jquery-ui/dialog
+//= require jquery-ui/accordion
 
 //= require froala_editor.min.js
 //= require plugins/lists.min.js

@@ -13,6 +13,8 @@ class DetailsAccess < ActiveRecord::Base
         return 'podrobnosti'
       when 'timetable'
         return 'rozvrh'
+      else
+        return "unknown page (#{raw})"
     end
   end
 

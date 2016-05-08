@@ -53,6 +53,7 @@ UTUOnRails::Application.routes.draw do
     get 'accesses_per_user_type'
     get 'accesses_per_ip'
     get 'accesses_per_last_month_in_days'
+    get 'accesses_per_visited_page_type'
   end
 
   resources :details_accesses

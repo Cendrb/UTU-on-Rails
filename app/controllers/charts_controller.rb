@@ -14,7 +14,7 @@ class ChartsController < ApplicationController
 
   def accesses_per_device
     data = {}
-    result = "penis"
+    result = "this shouldn't happen"
     DetailsAccess.find_each do |access|
       if access.user_agent == "Apache-HttpClient/UNAVAILABLE (java 1.4)"
         result = "Android app"
@@ -75,5 +75,20 @@ class ChartsController < ApplicationController
   
   def accesses_per_last_month_in_days
     render json: DetailsAccess.group_by_day(:created_at, format: '%e. %B', range: 1.month.ago..Time.now).count
+  end
+
+  def accesses_per_visited_page_type
+    types = {}
+    DetailsAccess.find_each do |access|
+      access.visited_pages.each do |visited_page|
+        visited_page = DetailsAccess.format_visited_page_string(visited_page)
+        if types[visited_page]
+          types[visited_page] += 1
+        else
+          types[visited_page] = 1
+        end
+      end
+    end
+    render json: types
   end
 end
