@@ -5,9 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="[FEATURE] added chart for visited page type">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.generators" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/UTU-on-Rails.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dictionaries/cendr_000.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Development__UTU_on_Rails.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Production__UTU_on_Rails.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/runConfigurations/spec__UTU_on_Rails.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/runConfigurations/test__UTU_on_Rails.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/typescript-compiler.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <ignored path="UTU-on-Rails.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,15 +42,15 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/UTU-on-Rails@db_migrate__UTU_on_Rails.coverage" NAME="db:migrate: UTU-on-Rails Coverage Results" MODIFIED="1462464510114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="UTU-on-Rails" />
-    <SUITE FILE_PATH="coverage/UTU-on-Rails@db_setup__UTU_on_Rails.coverage" NAME="db:setup: UTU-on-Rails Coverage Results" MODIFIED="1458297297784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="UTU-on-Rails" />
-    <SUITE FILE_PATH="coverage/UTU-on-Rails@db_rollback__UTU_on_Rails.coverage" NAME="db:rollback: UTU-on-Rails Coverage Results" MODIFIED="1452955604605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="UTU-on-Rails" />
-    <SUITE FILE_PATH="coverage/UTU-on-Rails@Production__UTU_on_Rails.coverage" NAME="Production: UTU-on-Rails Coverage Results" MODIFIED="1462466037633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="UTU-on-Rails" />
     <SUITE FILE_PATH="coverage/UTU-on-Rails@db_migrate_status__UTU_on_Rails.coverage" NAME="db:migrate:status: UTU-on-Rails Coverage Results" MODIFIED="1448465366637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="UTU-on-Rails" />
     <SUITE FILE_PATH="coverage/UTU-on-Rails@db_schema_load__UTU_on_Rails.coverage" NAME="db:schema:load: UTU-on-Rails Coverage Results" MODIFIED="1458297416747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="UTU-on-Rails" />
-    <SUITE FILE_PATH="coverage/UTU-on-Rails@erd__UTU_on_Rails.coverage" NAME="erd: UTU-on-Rails Coverage Results" MODIFIED="1453026246701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="UTU-on-Rails" />
+    <SUITE FILE_PATH="coverage/UTU-on-Rails@Production__UTU_on_Rails.coverage" NAME="Production: UTU-on-Rails Coverage Results" MODIFIED="1462466037633" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="UTU-on-Rails" />
     <SUITE FILE_PATH="coverage/UTU-on-Rails@Development__UTU_on_Rails.coverage" NAME="Development: UTU-on-Rails Coverage Results" MODIFIED="1462736086438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="UTU-on-Rails" />
+    <SUITE FILE_PATH="coverage/UTU-on-Rails@db_setup__UTU_on_Rails.coverage" NAME="db:setup: UTU-on-Rails Coverage Results" MODIFIED="1458297297784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="UTU-on-Rails" />
+    <SUITE FILE_PATH="coverage/UTU-on-Rails@db_rollback__UTU_on_Rails.coverage" NAME="db:rollback: UTU-on-Rails Coverage Results" MODIFIED="1452955604605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="UTU-on-Rails" />
+    <SUITE FILE_PATH="coverage/UTU-on-Rails@db_migrate__UTU_on_Rails.coverage" NAME="db:migrate: UTU-on-Rails Coverage Results" MODIFIED="1462464510114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="UTU-on-Rails" />
     <SUITE FILE_PATH="coverage/UTU-on-Rails@routes__UTU_on_Rails.coverage" NAME="routes: UTU-on-Rails Coverage Results" MODIFIED="1453053145804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="UTU-on-Rails" />
+    <SUITE FILE_PATH="coverage/UTU-on-Rails@erd__UTU_on_Rails.coverage" NAME="erd: UTU-on-Rails Coverage Results" MODIFIED="1453026246701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="UTU-on-Rails" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="D:\Documents\Aptana3Workspace\UTU-on-Rails" />
@@ -59,7 +77,7 @@
       <file leaf-file-name="details_accesses_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/details_accesses_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
+            <state vertical-scroll-proportion="0.0">
               <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
               <folding />
             </state>
@@ -69,7 +87,7 @@
       <file leaf-file-name="analyze.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/details_accesses/analyze.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state vertical-scroll-proportion="0.0">
               <caret line="15" column="25" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="25" />
               <folding />
             </state>
@@ -79,7 +97,7 @@
       <file leaf-file-name="charts_accordions.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/charts_accordions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state vertical-scroll-proportion="0.0">
               <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
               <folding />
             </state>
@@ -89,18 +107,28 @@
       <file leaf-file-name="application.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state vertical-scroll-proportion="0.0">
               <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.scss" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state vertical-scroll-proportion="-11.730769">
               <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3321492">
+              <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -109,7 +137,7 @@
       <file leaf-file-name="charts.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/charts.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -140,7 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/raking_exams/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/planned_raking_entries/show.html.erb" />
         <option value="$PROJECT_DIR$/public/500.html" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/main_menu.scss" />
@@ -191,6 +218,7 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/charts_accordions.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -207,10 +235,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="527" />
+    <option name="y" value="2" />
+    <option name="width" value="1692" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -237,6 +265,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -429,7 +458,6 @@
       </pane>
       <pane id="RailsProjectView" />
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -697,14 +725,7 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
       <method />
     </configuration>
-    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
-      <option name="cucumberJsArguments" value="" />
-      <option name="executablePath" />
-      <option name="filePath" />
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
@@ -716,7 +737,6 @@
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run-script" />
       <scripts />
-      <node-interpreter value="project" />
       <envs />
       <method />
     </configuration>
@@ -741,9 +761,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -752,7 +770,6 @@
       <changelist id="85448e08-b732-45cf-a2fb-4b165d715e0f" name="Default" comment="" />
       <created>1444978878846</created>
       <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
       <updated>1444978878846</updated>
       <workItem from="1460142807202" duration="616000" />
       <workItem from="1460146668546" duration="315000" />
@@ -771,343 +788,294 @@
     <task id="LOCAL-00060" summary="[TASK] no more attributes in api/data.xml&#10;">
       <created>1454266737318</created>
       <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
       <option name="project" value="LOCAL" />
       <updated>1454266737320</updated>
     </task>
     <task id="LOCAL-00061" summary="[TASK] no more attributes in api/data.xml&#10;">
       <created>1454267852853</created>
       <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
       <option name="project" value="LOCAL" />
       <updated>1454267852854</updated>
     </task>
     <task id="LOCAL-00062" summary="[TASK] nserviceesas&#10;">
       <created>1454274559777</created>
       <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
       <option name="project" value="LOCAL" />
       <updated>1454274559777</updated>
     </task>
     <task id="LOCAL-00063" summary="[FIX] bakasucks">
       <created>1454337978997</created>
       <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
       <option name="project" value="LOCAL" />
       <updated>1454337978998</updated>
     </task>
     <task id="LOCAL-00064" summary="[FIX] isuck&#10;">
       <created>1454349813111</created>
       <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
       <option name="project" value="LOCAL" />
       <updated>1454349813111</updated>
     </task>
     <task id="LOCAL-00065" summary="[TASK] John Cena now consumes less data&#10;&#10;">
       <created>1454509025743</created>
       <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
       <option name="project" value="LOCAL" />
       <updated>1454509025743</updated>
     </task>
     <task id="LOCAL-00066" summary="[TASK] John Cena can be played multiple times&#10;&#10;&#10;">
       <created>1454509300510</created>
       <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
       <option name="project" value="LOCAL" />
       <updated>1454509300510</updated>
     </task>
     <task id="LOCAL-00067" summary="[TASK] wtf is john cena&#10;&#10;&#10;">
       <created>1454514067791</created>
       <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
       <option name="project" value="LOCAL" />
       <updated>1454514067791</updated>
     </task>
     <task id="LOCAL-00068" summary="[TASK] wtf is john cena&#10;&#10;&#10;">
       <created>1454517042681</created>
       <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
       <option name="project" value="LOCAL" />
       <updated>1454517042681</updated>
     </task>
     <task id="LOCAL-00069" summary="[TASK] cenaupdeate&#10;&#10;&#10;&#10;&#10;">
       <created>1454517933502</created>
       <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
       <option name="project" value="LOCAL" />
       <updated>1454517933503</updated>
     </task>
     <task id="LOCAL-00070" summary="[TASK] try poking more often&#10;">
       <created>1454761078591</created>
       <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
       <updated>1454761078591</updated>
     </task>
     <task id="LOCAL-00071" summary="[FIX] timetables should work now&#10;">
       <created>1454763362336</created>
       <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
       <option name="project" value="LOCAL" />
       <updated>1454763362336</updated>
     </task>
     <task id="LOCAL-00072" summary="[FIX] opensearch onboard&#10;&#10;">
       <created>1454765155380</created>
       <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
       <option name="project" value="LOCAL" />
       <updated>1454765155380</updated>
     </task>
     <task id="LOCAL-00073" summary="[FIX] opensearch now searches&#10;">
       <created>1454766454846</created>
       <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
       <option name="project" value="LOCAL" />
       <updated>1454766454846</updated>
     </task>
     <task id="LOCAL-00074" summary="[FIX] google verified thing&#10;">
       <created>1454768049400</created>
       <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
       <option name="project" value="LOCAL" />
       <updated>1454768049400</updated>
     </task>
     <task id="LOCAL-00075" summary="[FIX] john cena flying limitations&#10;&#10;">
       <created>1454775847220</created>
       <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
       <option name="project" value="LOCAL" />
       <updated>1454775847220</updated>
     </task>
     <task id="LOCAL-00076" summary="[TASK] android api finally coming online&#10;&#10;">
       <created>1454800650706</created>
       <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
       <option name="project" value="LOCAL" />
       <updated>1454800650725</updated>
     </task>
     <task id="LOCAL-00077" summary="[TASK] more api changes&#10;yayyyy&#10;&#10;&#10;">
       <created>1454800745413</created>
       <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
       <option name="project" value="LOCAL" />
       <updated>1454800745413</updated>
     </task>
     <task id="LOCAL-00078" summary="[TASK] you can use show without selecting sclass&#10;&#10;">
       <created>1454840898102</created>
       <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
       <option name="project" value="LOCAL" />
       <updated>1454840898103</updated>
     </task>
     <task id="LOCAL-00079" summary="[TASK] login for android&#10;&#10;&#10;">
       <created>1454846131615</created>
       <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
       <option name="project" value="LOCAL" />
       <updated>1454846131615</updated>
     </task>
     <task id="LOCAL-00080" summary="[TASK] login for android&#10;&#10;&#10;">
       <created>1454846419340</created>
       <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
       <option name="project" value="LOCAL" />
       <updated>1454846419340</updated>
     </task>
     <task id="LOCAL-00081" summary="[FIX] guess who cannot recognize success and failure">
       <created>1454848010895</created>
       <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
       <option name="project" value="LOCAL" />
       <updated>1454848010896</updated>
     </task>
     <task id="LOCAL-00082" summary="[FIX] external_actions fixes&#10;">
       <created>1454848706824</created>
       <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
       <option name="project" value="LOCAL" />
       <updated>1454848706825</updated>
     </task>
     <task id="LOCAL-00083" summary="[FIX] wtf is sorting?&#10;">
       <created>1454849508097</created>
       <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
       <option name="project" value="LOCAL" />
       <updated>1454849508097</updated>
     </task>
     <task id="LOCAL-00084" summary="[FIX] external_actions#data now returns user dependent data&#10;">
       <created>1454966019610</created>
       <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
       <option name="project" value="LOCAL" />
       <updated>1454966019610</updated>
     </task>
     <task id="LOCAL-00085" summary="[TASK] unplanned planned raking lists views improvements&#10;">
       <created>1455037182677</created>
       <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
       <option name="project" value="LOCAL" />
       <updated>1455037182678</updated>
     </task>
     <task id="LOCAL-00086" summary="[TASK] planned rakings improvements&#10;&#10;">
       <created>1455087286307</created>
       <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
       <option name="project" value="LOCAL" />
       <updated>1455087286307</updated>
     </task>
     <task id="LOCAL-00087" summary="[FIX] bugsbugsubugsffsdfs&#10;">
       <created>1455089070586</created>
       <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
       <option name="project" value="LOCAL" />
       <updated>1455089070587</updated>
     </task>
     <task id="LOCAL-00088" summary="[FIX] bugsbugsubugsffsdfs&#10;">
       <created>1455367158621</created>
       <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
       <option name="project" value="LOCAL" />
       <updated>1455367158622</updated>
     </task>
     <task id="LOCAL-00089" summary="[FIX] no more error after planned_raking_entry update&#10;">
       <created>1455455460382</created>
       <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
       <option name="project" value="LOCAL" />
       <updated>1455455460382</updated>
     </task>
     <task id="LOCAL-00090" summary="[FIX] wtf is stack overflow in material_main.html.erb layout&#10;">
       <created>1455456871261</created>
       <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
       <option name="project" value="LOCAL" />
       <updated>1455456871261</updated>
     </task>
     <task id="LOCAL-00091" summary="[TASK] search is now for subject too&#10;&#10;">
       <created>1455485453923</created>
       <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
       <option name="project" value="LOCAL" />
       <updated>1455485453923</updated>
     </task>
     <task id="LOCAL-00092" summary="[TASK] awkwardly looking search box&#10;&#10;">
       <created>1455486661970</created>
       <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
       <option name="project" value="LOCAL" />
       <updated>1455486661970</updated>
     </task>
     <task id="LOCAL-00093" summary="[TASK] asearch now in administration&#10;&#10;">
       <created>1455629269329</created>
       <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
       <option name="project" value="LOCAL" />
       <updated>1455629269329</updated>
     </task>
     <task id="LOCAL-00094" summary="[TASK]ŽRRRSA&#10;&#10;">
       <created>1455724500356</created>
       <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
       <option name="project" value="LOCAL" />
       <updated>1455724500357</updated>
     </task>
     <task id="LOCAL-00095" summary="[TASK] traitor&#10;&#10;">
       <created>1456001005118</created>
       <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
       <option name="project" value="LOCAL" />
       <updated>1456001005119</updated>
     </task>
     <task id="LOCAL-00096" summary="[TASK] always traitor&#10;&#10;">
       <created>1456001157554</created>
       <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
       <option name="project" value="LOCAL" />
       <updated>1456001157554</updated>
     </task>
     <task id="LOCAL-00097" summary="[TASK] cena fix&#10;&#10;&#10;">
       <created>1456001367448</created>
       <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
       <option name="project" value="LOCAL" />
       <updated>1456001367448</updated>
     </task>
     <task id="LOCAL-00098" summary="[TASK] administration links for utuitems show&#10;&#10;&#10;">
       <created>1457467011080</created>
       <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
       <option name="project" value="LOCAL" />
       <updated>1457467011081</updated>
     </task>
     <task id="LOCAL-00099" summary="[TASK] no longer validating planned for raking entries&#10;&#10;&#10;">
       <created>1458297907508</created>
       <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
       <option name="project" value="LOCAL" />
       <updated>1458297907540</updated>
     </task>
     <task id="LOCAL-00100" summary="[TASK] show and admin show for planned raking lists&#10;&#10;&#10;">
       <created>1458298614129</created>
       <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
       <option name="project" value="LOCAL" />
       <updated>1458298614129</updated>
     </task>
     <task id="LOCAL-00101" summary="[FIX] some fix for raking lists&#10;&#10;&#10;">
       <created>1460651514556</created>
       <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
       <option name="project" value="LOCAL" />
       <updated>1460651514557</updated>
     </task>
     <task id="LOCAL-00102" summary="[FIX] all shoudl work&#10;&#10;&#10;&#10;">
       <created>1460652500921</created>
       <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
       <option name="project" value="LOCAL" />
       <updated>1460652500921</updated>
     </task>
     <task id="LOCAL-00103" summary="[FIX] utu refreshes timetable?">
       <created>1462464081735</created>
       <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
       <option name="project" value="LOCAL" />
       <updated>1462464081747</updated>
     </task>
     <task id="LOCAL-00104" summary="[FIX] a lot of stuff fixed&#10;">
       <created>1462464945188</created>
       <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
       <option name="project" value="LOCAL" />
       <updated>1462464945188</updated>
     </task>
     <task id="LOCAL-00105" summary="[FIX] now properly logging different types of accesses">
       <created>1462466183040</created>
       <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
       <option name="project" value="LOCAL" />
       <updated>1462466183040</updated>
     </task>
     <task id="LOCAL-00106" summary="[FIX] refreshing timetables (stupid me)">
       <created>1462542061590</created>
       <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
       <option name="project" value="LOCAL" />
       <updated>1462542061591</updated>
     </task>
     <task id="LOCAL-00107" summary="[FIX] no longer logging /update">
       <created>1462615729672</created>
       <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
       <option name="project" value="LOCAL" />
       <updated>1462615729673</updated>
     </task>
     <task id="LOCAL-00108" summary="[FEATURE] added chart for visited page type">
       <created>1462737809959</created>
       <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
       <option name="project" value="LOCAL" />
       <updated>1462737809961</updated>
     </task>
@@ -1118,30 +1086,30 @@
     <option name="totallyTimeSpent" value="16583000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="527" y="2" width="1692" height="1026" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2867804" sideWeight="0.4945055" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2904412" sideWeight="0.4945055" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3329821" sideWeight="0.641258" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32826087" sideWeight="0.5900735" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26332623" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3340358" sideWeight="0.4227079" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3329821" sideWeight="0.358742" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23720682" sideWeight="0.50549453" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.4120469" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32826087" sideWeight="0.40992647" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.4936034" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861805" sideWeight="0.48471883" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947367" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3329821" sideWeight="0.358742" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3024236" sideWeight="0.4914712" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32982087" sideWeight="0.47014925" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982087" sideWeight="0.4936034" order="10" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1191,367 +1159,9 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbDummy://dbtable:/f6f1cdab/0837b947-d5ab-4c4b-8803-e5abf5eb6d95/dc734vvumo191f.public.subjects">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/f6f1cdab/58753685-f1b0-4273-a381-9290b15e8b59/UTU_development.public.subjects">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/f6f1cdab/0837b947-d5ab-4c4b-8803-e5abf5eb6d95/dc734vvumo191f.public.class_members">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/f6f1cdab/58753685-f1b0-4273-a381-9290b15e8b59/UTU_development.public.users">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/f6f1cdab/0837b947-d5ab-4c4b-8803-e5abf5eb6d95/dc734vvumo191f.public.additional_infos">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/planned_raking_lists/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/planned_rakings.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/planned_raking_lists/show/_show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/planned_rakings/planned_raking_entry.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/planned_raking_entries_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/already_rekt_round_selector.js" />
-    <entry file="file://$PROJECT_DIR$/app/views/planned_raking_lists/show/_admin_show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/planned_raking_lists/show/remote_show.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/planned_raking_list_rounds_selector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/planned_raking_entries/new_already_rekt.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/planned_raking_lists/admin_show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="92" selection-start-line="9" selection-start-column="92" selection-end-line="9" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/0837b947-d5ab-4c4b-8803-e5abf5eb6d95/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/planned_raking_lists/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="176" selection-start-line="3" selection-start-column="153" selection-end-line="3" selection-end-column="176" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/f6f1cdab/0837b947-d5ab-4c4b-8803-e5abf5eb6d95/dc734vvumo191f.public.raking_rounds">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/f6f1cdab/0837b947-d5ab-4c4b-8803-e5abf5eb6d95/dc734vvumo191f.public.planned_raking_lists">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/articles/_article.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/articles/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/articles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/articles/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160505160528_add_visited_pages_to_details_accesses.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="82" selection-start-line="2" selection-start-column="82" selection-end-line="2" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/summary/subjects.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/concerns/generic_utu_item.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/utu_items/exam.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/utu_items/components/subject.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="139" column="27" selection-start-line="139" selection-start-column="27" selection-end-line="139" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/subjects/_subject.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/connection_specification.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="247" column="0" selection-start-line="247" selection-start-column="0" selection-end-line="247" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/details_accesses/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/planned_raking_lists_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/timetables_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="81" column="6" selection-start-line="81" selection-start-column="6" selection-end-line="81" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/f6f1cdab/0837b947-d5ab-4c4b-8803-e5abf5eb6d95/dc734vvumo191f.public.details_accesses">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="79" column="2" selection-start-line="79" selection-start-column="2" selection-end-line="79" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/summary_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="102" column="22" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/statistics/details_access.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/charts_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="83" column="35" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/details_accesses_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
+        <state vertical-scroll-proportion="0.0">
           <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
           <folding />
         </state>
@@ -1559,23 +1169,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/details_accesses/analyze.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state vertical-scroll-proportion="0.0">
           <caret line="15" column="25" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/charts.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/charts_accordions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state vertical-scroll-proportion="0.0">
           <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
           <folding />
         </state>
@@ -1583,7 +1185,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state vertical-scroll-proportion="0.0">
           <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
           <folding />
         </state>
@@ -1591,8 +1193,319 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/charts.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/planned_raking_lists/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/planned_rakings.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/planned_raking_lists/show/_show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/planned_rakings/planned_raking_entry.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/planned_raking_entries_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="37" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/planned_raking_lists/show/_admin_show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/planned_raking_lists/show/remote_show.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/planned_raking_list_rounds_selector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/planned_raking_entries/new_already_rekt.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/planned_raking_lists/admin_show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="92" selection-start-line="9" selection-start-column="92" selection-end-line="9" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/planned_raking_lists/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="176" selection-start-line="3" selection-start-column="153" selection-end-line="3" selection-end-column="176" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/articles/_article.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/articles/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/articles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/articles/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160505160528_add_visited_pages_to_details_accesses.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="82" selection-start-line="2" selection-start-column="82" selection-end-line="2" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/summary/subjects.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/concerns/generic_utu_item.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/utu_items/exam.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/utu_items/components/subject.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="139" column="27" selection-start-line="139" selection-start-column="27" selection-end-line="139" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/subjects/_subject.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/activerecord-4.2.5/lib/active_record/connection_adapters/connection_specification.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="247" column="0" selection-start-line="247" selection-start-column="0" selection-end-line="247" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/details_accesses/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/planned_raking_lists_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/timetables_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="6" selection-start-line="81" selection-start-column="6" selection-end-line="81" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="2" selection-start-line="79" selection-start-column="2" selection-end-line="79" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="36" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/summary_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="102" column="22" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/statistics/details_access.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/charts_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="35" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/details_accesses_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/details_accesses/analyze.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="25" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/charts.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/charts_accordions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.730769">
           <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321492">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
           <folding />
         </state>
       </provider>
