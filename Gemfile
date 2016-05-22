@@ -8,6 +8,9 @@ gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# Alternative multi-threaded-heroku-supported server
+gem 'puma'
+
 # beacuse migration to rails 4.2
 gem 'responders', '~> 2.0'
 
