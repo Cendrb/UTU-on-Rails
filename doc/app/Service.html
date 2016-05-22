@@ -6,19 +6,16 @@
 
 <title>class Service - Rails Application Documentation</title>
 
-<link href="./fonts.css" rel="stylesheet">
-<link href="./rdoc.css" rel="stylesheet">
-
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
 </script>
 
 <script src="./js/jquery.js"></script>
-<script src="./js/navigation.js"></script>
-<script src="./js/search_index.js"></script>
-<script src="./js/search.js"></script>
-<script src="./js/searcher.js"></script>
 <script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
 
 
 <body id="top" role="document" class="class">
@@ -67,7 +64,23 @@
 
     
     
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
     
+    <li ><a href="#method-c-add_one_year">::add_one_year</a>
+    
+    <li ><a href="#method-c-pyj">::pyj</a>
+    
+    <li ><a href="#method-i-first_mate">#first_mate</a>
+    
+    <li ><a href="#method-i-second_mate">#second_mate</a>
+    
+  </ul>
+</div>
+
   </div>
 </nav>
 
@@ -93,13 +106,170 @@
     
 
     
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-add_one_year" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_one_year</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_one_year-source">
+            <pre><span class="ruby-comment"># File app/models/services/service.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">add_one_year</span>
+  <span class="ruby-identifier">datediff</span> = <span class="ruby-value">1</span>.<span class="ruby-identifier">year</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>.<span class="ruby-identifier">day</span>
+  <span class="ruby-constant">Service</span>.<span class="ruby-identifier">find_each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">service</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">service</span>.<span class="ruby-identifier">service_start</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">datediff</span>
+    <span class="ruby-identifier">service</span>.<span class="ruby-identifier">service_end</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">datediff</span>
+    <span class="ruby-identifier">service</span>.<span class="ruby-identifier">save!</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pyj" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pyj</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pyj-source">
+            <pre><span class="ruby-comment"># File app/models/services/service.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">pyj</span>
+  <span class="ruby-constant">Service</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;service_start &gt; ?&quot;</span>, <span class="ruby-constant">Date</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-string">&quot;27.2.2016&quot;</span>, <span class="ruby-string">&quot;%d.%m.%Y&quot;</span>)).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">zidan</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">zidan</span>.<span class="ruby-identifier">service_start</span><span class="ruby-operator">-=</span><span class="ruby-value">1</span>.<span class="ruby-identifier">day</span>
+    <span class="ruby-identifier">zidan</span>.<span class="ruby-identifier">service_end</span><span class="ruby-operator">-=</span><span class="ruby-value">1</span>.<span class="ruby-identifier">day</span>
+    <span class="ruby-identifier">zidan</span>.<span class="ruby-identifier">save!</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-first_mate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">first_mate</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="first_mate-source">
+            <pre><span class="ruby-comment"># File app/models/services/service.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">first_mate</span>
+  <span class="ruby-constant">ClassMember</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">first_mate_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-second_mate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">second_mate</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="second_mate-source">
+            <pre><span class="ruby-comment"># File app/models/services/service.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">second_mate</span>
+  <span class="ruby-constant">ClassMember</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">second_mate_id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
   </section>
 </main>
 
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="http://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
-  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

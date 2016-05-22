@@ -6,19 +6,16 @@
 
 <title>class UsersController - Rails Application Documentation</title>
 
-<link href="./fonts.css" rel="stylesheet">
-<link href="./rdoc.css" rel="stylesheet">
-
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
 </script>
 
 <script src="./js/jquery.js"></script>
-<script src="./js/navigation.js"></script>
-<script src="./js/search_index.js"></script>
-<script src="./js/search.js"></script>
-<script src="./js/searcher.js"></script>
 <script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
 
 
 <body id="top" role="document" class="class">
@@ -78,6 +75,14 @@
     <li ><a href="#method-i-destroy">#destroy</a>
     
     <li ><a href="#method-i-edit">#edit</a>
+    
+    <li ><a href="#method-i-enable_experimental_settings">#enable_experimental_settings</a>
+    
+    <li ><a href="#method-i-forgot_password_code">#forgot_password_code</a>
+    
+    <li ><a href="#method-i-forgot_password_form">#forgot_password_form</a>
+    
+    <li ><a href="#method-i-forgot_password_send">#forgot_password_send</a>
     
     <li ><a href="#method-i-index">#index</a>
     
@@ -142,12 +147,13 @@
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 27</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">user_params</span>)
 
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">save</span>
+      <span class="ruby-identifier">parse_group_belongings_radios</span>
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">login_url</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Váš účet byl úspěšně vytvořen.&#39;</span> }
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:created</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user</span> }
     <span class="ruby-keyword">else</span>
@@ -185,7 +191,7 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 57</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">destroy</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
@@ -222,8 +228,169 @@
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 22</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:sgroups</span>] = {}
+
+  <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">sgroups</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">params</span>[<span class="ruby-value">:sgroups</span>][<span class="ruby-identifier">group</span>.<span class="ruby-identifier">group_category</span>.<span class="ruby-identifier">id</span>] = <span class="ruby-identifier">group</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-enable_experimental_settings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">enable_experimental_settings</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="enable_experimental_settings-source">
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">enable_experimental_settings</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-identifier">current_user</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">experimental_settings</span> = (<span class="ruby-identifier">params</span>[<span class="ruby-value">:enable</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;true&#39;</span>)
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">save!</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">administration_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-forgot_password_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">forgot_password_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="forgot_password_code-source">
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">forgot_password_code</span>
+  <span class="ruby-identifier">code</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:code</span>]
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">code</span>
+
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_forgot_password_code</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-keyword">if</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">user</span>.<span class="ruby-identifier">nil?</span>)
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">forgot_password_code</span> = <span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">hex</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">save!</span>
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:user_id</span>] = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">edit_user_path</span>(<span class="ruby-identifier">user</span>), <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Nyní jste dočasně přihlášeni a můžete si změnit své heslo&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">forgot_path</span>, <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Použitý odkaz je neplatný&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-forgot_password_form" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">forgot_password_form</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="forgot_password_form-source">
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">forgot_password_form</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-forgot_password_send" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">forgot_password_send</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="forgot_password_send-source">
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">forgot_password_send</span>
+  <span class="ruby-identifier">email</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>]
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_email</span>(<span class="ruby-identifier">email</span>)
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">user</span>.<span class="ruby-identifier">nil?</span>)
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">forgot_path</span>, <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Žádný uživatel s danou emailovou adresou neexistuje&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">forgot_password</span>(<span class="ruby-identifier">user</span>).<span class="ruby-identifier">deliver</span>
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -254,9 +421,9 @@
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 7</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
-  <span class="ruby-ivar">@users</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:email</span>)
+  <span class="ruby-ivar">@users</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -287,9 +454,10 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 17</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:sgroups</span>] = {}
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -320,7 +488,7 @@
 
           
           <div class="method-source-code" id="self_destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 65</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 76</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">self_destroy</span>
   <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">destroy</span>
   <span class="ruby-identifier">cookies</span>.<span class="ruby-identifier">delete</span> <span class="ruby-value">:user_id</span>
@@ -359,7 +527,7 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 13</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -391,8 +559,10 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 43</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+  <span class="ruby-identifier">parse_group_belongings_radios</span>
+
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">user_params</span>)
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">administration_url</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Uživatel byl úspěšně aktualizován.&#39;</span> }
@@ -421,7 +591,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="http://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
-  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

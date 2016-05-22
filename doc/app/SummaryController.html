@@ -6,19 +6,16 @@
 
 <title>class SummaryController - Rails Application Documentation</title>
 
-<link href="./fonts.css" rel="stylesheet">
-<link href="./rdoc.css" rel="stylesheet">
-
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
 </script>
 
 <script src="./js/jquery.js"></script>
-<script src="./js/navigation.js"></script>
-<script src="./js/search_index.js"></script>
-<script src="./js/search.js"></script>
-<script src="./js/searcher.js"></script>
 <script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
 
 
 <body id="top" role="document" class="class">
@@ -77,9 +74,23 @@
     
     <li ><a href="#method-i-details">#details</a>
     
+    <li ><a href="#method-i-john_cena">#john_cena</a>
+    
+    <li ><a href="#method-i-migrate">#migrate</a>
+    
+    <li ><a href="#method-i-post_details">#post_details</a>
+    
+    <li ><a href="#method-i-search">#search</a>
+    
     <li ><a href="#method-i-service_list">#service_list</a>
     
+    <li ><a href="#method-i-subjects">#subjects</a>
+    
     <li ><a href="#method-i-summary">#summary</a>
+    
+    <li ><a href="#method-i-update">#update</a>
+    
+    <li ><a href="#method-i-welcome_screen">#welcome_screen</a>
     
   </ul>
 </div>
@@ -134,7 +145,7 @@
 
           
           <div class="method-source-code" id="administration-source">
-            <pre><span class="ruby-comment"># File app/controllers/summary_controller.rb, line 50</span>
+            <pre><span class="ruby-comment"># File app/controllers/summary_controller.rb, line 88</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">administration</span>
 
 <span class="ruby-keyword">end</span></pre>
@@ -167,30 +178,188 @@
 
           
           <div class="method-source-code" id="details-source">
-            <pre><span class="ruby-comment"># File app/controllers/summary_controller.rb, line 21</span>
+            <pre><span class="ruby-comment"># File app/controllers/summary_controller.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">details</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:range</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:group</span>]
-    <span class="ruby-identifier">from</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:range</span>][<span class="ruby-value">:&quot;from(1i)&quot;</span>].<span class="ruby-identifier">to_i</span>,<span class="ruby-identifier">params</span>[<span class="ruby-value">:range</span>][<span class="ruby-value">:&quot;from(2i)&quot;</span>].<span class="ruby-identifier">to_i</span>,<span class="ruby-identifier">params</span>[<span class="ruby-value">:range</span>][<span class="ruby-value">:&quot;from(3i)&quot;</span>].<span class="ruby-identifier">to_i</span>)
-    <span class="ruby-identifier">to</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:range</span>][<span class="ruby-value">:&quot;to(1i)&quot;</span>].<span class="ruby-identifier">to_i</span>,<span class="ruby-identifier">params</span>[<span class="ruby-value">:range</span>][<span class="ruby-value">:&quot;to(2i)&quot;</span>].<span class="ruby-identifier">to_i</span>,<span class="ruby-identifier">params</span>[<span class="ruby-value">:range</span>][<span class="ruby-value">:&quot;to(3i)&quot;</span>].<span class="ruby-identifier">to_i</span>)
-    <span class="ruby-ivar">@events</span> = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:event_start</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;event_start &gt;= :from AND event_end &lt;= :to&quot;</span>, { <span class="ruby-value">:from</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">from</span>, <span class="ruby-value">:to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">to</span> } )
-    <span class="ruby-ivar">@exams</span> = <span class="ruby-constant">Exam</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:date</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;\&quot;group\&quot; = :group OR \&quot;group\&quot; = 0&quot;</span>, { <span class="ruby-value">:group</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:group</span>] } ).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;date &gt;= :from AND date &lt;= :to&quot;</span>, { <span class="ruby-value">:from</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">from</span>, <span class="ruby-value">:to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">to</span> } )
-    <span class="ruby-ivar">@tasks</span> = <span class="ruby-constant">Task</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:date</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;\&quot;group\&quot; = :group OR \&quot;group\&quot; = 0&quot;</span>, { <span class="ruby-value">:group</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:group</span>] } ).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;date &gt;= :from AND date &lt;= :to&quot;</span>, { <span class="ruby-value">:from</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">from</span>, <span class="ruby-value">:to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">to</span> } )
+  <span class="ruby-comment">#from = Date.new(params[:range][:&quot;from(1i)&quot;].to_i, params[:range][:&quot;from(2i)&quot;].to_i, params[:range][:&quot;from(3i)&quot;].to_i)</span>
+  <span class="ruby-comment">#to = Date.new(params[:range][:&quot;to(1i)&quot;].to_i, params[:range][:&quot;to(2i)&quot;].to_i, params[:range][:&quot;to(3i)&quot;].to_i)</span>
+  <span class="ruby-ivar">@data</span> = {}
+
+  <span class="ruby-identifier">sclass</span> = <span class="ruby-identifier">current_class</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">logged_in?</span>
+    <span class="ruby-identifier">user</span> = <span class="ruby-identifier">current_user</span>
+
+    <span class="ruby-ivar">@data</span>[<span class="ruby-value">:events</span>] = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:event_start</span>).<span class="ruby-identifier">in_future</span>.<span class="ruby-identifier">for_groups</span>(<span class="ruby-identifier">user</span>.<span class="ruby-identifier">sgroups</span>).<span class="ruby-identifier">for_class</span>(<span class="ruby-identifier">sclass</span>) <span class="ruby-operator">+</span> <span class="ruby-constant">Article</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">&quot;published_on DESC&quot;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-identifier">published</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">where</span>(<span class="ruby-identifier">show_in_details</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;show_in_details_until &gt; :today&quot;</span>, {<span class="ruby-identifier">today</span><span class="ruby-operator">:</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>})
+    <span class="ruby-ivar">@data</span>[<span class="ruby-value">:exams</span>] = <span class="ruby-constant">Exam</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:date</span>).<span class="ruby-identifier">in_future</span>.<span class="ruby-identifier">for_groups</span>(<span class="ruby-identifier">user</span>.<span class="ruby-identifier">sgroups</span>).<span class="ruby-identifier">for_class</span>(<span class="ruby-identifier">sclass</span>).<span class="ruby-identifier">filter_out_todays_after</span>(<span class="ruby-value">12</span>)
+    <span class="ruby-ivar">@data</span>[<span class="ruby-value">:tasks</span>] = <span class="ruby-constant">Task</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:date</span>).<span class="ruby-identifier">in_future</span>.<span class="ruby-identifier">for_groups</span>(<span class="ruby-identifier">user</span>.<span class="ruby-identifier">sgroups</span>).<span class="ruby-identifier">for_class</span>(<span class="ruby-identifier">sclass</span>).<span class="ruby-identifier">filter_out_todays_after</span>(<span class="ruby-value">12</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-constant">Event</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:sgroup_id</span>)
   <span class="ruby-keyword">else</span>
-    <span class="ruby-ivar">@events</span> = (<span class="ruby-constant">Event</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:event_start</span>)).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;event_end &gt;= ?&quot;</span>, <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>)
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">logged_in?</span>
-      <span class="ruby-ivar">@exams</span> = <span class="ruby-identifier">get_exams_with_group</span>(<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">group</span>)
-      <span class="ruby-ivar">@tasks</span> = <span class="ruby-identifier">get_tasks_with_group</span>(<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">group</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">format</span>.<span class="ruby-identifier">symbol</span> <span class="ruby-operator">==</span> <span class="ruby-value">:xml</span>
+      <span class="ruby-comment"># you are deprecated</span>
     <span class="ruby-keyword">else</span>
-      <span class="ruby-ivar">@exams</span> = <span class="ruby-identifier">get_exams</span>
-      <span class="ruby-ivar">@tasks</span> = <span class="ruby-identifier">get_tasks</span>
+      <span class="ruby-ivar">@data</span>[<span class="ruby-value">:events</span>] = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:event_start</span>).<span class="ruby-identifier">in_future</span>.<span class="ruby-identifier">for_class</span>(<span class="ruby-identifier">sclass</span>)
+      <span class="ruby-ivar">@data</span>[<span class="ruby-value">:exams</span>] = <span class="ruby-constant">Exam</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:date</span>).<span class="ruby-identifier">in_future</span>.<span class="ruby-identifier">for_class</span>(<span class="ruby-identifier">sclass</span>).<span class="ruby-identifier">filter_out_todays_after</span>(<span class="ruby-value">12</span>)
+      <span class="ruby-ivar">@data</span>[<span class="ruby-value">:tasks</span>] = <span class="ruby-constant">Task</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:date</span>).<span class="ruby-identifier">in_future</span>.<span class="ruby-identifier">for_class</span>(<span class="ruby-identifier">sclass</span>).<span class="ruby-identifier">filter_out_todays_after</span>(<span class="ruby-value">12</span>)
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 
+  <span class="ruby-constant">DetailsAccess</span>.<span class="ruby-identifier">log_new</span>(<span class="ruby-identifier">current_user</span>, <span class="ruby-identifier">request</span>.<span class="ruby-identifier">remote_ip</span>, <span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;HTTP_USER_AGENT&#39;</span>], <span class="ruby-string">&#39;details&#39;</span>)
+
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span>
-    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>
-    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">atom</span>
   <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-john_cena" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">john_cena</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="john_cena-source">
+            <pre><span class="ruby-comment"># File app/controllers/summary_controller.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">john_cena</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-migrate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">migrate</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="migrate-source">
+            <pre><span class="ruby-comment"># File app/controllers/summary_controller.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">migrate</span>
+  <span class="ruby-comment"># raking lists (add sclass_id)</span>
+  <span class="ruby-comment"># raking entries (migrate from name to class_member_id)</span>
+  <span class="ruby-comment"># users (migrate from name to class_member_id)</span>
+  <span class="ruby-comment"># users (migrate from group to groups-and-belongings-and-stuff)</span>
+  <span class="ruby-comment"># utu_items (add sgroup_id, add sclass_id)</span>
+  <span class="ruby-comment"># planned_raking_entries (wipe)</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-post_details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">post_details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="post_details-source">
+            <pre><span class="ruby-comment"># File app/controllers/summary_controller.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">post_details</span>
+  <span class="ruby-identifier">from</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:from</span>])
+  <span class="ruby-identifier">to</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:to</span>])
+  <span class="ruby-ivar">@events</span> = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:event_start</span>).<span class="ruby-identifier">between_dates</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
+  <span class="ruby-ivar">@exams</span> = <span class="ruby-constant">Exam</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:date</span>).<span class="ruby-identifier">for_group</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:group</span>]).<span class="ruby-identifier">between_dates</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
+  <span class="ruby-ivar">@tasks</span> = <span class="ruby-constant">Task</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:date</span>).<span class="ruby-identifier">for_group</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:group</span>]).<span class="ruby-identifier">between_dates</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">group</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+    <span class="ruby-ivar">@exams</span> = <span class="ruby-ivar">@exams</span>.<span class="ruby-identifier">for_group</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:group</span>])
+    <span class="ruby-ivar">@tasks</span> = <span class="ruby-ivar">@tasks</span>.<span class="ruby-identifier">for_group</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:group</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">DetailsAccess</span>.<span class="ruby-identifier">log_new</span>(<span class="ruby-identifier">current_user</span>, <span class="ruby-identifier">request</span>.<span class="ruby-identifier">remote_ip</span>, <span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;HTTP_USER_AGENT&#39;</span>], <span class="ruby-string">&#39;details&#39;</span>)
+
+  <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;details.xml&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-search" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="search-source">
+            <pre><span class="ruby-comment"># File app/controllers/summary_controller.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">search</span>
+  <span class="ruby-identifier">search_parameters</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:query</span>]
+  <span class="ruby-identifier">sclass</span> = <span class="ruby-identifier">current_class</span>
+  <span class="ruby-ivar">@data</span> = {}
+  <span class="ruby-ivar">@data</span>[<span class="ruby-value">:query</span>] = <span class="ruby-identifier">search_parameters</span>
+  <span class="ruby-ivar">@data</span>[<span class="ruby-value">:items</span>] = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">for_class</span>(<span class="ruby-identifier">sclass</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:event_start</span>).<span class="ruby-identifier">like</span>(<span class="ruby-identifier">search_parameters</span>) <span class="ruby-operator">+</span> <span class="ruby-constant">Exam</span>.<span class="ruby-identifier">for_class</span>(<span class="ruby-identifier">sclass</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:date</span>).<span class="ruby-identifier">like</span>(<span class="ruby-identifier">search_parameters</span>) <span class="ruby-operator">+</span> <span class="ruby-constant">Task</span>.<span class="ruby-identifier">for_class</span>(<span class="ruby-identifier">sclass</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:date</span>).<span class="ruby-identifier">like</span>(<span class="ruby-identifier">search_parameters</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -221,9 +390,42 @@
 
           
           <div class="method-source-code" id="service_list-source">
-            <pre><span class="ruby-comment"># File app/controllers/summary_controller.rb, line 46</span>
+            <pre><span class="ruby-comment"># File app/controllers/summary_controller.rb, line 80</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">service_list</span>
-  <span class="ruby-ivar">@services</span> = (<span class="ruby-constant">Service</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:service_start</span>)).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;service_end &gt;= :today&quot;</span>, { <span class="ruby-value">:today</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span> } )
+  <span class="ruby-ivar">@services</span> = <span class="ruby-constant">Service</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:service_start</span>).<span class="ruby-identifier">in_future</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-subjects" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">subjects</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="subjects-source">
+            <pre><span class="ruby-comment"># File app/controllers/summary_controller.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">subjects</span>
+  <span class="ruby-ivar">@subjects</span> = <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -254,24 +456,105 @@
 
           
           <div class="method-source-code" id="summary-source">
-            <pre><span class="ruby-comment"># File app/controllers/summary_controller.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/controllers/summary_controller.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">summary</span>
+  <span class="ruby-ivar">@data</span> = {}
+  <span class="ruby-ivar">@data</span>[<span class="ruby-value">:service</span>] = {}
+
+  <span class="ruby-ivar">@data</span>[<span class="ruby-value">:service</span>][<span class="ruby-value">:current</span>] = <span class="ruby-constant">Service</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;service_start &lt;= :today AND service_end &gt;= :today&quot;</span>, {<span class="ruby-identifier">today</span><span class="ruby-operator">:</span> <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>}).<span class="ruby-identifier">first</span>
+  <span class="ruby-ivar">@data</span>[<span class="ruby-value">:articles</span>] = <span class="ruby-constant">Article</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">published</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&quot;published_on DESC&quot;</span>).<span class="ruby-identifier">limit</span>(<span class="ruby-value">3</span>)
+
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">logged_in?</span>
-    <span class="ruby-identifier">user_names</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39; &#39;</span>)
-    <span class="ruby-identifier">services</span> = <span class="ruby-constant">Service</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;service_end &gt;= :today&quot;</span>, { <span class="ruby-value">:today</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span> })
-    <span class="ruby-identifier">services</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">service</span><span class="ruby-operator">|</span>
-      <span class="ruby-identifier">user_names</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">user_name</span><span class="ruby-operator">|</span>
-        <span class="ruby-keyword">if</span> <span class="ruby-identifier">service</span>.<span class="ruby-identifier">first_name</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">user_name</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">service</span>.<span class="ruby-identifier">second_name</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">user_name</span>)
-          <span class="ruby-ivar">@service</span> = <span class="ruby-identifier">service</span>
-          <span class="ruby-ivar">@error</span> = <span class="ruby-keyword">nil</span>
-          <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;penis&quot;</span>
-        <span class="ruby-keyword">else</span>
-          <span class="ruby-ivar">@error</span> = <span class="ruby-string">&quot;Vaše příjmení není v záznamech o službách.\nBuď již tento rok nemáte službu nebo vaše jméno není platné (porovnáváno příjmení aktuálně přihlášeného uživatele a jméno ve službách)&quot;</span>
+    <span class="ruby-ivar">@data</span>[<span class="ruby-value">:service</span>][<span class="ruby-value">:user</span>] = <span class="ruby-constant">Service</span>.<span class="ruby-identifier">in_future</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;first_mate_id = :class_member OR second_mate_id = :class_member&quot;</span>, {<span class="ruby-identifier">class_member</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">class_member_id</span>}).<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">DetailsAccess</span>.<span class="ruby-identifier">log_new</span>(<span class="ruby-identifier">current_user</span>, <span class="ruby-identifier">request</span>.<span class="ruby-identifier">remote_ip</span>, <span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;HTTP_USER_AGENT&#39;</span>], <span class="ruby-string">&#39;summary&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File app/controllers/summary_controller.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">hour</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">17</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">hour</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">18</span>
+    <span class="ruby-comment"># mark todays tasks and exams as in_past</span>
+    <span class="ruby-constant">SchoolDay</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">date</span><span class="ruby-operator">:</span> <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>).<span class="ruby-identifier">find_each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">day</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">day</span>.<span class="ruby-identifier">lessons</span>.<span class="ruby-identifier">find_each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lesson</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">lesson</span>.<span class="ruby-identifier">exams</span>.<span class="ruby-identifier">find_each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">exam</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">exam</span>.<span class="ruby-identifier">passed</span> = <span class="ruby-keyword">true</span>
+          <span class="ruby-identifier">exam</span>.<span class="ruby-identifier">save!</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">lesson</span>.<span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">find_each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">task</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">task</span>.<span class="ruby-identifier">passed</span> = <span class="ruby-keyword">true</span>
+          <span class="ruby-identifier">task</span>.<span class="ruby-identifier">save!</span>
         <span class="ruby-keyword">end</span>
       <span class="ruby-keyword">end</span>
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
-  <span class="ruby-ivar">@near_payments</span> = (<span class="ruby-constant">Event</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:event_start</span>)).<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;event_end &gt;= :today AND pay_date &lt;= :pay AND pay_date != event_start&quot;</span>, { <span class="ruby-value">:today</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>, <span class="ruby-value">:pay</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span> <span class="ruby-operator">+</span> <span class="ruby-value">7</span>.<span class="ruby-identifier">days</span> } )
+
+  <span class="ruby-identifier">timetables</span> = <span class="ruby-constant">Timetable</span>.<span class="ruby-identifier">all</span>
+  <span class="ruby-identifier">timetables</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">timetable</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">timetable</span>.<span class="ruby-identifier">get_timetable</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-identifier">nothing</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-welcome_screen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">welcome_screen</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="welcome_screen-source">
+            <pre><span class="ruby-comment"># File app/controllers/summary_controller.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">welcome_screen</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;_unsortables/welcome_screen&#39;</span>, <span class="ruby-identifier">layout</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -291,7 +574,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="http://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.1.
-  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 
