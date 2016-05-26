@@ -99,9 +99,10 @@ class PlannedRakingEntriesController < ApplicationController
   # DELETE /planned_raking_entries/1
   # DELETE /planned_raking_entries/1.json
   def destroy
+    path_to_go = admin_show_planned_raking_lists_path(@planned_raking_entry.planned_raking_list)
     @planned_raking_entry.destroy
     respond_to do |format|
-      format.html { redirect_to planned_raking_entries_url, notice: 'Planned raking entry was successfully destroyed.' }
+      format.html { redirect_to path_to_go, notice: 'Planned raking entry was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
