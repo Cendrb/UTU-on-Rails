@@ -102,7 +102,8 @@ end
 
 # models graphing
 group :development do
-  gem "rails-erd"
+  gem 'rails-erd'
+  gem 'git'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

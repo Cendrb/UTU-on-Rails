@@ -42,7 +42,7 @@ config.action_mailer.smtp_settings = {
 
   Dynopoker.configure do |config|
     config.address = 'http://localhost:3000/update'
-    config.enable = true # default is true
+    config.enable = false # default is true
     config.poke_frequency = 1800 # default is 1800s (30min)
   end
 end
