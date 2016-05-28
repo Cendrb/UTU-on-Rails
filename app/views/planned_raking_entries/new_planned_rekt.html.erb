@@ -18,7 +18,7 @@
 
     <div class="field">
       <%= f.label :class_member_id, "Jméno" %><br>
-      <%= f.collection_select(:class_member_id, ClassMember.where(sclass: sclass).order(:last_name), :id, :of_name) %>
+      <%= @planned_raking_entry.class_member.of_name if @planned_raking_entry.class_member %> (můžete přihlásit pouze sami sebe)
     </div>
     <div class="field">
       <%= f.label :description, "Téma" %><br>
@@ -28,6 +28,10 @@
     <div class="field">
       <%= f.label :planned_raking_list_id, "Seznam zkoušení" %><br>
       <%= f.collection_select :planned_raking_list_id, PlannedRakingList.where(sclass: sclass), :id, :full_name %>
+    </div>
+    <div class="field">
+      <%= f.label :raking_round_id, "Kolo" %><br>
+      <%= f.collection_select :raking_round_id, RakingRound.where(planned_raking_list: @planned_raking_entry.planned_raking_list), :id, :to_s %>
     </div>
     <div class="actions">
       <%= f.submit "Odeslat" %>

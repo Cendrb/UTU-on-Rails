@@ -1,5 +1,5 @@
 <% hide_published |= false %>
-<div class="article">
+<article class="article">
   <div class="article_published">
     <% if !hide_published && admin_logged_in? %>
         <% if article.published %>
@@ -14,4 +14,4 @@
   <div class="article_text"><%= truncate(strip_tags(article.text), length: 150) %></div>
   <div class="article_published_on"><%= l article.published_on, format: :date if article.published %></div>
   <div class="article_read_more"><%= link_to 'Číst dál', article %></div>
-</div>
+</article>

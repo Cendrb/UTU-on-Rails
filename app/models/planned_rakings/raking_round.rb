@@ -3,6 +3,8 @@ class RakingRound < ActiveRecord::Base
   belongs_to :school_year
   has_many :planned_raking_entries, dependent: :destroy
 
+  default_scope -> { where(school_year: SchoolYear.current).order(:number) }
+
   validates_presence_of :planned_raking_list, :school_year, :number
 
   def already_rekt_count
@@ -23,5 +25,9 @@ class RakingRound < ActiveRecord::Base
 
   def not_signed_up_yet_query
     return planned_raking_list.sclass.class_members.where("id NOT IN (:list_ids)", list_ids: planned_raking_entries.select("DISTINCT ON(planned_raking_entries.class_member_id) planned_raking_entries.class_member_id").map(&:class_member_id)).order(:last_name)
+  end
+
+  def to_s
+    return number.to_s + ". kolo"
   end
 end

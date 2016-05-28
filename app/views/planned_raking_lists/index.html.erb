@@ -13,13 +13,13 @@
   </thead>
   <tbody>
   <% @data[:lists].each do |planned_raking_list| %>
-    <tr>
-      <td class="planned_rakings_list_title"><%= link_to planned_raking_list.full_name, planned_raking_list, class: 'no_underline' %></td>
-      <td class="planned_rakings_list_rekt_status"><%= "#{planned_raking_list.current_round.already_rekt_count}/#{planned_raking_list.sclass.class_members.count}" %></td>
-      <td class="planned_rakings_list_left_on_list"><%= planned_raking_list.current_round.planned_raking_entries.where(finished: false).count %></td>
-      <td class="planned_rakings_list_current_round"><%= planned_raking_list.current_round.number %></td>
-      <td><%= link_to mi.view_list, planned_raking_list %><%= link_to mi.person_add, new_planned_rekt_raking_entry_path(list_id: planned_raking_list.id) %></td>
-    </tr>
+      <tr>
+        <td class="planned_rakings_list_title"><%= link_to planned_raking_list.full_name, planned_raking_list, class: 'no_underline' %></td>
+        <td class="planned_rakings_list_rekt_status"><%= "#{planned_raking_list.current_round.already_rekt_count}/#{planned_raking_list.sclass.class_members.count}" %></td>
+        <td class="planned_rakings_list_left_on_list"><%= planned_raking_list.current_round.planned_raking_entries.where(finished: false).count %></td>
+        <td class="planned_rakings_list_current_round"><%= planned_raking_list.current_round.number %></td>
+        <td><%= link_to mi.view_list, planned_raking_list %><%= link_to mi.person_add, new_planned_rekt_raking_entry_path(list_id: planned_raking_list.id) %></td>
+      </tr>
   <% end %>
   </tbody>
 </table>
@@ -50,7 +50,11 @@
         <% end %>
         <div class="planned_rakings_list_user_actions">
           <%= link_to mi.view_list.md_36, planned_raking_list %>
-          <%= link_to mi.person_add.md_36, new_planned_rekt_raking_entry_path(list_id: planned_raking_list.id) %>
+          <% if logged_in? %>
+              <%= link_to mi.person_add.md_36, new_planned_rekt_raking_entry_path(list_id: planned_raking_list.id) %>
+          <% else %>
+            <%= mi.person_add.md_36.html({onclick: "alert(\"Pro přihlášení do seznamu se z bezpečnostních důvodů musíte přihlásit. Po zavření dialogu budete přesměrováni na přihlašovací stránku.\"); window.location.href = \"#{login_url}\";"}) %>
+          <% end %>
         </div>
         <% if logged_in? %>
             <div class="planned_rakings_list_admin_actions">

@@ -1,6 +1,7 @@
 class PlannedRakingEntriesController < ApplicationController
   before_action :set_planned_raking_entry, only: [:show, :edit, :update, :destroy, :mark_as_rekt]
-  before_filter :authenticate_admin, except: [:new_planned_rekt, :create]
+  before_action :authenticate, only: [:new_planned_rekt, :create]
+  before_action :authenticate_admin, except: [:new_planned_rekt, :create]
 
   # GET /planned_raking_entries
   # GET /planned_raking_entries.json
@@ -53,6 +54,15 @@ class PlannedRakingEntriesController < ApplicationController
   # POST /planned_raking_entries.json
   def create
     @planned_raking_entry = PlannedRakingEntry.new(planned_raking_entry_params)
+    if admin_logged_in?
+      # keep class_member value as set from params
+      unless @planned_raking_entry.class_member
+        @planned_raking_entry.class_member = current_user.class_member
+      end
+    else
+      # set to current_user
+      @planned_raking_entry.class_member = current_user.class_member
+    end
     unless @planned_raking_entry.raking_round
       @planned_raking_entry.raking_round = @planned_raking_entry.planned_raking_list.current_round
     end

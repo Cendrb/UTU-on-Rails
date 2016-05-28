@@ -23,6 +23,7 @@ UTUOnRails::Application.routes.draw do
   get 'planned_raking_entries/new_already_rekt' => 'planned_raking_entries#new_already_rekt', as: 'new_already_rekt_raking_entry'
   resources :planned_raking_entries, except: :new
 
+  post 'planned_raking_entries/raking_rounds/for_planned_raking_list' => 'raking_rounds#for_planned_raking_list'
 
   get 'planned_raking_lists/admin_show/:id' => "planned_raking_lists#admin_show", as: "admin_show_planned_raking_lists"
   post 'planned_raking_lists/create_new_round/:id' => "planned_raking_lists#create_new_round", as: "create_new_round_planned_raking_lists"

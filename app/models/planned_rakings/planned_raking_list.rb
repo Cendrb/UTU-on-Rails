@@ -13,7 +13,7 @@ class PlannedRakingList < ActiveRecord::Base
   end
 
   def current_round
-    return raking_rounds.order(:number).last
+    return raking_rounds.last
   end
 
   def full_name
