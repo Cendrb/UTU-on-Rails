@@ -169,7 +169,7 @@ class Timetable < ActiveRecord::Base
                     else
                       group_string = group_string.content
                     end
-                    teacher = Teacher.create(name: teacher_string, group: group_string.to_s.to_i, abbr: abbr_string)
+                    teacher = Teacher.create(name: teacher_string, abbr: abbr_string)
                   end
 
                   if (!rinfo.nil?)
