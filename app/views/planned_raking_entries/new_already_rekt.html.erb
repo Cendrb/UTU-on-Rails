@@ -31,7 +31,7 @@
     </div>
     <div class="field">
       <%= f.label :raking_round_id, "Kolo" %><br>
-      <%= f.collection_select :raking_round_id, RakingRound.where(planned_raking_list: @planned_raking_entry.planned_raking_list), :id, :to_s, {selected: @planned_raking_entry.planned_raking_list.current_round} %>
+      <%= f.collection_select :raking_round_id, RakingRound.where(planned_raking_list: @planned_raking_entry.planned_raking_list), :id, :to_s, {selected: @planned_raking_entry.planned_raking_list.current_round.id} %>
     </div>
     <div class="actions">
       <%= f.submit "Odeslat" %>
