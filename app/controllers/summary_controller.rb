@@ -14,7 +14,7 @@ class SummaryController < ApplicationController
     @data[:service] = {}
 
     @data[:service][:current] = Service.where("service_start <= :today AND service_end >= :today", {today: Date.today}).first
-    @data[:articles] = Article.where(published: true).order("published_on DESC").limit(3)
+    @data[:articles] = Article.where(published: true).for_class(current_class).order("published_on DESC").limit(3)
 
     if logged_in?
       @data[:service][:user] = Service.in_future.where("first_mate_id = :class_member OR second_mate_id = :class_member", {class_member: current_user.class_member_id}).first

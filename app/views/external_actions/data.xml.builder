@@ -15,6 +15,11 @@ xml.utu do
       render partial: '_generic_utu_partials/show.xml', locals: {item: item, builder: xml}
     end
   end
+  xml.articles do
+    @data[:articles].each do |item|
+      render partial: '_generic_utu_partials/show.xml', locals: {item: item, builder: xml}
+    end
+  end
   if @data[:additional_infos] 
     xml.additional_infos_global do
       @data[:additional_infos].each do |item|
@@ -22,6 +27,10 @@ xml.utu do
           xml.id(item.id)
           xml.name(item.name)
           xml.url(item.url)
+          xml.subject do
+            builder.id(item.subject_id)
+            builder.name(item.subject.name)
+          end
         end
       end
     end

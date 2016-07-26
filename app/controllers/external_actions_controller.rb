@@ -31,17 +31,20 @@ class ExternalActionsController < ApplicationController
       @data[:events] = Event.all.order('event_start ASC').in_future.for_class(sclass)
       @data[:exams] = Exam.order('date ASC').in_future.for_class(sclass).filter_out_todays_after(12)
       @data[:tasks] = Task.order('date ASC').in_future.for_class(sclass).filter_out_todays_after(12)
+      @data[:articles] = Article.where(published: true).order("published_on DESC").limit(10).for_class(sclass)
 
       if params[:group_ids]
         @data[:events] = @data[:events].for_group_ids(params[:group_ids])
         @data[:exams] = @data[:exams].for_group_ids(params[:group_ids])
         @data[:tasks] = @data[:tasks].for_group_ids(params[:group_ids])
+        @data[:articles] = @data[:articles].for_group_ids(params[:group_ids])
       end
       if logged_in?
         user = current_user
         @data[:events] = @data[:events].for_groups(user.sgroups)
         @data[:exams] = @data[:exams].for_groups(user.sgroups)
         @data[:tasks] = @data[:tasks].for_groups(user.sgroups)
+        @data[:articles] = @data[:articles].for_groups(user.sgroups)
       end
 
       @data[:additional_infos] = AdditionalInfo.all
