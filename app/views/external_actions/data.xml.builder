@@ -16,7 +16,7 @@ xml.utu do
     end
   end
   if @data[:additional_infos] 
-    xml.additional_infos do
+    xml.additional_infos_global do
       @data[:additional_infos].each do |item|
         xml.additional_info do
           xml.id(item.id)
