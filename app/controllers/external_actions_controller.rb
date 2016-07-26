@@ -20,7 +20,7 @@ class ExternalActionsController < ApplicationController
 
       render 'only_details.xml'
     else
-      render plain: 'How did you end up here?!'
+      render plain: 'Required params: sclass_id'
     end
   end
 
@@ -48,7 +48,7 @@ class ExternalActionsController < ApplicationController
 
       render 'data.xml'
     else
-      render plain: 'How did you end up here?!'
+      render plain: 'Required params: sclass_id'
     end
   end
 
