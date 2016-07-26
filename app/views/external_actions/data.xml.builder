@@ -28,8 +28,8 @@ xml.utu do
           xml.name(item.name)
           xml.url(item.url)
           xml.subject do
-            builder.id(item.subject_id)
-            builder.name(item.subject.name)
+            xml.id(item.subject_id)
+            xml.name(item.subject.name)
           end
         end
       end
