@@ -37,11 +37,11 @@ builder.item do
     end
   end
   builder.additional_infos do
-    item.additional_infos.each do |info|
+    item.info_item_bindings.each do |binding|
       builder.additional_info do
-        builder.id(info.id)
-        builder.name(info.name)
-        builder.url(info.url)
+        builder.id(binding.additional_info.id)
+        builder.name(binding.additional_info.name)
+        builder.url(binding.additional_info.url)
       end
     end
   end
