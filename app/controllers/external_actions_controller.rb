@@ -48,7 +48,7 @@ class ExternalActionsController < ApplicationController
 
       render 'data.xml'
     else
-      render plain: 'Required params: sclass_id'
+      render plain: 'Required params: sclass_id; Optional params: group_ids'
     end
   end
 
