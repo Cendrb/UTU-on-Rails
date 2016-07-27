@@ -11,7 +11,7 @@ class SchoolYear < ActiveRecord::Base
   end
 
   def self.current
-    if Date.today.month >= 9 && Date.today.month <= 12
+    if Date.today.month >= 7 && Date.today.month <= 12
       return SchoolYear.find_by_beginning_year(Date.today.year)
     end
     if Date.today.month >= 1 && Date.today.month <= 6
