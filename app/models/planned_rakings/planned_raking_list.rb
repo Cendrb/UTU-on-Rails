@@ -13,7 +13,11 @@ class PlannedRakingList < ActiveRecord::Base
   end
 
   def current_round
-    return raking_rounds.last
+    if raking_rounds.count == 0
+      return RakingRound.create!(number: 1, planned_raking_list_id: id, school_year: SchoolYear.current)
+    else
+      return raking_rounds.last
+    end
   end
 
   def full_name
