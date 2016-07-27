@@ -24,6 +24,16 @@ class ExternalActionsController < ApplicationController
     end
   end
 
+  def timetables
+    @data = {}
+    if params[:sclass_id]
+      @data[:timetables] = Timetable.where(sclass_id: params[:sclass_id])
+      render 'timetables.xml'
+    else
+      render plain: 'Required params: sclass_id'
+    end
+  end
+
   def data
     @data = {}
     if params[:sclass_id]

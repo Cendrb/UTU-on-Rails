@@ -78,7 +78,7 @@ class TimetablesController < ApplicationController
       @timetables = Timetable.joins("LEFT JOIN group_timetable_bindings ON timetables.id = group_timetable_bindings.timetable_id").joins("LEFT JOIN sgroups ON sgroups.id = group_timetable_bindings.sgroup_id").where("sgroups.id IN (?)", current_user.sgroups.pluck(:id)).where("timetables.sclass_id = ?", current_class.id).uniq
     else
       @timetables = []
-      @timetables << current_class.default_timetable
+      @timetables << Timetable.where(sclass: current_class)
     end
   end
 

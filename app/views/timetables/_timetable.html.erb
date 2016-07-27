@@ -1,6 +1,6 @@
 <table class="timetable">
 
-	<% timetable.get_current_week_days.each do |day| %>
+	<% timetable.school_days.current_week_days.each do |day| %>
 		<%= render day, date: true, blank_hours: true %>
 	<% end %>
 
@@ -8,7 +8,7 @@
 
 <table class="timetable">
 
-	<% timetable.get_next_week_days.each do |day| %>
+	<% timetable.school_days.next_week_days.each do |day| %>
 		<%= render day, date: true, blank_hours: true %>
 	<% end %>
 
