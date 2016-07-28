@@ -8,6 +8,7 @@ class ExternalActionsController < ApplicationController
     @data[:sclasses] = Sclass.all
     @data[:group_categories] = GroupCategory.all
     @data[:subjects] = Subject.all
+    @data[:teachers] = Teacher.all
 
     render 'pre_data.xml'
   end

@@ -41,4 +41,13 @@ xml.utu do
       end
     end
   end
+  xml.teachers do
+    @data[:teachers].each do |item|
+      xml.teacher do
+        xml.id(item.id)
+        xml.name(item.name)
+        xml.abbr(item.abbr)
+      end
+    end
+  end
 end
