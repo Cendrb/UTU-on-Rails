@@ -58,7 +58,8 @@ class ExternalActionsController < ApplicationController
         @data[:articles] = @data[:articles].for_groups(user.sgroups)
       end
 
-      @data[:additional_infos] = AdditionalInfo.all
+      @data[:additional_infos] = AdditionalInfo.for_class(sclass)
+      @data[:planned_raking_lists] = PlannedRakingList.for_class(sclass)
 
       render 'data.xml'
     else

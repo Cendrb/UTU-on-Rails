@@ -35,4 +35,17 @@ xml.utu do
       end
     end
   end
+  xml.raking_lists do
+    @data[:planned_raking_lists].each do |list|
+      xml.raking_list do
+        xml.id(list.id)
+        xml.title(list.title)
+        xml.subject_id(list.subject_id)
+        xml.sgroup_id(list.sgroup_id)
+        xml.raking_rounds do
+
+        end
+      end
+    end
+  end
 end
