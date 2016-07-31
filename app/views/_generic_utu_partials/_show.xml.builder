@@ -24,6 +24,7 @@ builder.item do
         builder.id(item.subject_id)
         builder.name(item.subject.name)
       end
+      builder.lesson_ids item.lessons.pluck(:id)
     end
   end
   if item.sgroup
