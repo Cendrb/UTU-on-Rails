@@ -1,7 +1,7 @@
 class TimetablesController < ApplicationController
   before_filter :authenticate_admin, except: [:show, :index, :fetch_baka, :fetch_baka_for_all, :summary]
   before_action :set_timetable, only: [:show, :edit, :update, :destroy]
-  before_action :set_timetable_from_timetable_id, only: [:fetch_baka]
+  before_action :set_timetable_from_timetable_id, only: [:fetch_baka, :populate]
 
   # GET /timetables
   # GET /timetables.json
@@ -65,6 +65,20 @@ class TimetablesController < ApplicationController
       format.html { redirect_to timetables_url, notice: 'Timetable was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def populate
+    @timetable.school_days.each do |school_day|
+      (1..7).each do |num|
+        if rand(5) != 0
+          teacher = Teacher.limit(1).order("RANDOM()").first
+          subject = Subject.limit(1).order("RANDOM()").first
+          not_normal = rand(5) == 0
+          lesson = school_day.lessons.create(serial_number: num, teacher: teacher, subject: subject, not_normal: not_normal, not_normal_comment: "KANNA")
+        end
+      end
+    end
+    redirect_to @timetable
   end
 
   def fetch_baka

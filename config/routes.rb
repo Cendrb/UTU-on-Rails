@@ -65,6 +65,7 @@ UTUOnRails::Application.routes.draw do
 
   resources :timetables do
     get 'fetch_baka' => :fetch_baka
+    get 'populate' => :populate
   end
 
   controller :lessons do
