@@ -68,14 +68,12 @@ class TimetablesController < ApplicationController
   end
 
   def populate
-    params[:empty_lesson_chance] ||= 5
-    params[:not_normal_lesson_chance] ||= 5
     @timetable.school_days.each do |school_day|
       (1..7).each do |num|
-        if rand(params[:empty_lesson_chance]) != 0
+        if rand(10) != 0
           teacher = Teacher.limit(1).order("RANDOM()").first
           subject = Subject.limit(1).order("RANDOM()").first
-          not_normal = rand(params[:not_normal_lesson_chance]) == 0
+          not_normal = rand(10) == 0
           lesson = school_day.lessons.create(serial_number: num, teacher: teacher, subject: subject, not_normal: not_normal, not_normal_comment: "KANNA")
         end
       end
