@@ -12,6 +12,8 @@ class SessionsController < ApplicationController
       end
       session[:user_id] = user.id
 
+      @user = user
+
       respond_to do |format|
         format.html {
           if admin_logged_in?
@@ -20,11 +22,13 @@ class SessionsController < ApplicationController
             redirect_to utu_url
           end }
         format.whoa { render plain: GenericUtuItem.success_string }
+        format.xml { render 'sessions/create.xml.builder' }
       end
 
     else
       respond_to do |format|
         format.html { redirect_to login_url, alert: "Neplatné jméno nebo heslo!" }
+        format.xml { render plain: GenericUtuItem.failure_string }
         format.whoa { render plain: GenericUtuItem.failure_string }
       end
     end

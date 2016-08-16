@@ -3,7 +3,11 @@ xml.utu do
   xml.current_user do |user|
     user.logged_in(logged_in?)
     user.admin_logged_in(admin_logged_in?)
-    user.dick("penis")
+    if current_user
+      user.sclass_id(current_user.sclass.id)
+    else
+      user.sclass_id(-1)
+    end
   end
   xml.events do
     @data[:events].each do |item|

@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
 
   belongs_to :class_member
 
+  has_one :sclass, through: :class_member
+
   cattr_accessor :current
   attr_accessor :password_confirmation
   attr_reader :password
