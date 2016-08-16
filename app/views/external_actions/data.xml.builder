@@ -1,5 +1,10 @@
 xml.instruct!
 xml.utu do
+  xml.current_user do |user|
+    user.logged_in(logged_in?)
+    user.admin_logged_in(admin_logged_in?)
+    user.dick("penis")
+  end
   xml.events do
     @data[:events].each do |item|
       render partial: '_generic_utu_partials/show.xml', locals: {item: item, builder: xml}

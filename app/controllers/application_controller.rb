@@ -129,6 +129,8 @@ class ApplicationController < ActionController::Base
   def admin_logged_in?
     if current_user
       return current_user.access_for_level?(User.al_admin)
+    else
+      return false
     end
   end
 
