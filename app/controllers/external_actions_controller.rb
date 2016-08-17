@@ -102,7 +102,7 @@ class ExternalActionsController < ApplicationController
       if @item.save
         render 'show.xml'
       else
-        render plain: GenericUtuItem.failure_string
+        render xml: @item.errors
       end
     end
   end
@@ -130,15 +130,15 @@ class ExternalActionsController < ApplicationController
 
   private
   def event_params
-    params.permit(:title, :description, :location, :event_start, :event_end, :sgroup_id, :sclass_id, :additional_info_url, :price, :pay_date)
+    params.permit(:title, :description, :location, :event_start, :event_end, :sgroup_id, :sclass_id, :price, :pay_date)
   end
 
   def exam_params
-    params.permit(:title, :description, :subject_id, :date, :sgroup_id, :sclass_id, :additional_info_url, :passed)
+    params.permit(:title, :description, :subject_id, :date, :sgroup_id, :sclass_id, :passed)
   end
 
   def task_params
-    params.permit(:title, :description, :subject_id, :date, :sgroup_id, :sclass_id, :additional_info_url, :passed)
+    params.permit(:title, :description, :subject_id, :date, :sgroup_id, :sclass_id, :passed)
   end
 
 end
