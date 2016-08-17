@@ -81,29 +81,40 @@ class ExternalActionsController < ApplicationController
     end
 
     @item = nil
-    if params[:exists] == 'true'
-      @item = GenericUtuItem.find_instance(params[:id], params[:type])
-      if @item.update(params_motorku)
-        render 'show.xml'
-      else
-        render plain: GenericUtuItem.failure_string
+    begin
+      if params[:exists] == 'true'
+        @item = GenericUtuItem.find_instance(params[:id], params[:type])
+        if @item.update(params_motorku)
+          if params[:type] == 'event' || params[:type] == 'task' || params[:type] == 'written_exam' || params[:type] == 'raking_exam'
+            parse_additional_infos(@item, params[:additional_info_ids])
+          end
+          render 'show.xml'
+        else
+          render xml: @item.errors
+        end
       end
+    rescue ActiveRecord::RecordNotFound
+      render 'record_not_found.xml.builder'
+    end
+  else
+    case params[:type]
+      when 'event'
+        @item = Event.new(params_motorku)
+      when 'task'
+        @item = Task.new(params_motorku)
+      when 'written_exam'
+        @item = WrittenExam.new(params_motorku)
+      when 'raking_exam'
+        @item = RakingExam.new(params_motorku)
+    end
+    if @item.save
+      # do after save, additional info cannot be bound to nonexistent item
+      if params[:type] == 'event' || params[:type] == 'task' || params[:type] == 'written_exam' || params[:type] == 'raking_exam'
+        parse_additional_infos(@item, params[:additional_info_ids])
+      end
+      render 'show.xml'
     else
-      case params[:type]
-        when 'event'
-          @item = Event.new(params_motorku)
-        when 'task'
-          @item = Task.new(params_motorku)
-        when 'written_exam'
-          @item = WrittenExam.new(params_motorku)
-        when 'raking_exam'
-          @item = RakingExam.new(params_motorku)
-      end
-      if @item.save
-        render 'show.xml'
-      else
-        render xml: @item.errors
-      end
+      render xml: @item.errors
     end
   end
 
@@ -129,6 +140,16 @@ class ExternalActionsController < ApplicationController
   end
 
   private
+# @param [GenericUtuItem] generic_utu_item
+  def parse_additional_infos(generic_utu_item, additional_infos_string)
+    array = YAML.load(additional_infos_string)
+    generic_utu_item.info_item_bindings.destroy_all
+    infos = AdditionalInfo.find(array)
+    infos.each do |info|
+      generic_utu_item.info_item_bindings.create!(additional_info_id: info.id)
+    end
+  end
+
   def event_params
     params.permit(:title, :description, :location, :event_start, :event_end, :sgroup_id, :sclass_id, :price, :pay_date)
   end
