@@ -119,15 +119,19 @@ class ExternalActionsController < ApplicationController
   end
 
   def destroy_item
-    item = GenericUtuItem.find_instance(params[:id], params[:type])
-    if item
-      if item.destroy
-        render plain: GenericUtuItem.success_string
+    begin
+      item = GenericUtuItem.find_instance(params[:id], params[:type])
+      if item
+        if item.destroy
+          render 'general_success.xml.builder'
+        else
+          render 'general_failure.xml.builder'
+        end
       else
-        render plain: GenericUtuItem.failure_string
+        render 'general_failure.xml.builder'
       end
-    else
-      render plain: GenericUtuItem.failure_string
+    rescue ActiveRecord::RecordNotFound
+      render 'record_not_found.xml.builder'
     end
   end
 
