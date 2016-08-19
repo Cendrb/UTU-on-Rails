@@ -12,7 +12,17 @@ class Article < ActiveRecord::Base
         self.published_on = nil
       end
     end
+
+    if self.show_in_details
+      if self.show_in_details_until == nil
+        self.show_in_details_until = Time.now + 7.day
+      end
+    else
+      if self.show_in_details_until != nil
+        self.show_in_details_until = nil
+      end
+    end
   end
 
-  validates_presence_of :text
+  validates_presence_of :title, :text
 end
