@@ -81,8 +81,8 @@ class ExternalActionsController < ApplicationController
     end
 
     @item = nil
-    begin
-      if params[:exists] == 'true'
+    if params[:exists] == 'true'
+      begin
         @item = GenericUtuItem.find_instance(params[:id], params[:type])
         if @item.update(params_motorku)
           if params[:type] == 'event' || params[:type] == 'task' || params[:type] == 'written_exam' || params[:type] == 'raking_exam'
@@ -92,29 +92,29 @@ class ExternalActionsController < ApplicationController
         else
           render xml: @item.errors
         end
+      rescue ActiveRecord::RecordNotFound
+        render 'record_not_found.xml.builder'
       end
-    rescue ActiveRecord::RecordNotFound
-      render 'record_not_found.xml.builder'
-    end
-  else
-    case params[:type]
-      when 'event'
-        @item = Event.new(params_motorku)
-      when 'task'
-        @item = Task.new(params_motorku)
-      when 'written_exam'
-        @item = WrittenExam.new(params_motorku)
-      when 'raking_exam'
-        @item = RakingExam.new(params_motorku)
-    end
-    if @item.save
-      # do after save, additional info cannot be bound to nonexistent item
-      if params[:type] == 'event' || params[:type] == 'task' || params[:type] == 'written_exam' || params[:type] == 'raking_exam'
-        parse_additional_infos(@item, params[:additional_info_ids])
-      end
-      render 'show.xml'
     else
-      render xml: @item.errors
+      case params[:type]
+        when 'event'
+          @item = Event.new(params_motorku)
+        when 'task'
+          @item = Task.new(params_motorku)
+        when 'written_exam'
+          @item = WrittenExam.new(params_motorku)
+        when 'raking_exam'
+          @item = RakingExam.new(params_motorku)
+      end
+      if @item.save
+        # do after save, additional info cannot be bound to nonexistent item
+        if params[:type] == 'event' || params[:type] == 'task' || params[:type] == 'written_exam' || params[:type] == 'raking_exam'
+          parse_additional_infos(@item, params[:additional_info_ids])
+        end
+        render 'show.xml'
+      else
+        render xml: @item.errors
+      end
     end
   end
 
