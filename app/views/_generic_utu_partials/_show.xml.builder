@@ -18,6 +18,7 @@ builder.item do
   else
     if type == :article
       builder.published_on(item.published_on)
+      builder.show_in_details_until(item.show_in_details_until)
     else
       builder.date(item.get_lesson_date)
       builder.subject do

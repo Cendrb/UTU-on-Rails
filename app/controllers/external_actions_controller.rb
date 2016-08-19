@@ -42,7 +42,7 @@ class ExternalActionsController < ApplicationController
       @data[:events] = Event.all.order('event_start ASC').in_future.for_class(sclass)
       @data[:exams] = Exam.order('date ASC').in_future.for_class(sclass).filter_out_todays_after(12)
       @data[:tasks] = Task.order('date ASC').in_future.for_class(sclass).filter_out_todays_after(12)
-      @data[:articles] = Article.where(published: true).order("published_on DESC").limit(10).for_class(sclass)
+      @data[:articles] = Article.order("published_on DESC").limit(10).for_class(sclass)
 
       if params[:group_ids]
         @data[:events] = @data[:events].for_group_ids(params[:group_ids])
@@ -56,6 +56,10 @@ class ExternalActionsController < ApplicationController
         @data[:exams] = @data[:exams].for_groups(user.sgroups)
         @data[:tasks] = @data[:tasks].for_groups(user.sgroups)
         @data[:articles] = @data[:articles].for_groups(user.sgroups)
+      end
+
+      if !admin_logged_in?
+        @data[:articles] = @data[:articles].where(published: true)
       end
 
       @data[:additional_infos] = AdditionalInfo.for_class(sclass)
