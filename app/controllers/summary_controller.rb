@@ -13,7 +13,7 @@ class SummaryController < ApplicationController
     @data = {}
     @data[:service] = {}
 
-    @data[:service][:current] = Service.where("service_start <= :today AND service_end >= :today", {today: Date.today}).first
+    @data[:service][:current] = Service.current
     @data[:articles] = Article.where(published: true).for_class(current_class).order("published_on DESC").limit(3)
 
     if logged_in?

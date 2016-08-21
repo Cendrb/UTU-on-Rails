@@ -9,6 +9,12 @@ xml.utu do
       user.sclass_id(-1)
     end
   end
+  xml.current_service do
+    if @data[:current_service]
+      xml.class_member_id(@data[:current_service].first_mate)
+      xml.class_member_id(@data[:current_service].second_mate)
+    end
+  end
   xml.events do
     @data[:events].each do |item|
       render partial: '_generic_utu_partials/show.xml', locals: {item: item, builder: xml}
@@ -29,7 +35,7 @@ xml.utu do
       render partial: '_generic_utu_partials/show.xml', locals: {item: item, builder: xml}
     end
   end
-  if @data[:additional_infos] 
+  if @data[:additional_infos]
     xml.additional_infos_global do
       @data[:additional_infos].each do |item|
         xml.additional_info do

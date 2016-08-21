@@ -39,6 +39,8 @@ class ExternalActionsController < ApplicationController
     @data = {}
     if params[:sclass_id]
       sclass = Sclass.find(params[:sclass_id])
+      @data[:current_service] = Service.current
+
       @data[:events] = Event.all.order('event_start ASC').in_future.for_class(sclass)
       @data[:exams] = Exam.order('date ASC').in_future.for_class(sclass).filter_out_todays_after(12)
       @data[:tasks] = Task.order('date ASC').in_future.for_class(sclass).filter_out_todays_after(12)

@@ -23,6 +23,10 @@ class Service < ActiveRecord::Base
     end
   end
 
+  def self.current
+    return Service.where("service_start <= :today AND service_end >= :today", {today: Date.today} ).first
+  end
+
   def first_mate
     ClassMember.find(first_mate_id)
   end
