@@ -61,10 +61,12 @@ xml.utu do
         xml.raking_rounds do
           list.raking_rounds.each do |round|
             xml.raking_round do
+              xml.id(round.id)
               xml.number(round.number)
               xml.planned_raking_entries do
                 round.planned_raking_entries.order(:sorting_order).each do |entry|
                   xml.planned_raking_entry do
+                    xml.id(entry.id)
                     xml.description(entry.description)
                     xml.finished(entry.finished)
                     xml.grade(entry.grade)
