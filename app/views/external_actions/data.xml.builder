@@ -50,17 +50,26 @@ xml.utu do
       end
     end
   end
-  xml.raking_lists do
+  xml.planned_raking_lists do
     @data[:planned_raking_lists].each do |list|
-      xml.raking_list do
+      xml.planned_raking_list do
         xml.id(list.id)
         xml.title(list.title)
         xml.subject_id(list.subject_id)
         xml.sgroup_id(list.sgroup_id)
         xml.rekt_per_round(list.rekt_per_hour)
-        xml.raking_rounds do
+        xml.additional_infos do
+          list.additional_infos.each do |item|
+            xml.additional_info do
+              xml.id(item.id)
+              xml.name(item.name)
+              xml.url(item.url)
+            end
+          end
+        end
+        xml.planned_raking_rounds do
           list.raking_rounds.each do |round|
-            xml.raking_round do
+            xml.planned_raking_round do
               xml.id(round.id)
               xml.number(round.number)
               xml.planned_raking_entries do
