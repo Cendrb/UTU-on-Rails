@@ -67,7 +67,7 @@ class ExternalActionsController < ApplicationController
       @data[:additional_infos] = AdditionalInfo.for_class(sclass)
       @data[:planned_raking_lists] = PlannedRakingList.for_class(sclass)
 
-      render 'data.xml'
+      render 'external_actions/data.xml.builder'
     else
       render plain: 'Required params: sclass_id; Optional params: group_ids'
     end

@@ -57,8 +57,24 @@ xml.utu do
         xml.title(list.title)
         xml.subject_id(list.subject_id)
         xml.sgroup_id(list.sgroup_id)
+        xml.rekt_per_round(list.rekt_per_hour)
         xml.raking_rounds do
-
+          list.raking_rounds.each do |round|
+            xml.raking_round do
+              xml.number(round.number)
+              xml.planned_raking_entries do
+                round.planned_raking_entries.order(:sorting_order).each do |entry|
+                  xml.planned_raking_entry do
+                    xml.description(entry.description)
+                    xml.finished(entry.finished)
+                    xml.grade(entry.grade)
+                    xml.sorting_order(entry.sorting_order)
+                    xml.class_member_id(entry.class_member_id)
+                  end
+                end
+              end
+            end
+          end
         end
       end
     end
