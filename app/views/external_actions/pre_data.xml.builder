@@ -11,6 +11,7 @@ xml.utu do
               xml.id(member.id)
               xml.first_name(member.first_name)
               xml.last_name(member.last_name)
+              xml.sgroup_ids(member.sgroup.pluck(:id))
             end
           end
         end
