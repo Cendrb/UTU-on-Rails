@@ -9,7 +9,9 @@ class PlannedRakingList < ActiveRecord::Base
 
   validates_presence_of :beginning, :subject, :rekt_per_hour
   after_commit do
-    RakingRound.create!(number: 1, planned_raking_list_id: id, school_year: SchoolYear.current)
+    if raking_rounds.count == 0
+      RakingRound.create!(number: 1, planned_raking_list_id: id, school_year: SchoolYear.current)
+    end
   end
 
   def current_round
