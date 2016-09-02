@@ -86,9 +86,6 @@ class Timetable < ActiveRecord::Base
   private
   # Parses data from a html (source = string) and saves to the given timetable (target = Timetable)
   def parse_timetable_from_html_and_save_to_db(source, target)
-    # delete old records
-    SchoolDay.destroy_all
-
     doc = Nokogiri::HTML(source)
 
     timetable = doc.at_css('div#trozvrh')

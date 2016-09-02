@@ -110,6 +110,8 @@ class SummaryController < ApplicationController
       end
     end
 
+    # delete old records
+    SchoolDay.destroy_all
     timetables = Timetable.all
     timetables.each do |timetable|
       timetable.get_timetable
