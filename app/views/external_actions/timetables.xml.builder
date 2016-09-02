@@ -6,7 +6,7 @@ xml.utu do
         xml.id timetable.id
         xml.name timetable.name
         xml.sgroup_ids timetable.sgroups.pluck(:id)
-        timetable.school_days.next_two_weeks_days.each do |day|
+        timetable.school_days.each do |day|
           xml.day do
             xml.id day.id
             xml.date day.date

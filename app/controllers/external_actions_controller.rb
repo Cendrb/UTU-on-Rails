@@ -29,7 +29,7 @@ class ExternalActionsController < ApplicationController
     @data = {}
     if params[:sclass_id]
       @data[:timetables] = Timetable.where(sclass_id: params[:sclass_id])
-      render 'timetables.xml'
+      render 'timetables.xml.builder'
     else
       render plain: 'Required params: sclass_id'
     end
