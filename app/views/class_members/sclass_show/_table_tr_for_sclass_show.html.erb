@@ -1,6 +1,7 @@
 <tr>
   <td><%= class_member.full_name %></td>
   <td><%= class_member.sgroups.pluck(:name).to_sentence %></td>
+  <td><%= Service.where(school_year: SchoolYear.current).where('first_mate_id = :class_member_id OR second_mate_id = :class_member_id', {class_member_id: class_member}).count %></td>
   <td><%= format_boolean !class_member.user.nil? %></td>
   <td><%= link_to 'Upravit', edit_class_member_path(class_member) %></td>
 </tr>

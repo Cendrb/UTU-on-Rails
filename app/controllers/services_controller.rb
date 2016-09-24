@@ -5,7 +5,7 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    @services = Service.order(:service_start)
+    @services = Service.order(:service_start).where(school_year: SchoolYear.current)
 
     respond_to do |format|
       format.html

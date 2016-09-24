@@ -1,11 +1,12 @@
 UTUOnRails::Application.routes.draw do
 
+  get 'services_generator' => 'services_generator#form', as: 'generate_services_form'
+  post 'services_generator' => 'services_generator#generate', as: 'generate_services_generate'
+
   resources :articles
 
   resources :holidays
 
-
-  post 'school_years/:id/generate_services_from' => 'school_years#generate_services_from'
   resources :school_years
 
   resources :sgroups
