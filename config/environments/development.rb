@@ -13,9 +13,6 @@ UTUOnRails::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -27,18 +24,11 @@ UTUOnRails::Application.configure do
   # number of complex assets.
   config.assets.debug = false
 
-  
   config.assets.raise_production_errors = true
-  
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
-  address:              'smtp.gmail.com',
-  port:                 587,
-  domain:               'utu.herokuapp.com',
-  user_name:            'adisinfoapp@gmail.com ',
-  password:             'suprakindrlo',
-  authentication:       'plain',
-  enable_starttls_auto: true  }
 
   Dynopoker.configure do |config|
     config.address = 'http://localhost:3000/update'

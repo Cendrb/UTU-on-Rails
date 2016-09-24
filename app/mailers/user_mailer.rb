@@ -1,7 +1,7 @@
 require 'securerandom'
 
 class UserMailer < ActionMailer::Base
-  default from: "utu@utu.com"
+  default from: 'UTU<adisinfoapp@gmail.com>'
   def forgot_password(user)
     code = SecureRandom.hex
     user.forgot_password_code = code
@@ -12,6 +12,6 @@ class UserMailer < ActionMailer::Base
     else
       @url = "http://utu.herokuapp.com/forgot_code?code=#{code}"
     end
-    mail(to: user.email, subject: "Změna hesla")
+    mail(to: user.email, subject: 'Změna hesla')
   end
 end

@@ -5,6 +5,9 @@ ruby '2.2.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 
+# Set environmental variables in local using config/application.yml file
+gem 'figaro'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 

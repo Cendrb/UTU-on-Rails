@@ -93,7 +93,7 @@ class UsersController < ApplicationController
     if (user.nil?)
       redirect_to forgot_path, alert: "Žádný uživatel s danou emailovou adresou neexistuje"
     else
-      UserMailer.forgot_password(user).deliver
+      UserMailer.forgot_password(user).deliver_now
     end
   end
 
