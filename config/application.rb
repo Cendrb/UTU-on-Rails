@@ -22,5 +22,8 @@ module UTUOnRails
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{*/}')]
     config.autoload_paths += Dir[Rails.root.join('app', 'models', 'utu_items', '{*/}')]
     config.autoload_paths += Dir[Rails.root.join('app', 'models', 'utu_items', 'components', '{*/}')]
+
+    config.generators.stylesheets = false
+    config.generators.javascripts = false
   end
 end

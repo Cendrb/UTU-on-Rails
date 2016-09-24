@@ -7,8 +7,11 @@ class ClassMember < ActiveRecord::Base
 
   has_many :planned_raking_entries
 
-  has_many :group_belongings
+  has_many :group_belongings, dependent: :destroy
   has_many :sgroups, through: :group_belongings
+
+  has_many :seminar_belongings, dependent: :destroy
+  has_many :seminars, through: :seminar_belongings
 
   def full_name
     return first_name + ' ' + last_name

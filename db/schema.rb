@@ -11,44 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505160528) do
+ActiveRecord::Schema.define(version: 20160924154837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "additional_infos", force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string   "name",       limit: 255
     t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer "subject_id"
-    t.integer "sclass_id"
+    t.integer  "subject_id"
+    t.integer  "sclass_id"
   end
 
   create_table "articles", force: :cascade do |t|
-    t.string "title", limit: 255
-    t.text "text"
-    t.boolean "published"
-    t.integer "sclass_id"
-    t.integer "sgroup_id"
+    t.string   "title",                 limit: 255
+    t.text     "text"
+    t.boolean  "published"
+    t.integer  "sclass_id"
+    t.integer  "sgroup_id"
     t.datetime "show_in_details_until"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean "show_in_details"
+    t.boolean  "show_in_details"
     t.datetime "published_on"
   end
 
   create_table "baka_accounts", force: :cascade do |t|
-    t.string "username", limit: 255
-    t.string "password", limit: 255
+    t.string   "username",        limit: 255
+    t.string   "password",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "class_member_id"
   end
 
   create_table "class_members", force: :cascade do |t|
-    t.string "first_name", limit: 255
-    t.string "last_name", limit: 255
+    t.string   "first_name", limit: 255
+    t.string   "last_name",  limit: 255
     t.integer  "sclass_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -64,25 +64,25 @@ ActiveRecord::Schema.define(version: 20160505160528) do
 
   create_table "details_accesses", force: :cascade do |t|
     t.integer  "user_id"
-    t.string "ip_address", limit: 255
-    t.string "user_agent", limit: 255
+    t.string   "ip_address",    limit: 255
+    t.string   "user_agent",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "visited_pages", default: [], array: true
+    t.string   "visited_pages",             default: [], array: true
   end
 
   create_table "done_utu_items", force: :cascade do |t|
     t.integer  "item_id"
-    t.string "item_type", limit: 255
+    t.string   "item_type",  limit: 255
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "title", limit: 255
+    t.string   "title",       limit: 255
     t.text     "description"
-    t.string "location", limit: 255
+    t.string   "location",    limit: 255
     t.date     "event_start"
     t.date     "event_end"
     t.datetime "created_at"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20160505160528) do
   end
 
   create_table "exams", force: :cascade do |t|
-    t.string "title", limit: 255
+    t.string   "title",       limit: 255
     t.text     "description"
     t.date     "date"
     t.integer  "sgroup_id"
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20160505160528) do
     t.datetime "updated_at"
     t.integer  "subject_id"
     t.integer  "lesson_id"
-    t.string "type", limit: 255
+    t.string   "type",        limit: 255
     t.boolean  "passed"
     t.date     "end_date"
     t.integer  "sclass_id"
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 20160505160528) do
   end
 
   create_table "group_categories", force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -134,13 +134,13 @@ ActiveRecord::Schema.define(version: 20160505160528) do
     t.integer  "school_year_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "name", limit: 255
+    t.string   "name",              limit: 255
   end
 
   create_table "info_item_bindings", force: :cascade do |t|
     t.integer  "additional_info_id"
     t.integer  "item_id"
-    t.string "item_type", limit: 255
+    t.string   "item_type",          limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -148,13 +148,13 @@ ActiveRecord::Schema.define(version: 20160505160528) do
   create_table "lesson_item_bindings", force: :cascade do |t|
     t.integer  "lesson_id"
     t.integer  "item_id"
-    t.string "item_type", limit: 255
+    t.string   "item_type",  limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.string "room", limit: 255
+    t.string   "room",               limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "school_day_id"
@@ -162,8 +162,8 @@ ActiveRecord::Schema.define(version: 20160505160528) do
     t.boolean  "not_normal"
     t.integer  "subject_id"
     t.integer  "serial_number"
-    t.string "not_normal_comment", limit: 255
-    t.string "event_name", limit: 255
+    t.string   "not_normal_comment", limit: 255
+    t.string   "event_name",         limit: 255
   end
 
   create_table "planned_raking_entries", force: :cascade do |t|
@@ -175,11 +175,11 @@ ActiveRecord::Schema.define(version: 20160505160528) do
     t.text     "description"
     t.integer  "class_member_id"
     t.integer  "raking_round_id"
-    t.string "grade", limit: 255
+    t.string   "grade",                  limit: 255
   end
 
   create_table "planned_raking_lists", force: :cascade do |t|
-    t.string "title", limit: 255
+    t.string   "title",                           limit: 255
     t.text     "description"
     t.integer  "subject_id"
     t.date     "beginning"
@@ -187,8 +187,8 @@ ActiveRecord::Schema.define(version: 20160505160528) do
     t.datetime "updated_at"
     t.integer  "rekt_per_hour"
     t.integer  "sclass_id"
-    t.integer "alert_when_next_x_lessons_empty"
-    t.integer "sgroup_id"
+    t.integer  "alert_when_next_x_lessons_empty"
+    t.integer  "sgroup_id"
   end
 
   create_table "raking_rounds", force: :cascade do |t|
@@ -213,10 +213,34 @@ ActiveRecord::Schema.define(version: 20160505160528) do
   end
 
   create_table "sclasses", force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string   "name",                 limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "default_timetable_id"
+  end
+
+  create_table "seminar_belongings", force: :cascade do |t|
+    t.integer  "class_member_id"
+    t.integer  "seminar_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "seminar_lessons", force: :cascade do |t|
+    t.integer  "seminar_id"
+    t.integer  "serial_number"
+    t.integer  "week_day"
+    t.integer  "teacher_id"
+    t.string   "room"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "seminars", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "services", force: :cascade do |t|
@@ -231,21 +255,21 @@ ActiveRecord::Schema.define(version: 20160505160528) do
   end
 
   create_table "sgroups", force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string   "name",              limit: 255
     t.integer  "group_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "timetable_abbr", limit: 255
+    t.string   "timetable_abbr",    limit: 255
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "title", limit: 255
+    t.string   "title",       limit: 255
     t.text     "description"
     t.date     "date"
     t.integer  "sgroup_id"
@@ -258,15 +282,15 @@ ActiveRecord::Schema.define(version: 20160505160528) do
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string   "name",        limit: 255
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "abbr", limit: 255
+    t.string   "abbr",        limit: 255
   end
 
   create_table "timetables", force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string   "name",            limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "baka_account_id"
@@ -274,15 +298,15 @@ ActiveRecord::Schema.define(version: 20160505160528) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", limit: 255
-    t.string "hashed_password", limit: 255
-    t.string "salt", limit: 255
+    t.string   "email",                 limit: 255
+    t.string   "hashed_password",       limit: 255
+    t.string   "salt",                  limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "forgot_password_code", limit: 255
+    t.string   "forgot_password_code",  limit: 255
     t.integer  "class_member_id"
     t.integer  "access_level"
-    t.boolean "experimental_settings"
+    t.boolean  "experimental_settings"
   end
 
 end

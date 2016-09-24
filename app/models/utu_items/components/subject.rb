@@ -7,6 +7,8 @@ class Subject < ActiveRecord::Base
 
   has_many :additional_infos
 
+  has_one :seminar
+
   validates_presence_of :name
   
   def get_exam_before_days

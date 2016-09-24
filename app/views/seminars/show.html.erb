@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @seminar.name %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @seminar.subject_id %>
+</p>
+
+<%= link_to 'Edit', edit_seminar_path(@seminar) %> |
+<%= link_to 'Back', seminars_path %>
