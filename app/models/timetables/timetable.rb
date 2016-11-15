@@ -6,7 +6,7 @@ class Timetable < ActiveRecord::Base
   has_many :group_timetable_bindings, dependent: :destroy
   has_many :sgroups, through: :group_timetable_bindings
 
-  validates :name, :baka_account, :sgroup, :sclass, presence: {presence: true, message: 'nesmí být prázdný'}
+  validates :name, :baka_account, :sclass, presence: {presence: true, message: 'nesmí být prázdný'}
 
   def get_timetable
     browser = Mechanize.new
