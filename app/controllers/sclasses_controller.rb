@@ -77,6 +77,6 @@ class SclassesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sclass_params
-      params.require(:sclass).permit(:name, :default_timetable_id)
+      params.require(:sclass).permit(:name, :default_timetable_id, default_subscribed_subject_ids:[])
     end
 end

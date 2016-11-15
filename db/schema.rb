@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160924154837) do
+ActiveRecord::Schema.define(version: 20161115190710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -213,10 +213,11 @@ ActiveRecord::Schema.define(version: 20160924154837) do
   end
 
   create_table "sclasses", force: :cascade do |t|
-    t.string   "name",                 limit: 255
+    t.string   "name",                           limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "default_timetable_id"
+    t.integer  "default_subscribed_subject_ids",             array: true
   end
 
   create_table "seminar_belongings", force: :cascade do |t|
@@ -260,6 +261,13 @@ ActiveRecord::Schema.define(version: 20160924154837) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "timetable_abbr",    limit: 255
+  end
+
+  create_table "subject_subscriptions", force: :cascade do |t|
+    t.integer  "subject_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "subjects", force: :cascade do |t|

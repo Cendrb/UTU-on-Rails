@@ -1,25 +1,29 @@
 <%= form_for(@sclass) do |f| %>
-  <% if @sclass.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sclass.errors.count, "error") %> prohibited this sclass from being saved:</h2>
+    <% if @sclass.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@sclass.errors.count, "error") %> prohibited this sclass from being saved:</h2>
 
-      <ul>
-      <% @sclass.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @sclass.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-    <div>
+    <div class="field">
       <%= f.label :default_timetable_id %><br>
       <%= f.collection_select :default_timetable_id, Timetable.all, :id, :full_name %>
     </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :default_subscribed_subject_ids %><br>
+      <%= f.collection_check_boxes :default_subscribed_subject_ids, Subject.all, :id, :name %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
