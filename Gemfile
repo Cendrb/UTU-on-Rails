@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-ruby '2.2.4'
+ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -9,7 +9,7 @@ gem 'rails', '4.2.5'
 gem 'figaro'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.19.0'
 
 # Alternative multi-threaded-heroku-supported server
 gem 'puma'

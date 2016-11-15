@@ -131,22 +131,22 @@ GEM
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
     mime-types (2.99)
-    mini_portile2 (2.0.0)
+    mini_portile2 (2.1.0)
     minitest (5.8.4)
     multi_json (1.11.2)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
-    nokogiri (1.6.7.2-x64-mingw32)
-      mini_portile2 (~> 2.0.0.rc2)
-    nokogiri (1.6.7.2-x86-mingw32)
-      mini_portile2 (~> 2.0.0.rc2)
+    nokogiri (1.6.8.1)
+      mini_portile2 (~> 2.1.0)
+    nokogiri (1.6.8.1-x64-mingw32)
+      mini_portile2 (~> 2.1.0)
+    nokogiri (1.6.8.1-x86-mingw32)
+      mini_portile2 (~> 2.1.0)
     nprogress-rails (0.1.6.7)
     ntlm-http (0.1.1)
-    pg (0.18.4)
-    pg (0.18.4-x64-mingw32)
-    pg (0.18.4-x86-mingw32)
+    pg (0.19.0)
+    pg (0.19.0-x64-mingw32)
+    pg (0.19.0-x86-mingw32)
     puma (3.4.0)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -269,7 +269,7 @@ DEPENDENCIES
   mechanize
   nokogiri
   nprogress-rails
-  pg
+  pg (~> 0.19.0)
   puma
   rails (= 4.2.5)
   rails-erd
@@ -286,7 +286,7 @@ DEPENDENCIES
   wysiwyg-rails
 
 RUBY VERSION
-   ruby 2.2.4p230
+   ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.4
+   1.13.6
