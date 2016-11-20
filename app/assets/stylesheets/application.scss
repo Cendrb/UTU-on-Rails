@@ -17,7 +17,6 @@
  *= require froala_style.min.css
  *= require plugins/emoticons.min.css
  *= require font-awesome
- *= require nprogress
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -43,3 +42,8 @@
 @import "utu_items_shared/index";
 @import "utu_items_shared/show";
 @import "_bootstrap_modifications";
+
+.turbolinks-progress-bar {
+  height: 2px;
+  background-color: green;
+}

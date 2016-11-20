@@ -27,14 +27,5 @@
 //= require plugins/align.min.js
 //= require plugins/emoticons.min.js
 //= require turbolinks
-//= require nprogress
-//= require nprogress-turbolinks
 //= require bootstrap
 //= require_tree .
-
-NProgress.configure({
-    showSpinner: false,
-    trickleRate: 0.06,
-    trickleSpeed: 700,
-    easing: "ease"
-});

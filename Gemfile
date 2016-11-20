@@ -34,9 +34,6 @@ gem 'dynopoker'
 # Material Icons by Google
 gem 'material_icons'
 
-# Progress bars for turbolinks and ajax calls
-gem 'nprogress-rails'
-
 # Another javascript library - faster animations than JQuery
 gem 'greensock-rails'
 
