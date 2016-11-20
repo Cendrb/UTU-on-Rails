@@ -1,10 +1,10 @@
 class ExamsController < ApplicationController
   include GenericUtuItems
-
-  before_filter :authenticate_admin, except: [:hide, :reveal]
+  before_filter :authenticate_admin, except: [:show]
   before_action :set_exam, only: [:show, :edit, :update, :destroy]
-  before_action :set_exam_from_exam_id, only: [:transform_to_task, :hide, :reveal]
+  before_action :set_exam_from_exam_id, only: [:transform_to_task]
   after_action :find_and_set_lesson, only: [:create, :update]
+
   # GET /exams
   # GET /exams.json
   def index

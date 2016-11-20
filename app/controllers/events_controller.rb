@@ -1,9 +1,8 @@
 class EventsController < ApplicationController
   include GenericUtuItems
-
-  before_filter :authenticate_admin, except: [:hide, :reveal]
+  before_filter :authenticate_admin, except: [:show]
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :set_event_from_event_id, only: [:hide, :reveal]
+
   # GET /events
   # GET /events.json
   def index
@@ -87,10 +86,6 @@ class EventsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
-  end
-
-  def set_event_from_event_id
-    @event = Event.find(params[:event_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
