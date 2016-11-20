@@ -1,37 +1,27 @@
 <ul>
-  <li>
+  <li class="main_menu_item">
     <h4>
       <%= link_to("Přehled", utu_path) %>
     </h4>
   </li>
-  <li>
+  <li class="main_menu_item">
     <h4>
       <%= link_to("Podrobnosti", details_path) %>
     </h4>
   </li>
-  <li>
+  <li class="main_menu_item">
     <h4>
       <%= link_to("Zkoušení", planned_raking_lists_path) %>
     </h4>
   </li>
-  <li>
+  <li class="main_menu_item">
     <h4>
       <%= link_to("Rozvrh", rozvrh_path) %>
     </h4>
   </li>
-  <li>
+  <li class="main_menu_item">
     <h4>
       <%= link_to("Nastavení", administration_path) %>
     </h4>
   </li>
 </ul>
-<script>
-  $("li").bind("mouseenter", function () {
-    $(this).children().css("borderBottom", "1px solid white")
-    $(this).children().animate({}, 1000);
-  });
-  $("li").bind("mouseleave", function () {
-    $(this).children().css("borderWidth", "0px")
-    $(this).children().animate({}, 1000);
-  });
-</script>
