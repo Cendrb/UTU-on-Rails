@@ -1,4 +1,4 @@
-$(function() {
+$(document).on("turbolinks:load", function () {
     var data_element = $(".generic_utu_partial_data");
     var item_id = data_element.data("item_id");
     var item_type = data_element.data("item_type");

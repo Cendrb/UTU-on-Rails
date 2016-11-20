@@ -1,4 +1,4 @@
-$(function () {
+$(document).on("turbolinks:load", function () {
     $("#planned_raking_entries_sortable").sortable(
         {
             update: function (event, ui) {

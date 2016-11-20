@@ -1,6 +1,6 @@
 var mode = "dick"
 
-$(function () {
+$(document).on("turbolinks:load", function () {
     $("#sclass_select").change(function () {
         document.cookie = "sclass_id=" + $(this).val();
         if ($(this).val() != "")

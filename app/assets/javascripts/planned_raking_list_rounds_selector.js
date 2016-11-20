@@ -1,4 +1,4 @@
-$(function () {
+$(document).on("turbolinks:load", function () {
     var entries_div = $("#planned_raking_entries_div");
     $("#round_selector").change(function () {
         if (entries_div.data("admin") == 1)

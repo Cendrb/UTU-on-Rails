@@ -1,4 +1,4 @@
-$(function () {
+$(document).on("turbolinks:load", function () {
     $(".additional_infos_subject_select").change(function () {
         $("#additional_infos_index_placeholder").html("Načítání...");
         $.ajax({
