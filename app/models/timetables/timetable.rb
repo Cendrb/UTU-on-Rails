@@ -142,7 +142,12 @@ class Timetable < ActiveRecord::Base
                   school_day.lessons.create(subject: nil, room: nil, teacher: nil, serial_number: counter, not_normal: true, not_normal_comment: rinfo['title'])
                 else
                   subject_string = lesson.at_css('div.r_predm').content
-                  room = lesson.at_css('div.r_mist').content
+                  room = lesson.at_css('div.r_mist')
+                  if room
+                    room = room.content
+                  else
+                    room = '69'
+                  end
                   teacher_string = lesson.at_css('div.r_ucit')['title']
                   abbr_string = lesson.at_css('div.r_ucit').content
 
