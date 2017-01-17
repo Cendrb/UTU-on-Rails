@@ -28,12 +28,12 @@
       <%= f.password_field :password_confirmation, {class: 'form-control'} %>
     </div>
     <div class="field">
-      <%= label_tag :group, 'Skupiny' %><br>
+      <%= label_tag :group, 'Dělení do skupin' %><br>
       <% GroupCategory.all.each do |category| %>
-          <strong><%= category.name %></strong>
+          <strong class="text-uppercase"><%= category.name %>: </strong>
           <% category.sgroups.each do |sgroup| %>
               <%= radio_button_tag "sgroups[#{category.id}]", sgroup.id, checked = (params[:sgroups][category.id] == sgroup.id) %>
-              <%= label_tag "sgroups[#{category.id}]", sgroup.name %>
+              <span><%= sgroup.name %></span>
           <% end %>
           <br>
       <% end %>
