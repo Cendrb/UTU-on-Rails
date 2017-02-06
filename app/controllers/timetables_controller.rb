@@ -108,6 +108,6 @@ class TimetablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def timetable_params
-      params.require(:timetable).permit(:name, :baka_account_id, :group)
+      params.require(:timetable).permit(:name, :baka_account_id, :sclass_id)
     end
 end

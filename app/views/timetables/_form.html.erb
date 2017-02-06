@@ -1,29 +1,29 @@
 <%= form_for(@timetable) do |f| %>
-  <% if @timetable.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@timetable.errors.count, "error") %> prohibited this timetable from being saved:</h2>
+    <% if @timetable.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@timetable.errors.count, "error") %> prohibited this timetable from being saved:</h2>
 
-      <ul>
-      <% @timetable.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @timetable.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :group %><br>
-    <%= f.number_field :group %>
-  </div>
-  <div class="field">
-    <%= f.label :baka_account_id, 'Účet na Bakalářích' %><br>
-    <%= f.collection_select :baka_account_id, BakaAccount.all, :id, :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :sclass_id %><br>
+      <%= f.collection_select :sclass_id, Sclass.all, :id, :name %>
+    </div>
+    <div class="field">
+      <%= f.label :baka_account_id, 'Účet na Bakalářích' %><br>
+      <%= f.collection_select :baka_account_id, BakaAccount.all, :id, :class_member %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
