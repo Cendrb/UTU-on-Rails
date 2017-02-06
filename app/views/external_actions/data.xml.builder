@@ -11,8 +11,8 @@ xml.utu do
   end
   xml.current_service do
     if @data[:current_service]
-      xml.class_member_id(@data[:current_service].first_mate)
-      xml.class_member_id(@data[:current_service].second_mate)
+      xml.class_member_id(@data[:current_service].first_mate.id)
+      xml.class_member_id(@data[:current_service].second_mate.id)
     end
   end
   xml.events do
