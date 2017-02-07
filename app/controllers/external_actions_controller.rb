@@ -44,7 +44,7 @@ class ExternalActionsController < ApplicationController
       @data[:events] = Event.all.order('event_start ASC').in_future.for_class(sclass)
       @data[:exams] = Exam.order('date ASC').in_future.for_class(sclass).filter_out_todays_after(12)
       @data[:tasks] = Task.order('date ASC').in_future.for_class(sclass).filter_out_todays_after(12)
-      @data[:articles] = Article.order("published_on DESC").limit(10).for_class(sclass)
+      @data[:articles] = Article.order('published_on ASC').limit(10).for_class(sclass)
 
       if params[:group_ids]
         @data[:events] = @data[:events].for_group_ids(params[:group_ids])
