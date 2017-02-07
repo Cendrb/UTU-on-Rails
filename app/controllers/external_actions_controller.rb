@@ -118,7 +118,11 @@ class ExternalActionsController < ApplicationController
       end
       if @item.save
         # do after save, additional info cannot be bound to nonexistent item
-        if params[:type] == 'event' || params[:type] == 'task' || params[:type] == 'written_exam' || params[:type] == 'raking_exam'
+        if params[:type] == 'event' ||
+            params[:type] == 'task' ||
+            params[:type] == 'written_exam' ||
+            params[:type] == 'raking_exam' ||
+            params[:type] == 'article'
           parse_additional_infos(@item, params[:additional_info_ids])
         end
         render 'show.xml'
