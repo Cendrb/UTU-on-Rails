@@ -77,13 +77,15 @@ class ExternalActionsController < ApplicationController
     params_motorku = nil
     case params[:type]
       when 'event'
-        params_motorku = event_params
+        params_motorku = event_params()
       when 'task'
-        params_motorku = task_params
+        params_motorku = task_params()
       when 'written_exam'
-        params_motorku = exam_params
+        params_motorku = exam_params()
       when 'raking_exam'
-        params_motorku = exam_params
+        params_motorku = exam_params()
+      when 'article'
+        params_motorku = article_params()
     end
 
     @item = nil
@@ -111,6 +113,8 @@ class ExternalActionsController < ApplicationController
           @item = WrittenExam.new(params_motorku)
         when 'raking_exam'
           @item = RakingExam.new(params_motorku)
+        when 'article'
+          @item = Article.new(params_motorku)
       end
       if @item.save
         # do after save, additional info cannot be bound to nonexistent item
@@ -170,6 +174,10 @@ class ExternalActionsController < ApplicationController
 
   def task_params
     params.permit(:title, :description, :subject_id, :date, :sgroup_id, :sclass_id, :passed)
+  end
+
+  def article_params
+    params.permit(:title, :text, :published, :sclass_id, :sgroup_id, :show_in_details_until, :show_in_details)
   end
 
 end
