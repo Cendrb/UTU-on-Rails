@@ -1,7 +1,7 @@
 class ServiceDateValidator < ActiveModel::Validator
   def validate(record)
     if record.service_end < record.service_start
-      record.errors.add(:service_end, 'musí být později než začátek akce')
+      record.errors.add(:service_end, 'musí být později než začátek služby')
     end
   end
 end
@@ -9,6 +9,8 @@ end
 class Service < ActiveRecord::Base
   validates :first_mate_id, :second_mate_id, :service_start, :service_end, :sclass_id, :school_year, presence: { presence: true, message: "nesmí být prázdný" }
   scope :in_future, -> { where('service_end >= :today', { today: Date.today }) }
+  scope :for_class, lambda { |sclass_id| where(sclass_id: sclass_id) }
+  scope :for_school_year, lambda { |school_year_id| where(school_year_id: school_year_id) }
   validates_with ServiceDateValidator
 
   belongs_to :sclass

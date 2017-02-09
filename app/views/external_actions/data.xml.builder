@@ -15,6 +15,17 @@ xml.utu do
       xml.class_member_id(@data[:current_service].second_mate.id)
     end
   end
+  xml.services do
+    @data[:services].each do |service|
+      xml.service do
+        xml.id(service.id)
+        xml.service_start(service.service_start)
+        xml.service_end(service.service_end)
+        xml.first_mate_id(service.first_mate_id)
+        xml.second_mate_id(service.second_mate_id)
+      end
+    end
+  end
   xml.events do
     @data[:events].each do |item|
       render partial: '_generic_utu_partials/show.xml', locals: {item: item, builder: xml}

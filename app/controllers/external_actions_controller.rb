@@ -66,6 +66,7 @@ class ExternalActionsController < ApplicationController
 
       @data[:additional_infos] = AdditionalInfo.for_class(sclass)
       @data[:planned_raking_lists] = PlannedRakingList.for_class(sclass)
+      @data[:services] = Service.for_school_year(SchoolYear.current).order(:service_start)
 
       render 'external_actions/data.xml.builder'
     else
