@@ -154,8 +154,8 @@ ActiveRecord::Schema.define(version: 20170210075037) do
   end
 
   create_table "lesson_timings", force: :cascade do |t|
-    t.time     "start"
-    t.time     "duration"
+    t.integer  "start"
+    t.integer  "duration"
     t.integer  "serial_number"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

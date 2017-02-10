@@ -15,8 +15,8 @@
   <tbody>
     <% @lesson_timings.each do |lesson_timing| %>
       <tr>
-        <td><%= lesson_timing.start %></td>
-        <td><%= lesson_timing.duration %></td>
+        <td><%= lesson_timing.start_time %></td>
+        <td><%= lesson_timing.duration_time %></td>
         <td><%= lesson_timing.serial_number %></td>
         <td><%= link_to mi.edit_mode, edit_lesson_timing_path(lesson_timing) %></td>
         <td><%= link_to mi.delete, lesson_timing, method: :delete, data: { confirm: 'Are you sure?' } %></td>

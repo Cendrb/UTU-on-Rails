@@ -19,7 +19,7 @@ class LessonTimingsController < ApplicationController
   # POST /lesson_timings
   # POST /lesson_timings.json
   def create
-    @lesson_timing = LessonTiming.new(lesson_timing_params)
+    @lesson_timing = LessonTiming.new()
 
     respond_to do |format|
       if @lesson_timing.save
