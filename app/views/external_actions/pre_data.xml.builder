@@ -54,6 +54,7 @@ xml.utu do
   xml.lesson_timings do
     @data[:lesson_timings].each do |item|
       xml.lesson_timing do
+        xml.id(item.id)
         xml.serial_number(item.serial_number)
         xml.start(item.start)
         xml.duration(item.duration)

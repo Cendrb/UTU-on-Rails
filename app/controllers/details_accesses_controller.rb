@@ -8,50 +8,6 @@ class DetailsAccessesController < ApplicationController
     @details_accesses = DetailsAccess.order("created_at DESC")
   end
 
-  # GET /details_accesses/1
-  # GET /details_accesses/1.json
-  def show
-  end
-
-  # GET /details_accesses/new
-  def new
-    @details_access = DetailsAccess.new
-  end
-
-  # GET /details_accesses/1/edit
-  def edit
-  end
-
-  # POST /details_accesses
-  # POST /details_accesses.json
-  def create
-    @details_access = DetailsAccess.new(details_access_params)
-
-    respond_to do |format|
-      if @details_access.save
-        format.html { redirect_to @details_access, notice: 'Details access was successfully created.' }
-        format.json { render :show, status: :created, location: @details_access }
-      else
-        format.html { render :new }
-        format.json { render json: @details_access.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /details_accesses/1
-  # PATCH/PUT /details_accesses/1.json
-  def update
-    respond_to do |format|
-      if @details_access.update(details_access_params)
-        format.html { redirect_to @details_access, notice: 'Details access was successfully updated.' }
-        format.json { render :show, status: :ok, location: @details_access }
-      else
-        format.html { render :edit }
-        format.json { render json: @details_access.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /details_accesses/1
   # DELETE /details_accesses/1.json
   def destroy
