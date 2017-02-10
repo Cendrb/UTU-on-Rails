@@ -13,4 +13,8 @@ class Lesson < ActiveRecord::Base
   def get_titles_string
     return (self.exams.pluck(:title) + self.tasks.pluck(:title)).join("\n")
   end
+
+  def get_timing
+    return LessonTiming.find_by_serial_number(serial_number)
+  end
 end

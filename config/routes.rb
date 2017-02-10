@@ -1,5 +1,6 @@
 UTUOnRails::Application.routes.draw do
 
+  resources :lesson_timings
   resources :seminars
   get 'services_generator' => 'services_generator#form', as: 'generate_services_form'
   post 'services_generator' => 'services_generator#generate', as: 'generate_services_generate'

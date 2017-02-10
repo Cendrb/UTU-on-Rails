@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Lesson Timings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>Duration</th>
+      <th>Serial number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lesson_timings.each do |lesson_timing| %>
+      <tr>
+        <td><%= lesson_timing.start %></td>
+        <td><%= lesson_timing.duration %></td>
+        <td><%= lesson_timing.serial_number %></td>
+        <td><%= link_to mi.edit_mode, edit_lesson_timing_path(lesson_timing) %></td>
+        <td><%= link_to mi.delete, lesson_timing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lesson timing', new_lesson_timing_path %>
