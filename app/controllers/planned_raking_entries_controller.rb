@@ -100,12 +100,12 @@ class PlannedRakingEntriesController < ApplicationController
           if @planned_raking_entry.finished
             if already_existing_entry
               if marked_as_rekt
-                redirect_to @planned_raking_entry.planned_raking_list, notice: @planned_raking_entry.class_member.full_name + ' vyzkoušen se známkou ' + @planned_raking_entry.grade
+                redirect_to admin_show_planned_raking_lists_path(@planned_raking_entry.planned_raking_list), notice: @planned_raking_entry.class_member.full_name + ' vyzkoušen se známkou ' + @planned_raking_entry.grade
               else
-                redirect_to @planned_raking_entry.planned_raking_list, notice: 'Upraven záznam ' + @planned_raking_entry.class_member.full_name + ' (známka ' + @planned_raking_entry.grade + ')'
+                redirect_to admin_show_planned_raking_lists_path(@planned_raking_entry.planned_raking_list), notice: 'Upraven záznam ' + @planned_raking_entry.class_member.full_name + ' (známka ' + @planned_raking_entry.grade + ')'
               end
             else
-              redirect_to @planned_raking_entry.planned_raking_list, notice: @planned_raking_entry.class_member.full_name + ' vyzkoušen se známkou ' + @planned_raking_entry.grade
+              redirect_to admin_show_planned_raking_lists_path(@planned_raking_entry.planned_raking_list), notice: @planned_raking_entry.class_member.full_name + ' vyzkoušen se známkou ' + @planned_raking_entry.grade
             end
           else
             if already_existing_entry
