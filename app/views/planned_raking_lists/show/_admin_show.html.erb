@@ -17,7 +17,7 @@
         <td><%= entry.description %></td>
         <td><%= entry.grade %></td>
         <td><%= link_to "Vyhladit #{entry.class_member.full_name}", entry, method: :delete, data: { confirm: "Jako vážně? #{entry.class_member.full_name}" } %></td>
-        <td><%= link_to "#{entry.class_member.full_name} byl/a již zkoušen/a", new_already_rekt_raking_entry_path, params: { id: entry.id }, remote: true if !entry.finished %></td>
+        <td><%= link_to "#{entry.class_member.full_name} byl/a již zkoušen/a", new_already_rekt_raking_entry_path(entry.id) if !entry.finished %></td>
       </tr>
   <% end %>
   </tbody>
