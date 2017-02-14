@@ -9,12 +9,12 @@
         </div>
     <% end %>
     <div id="timetable_placeholder">
-      <%= render partial: "timetable", locals: { timetable: @timetables.first } %>
+      <%= render partial: 'timetable', locals: {timetable: @timetables.first } %>
     </div>
 <% else %>
     <p>Zobrazuje se pouze výchozí rozvrh pro Vaši třídu. Pro zobrazení jednotlivých skupin se
       prosím <%= link_to 'přihlašte', login_path %></p>
-    <%= render partial: "timetable", locals: { timetable: @timetables.first } %>
+    <%= render partial: 'timetable', locals: {timetable: @timetables.first } %>
 <% end %>
 
 <p>Rozvrhy jsou obnovovány každých 30 minut z bakalářů.</p>

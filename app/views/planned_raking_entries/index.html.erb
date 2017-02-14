@@ -18,8 +18,6 @@
         <td><%= planned_raking_entry.planned_raking_list.title %></td>
         <td><%= planned_raking_entry.finished %></td>
         <td><%= planned_raking_entry.sorting_order %></td>
-        <td><%= link_to 'Show', planned_raking_entry %></td>
-        <td><%= link_to 'Edit', edit_planned_raking_entry_path(planned_raking_entry) %></td>
         <td><%= link_to 'Destroy', planned_raking_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

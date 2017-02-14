@@ -21,10 +21,9 @@ UTUOnRails::Application.routes.draw do
   resources :group_categories
 
   post 'planned_raking_entries/sort' => 'planned_raking_entries#sort'
-  post 'planned_raking_entries/mark_as_rekt' => 'planned_raking_entries#mark_as_rekt', as: "admin_show_planned_raking_entries_rekt"
   get 'planned_raking_entries/new_planned_rekt' => 'planned_raking_entries#new_planned_rekt', as: 'new_planned_rekt_raking_entry'
   get 'planned_raking_entries/new_already_rekt' => 'planned_raking_entries#new_already_rekt', as: 'new_already_rekt_raking_entry'
-  resources :planned_raking_entries, except: :new
+  resources :planned_raking_entries, except: [:new, :edit, :update]
 
   post 'planned_raking_entries/raking_rounds/for_planned_raking_list' => 'raking_rounds#for_planned_raking_list'
 
@@ -45,8 +44,6 @@ UTUOnRails::Application.routes.draw do
       get 'transform_to_written' => :transform_to_written
     end
   end
-
-  get 'rake' => 'planned_raking_entries#new'
 
   controller :charts do
     get 'accesses_per_hour_of_day'

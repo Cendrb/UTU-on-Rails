@@ -1,7 +1,5 @@
 <%= form_for(@day_teacher) do |f| %>
     <h1>Anketa vyučující dne</h1>
-    <p id="notice"><%= notice %></p>
-    <p id="alert"><%= alert %></p>
   <div class="field">
     <%= f.label :teacher_id, 'Vyberte profesora/profesorku' %><br>
     <%= f.collection_select :teacher_id, @teachers, :id, :name %>

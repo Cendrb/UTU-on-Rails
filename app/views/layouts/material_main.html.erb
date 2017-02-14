@@ -34,7 +34,6 @@
       <div id="material_header_info">
         <% if logged_in? %>
             <%= link_to current_user.name, administration_url, class: 'btn btn-default' %>
-
         <% else %>
             <%= link_to 'Přihlášení', login_path, class: 'btn btn-default' %>
             <%= link_to 'Registrace', register_path, class: 'btn btn-default' %>
@@ -45,6 +44,7 @@
   </div>
   <div id="material_body">
     <div id="material_body_content">
+      <div id="material_body_popup" style="position: relative;"></div>
       <%= yield %>
     </div>
   </div>
@@ -59,5 +59,15 @@
     </div>
   </div>
 </div>
+<% if flash[:notice] %>
+    <script>
+      popup("<%= flash[:notice] %>", "success")
+    </script>
+<% end %>
+<% if flash[:alert] %>
+    <script>
+      popup("<%= flash[:alert] %>", "danger")
+    </script>
+<% end %>
 </body>
 </html>
