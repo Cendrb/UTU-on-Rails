@@ -132,6 +132,8 @@ UTUOnRails::Application.routes.draw do
   post 'api/save' => 'external_actions#save_item'
   post 'api/destroy' => 'external_actions#destroy_item'
   get 'api/administrator_authenticated' => 'external_actions#administrator_logged_in'
+  post 'api/hide' => 'external_actions#hide_item'
+  post 'api/reveal' => 'external_actions#reveal_item'
 
   # xml for opensearch (google, chrome, other search engines)
   get 'opensearch' => 'external_actions#opensearch'
