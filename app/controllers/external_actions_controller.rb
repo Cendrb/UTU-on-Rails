@@ -1,6 +1,7 @@
 class ExternalActionsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   skip_before_filter :current_class_check
+  before_filter :authenticate, only: [:hide_item, :reveal_item]
   before_filter :authenticate_admin, only: [:save_item, :destroy_item]
 
   def pre_data
@@ -22,7 +23,7 @@ class ExternalActionsController < ApplicationController
 
       render 'only_details.xml'
     else
-      render plain: 'Required params: sclass_id'
+      render plain: 'Required params: sclass_id', status: :bad_request
     end
   end
 
@@ -32,7 +33,7 @@ class ExternalActionsController < ApplicationController
       @data[:timetables] = Timetable.where(sclass_id: params[:sclass_id])
       render 'timetables.xml.builder'
     else
-      render plain: 'Required params: sclass_id'
+      render plain: 'Required params: sclass_id', status: :bad_request
     end
   end
 
@@ -71,7 +72,7 @@ class ExternalActionsController < ApplicationController
 
       render 'external_actions/data.xml.builder'
     else
-      render plain: 'Required params: sclass_id; Optional params: group_ids'
+      render plain: 'Required params: sclass_id; Optional params: group_ids', status: :bad_request
     end
   end
 
@@ -149,6 +150,36 @@ class ExternalActionsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       render 'record_not_found.xml.builder'
     end
+  end
+
+  def hide_item
+    if params[:type] != 'event' && params[:type] != 'task' && params[:type] != 'written_exam' && params[:type] != 'raking_exam'
+      render plain: 'Invalid :type parameter', status: :bad_request
+      return
+    end
+
+    item = GenericUtuItem.find_instance(params[:id], params[:type])
+    if item.nil?
+      render plain: 'Invalid item type', status: :not_found
+      return
+    end
+    item.mark_as_done
+    render 'general_success.xml.builder'
+  end
+
+  def reveal_item
+    if params[:type] != 'event' && params[:type] != 'task' && params[:type] != 'written_exam' && params[:type] != 'raking_exam'
+      render plain: 'Invalid :type parameter', status: :bad_request
+      return
+    end
+
+    item = GenericUtuItem.find_instance(params[:id], params[:type])
+    if item.nil?
+      render plain: 'Invalid item type', status: :not_found
+      return
+    end
+    item.mark_as_undone
+    render 'general_success.xml.builder'
   end
 
   def administrator_logged_in
