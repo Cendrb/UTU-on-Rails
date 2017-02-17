@@ -18,5 +18,6 @@ module Hideable
       item = DoneUtuItem.new(user: User.current, item_id: self.id, item_type: self.get_utu_type)
       return item.save
     end
+    return true
   end
 end

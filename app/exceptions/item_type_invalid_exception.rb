@@ -1,0 +1,3 @@
+class ItemTypeInvalidException < StandardError
+
+end

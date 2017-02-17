@@ -1,5 +1,9 @@
 xml.instruct!
 xml.utu do
+  xml.status do
+    xml.code(0)
+    xml.message('Predata fetch successful')
+  end
   xml.sclasses do
     @data[:sclasses].each do |sclass|
       xml.sclass do

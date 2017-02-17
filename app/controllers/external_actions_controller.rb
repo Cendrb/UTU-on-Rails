@@ -1,8 +1,18 @@
 class ExternalActionsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   skip_before_filter :current_class_check
-  before_filter :authenticate, only: [:hide_item, :reveal_item]
-  before_filter :authenticate_admin, only: [:save_item, :destroy_item]
+
+  before_filter :check_user_logged_in, only: [:hide_item, :reveal_item]
+  before_filter :check_admin_logged_in, only: [:save_item, :destroy_item]
+  before_filter :require_id_and_type, only: [:hide_item, :reveal_item, :save_item, :destroy_item]
+
+  # 0 = success
+  # 1 = missing parameters
+  # 2 = invalid/nonexistent id
+  # 3 = invalid item type
+  # 4 = ActiveRecord operation error
+  # 5 = User required
+  # 6 = Insufficient privileges
 
   def pre_data
     @data = {}
@@ -12,7 +22,7 @@ class ExternalActionsController < ApplicationController
     @data[:teachers] = Teacher.all
     @data[:lesson_timings] = LessonTiming.all
 
-    render 'pre_data.xml'
+    render 'pre_data.xml.builder'
   end
 
   def only_details
@@ -21,9 +31,11 @@ class ExternalActionsController < ApplicationController
       sclass = Sclass.find(params[:sclass_id])
       @data[:items] = Event.all.order(:event_start).in_future.for_class(sclass) + Exam.order(:date).in_future.for_class(sclass).filter_out_todays_after(12) + Task.order(:date).in_future.for_class(sclass).filter_out_todays_after(12)
 
-      render 'only_details.xml'
+      render 'only_details.xml.builder'
     else
-      render plain: 'Required params: sclass_id', status: :bad_request
+      @status_code = 1
+      @status_message = 'sclass_id is a required parameter'
+      render 'generic_result.xml.builder' and return
     end
   end
 
@@ -33,7 +45,9 @@ class ExternalActionsController < ApplicationController
       @data[:timetables] = Timetable.where(sclass_id: params[:sclass_id])
       render 'timetables.xml.builder'
     else
-      render plain: 'Required params: sclass_id', status: :bad_request
+      @status_code = 1
+      @status_message = 'sclass_id is a required parameter'
+      render 'generic_result.xml.builder' and return
     end
   end
 
@@ -68,11 +82,13 @@ class ExternalActionsController < ApplicationController
 
       @data[:additional_infos] = AdditionalInfo.for_class(sclass)
       @data[:planned_raking_lists] = PlannedRakingList.for_class(sclass)
-      @data[:services] = Service.for_school_year(SchoolYear.current).order(:service_start)
+      @data[:services] = Service.for_class(sclass).for_school_year(SchoolYear.current).order(:service_start)
 
       render 'external_actions/data.xml.builder'
     else
-      render plain: 'Required params: sclass_id; Optional params: group_ids', status: :bad_request
+      @status_code = 1
+      @status_message = 'sclass_id is a required parameter'
+      render 'generic_result.xml.builder' and return
     end
   end
 
@@ -89,6 +105,10 @@ class ExternalActionsController < ApplicationController
         params_motorku = exam_params()
       when 'article'
         params_motorku = article_params()
+      else
+        @status_code = 3
+        @status_message = "Type='#{params[:type]}' is not valid for this action"
+        render 'generic_result.xml.builder' and return
     end
 
     @item = nil
@@ -101,10 +121,18 @@ class ExternalActionsController < ApplicationController
           end
           render 'show.xml'
         else
-          render xml: @item.errors
+          @status_code = 4
+          @status_message = "ActiveRecord 'save' (updating) action execution failed for #{params[:type]} with id #{params[:id]}"
+          render 'generic_result.xml.builder' and return
         end
       rescue ActiveRecord::RecordNotFound
-        render 'record_not_found.xml.builder'
+        @status_code = 2
+        @status_message = "Record with id #{params[:id]} was not found"
+        render 'generic_result.xml.builder' and return
+      rescue ItemTypeInvalidException
+        @status_code = 3
+        @status_message = "Item type #{params[:type]} was not found"
+        render 'generic_result.xml.builder' and return
       end
     else
       case params[:type]
@@ -118,6 +146,10 @@ class ExternalActionsController < ApplicationController
           @item = RakingExam.new(params_motorku)
         when 'article'
           @item = Article.new(params_motorku)
+        else
+          @status_code = 3
+          @status_message = "Type='#{params[:type]}' is not valid for this action"
+          render 'generic_result.xml.builder' and return
       end
       if @item.save
         # do after save, additional info cannot be bound to nonexistent item
@@ -128,9 +160,11 @@ class ExternalActionsController < ApplicationController
             params[:type] == 'article'
           parse_additional_infos(@item, params[:additional_info_ids])
         end
-        render 'show.xml'
+        render 'show.xml.builder'
       else
-        render xml: @item.errors
+        @status_code = 4
+        @status_message = "ActiveRecord 'save' (creating) action execution failed for #{params[:type]}"
+        render 'generic_result.xml.builder' and return
       end
     end
   end
@@ -138,48 +172,72 @@ class ExternalActionsController < ApplicationController
   def destroy_item
     begin
       item = GenericUtuItem.find_instance(params[:id], params[:type])
-      if item
-        if item.destroy
-          render 'general_success.xml.builder'
-        else
-          render 'general_failure.xml.builder'
-        end
+      if item.destroy
+        @status_code = 0
+        @status_message = "Item #{params[:type]} with id #{params[:id]} was successfully destroyed"
+        render 'generic_result.xml.builder' and return
       else
-        render 'general_failure.xml.builder'
+        @status_code = 4
+        @status_message = "ActiveRecord 'destroy' action execution failed for #{params[:type]} with id #{params[:id]}"
+        render 'generic_result.xml.builder' and return
       end
     rescue ActiveRecord::RecordNotFound
-      render 'record_not_found.xml.builder'
+      @status_code = 2
+      @status_message = "Record with id #{params[:id]} was not found"
+      render 'generic_result.xml.builder' and return
+    rescue ItemTypeInvalidException
+      @status_code = 3
+      @status_message = "Item type #{params[:type]} was not found"
+      render 'generic_result.xml.builder' and return
     end
   end
 
   def hide_item
     if params[:type] != 'event' && params[:type] != 'task' && params[:type] != 'written_exam' && params[:type] != 'raking_exam'
-      render plain: 'Invalid :type parameter', status: :bad_request
-      return
+      @status_code = 3
+      @status_message = "Type='#{params[:type]}' is not valid for this action"
+      render 'generic_result.xml.builder' and return
     end
 
-    item = GenericUtuItem.find_instance(params[:id], params[:type])
-    if item.nil?
-      render plain: 'Invalid item type', status: :not_found
-      return
+    begin
+      item = GenericUtuItem.find_instance(params[:id], params[:type])
+      item.mark_as_done
+      @status_code = 0
+      @status_message = "Item #{params[:type]} with id #{params[:id]} was successfully hidden"
+      render 'generic_result.xml.builder' and return
+    rescue ActiveRecord::RecordNotFound
+      @status_code = 2
+      @status_message = "Record with id #{params[:id]} was not found"
+      render 'generic_result.xml.builder' and return
+    rescue ItemTypeInvalidException
+      @status_code = 3
+      @status_message = "Item type #{params[:type]} was not found"
+      render 'generic_result.xml.builder' and return
     end
-    item.mark_as_done
-    render 'general_success.xml.builder'
   end
 
   def reveal_item
     if params[:type] != 'event' && params[:type] != 'task' && params[:type] != 'written_exam' && params[:type] != 'raking_exam'
-      render plain: 'Invalid :type parameter', status: :bad_request
-      return
+      @status_code = 3
+      @status_message = "Type='#{params[:type]}' is not valid for this action"
+      render 'generic_result.xml.builder' and return
     end
 
-    item = GenericUtuItem.find_instance(params[:id], params[:type])
-    if item.nil?
-      render plain: 'Invalid item type', status: :not_found
-      return
+    begin
+      item = GenericUtuItem.find_instance(params[:id], params[:type])
+      item.mark_as_undone
+      @status_code = 0
+      @status_message = "Item #{params[:type]} with id #{params[:id]} was successfully revealed"
+      render 'generic_result.xml.builder' and return
+    rescue ActiveRecord::RecordNotFound
+      @status_code = 2
+      @status_message = "Record with id #{params[:id]} was not found"
+      render 'generic_result.xml.builder' and return
+    rescue ItemTypeInvalidException
+      @status_code = 3
+      @status_message = "Item type #{params[:type]} was not found"
+      render 'generic_result.xml.builder' and return
     end
-    item.mark_as_undone
-    render 'general_success.xml.builder'
   end
 
   def administrator_logged_in
@@ -191,7 +249,7 @@ class ExternalActionsController < ApplicationController
   end
 
   private
-# @param [GenericUtuItem] generic_utu_item
+  # @param [GenericUtuItem] generic_utu_item
   def parse_additional_infos(generic_utu_item, additional_infos_string)
     array = YAML.load(additional_infos_string)
     generic_utu_item.info_item_bindings.destroy_all
@@ -217,4 +275,37 @@ class ExternalActionsController < ApplicationController
     params.permit(:title, :text, :published, :sclass_id, :sgroup_id, :show_in_details_until, :show_in_details)
   end
 
+  def check_user_logged_in
+    if !logged_in?
+      @status_code = 5
+      @status_message = 'User required'
+      render 'generic_result.xml.builder'
+      return false
+    end
+    return true
+  end
+
+  def check_admin_logged_in
+    if !check_user_logged_in
+      return false
+    end
+    if !admin_logged_in?
+      @status_code = 6
+      @status_message = "Access level of #{User.al_admin} (admin) is required for this action"
+      render 'generic_result.xml.builder'
+      return false
+    end
+    return true
+  end
+
+  def require_id_and_type
+    if params[:id] && params[:type]
+      return true
+    else
+      @status_code = 1
+      @status_message = 'Required parameters id and type are missing'
+      render 'generic_result.xml.builder'
+      return false
+    end
+  end
 end

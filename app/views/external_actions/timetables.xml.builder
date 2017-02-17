@@ -1,5 +1,9 @@
 xml.instruct!
 xml.utu do
+  xml.status do
+    xml.code(0)
+    xml.message('Timetables fetch successful')
+  end
   xml.timetables do
     @data[:timetables].each do |timetable|
       xml.timetable do

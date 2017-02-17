@@ -1,5 +1,9 @@
 xml.instruct!
 xml.utu do
+  xml.status do
+    xml.code(0)
+    xml.message('Data fetch successful')
+  end
   xml.current_user do |user|
     user.logged_in(logged_in?)
     user.admin_logged_in(admin_logged_in?)

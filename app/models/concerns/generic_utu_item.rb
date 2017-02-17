@@ -19,26 +19,25 @@ module GenericUtuItem
   end
 
   def self.find_instance(id, type)
-    item = nil
     if type == 'event'
-      item = Event.find(id)
+      return Event.find(id)
     end
     if type == 'task'
-      item = Task.find(id)
+      return Task.find(id)
     end
     if type == 'written_exam'
-      item = WrittenExam.find(id)
+      return WrittenExam.find(id)
     end
     if type == 'raking_exam'
-      item = RakingExam.find(id)
+      return RakingExam.find(id)
     end
     if type == 'article'
-      item = Article.find(id)
+      return Article.find(id)
     end
     if type == 'planned_raking_list'
-      item = PlannedRakingList.find(id)
+      return PlannedRakingList.find(id)
     end
-    return item
+    raise ItemTypeInvalidException.new
   end
 
   def self.success_string
