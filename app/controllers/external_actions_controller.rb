@@ -13,6 +13,7 @@ class ExternalActionsController < ApplicationController
   # 4 = ActiveRecord operation error
   # 5 = User required
   # 6 = Insufficient privileges
+  # 7 = Login incorrect
 
   def pre_data
     @data = {}

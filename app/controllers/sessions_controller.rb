@@ -26,9 +26,11 @@ class SessionsController < ApplicationController
       end
 
     else
+      @status_code = 7
+      @status_message = 'Username or password invalid'
       respond_to do |format|
         format.html { redirect_to login_url, alert: "Neplatné jméno nebo heslo!" }
-        format.xml { render plain: GenericUtuItem.failure_string }
+        format.xml { render 'external_actions/generic_result.xml.builder' }
         format.whoa { render plain: GenericUtuItem.failure_string }
       end
     end
