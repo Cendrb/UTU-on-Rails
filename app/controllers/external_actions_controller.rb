@@ -4,7 +4,8 @@ class ExternalActionsController < ApplicationController
 
   before_filter :check_user_logged_in, only: [:hide_item, :reveal_item]
   before_filter :check_admin_logged_in, only: [:save_item, :destroy_item]
-  before_filter :require_id_and_type, only: [:hide_item, :reveal_item, :save_item, :destroy_item]
+  before_filter :require_id, only: [:hide_item, :reveal_item, :destroy_item]
+  before_filter :require_type, only: [:hide_item, :reveal_item, :destroy_item, :save_item]
 
   # 0 = success
   # 1 = missing parameters
@@ -299,12 +300,23 @@ class ExternalActionsController < ApplicationController
     return true
   end
 
-  def require_id_and_type
-    if params[:id] && params[:type]
+  def require_id
+    if params[:id]
       return true
     else
       @status_code = 1
-      @status_message = 'Required parameters id and type are missing'
+      @status_message = 'Required parameter id is missing'
+      render 'generic_result.xml.builder'
+      return false
+    end
+  end
+
+  def require_type
+    if params[:id]
+      return true
+    else
+      @status_code = 1
+      @status_message = 'Required parameter type is missing'
       render 'generic_result.xml.builder'
       return false
     end
