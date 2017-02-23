@@ -312,7 +312,7 @@ class ExternalActionsController < ApplicationController
   end
 
   def require_type
-    if params[:id]
+    if params[:type]
       return true
     else
       @status_code = 1
