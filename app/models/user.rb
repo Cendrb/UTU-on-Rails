@@ -29,7 +29,11 @@ class User < ActiveRecord::Base
   end
 
   def to_s
-    return class_member.of_name
+    if(class_member)
+      return class_member.of_name
+    else
+      return "Bez přihlášení"
+    end
   end
 
   def password=(password)
